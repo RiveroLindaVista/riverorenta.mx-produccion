@@ -1,0 +1,27 @@
+[
+    
+    {
+        "servicios a invocar":"",
+        "requ1_son_marcas":"https://app.intelimotor.com/api/brands?apiKey=58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e&apiSecret=af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551",
+        "requ2_son_modelos": "https://app.intelimotor.com/api/brands/5cdc495ea6ca044a76082bad/models?apiKey=58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e&apiSecret=af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551",
+        "req3_son_años": "https://app.intelimotor.com/api/brands/5cdc495ea6ca044a76082bad/models/5e2f449c197e04001296fd4a/years?apiKey=58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e&apiSecret=af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551",
+        "req4_son_versiones": "https://app.intelimotor.com/api/brands/5cdc495ea6ca044a76082bad/models/5e2f449c197e04001296fd4a/years/62ed999a9c5e1e00139d2b19/trims?apiKey=58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e&apiSecret=af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551",
+        "req5_es_negocio": "https://app.intelimotor.com/api/business-units/623505fce5c26a00138e7293?apiKey=58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e&apiSecret=af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551",
+        "req6_kms":30000,
+        "Final":"https://app.intelimotor.com/api/valuations?apiKey=58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e&apiSecret=af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551"
+    },
+
+{
+    "brandIds": ["5cdc495ea6ca044a76082bad"],
+    "modelIds": ["5e2f449c197e04001296fd4a"],
+    "yearIds": ["62ed999a9c5e1e00139d2b19"],
+    "trimIds": ["5d4dd628bb4c2a4e9abfa7c3"],
+    "businessUnitId": "623505fce5c26a00138e7293",
+    "kms": 30000
+}
+
+
+
+
+
+]

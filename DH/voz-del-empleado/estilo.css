@@ -1,0 +1,96 @@
+.logo{
+	width: 400px;
+}
+.logo_rivero{
+	display: none;
+}
+body{
+	font-family: "roboto";
+	color:#696969;
+}
+form{
+	width: 100%;
+	clear: both;
+	margin-top: 40px;
+}
+.contenido{
+	width: 100%;
+	max-width: 1200px;
+	height: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	background-image: url("mejora-continua.jpg");
+	background-size: cover;
+}
+input[type="TEXT"],select{
+	width: 100%;
+	height: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+}
+textarea{
+	width: 100%;
+	height: 60px;
+	float: left;
+	margin: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+input[type="SUBMIT"]{
+	width: 200px;
+	border: none;
+	background: #000;
+	color:#fff;
+	padding: 10px;
+	height: 50px;
+	float: right;
+	margin: 10px;
+	font-size: 20px;
+	border-radius: 8px;
+	transition-duration: 0.5s;
+
+}
+input[type="SUBMIT"]:hover{
+	cursor: pointer;
+	transition-duration: 0.5s;
+	opacity: 0.8;
+}
+.col2{
+	width: 50%;
+	float: left;
+}
+.btnEnviat{
+	padding: 10px;
+	width: 300px;
+	border: 1px solid #000;
+	color: #696969;
+	text-align: center;
+	border-radius: 6px;
+	cursor: pointer;
+	transition-duration: 0.5s;
+}
+.btnEnviat:hover{
+	background: #000;
+	color:#fff;
+	transition-duration: 0.5s;
+}
+.btnEnviat.active{
+	background: #3BB800;
+	color:#fff;
+	transition-duration: 0.5s;
+}
+@media (max-width: 600px){
+	.col2{width: 100%;}
+	input[type="TEXT"],select{width: 100%;}
+	.btnEnviat{width: 90%;}
+	form{width: 100%;margin-top:0px;}
+	.logo_rivero{display: block;}
+	.contenido{background: #fff;}
+	.areaFondo{display: none;}
+}
+.areaFondo{
+	width: 100%;
+	height: 100%;
+}
+

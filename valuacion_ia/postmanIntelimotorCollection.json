@@ -1,0 +1,485 @@
+{
+	"info": {
+		"_postman_id": "4cb35e49-7306-40a1-8763-365d53e2dbde",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5847517",
+		"_collection_link": "https://transportes-rivero.postman.co/workspace/intelimotor~767deff3-2f12-4d9e-8f51-65db3220bf63/collection/5847517-4cb35e49-7306-40a1-8763-365d53e2dbde?action=share&source=collection_link&creator=5847517"
+	},
+	"item": [
+		{
+			"name": "Prueba",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://app.intelimotor.com/api/business-units?apiKey=58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e&apiSecret=af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551",
+					"protocol": "https",
+					"host": [
+						"app",
+						"intelimotor",
+						"com"
+					],
+					"path": [
+						"api",
+						"business-units"
+					],
+					"query": [
+						{
+							"key": "apiKey",
+							"value": "58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e"
+						},
+						{
+							"key": "apiSecret",
+							"value": "af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Brands",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://app.intelimotor.com/api/brands?apiKey=58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e&apiSecret=af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551",
+					"protocol": "https",
+					"host": [
+						"app",
+						"intelimotor",
+						"com"
+					],
+					"path": [
+						"api",
+						"brands"
+					],
+					"query": [
+						{
+							"key": "apiKey",
+							"value": "58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e"
+						},
+						{
+							"key": "apiSecret",
+							"value": "af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Models",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://app.intelimotor.com/api/brands/5cdc495ea6ca044a76082bad/models?apiKey=58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e&apiSecret=af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551",
+					"protocol": "https",
+					"host": [
+						"app",
+						"intelimotor",
+						"com"
+					],
+					"path": [
+						"api",
+						"brands",
+						"5cdc495ea6ca044a76082bad",
+						"models"
+					],
+					"query": [
+						{
+							"key": "apiKey",
+							"value": "58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e"
+						},
+						{
+							"key": "apiSecret",
+							"value": "af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MarketplaceRequest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"brandIds\": [\"5cdc495ea6ca044a76082bad\"],\n    \"modelIds\": [\"5e2f449c197e04001296fd4a\"],\n    \"yearIds\": [\"62ed999a9c5e1e00139d2b19\"],\n    \"trimIds\": [\"5d4dd628bb4c2a4e9abfa7c3\"],\n    \"businessUnitId\": \"623505fce5c26a00138e7293\",\n    \"kms\": 30000\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://app.intelimotor.com/api/valuations?apiKey=58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e&apiSecret=af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551",
+					"protocol": "https",
+					"host": [
+						"app",
+						"intelimotor",
+						"com"
+					],
+					"path": [
+						"api",
+						"valuations"
+					],
+					"query": [
+						{
+							"key": "apiKey",
+							"value": "58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e"
+						},
+						{
+							"key": "apiSecret",
+							"value": "af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551"
+						},
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Years",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://app.intelimotor.com/api/brands/5cdc495ea6ca044a76082bad/models/5e2f449c197e04001296fd4a/years?apiKey=58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e&apiSecret=af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551",
+					"protocol": "https",
+					"host": [
+						"app",
+						"intelimotor",
+						"com"
+					],
+					"path": [
+						"api",
+						"brands",
+						"5cdc495ea6ca044a76082bad",
+						"models",
+						"5e2f449c197e04001296fd4a",
+						"years"
+					],
+					"query": [
+						{
+							"key": "apiKey",
+							"value": "58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e"
+						},
+						{
+							"key": "apiSecret",
+							"value": "af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Trims",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://app.intelimotor.com/api/brands/5cdc495ea6ca044a76082bad/models/5e2f449c197e04001296fd4a/years/62ed999a9c5e1e00139d2b19/trims?apiKey=58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e&apiSecret=af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551",
+					"protocol": "https",
+					"host": [
+						"app",
+						"intelimotor",
+						"com"
+					],
+					"path": [
+						"api",
+						"brands",
+						"5cdc495ea6ca044a76082bad",
+						"models",
+						"5e2f449c197e04001296fd4a",
+						"years",
+						"62ed999a9c5e1e00139d2b19",
+						"trims"
+					],
+					"query": [
+						{
+							"key": "apiKey",
+							"value": "58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e"
+						},
+						{
+							"key": "apiSecret",
+							"value": "af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Businessunits",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://app.intelimotor.com/api/business-units/623505fce5c26a00138e7293?apiKey=58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e&apiSecret=af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551",
+					"protocol": "https",
+					"host": [
+						"app",
+						"intelimotor",
+						"com"
+					],
+					"path": [
+						"api",
+						"business-units",
+						"623505fce5c26a00138e7293"
+					],
+					"query": [
+						{
+							"key": "apiKey",
+							"value": "58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e"
+						},
+						{
+							"key": "apiSecret",
+							"value": "af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Businessunits Region",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://app.intelimotor.com/api/business-units/623505fce5c26a00138e7293/regions?apiKey=58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e&apiSecret=af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551",
+					"protocol": "https",
+					"host": [
+						"app",
+						"intelimotor",
+						"com"
+					],
+					"path": [
+						"api",
+						"business-units",
+						"623505fce5c26a00138e7293",
+						"regions"
+					],
+					"query": [
+						{
+							"key": "apiKey",
+							"value": "58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e"
+						},
+						{
+							"key": "apiSecret",
+							"value": "af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Catalog-Colors",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://app.intelimotor.com/api/colors?apiKey=58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e&apiSecret=af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551",
+					"protocol": "https",
+					"host": [
+						"app",
+						"intelimotor",
+						"com"
+					],
+					"path": [
+						"api",
+						"colors"
+					],
+					"query": [
+						{
+							"key": "apiKey",
+							"value": "58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e"
+						},
+						{
+							"key": "apiSecret",
+							"value": "af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta API",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "multimarca.gruporivero.com/api/v1/intelimotor/brands",
+					"host": [
+						"multimarca",
+						"gruporivero",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"intelimotor",
+						"brands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Unit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"businessUnitId\": \"623505fce5c26a00138e7293\",\n   \"ref\": \"3HGGK5759KM000753\",\n   \"vin\": \"3HGGK5759KM000753\",\n   \"brandIds\": [\n       \"5cdc4ab9a6ca044a76083bd7\"\n   ],\n   \"modelIds\": [\n       \"5cdc4ad0a6ca044a76083cfc\"\n   ],\n   \"yearIds\": [\n       \"5cdc4ad0a6ca044a76083cfd\"\n   ],\n   \"pictureUrls\":[\n            \"https://d3s2hob8w3xwk8.cloudfront.net/seminuevos/images/vista-360/1611/imagen_1.jpg\",\n            \"https://d3s2hob8w3xwk8.cloudfront.net/seminuevos/images/vista-360/1611/imagen_12.jpg\",\n            \"https://d3s2hob8w3xwk8.cloudfront.net/seminuevos/images/vista-360/1611/imagen_14.jpg\"\n   ],\n   \"autopublishPlatforms\":\"generalmotors\",\n   \"trimIds\": [],\n   \"useCustomTrim\": true,\n   \"customTrim\": \"1.5 Fun Mt\",\n   \"kms\": 53683,\n   \"type\": \"owned\",\n   \"consignmentFee\": 0,\n   \"buyPrice\": 232000,\n   \"buyDate\": 1644818400000,\n   \"listPrice\": 285000,\n   \"externalBrand\": \"\",\n   \"externalModel\": \"\",\n   \"externalYear\": \"\",\n   \"externalTrim\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://app.intelimotor.com/api/units?apiKey=58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e&apiSecret=af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551",
+					"protocol": "https",
+					"host": [
+						"app",
+						"intelimotor",
+						"com"
+					],
+					"path": [
+						"api",
+						"units"
+					],
+					"query": [
+						{
+							"key": "apiKey",
+							"value": "58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e"
+						},
+						{
+							"key": "apiSecret",
+							"value": "af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Unit",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"businessUnitId\": \"623505fce5c26a00138e7293\",\n   \"isSold\":false,\n   \"buyPrice\":232000,\n   \"sellChannel\":\"Piso\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://app.intelimotor.com/api/units/64247c4c6d50b700126bf26a?apiKey=58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e&apiSecret=af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551",
+					"protocol": "https",
+					"host": [
+						"app",
+						"intelimotor",
+						"com"
+					],
+					"path": [
+						"api",
+						"units",
+						"64247c4c6d50b700126bf26a"
+					],
+					"query": [
+						{
+							"key": "apiKey",
+							"value": "58ddf99f8dc571619bcb9603b8eaa7467c2f0db3e78769c63dbc568d4f35507e"
+						},
+						{
+							"key": "apiSecret",
+							"value": "af004273051c09189c70be7a50768d85d6574b570cc999fe0577a9f9e6173551"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

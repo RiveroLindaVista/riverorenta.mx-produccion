@@ -1,0 +1,47 @@
+
+p{
+    font-size: 14px;
+    margin: 10px 0px 10px 0px;
+}
+
+.barraMenu{
+    background: #33373a!important;
+    height: 120px;
+    width: 100%;
+    box-shadow: -2px 3px 17px -7px rgba(0,0,0,.74);
+}
+
+.contBarraMenu{
+    width: 100%;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.homeContainer{
+    
+}
+
+.contTema{
+    border-bottom: 1px solid rgb(179, 179, 179);
+}
+
+.contSubTema{
+    background: #f3f3f3;
+    border-radius: 5px;
+}
+
+.rojo{
+    color: red;
+    text-decoration: none;
+}
+
+.textAntig{
+    background: #f3f3f3;
+    border-radius: 5px;
+    width: 50%;
+}
+
+#img1{
+    width: 55%;
+    height: 85%;
+}
