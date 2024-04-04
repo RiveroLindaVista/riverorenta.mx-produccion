@@ -1,0 +1,29 @@
+body{
+	background: gray;
+}
+#header_area{
+	background: #000;
+	color:#fff;
+}
+#contenido_area{
+	position: absolute;
+	background: gray;
+	bottom:20px;
+	top: 100px;
+	width: 100%;
+}
+#footer{
+	position: absolute;
+	background: #000;
+	bottom:0px;
+	height: 20px;
+	width: 100%;
+	color: #fff;
+	font-size: 12px;
+	text-align: right;
+	padding-top: 0px;
+}
+a{
+	text-decoration: none;
+
+}
