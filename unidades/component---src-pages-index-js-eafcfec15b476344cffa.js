@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcatalogo_unidades=self.webpackChunkcatalogo_unidades||[]).push([[678],{6558:function(e,n,u){u.r(n),u.d(n,{default:function(){return c}});var t=u(7294),a=u(3943);function c(){return t.createElement(a.Z,null)}}}]);
+//# sourceMappingURL=component---src-pages-index-js-eafcfec15b476344cffa.js.map
