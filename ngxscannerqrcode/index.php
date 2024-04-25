@@ -1,33 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Dynamsoft JavaScript Barcode Scanner</title>
-    <!-- include the library -->
-    <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
 </head>
 
 <body>
+    <div style="width: 500px" id="reader"></div>
 
-
-    <div id="qr-reader" style="width: 600px"></div>
-
-
-    <script>
-        function onScanSuccess(decodedText, decodedResult) {
-            
-            console.log(`Code scanned = ${decodedText}`, decodedResult);
-            alert(decodedText);
-        }
-        var html5QrcodeScanner = new Html5QrcodeScanner(
-            "qr-reader", {
-                fps: 10,
-                qrbox: 250
-            });
-        html5QrcodeScanner.render(onScanSuccess);
-    </script>
 </body>
+<script src="html5-qrcode.min.js"></script>
+
+<script>
+    function onScanSuccess(decodedText, decodedResult) {
+        // Handle on success condition with the decoded text or result.
+        console.log(`Scan result: ${decodedText}`, decodedResult);
+    }
+
+    var html5QrcodeScanner = new Html5QrcodeScanner(
+        "reader", {
+            fps: 10,
+            qrbox: 250
+        });
+    html5QrcodeScanner.render(onScanSuccess);
+
+    var html5QrcodeScanner = new Html5QrcodeScanner(
+        "reader", {
+            fps: 10,
+            qrbox: 250
+        });
+
+    function onScanSuccess(decodedText, decodedResult) {
+        // Handle on success condition with the decoded text or result.
+        console.log(`Scan result: ${decodedText}`, decodedResult);
+        alert(decodedText);
+        // ...
+        html5QrcodeScanner.clear();
+        // ^ this will stop the scanner (video feed) and clear the scan area.
+    }
+
+    html5QrcodeScanner.render(onScanSuccess);
+
+    function onScanSuccess(decodedText, decodedResult) {
+        // Handle on success condition with the decoded text or result.
+        console.log(`Scan result: ${decodedText}`, decodedResult);
+    }
+
+    function onScanError(errorMessage) {
+        // handle on error condition, with error message
+    }
+
+    var html5QrcodeScanner = new Html5QrcodeScanner(
+        "reader", {
+            fps: 10,
+            qrbox: 250
+        });
+    html5QrcodeScanner.render(onScanSuccess, onScanError);
+</script>
 
 </html>
