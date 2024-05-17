@@ -8,11 +8,11 @@ if($_SESSION["paginaOrigen"]==""){
 DEFINE("URL",'https://'.$_SERVER['HTTP_HOST']);
 DEFINE("URLSeminuevos",'https://www.riverorenta.mx/seminuevos');
 
-DEFINE("DB_HOST",'3.132.169.146');
+DEFINE("DB_HOST",getenv('DB_HOST'));
 //DEFINE("DB_HOST",'ftp.gruporivero.com.mx');
-DEFINE("DB_USER",'riverore_gr');
-DEFINE("DB_PASSWORD",'Paramore99!');
-DEFINE("DB_DB",'riverorenta_grupormx_exp');
+DEFINE("DB_USER",getenv('DB_USER'));
+DEFINE("DB_PASSWORD",getenv('DB_PASSWORD'));
+DEFINE("DB_DB", getenv('DB_DB'));
 
 /*IVA*/
 DEFINE("precio_iva","1.16");
