@@ -294,7 +294,7 @@ if ($this_subpage=="promociones_autos") { $promociones_autos="active"; } else{ $
                 fd.append('slug', "nuevos");
 
                 $.ajax({
-                    url: 'https://riverorenta.mx/seminuevos/images/vista-360/upload_img.php',
+                    url: 'https://www.riverorenta.mx/seminuevos/images/vista-360/upload_img.php',
                     type: 'post',
                     data: fd,
                     contentType: false,
@@ -459,7 +459,7 @@ if ($this_subpage=="promociones_autos") { $promociones_autos="active"; } else{ $
             fd.append('slug', "nuevos");
 
             $.ajax({
-                url: 'https://riverorenta.mx/seminuevos/images/vista-360/upload_img.php',
+                url: 'https://www.riverorenta.mx/seminuevos/images/vista-360/upload_img.php',
                 type: 'POST',
                 data: fd,
                 contentType: false,

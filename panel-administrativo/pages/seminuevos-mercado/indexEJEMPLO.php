@@ -151,7 +151,7 @@ $appName = explode('.', $domain)[0];
         "accepts_mercadopago" =>true,
         "pictures" => array(
             array(
-                "source" => "https://riverorenta.mx/seminuevos/images/galeria/inv_6486/"
+                "source" => "https://www.riverorenta.mx/seminuevos/images/galeria/inv_6486/"
             )/*,
             array(
                 "source" => "https://upload.wikimedia.org/wikipedia/commons/a/ab/Teashades.gif"

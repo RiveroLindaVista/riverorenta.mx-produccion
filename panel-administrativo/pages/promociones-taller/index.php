@@ -272,7 +272,7 @@ if ($this_subpage=="promociones_taller") { $promociones_taller="active"; } else{
                     fd.append('slug', "taller");
 
                     $.ajax({
-                    url: 'https://riverorenta.mx/seminuevos/images/vista-360/upload_img.php',
+                    url: 'https://www.riverorenta.mx/seminuevos/images/vista-360/upload_img.php',
                     type: 'post',
                     data: fd,
                     contentType: false,
@@ -421,7 +421,7 @@ if ($this_subpage=="promociones_taller") { $promociones_taller="active"; } else{
             fd.append('slug', "taller");
 
             $.ajax({
-                url: 'https://riverorenta.mx/seminuevos/images/vista-360/upload_img.php',
+                url: 'https://www.riverorenta.mx/seminuevos/images/vista-360/upload_img.php',
                 type: 'POST',
                 data: fd,
                 contentType: false,

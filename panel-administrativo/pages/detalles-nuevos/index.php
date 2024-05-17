@@ -1102,7 +1102,7 @@ $orden = $orden + 10;
                 fd.append('filepath', filepath);
 
                 $.ajax({
-                    url: 'https://riverorenta.mx/seminuevos/images/vista-360/update_img_colores.php',
+                    url: 'https://www.riverorenta.mx/seminuevos/images/vista-360/update_img_colores.php',
                     type: 'post',
                     data: fd,
                     contentType: false,
@@ -1958,7 +1958,7 @@ $orden = $orden + 10;
                 fd.append('filepath', filepath);
 
                 $.ajax({
-                    url: 'https://riverorenta.mx/seminuevos/images/vista-360/update_img_colores.php',
+                    url: 'https://www.riverorenta.mx/seminuevos/images/vista-360/update_img_colores.php',
                     type: 'post',
                     data: fd,
                     contentType: false,

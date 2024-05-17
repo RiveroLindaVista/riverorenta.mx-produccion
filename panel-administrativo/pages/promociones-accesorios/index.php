@@ -285,7 +285,7 @@ if ($this_subpage=="promociones_accesorios") { $promociones_accesorios="active";
                     fd.append('numero', "1");
                     fd.append('slug', "accesorios");
                     $.ajax({
-                        url: 'https://riverorenta.mx/seminuevos/images/vista-360/upload_img.php',
+                        url: 'https://www.riverorenta.mx/seminuevos/images/vista-360/upload_img.php',
                         type: 'post',
                         data: fd,
                         contentType: false,
@@ -436,7 +436,7 @@ if ($this_subpage=="promociones_accesorios") { $promociones_accesorios="active";
             fd.append('slug', "accesorios");
 
             $.ajax({
-                url: 'https://riverorenta.mx/seminuevos/images/vista-360/upload_img.php',
+                url: 'https://www.riverorenta.mx/seminuevos/images/vista-360/upload_img.php',
                 type: 'POST',
                 data: fd,
                 contentType: false,

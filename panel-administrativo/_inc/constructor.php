@@ -1574,7 +1574,7 @@ public function get_all_catalogo_seminuevos_dev(){
                     </div>';
            }
         }
-        //https://riverorenta.mx/seminuevos/images/principal/inv_6238/imagen-preview.png
+        //https://www.riverorenta.mx/seminuevos/images/principal/inv_6238/imagen-preview.png
          
         return  $cadena;
      }

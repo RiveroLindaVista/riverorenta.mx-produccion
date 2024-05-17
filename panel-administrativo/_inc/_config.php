@@ -2,11 +2,11 @@
 session_start();
 
 if($_SESSION["paginaOrigen"]==""){
-	$_SESSION["paginaOrigen"]='https://riverorenta.mx/gruporivero/';
+	$_SESSION["paginaOrigen"]='https://www.riverorenta.mx/gruporivero/';
 }
 
 DEFINE("URL",'https://'.$_SERVER['HTTP_HOST']);
-DEFINE("URLSeminuevos",'https://riverorenta.mx/seminuevos');
+DEFINE("URLSeminuevos",'https://www.riverorenta.mx/seminuevos');
 
 DEFINE("DB_HOST",'3.132.169.146');
 //DEFINE("DB_HOST",'ftp.gruporivero.com.mx');
