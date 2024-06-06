@@ -1,0 +1,20 @@
+
+.logo {
+    max-width: 350px;
+    padding: 15px !important;
+    margin: 0 auto;
+  }
+  
+  .logo_movil {
+    max-width: 250px;
+    padding: 15px !important;
+    margin: 0 auto;
+  }
+  
+  
+  .contenidoHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #33373a;
+  }
