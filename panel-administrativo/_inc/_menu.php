@@ -31,14 +31,14 @@ if(!isset($_SESSION["usuario"])){
                             <span>Publicidad</span>
                         </a>
                     </li>
-
+            -->
                      <li class="<?= $adwords;?>">
                         <a href="<?=URLP?>pages/adwords">
                             <i class="material-icons">format_shapes</i>
                             <span>Adwords</span>
                         </a>
                     </li>
-
+            <!--           
                     <li class="<?= $banner;?>">
                         <a href="<?=URLP?>pages/banner">
                             <i class="material-icons">photo_size_select_large</i>
