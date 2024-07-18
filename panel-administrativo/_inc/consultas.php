@@ -1021,12 +1021,14 @@ class Conexion extends Database{
         $conn = Database::connect();
         $utf8 = $conn->set_charset("utf8");
 
-        $imagen=$param["imagen"];
         $pagina_titulo=$param["pagina_titulo"];
-        $imagen_titulo=$param["imagen_titulo"];
+        $imagen=$param["imagen"];
+        $slug=$param["slug"];
+        $carros_select = $param["carros_select"];
 
-        $sql="INSERT INTO adwords(titulo, imagen) VALUES ('$pagina_titulo', '$imagen')";
+        $sql="INSERT INTO adwords SET titulo='".$pagina_titulo."', imagen='".$imagen."', slug='".$slug."', carros_select='".$carros_select."'";
         $result=$conn->query($sql);
+        return $sql;
     }
 
     public function query_report_blogs(){
