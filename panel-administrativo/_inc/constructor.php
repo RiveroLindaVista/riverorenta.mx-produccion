@@ -2134,6 +2134,60 @@ public function get_table_qrs(){
   return $out;
   
 }
+public function catalogo_autos_activos(){
+  $conn= Database::connect();
+  $sql = 'SELECT * FROM catalogo where status = 1  GROUP BY slug, marca, modelo, ano';
+  $result=$conn->query($sql);
+  if ($result) {
+      while ($row = $result->fetch_assoc()) {
+          $out[]=array_map("utf8_encode", $row);
+      }
+  } 
+  $conn=Database::close();
+  return $out;
+}
+  public function get_versiones_not_null($marca, $modelo, $ano)
+  {
+    $out = array();
+    $conn = Database::connect();
+    $sql = 'SELECT * FROM riverorenta_grupormx_exp.versiones where marca="' . $marca . '" AND modelo = "' . $modelo . '" AND ano = "' . $ano . '" AND version IS NOT NULL;';
+    $result = $conn->query($sql);
+    if ($result) {
+      while ($row = $result->fetch_assoc()) {
+        $out[] = array_map("utf8_encode", $row);
+      }
+    }
+    $conn = Database::close();
+    return $out;
+  }
+
+  public function get_inventario_versiones($slug, $version){
+    $out = array();
+    $conn = Database::connect();
+    $sql = 'SELECT * FROM riverorenta_grupormx_exp.inventario_versiones where slug="' . $slug .'" AND version = "'.$version.'";';
+    $result = $conn->query($sql);
+    if ($result) {
+      while ($row = $result->fetch_assoc()) {
+        $out[] = array_map("utf8_encode", $row);
+      }
+    }
+    $conn = Database::close();
+    return $out;
+  }
+  
+  public function get_inventario_colores_by_slug($slug){
+    $out = array();
+    $conn = Database::connect();
+    $sql = 'SELECT * FROM riverorenta_grupormx_exp.inventario_colores WHERE slug="'.$slug.'"';
+    $result = $conn->query($sql);
+    if ($result) {
+      while ($row = $result->fetch_assoc()) {
+        $out[] = array_map("utf8_encode", $row);
+      }
+    }
+    $conn = Database::close();
+    return $out;
+  }
 
 /*Fin Class Construir*/
 }

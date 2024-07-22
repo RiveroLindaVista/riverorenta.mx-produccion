@@ -7,33 +7,15 @@ $promoAutos = $conne->get_all_promos_autos();
 $promoTaller = $conne->get_all_promos_taller();
 $promoAccesorios = $conne->get_all_promos_accesorios();
 
+
+
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
    <?php include('../../_inc/_header.php');?>
-    <link rel='icon' type='image/png' href='https://www.gruporivero.com/assets/img/commun/gporiv.png' />
-    <!--link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/-->
-    <link rel='shortcut icon' type='image/png' href='https://www.gruporivero.com/assets/img/commun/gporiv.png' />
 
-        <!-- JQuery DataTable Css -->
-    <link href="../../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-
-    <!-- Bootstrap Core Css -->
-    <link href="../../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
-
-    <!-- JQuery DataTable Css -->
-    <link href="../../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-
-    <!-- Custom Css -->
-    <link href="../../css/style.css" rel="stylesheet">
-
-    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="../../css/themes/all-themes.css" rel="stylesheet" />
-
-    <!-- Bootstrap Select Css -->
-    <link href="../../plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet">
 </head>
 
 <body class="theme-blue">
@@ -49,7 +31,41 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
     </section>
     <section class="content">
         <div>
-            <h1>PANEL ADMINISTRATIVO</h1><hr/>
+            <center><h3>Versiones Incompletos </h3></center>
+        </div>
+        
+        <div class="card bg-light mb-3" style="min-height: 200px;">
+            <div class="card-header">Versiones Incompletos</div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+
+                <table class="table table-striped" id="tabla_versiones_incompletos">
+                    <thead>
+                        <tr>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Año</th>
+                            <th>Slug</th>
+                            <th>Con versiones</th>
+                            <th>Con inventario versiones</th>
+                            <th>Inventario versiones</th>
+                            <th>Con Colores</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <?= $tr_versiones ?> -->
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+
+    </section>
+    <hr>
+    <section class="content">
+        <div style="display: flex; align-items:center; justify-content: center">
+            <center><h3>PROMOCIONES</h3></center>
         </div>
         <div class="container-fluid" style="display: flex; justify-content: center; align-items: center;">
 
@@ -131,40 +147,53 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
         </div>
     </section>
 
+
+<style>
+    .tr_body_versions:hover{
+        cursor: pointer;
+        background-color: rgb(41, 129, 196) !important;
+    }
+</style>
+<script>
+    function go_to_unidades_nuevos(id){
+        let host = '/produccion/panel-administrativo/pages/detalles-nuevos/index.php?id=' + id;
+        // console.log(host);
+        // location.replace(host);
+        location.href = host;
+        // window.location = host + '/produccion/panel-administrativo/pages/detalles-nuevos/index.php?id=' + id;
+        return false;
+    }
+
+    function call_api() {
+        console.log('CALL API');
+        $.ajax({
+            type: "POST",
+            url: "versiones_incompletos.php",
+            data: [],
+            dataType: "json",           
+            success: function (response) {
+                console.log(response);
+                $('#tabla_versiones_incompletos tbody').html(response);
+            }
+        });
+    }
+
+
+    call_api();
+
+
 </script>
-<!-- Jquery Core Js -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
 
-    <!-- Bootstrap Core Js -->
-    <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
 
-    <!-- Select Plugin Js -->
-    <script src="../../plugins/bootstrap-select/js/bootstrap-select.js"></script>
-
-    <!-- Slimscroll Plugin Js -->
-    <script src="../../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
     <!-- Waves Effect Plugin Js -->
     <script src="../../plugins/node-waves/waves.js"></script>
-
-
-
-    <!-- Jquery DataTable Plugin Js -->
-    <script src="../../plugins/jquery-datatable/jquery.dataTables.js"></script>
-    <script src="../../plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
-
-
     <!-- Custom Js -->
     <script src="../../js/admin.js"></script>
-    <script src="../../js/pages/tables/jquery-datatable.js"></script>
 
 
-    <!-- Ckeditor -->
-    <script src="../../plugins/ckeditor/ckeditor.js"></script>
 
-    <!-- TinyMCE -->
-    <script src="../../plugins/tinymce/tinymce.js"></script>
-    <script src="../../js/pages/forms/editors.js"></script>
+
 </body>
 
 </html>
