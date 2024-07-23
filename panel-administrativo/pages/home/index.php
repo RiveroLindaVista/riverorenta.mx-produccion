@@ -31,25 +31,29 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
     </section>
     <section class="content">
         <div>
-            <center><h3>Versiones Incompletos </h3></center>
+            
         </div>
+        <div class="card bg-light" style="display: flex; align-items:center; justify-content:center; margin-bottom: 0px;">
+            <div class="card-header">
+                <h4 id="title_versiones_incompletas">VERSIONES INCOMPLETAS ()</h4>
+            </div>
+        </div>
+
         
-        <div class="card bg-light mb-3" style="min-height: 200px;">
-            <div class="card-header">Versiones Incompletos</div>
+        <div class="card bg-light mb-2" style="min-height: 200px;">
+            <div class="card-header"></div>
             <div class="card-body">
                 <h5 class="card-title"></h5>
 
-                <table class="table table-striped" id="tabla_versiones_incompletos">
+                <table class="table table-striped" id="tabla_versiones_incompletos" style="text-align: center;">
                     <thead>
                         <tr>
-                            <th>Marca</th>
-                            <th>Modelo</th>
-                            <th>Año</th>
-                            <th>Slug</th>
-                            <th>Con versiones</th>
-                            <th>Con inventario versiones</th>
-                            <th>Inventario versiones</th>
-                            <th>Con Colores</th>
+                            <th class="th_dflex">MARCA</th>
+                            <th class="th_dflex">MODELO</th>
+                            <th class="th_dflex">SLUG</th>
+                            <th class="th_dflex">VERSIONES</th>
+                            <th class="th_dflex">VERSIONES SIN DESCRIPCION</th>
+                            <th class="th_dflex" >COLORES</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,10 +68,16 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
     </section>
     <hr>
     <section class="content">
-        <div style="display: flex; align-items:center; justify-content: center">
-            <center><h3>PROMOCIONES</h3></center>
+        <div class="card bg-light" style="display: flex; align-items:center; justify-content:center; margin-bottom: 0px;">
+            <div class="card-header">
+                <h4>PROMOCIONES</h4>
+            </div>
         </div>
-        <div class="container-fluid" style="display: flex; justify-content: center; align-items: center;">
+
+        <!-- <div style="display: flex; align-items:center; justify-content: center">
+            <center><h3>PROMOCIONES</h3></center>
+        </div> -->
+        <div class="container-fluid card bg-light" style="display: flex; justify-content: center; align-items: center; margin-top: 10px; padding: 20px;">
 
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="card" style="padding:0!important">
@@ -153,6 +163,23 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
         cursor: pointer;
         background-color: rgb(41, 129, 196) !important;
     }
+    .th_dflex{
+        text-align: center;
+    }
+    .flag-red{
+        background: red;
+        border-radius: 100%;
+        height:25px;
+        width: 25px;
+        border: transparent;
+    }
+    .flag-green{
+        background: rgb(21, 156, 120);
+        border-radius: 100%;
+        height:25px;
+        width: 25px;
+        border: transparent;
+    }
 </style>
 <script>
     function go_to_unidades_nuevos(id){
@@ -171,9 +198,12 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
             url: "versiones_incompletos.php",
             data: [],
             dataType: "json",           
-            success: function (response) {
-                console.log(response);
-                $('#tabla_versiones_incompletos tbody').html(response);
+            success: function (res) {
+                console.log(res);
+                $('#tabla_versiones_incompletos tbody').html(res['body']);
+                $('#title_versiones_incompletas').text(`VERSIONES INCOMPLETAS (${res['cant_total']})`);;
+
+
             }
         });
     }

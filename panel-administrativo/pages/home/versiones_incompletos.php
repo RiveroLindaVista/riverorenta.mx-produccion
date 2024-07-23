@@ -12,9 +12,9 @@ $catalogo_autos = $conne->catalogo_autos_activos();
                 // return true;
 $arr_versions_null = array();
 foreach ($catalogo_autos as $key => $val) {
-    // if ($key == 5) {
-    //     break;
-    // }
+    if ($key == 7) {
+        break;
+    }
     $auto_gral_id = $val['id'];
     $slug = $val['slug'];
     $marca = $val['marca'];
@@ -29,6 +29,8 @@ foreach ($catalogo_autos as $key => $val) {
         $arr_versions_null[$key]['modelo'] = $modelo;
         $arr_versions_null[$key]['ano'] = $ano;
         $arr_versions_null[$key]['con_versiones'] = 'NO';
+        $arr_versions_null[$key]['con_inventario_versiones'] = 'NO';
+
     } else {
         $arr_versions_null[$key]['id'] = $auto_gral_id;
         $arr_versions_null[$key]['slug'] = $slug;
@@ -81,18 +83,21 @@ foreach ($catalogo_autos as $key => $val) {
     $get_inventario_colores_by_slug = $conne->get_inventario_colores_by_slug($slug);
     $arr_versions_null[$key]['con_colores'] = count($get_inventario_colores_by_slug) > 0  ?'SI' : 'NO';
 
-
+    // filter from unset from array
+    if ($arr_versions_null[$key]['con_versiones'] == 'SI' &&  $arr_versions_null[$key]['con_inventario_versiones'] == 'SI' && $arr_versions_null[$key]['con_colores'] == 'SI') {
+        unset($arr_versions_null[$key]);
+    }
 
 }
 $tr_versiones = '';
 foreach ($arr_versions_null as $key => $value) {
+    $flag_con_versiones = $value['con_versiones'] == 'SI' ? 'flag-red' : 'flag-green';
+    $flag_con_colores = $value['con_colores'] == 'SI' ? 'flag-red' : 'flag-green';
     $tr_versiones .= '<tr class="tr_body_versions" onclick=go_to_unidades_nuevos('.$value['id'].')>';
     $tr_versiones .= '<td>'.$value['marca'].'</td>';
     $tr_versiones .= '<td>'.$value['modelo'].'</td>';
-    $tr_versiones .= '<td>'.$value['ano'].'</td>';
     $tr_versiones .= '<td>'.$value['slug'].'</td>';
-    $tr_versiones .= '<td>'.$value['con_versiones'].'</td>';
-    $tr_versiones .= '<td>'.$value['con_inventario_versiones'].'</td>';
+    $tr_versiones .= '<td> <button class="'.$flag_con_versiones.'"></button>'.'' .'</td>';
     $str_versiones_sin_caracteristicas = '';
     if (isset($value['arr_versiones_sin_caracteristicas'])) {
         if ( count($value['arr_versiones_sin_caracteristicas']) > 0) {
@@ -103,13 +108,19 @@ foreach ($arr_versions_null as $key => $value) {
         } else {
             $str_versiones_sin_caracteristicas = '- - -';
         }
+    } else {
+        $str_versiones_sin_caracteristicas = '- - -';
     }
     $tr_versiones .= '<td>'.$str_versiones_sin_caracteristicas.'</td>';
-    $tr_versiones .= '<td>'.$value['con_colores'].'</td>';
+    $tr_versiones .= '<td> <button class="'.$flag_con_colores.'"></button></td>';
     $tr_versiones .= '</tr>';
 }
+$arr_response = array(
+    'body' => $tr_versiones,
+    'cant_total' => count($arr_versions_null)
+);
 
-echo json_encode($tr_versiones);
+echo json_encode($arr_response);
 return true;
 
 ?>
