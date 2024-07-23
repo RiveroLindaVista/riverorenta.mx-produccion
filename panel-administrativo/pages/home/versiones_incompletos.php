@@ -91,8 +91,8 @@ foreach ($catalogo_autos as $key => $val) {
 }
 $tr_versiones = '';
 foreach ($arr_versions_null as $key => $value) {
-    $flag_con_versiones = $value['con_versiones'] == 'SI' ? 'flag-red' : 'flag-green';
-    $flag_con_colores = $value['con_colores'] == 'SI' ? 'flag-red' : 'flag-green';
+    $flag_con_versiones = $value['con_versiones'] == 'NO' ? 'flag-red' : 'flag-green';
+    $flag_con_colores = $value['con_colores'] == 'NO' ? 'flag-red' : 'flag-green';
     $tr_versiones .= '<tr class="tr_body_versions" onclick=go_to_unidades_nuevos('.$value['id'].')>';
     $tr_versiones .= '<td>'.$value['marca'].'</td>';
     $tr_versiones .= '<td>'.$value['modelo'].'</td>';
