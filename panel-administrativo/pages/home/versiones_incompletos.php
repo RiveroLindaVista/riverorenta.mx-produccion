@@ -12,9 +12,9 @@ $catalogo_autos = $conne->catalogo_autos_activos();
                 // return true;
 $arr_versions_null = array();
 foreach ($catalogo_autos as $key => $val) {
-    if ($key == 7) {
-        break;
-    }
+    // if ($key == 7) {
+    //     break;
+    // }
     $auto_gral_id = $val['id'];
     $slug = $val['slug'];
     $marca = $val['marca'];
