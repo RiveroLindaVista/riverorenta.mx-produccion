@@ -1927,7 +1927,8 @@ public function get_lista_autos(){
 public function get_lista_marcas(){
   $conn=new Conexion();
   $consulta= $conn->query_lista_marcas();
-
+  $lista_marcas = '';
+  $lista_marcas.='<option value="">Seleccione...</option>';
     for($i=0;$i<count($consulta);$i++){
         $marca=$consulta[$i]["marca"];
         $lista_marcas.='<option value="'.$marca.'">'.$marca.'</option>';

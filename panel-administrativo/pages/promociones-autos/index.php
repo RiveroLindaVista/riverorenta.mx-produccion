@@ -37,7 +37,7 @@ if ($this_subpage=="promociones_autos") { $promociones_autos="active"; } else{ $
     <link href="../../css/themes/all-themes.css" rel="stylesheet" />
 
     <!-- Bootstrap Select Css -->
-    <link href="../../plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet">
+    <!-- <link href="../../plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet"> -->
 </head>
 
 <body class="theme-blue">
@@ -65,14 +65,38 @@ if ($this_subpage=="promociones_autos") { $promociones_autos="active"; } else{ $
                         <div class="body">
                             <div class="row clearfix">
                             <div id="tituloMarca" style="display:flex; margin: 10px"></div>
-                                <div class="col-md-2" style="margin-top:20px;">
-                                    <b> SELECCIONA LA MARCA: </b>
+                                <div class="col-md-3" style="margin-top:20px;">
+                                    <b> MARCA: </b>
                                     <select id="marca" class="form-control" name="marca" required="" aria-required="true" onchange="updateMarca()">
                                         <?php echo $marcas;?>
                                     </select>
                                 </div>
+                                <div class="col-md-3" style="margin-top:20px;">
+                                    <b> MODELO: </b>
+                                    <select id="modelo_unidad" class="form-control" name="modelo_unidad" onchange="SelectModeloUnidad()">
+                                        <option value="">Seleccione...</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3" style="margin-top:20px;">
+                                    <b> AÑO: </b>
+                                    <select id="ano" class="form-control" name="ano" required="" aria-required="true">
+                                        <option value="">Seleccione...</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3" style="margin-top:20px;">
+                                    <b> TIPO DE PROMOCION: </b>
+                                    <select id="tipo_promo" class="form-control" name="tipo_promo" required="" aria-required="true">
+                                        <option value="">Seleccione...</option>
+                                        <option value="plan">Plan</option>
+                                        <option value="bono">Bono</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3" style="margin-top:20px;">
+                                    <b> CANTIDAD: </b>
+                                    <input id="cantidad" name="cantidad" class="form-control" type="text">
+                                </div>
 
-                                <div class="col-md-2"><br>
+                                <div class="col-md-3"><br>
                                     <b>TÍTULO DE LA IMAGEN</b>
                                     <div class="form-group form-float">
                                         <div class="form-line">
@@ -81,7 +105,7 @@ if ($this_subpage=="promociones_autos") { $promociones_autos="active"; } else{ $
                                     </div>
                                 </div>
 
-                                <div class="col-md-8"><br>
+                                <div class="col-md-12"><br>
                                     <b>DESCRIPCIÓN</b>
                                     <div class="form-group form-float">
                                         <div class="form-line">
@@ -262,15 +286,24 @@ if ($this_subpage=="promociones_autos") { $promociones_autos="active"; } else{ $
         var marca = document.getElementById('marca').value;
         marca = marca.toUpperCase();
         var descripcion =document.getElementById('descripcion').value;
+        var modelo_unidad = document.getElementById('modelo_unidad').value;
+        var ano = document.getElementById('ano').value;
+        var cantidad = document.getElementById('cantidad').value;
+        var tipo_promo = document.getElementById('tipo_promo').value;
+
         error('#imagen_titulo');
         error('#descripcion');
         error('#marca');
         error('#descripcion');
+        error('#modelo_unidad');
+        error('#ano');
+        error('#cantidad');
+        error('#tipo_promo');
 
         var tipo = "nuevos";
         var tipoUpper = "NUEVOS";
 
-        if (imagen_titulo!="" && descripcion!="") {
+        if (imagen_titulo!="" && descripcion!="" && modelo_unidad != "" && ano != "" && cantidad != "" && tipo_promo != "") {
             if (!files) {
                 alert('Es necesario seleccionar una imagen.');
                 $('.dropzone').css({'cssText': 'border: 3px solid red !important; '});
@@ -309,7 +342,11 @@ if ($this_subpage=="promociones_autos") { $promociones_autos="active"; } else{ $
                                 marca:marca,
                                 imagen_titulo:imagen_titulo,
                                 tipo:tipo,
-                                tipoUpper:tipoUpper
+                                tipoUpper:tipoUpper,
+                                modelo_unidad,
+                                ano,
+                                cantidad,
+                                tipo_promo
                             }
                             $.ajax({
                                 url:'save_auto.php',
@@ -389,6 +426,56 @@ if ($this_subpage=="promociones_autos") { $promociones_autos="active"; } else{ $
     titulo = titulo.toLowerCase();
     console.log(titulo)
     document.getElementById('tituloMarca').innerHTML='<h2 style="margin-right: 10px">Estás creando una promoción de </h2> <img src = "https://d3s2hob8w3xwk8.cloudfront.net/makes/'+titulo+'.png" style="max-width: 80px">';
+
+    //get models;
+    let data = {
+        function: 'modelos_by_marca',
+        marca: titulo
+    }
+    let select = '<option value="">Seleccione...</option>';
+    $.ajax({
+        type: "POST",
+        url: "funcForAjax.php",
+        data: data,
+        dataType: "json",
+        success: function (resp) {
+            resp.forEach(modelo => {
+                select += '<option value="' + modelo.modelo + '">' + modelo.modelo + '</option>';
+            });
+            $('#modelo_unidad').html(select);
+            // console.log(select);
+            
+        }
+    });
+
+  }
+
+  function SelectModeloUnidad(){
+
+    var modelo = document.getElementById('modelo_unidad').value;
+//     console.log(modelo);
+// return modelo;
+    //get models;
+    let data = {
+        function: 'anos_by_model',
+        modelo: modelo
+    }
+    let select = '<option value="">Seleccione...</option>';
+    $.ajax({
+        type: "POST",
+        url: "funcForAjax.php",
+        data: data,
+        dataType: "json",
+        success: function (resp) {
+            resp.forEach(anos => {
+                select += '<option value="' + anos.ano + '">' + anos.ano + '</option>';
+            });
+            $('#ano').html(select);
+            // console.log(resp);
+            
+        }
+    });
+    
 
   }
 
@@ -524,7 +611,7 @@ if ($this_subpage=="promociones_autos") { $promociones_autos="active"; } else{ $
     <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
 
     <!-- Select Plugin Js -->
-    <script src="../../plugins/bootstrap-select/js/bootstrap-select.js"></script>
+    <!-- <script src="../../plugins/bootstrap-select/js/bootstrap-select.js"></script> -->
 
     <!-- Slimscroll Plugin Js -->
     <script src="../../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>

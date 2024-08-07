@@ -1119,8 +1119,12 @@ class Conexion extends Database{
         $titulo2 = $param["descripcion"];
         $tipo = $param["tipoUpper"];
         $marca = $param["marca"];
+        $modelo_unidad = $param["modelo_unidad"];
+        $ano = $param["ano"];
+        $cantidad = $param["cantidad"];
+        $tipo_promo = $param["tipo_promo"];
 
-        $sql="INSERT INTO promociones (marca, modelo, forma, titulo2, status, tipo) VALUES ('$marca', 'imagen', '$forma', '$titulo2', 1, '$tipo')";
+        $sql="INSERT INTO promociones (marca, modelo, modelo_unidad, ano, cantidad, forma, titulo2, status, tipo, tipo_promo) VALUES ('$marca', 'imagen', '$modelo_unidad', '$ano', '$cantidad', '$forma', '$titulo2', 1, '$tipo', '$tipo_promo')";
         $result=$conn->query($sql);         
     }
 
@@ -1639,9 +1643,21 @@ class Conexion extends Database{
     }
 
     public function query_modelos_by_marca($marca){
-        $auto=$auto;
+        // $auto=$auto;
         $conn= Database::connect();
         $sql = "SELECT modelo FROM versiones WHERE marca = '$marca' group by modelo";
+        $result=$conn->query($sql);
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $out[]=$row;
+            }
+            return $out;
+        }
+    }
+    public function query_anos_by_model($modelo){
+        // $auto=$auto;
+        $conn= Database::connect();
+        $sql = "SELECT ano FROM versiones WHERE modelo = '$modelo' group by ano";
         $result=$conn->query($sql);
         if ($result) {
             while ($row = $result->fetch_assoc()) {
@@ -1809,6 +1825,20 @@ class Conexion extends Database{
 
         $sql="UPDATE promociones SET forma='$nombre_nuevo' WHERE id='$id'";
         $result=$conn->query($sql);         
+    }
+
+    //Promociones
+    public function query_ano_by_modelo($auto){
+        $auto=$auto;
+        $conn= Database::connect();
+        $sql = "SELECT DISTINCT ano FROM catalogo WHERE modelo = '$auto' ORDER BY ano DESC ";
+        $result=$conn->query($sql);
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $out[]=$row;
+            }
+            return $out;
+        }
     }
 
     
