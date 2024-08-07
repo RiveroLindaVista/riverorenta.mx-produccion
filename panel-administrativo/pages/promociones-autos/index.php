@@ -93,7 +93,7 @@ if ($this_subpage=="promociones_autos") { $promociones_autos="active"; } else{ $
                                 </div>
                                 <div class="col-md-3" style="margin-top:20px;">
                                     <b> CANTIDAD: </b>
-                                    <input id="cantidad" name="cantidad" class="form-control" type="text">
+                                    <input id="cantidad" name="cantidad" class="form-control" type="number" onkeypress="return validate_quantity(event)">
                                 </div>
 
                                 <div class="col-md-3"><br>
@@ -417,6 +417,16 @@ if ($this_subpage=="promociones_autos") { $promociones_autos="active"; } else{ $
         }
 
         return new Blob([ab], {type: 'image/jpeg'});
+  }
+
+  function validate_quantity(event) {
+    if (event.target.value >= 0 && event.target.value <= 1000000) {
+        console.log(event.target.value);
+        
+        return true;
+    }
+    return false;
+    
   }
 
   function updateMarca(){
