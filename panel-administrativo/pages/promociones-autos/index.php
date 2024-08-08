@@ -93,7 +93,7 @@ if ($this_subpage=="promociones_autos") { $promociones_autos="active"; } else{ $
                                 </div>
                                 <div class="col-md-3" style="margin-top:20px;">
                                     <b> CANTIDAD: </b>
-                                    <input id="cantidad" name="cantidad" class="form-control" type="number" onkeypress="return validate_quantity(event)">
+                                    <input id="cantidad" name="cantidad" class="form-control" type="number" onkeyup="return validate_quantity(event)">
                                 </div>
 
                                 <div class="col-md-3"><br>
@@ -261,7 +261,15 @@ if ($this_subpage=="promociones_autos") { $promociones_autos="active"; } else{ $
                 <!-- Modal de edicion de inventarios versiones -->
         </div>
     </section>
-
+<style>
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0; 
+    }
+</style>
 <script>
     function save(){
         var imagen_titulo = document.getElementById('imagen_titulo').value;
@@ -420,11 +428,12 @@ if ($this_subpage=="promociones_autos") { $promociones_autos="active"; } else{ $
   }
 
   function validate_quantity(event) {
-    if (event.target.value >= 0 && event.target.value <= 1000000) {
+    if (event.target.value >= 1 && event.target.value <= 1000000) {
         console.log(event.target.value);
         
         return true;
     }
+    event.target.value = '';
     return false;
     
   }
