@@ -26,7 +26,7 @@ if ($versiones->num_rows > 0) {
     }
 }
 var_dump($vers);
-foreach ($vers as $key => $value) {
+/* foreach ($vers as $key => $value) {
     $params = base64_encode(json_encode($value));
     $lista_versiones.='<div class="card" >' +
                         '<div class="card-body" >' +
@@ -40,7 +40,7 @@ foreach ($vers as $key => $value) {
                             '<a onclick="modalEditar(\''.$value["version"].'\')" style="display: flex; align-items: center; justify-content: center;" class="btn btn-primary" >Editar </a>' +
                         '</div>' +
                     '</div>';
-}
+} */
 ?>
 
 <!DOCTYPE html>
