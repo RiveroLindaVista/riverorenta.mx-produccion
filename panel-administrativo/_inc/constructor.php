@@ -1914,6 +1914,14 @@ public function get_lista_versiones_nissan($modelo, $ano){
   $conn=new Conexion();
   $result=$conn->query_lista_versiones_nissan($modelo, $ano);
 
+  if ($result) {
+    while ($row = $result->fetch_assoc()) {
+        $out[]=array_map("utf8_encode", $row);
+    }
+} 
+$conn=Database::close();
+return  $result;
+
 /*     for($i=0;$i<count($consulta);$i++){
         $lista_versiones.='<div class="card" >' +
                             '<div class="card-body" >' +
@@ -1929,13 +1937,7 @@ public function get_lista_versiones_nissan($modelo, $ano){
                         '</div>';
       } */
 
-      if ($result) {
-          while ($row = $result->fetch_assoc()) {
-              $out[]=array_map("utf8_encode", $row);
-          }
-      } 
-    $conn=Database::close();
-  return  $out;
+
 }
 
 
