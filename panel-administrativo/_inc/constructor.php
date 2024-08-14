@@ -1913,7 +1913,7 @@ public function get_lista_colores(){
 public function get_lista_versiones_nissan($modelo, $ano){
   $conn=new Conexion();
   $consulta= $conn->query_lista_versiones_nissan($modelo, $ano);
-
+return $consulta;
     for($i=0;$i<count($consulta);$i++){
         $lista_versiones.='<div class="card" >' +
                             '<div class="card-body" >' +
@@ -1929,7 +1929,7 @@ public function get_lista_versiones_nissan($modelo, $ano){
                         '</div>';
       }
   
-  echo json_encode($lista_versiones);
+
   $conn->close();
 }
 
