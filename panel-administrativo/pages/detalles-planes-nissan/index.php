@@ -16,7 +16,7 @@ if ($resultQuery->num_rows > 0) {
     }
 }
 
-//var_dump($auto);
+var_dump($auto);
 
 echo $auto[0]["modelo"];
 
