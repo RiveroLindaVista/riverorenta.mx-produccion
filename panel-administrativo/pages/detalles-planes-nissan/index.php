@@ -16,11 +16,12 @@ if ($resultQuery->num_rows > 0) {
     }
 }
 
-var_dump($auto);
+
 
 //echo $auto[0]["modelo"];
 
 $versiones = $conne->get_lista_versiones_nissan($auto["modelo"], $auto["ano"]);
+var_dump($versiones);
 foreach ($versiones as $key => $value) {
     $params = base64_encode(json_encode($value));
     $lista_versiones.='<div class="card" >' +
