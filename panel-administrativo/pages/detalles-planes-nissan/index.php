@@ -23,5 +23,21 @@ if ($resultQuery->num_rows > 0) {
 
 $versiones = $conne->get_lista_versiones_nissan($auto["modelo"], $auto["ano"]);
 var_dump($versiones);
+foreach ($versiones as $key => $value) {
+    $params = base64_encode(json_encode($value));
+    $lista_versiones.='<div class="card" >' +
+                        '<div class="card-body" >' +
+                            '<h3 style="display: flex; align-items: center; justify-content: center;" class="card-title">'.$value["version"].'</h3><hr/>' +
+                            '<h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">ENGANCHE:</h5>' +
+                            '<input class="form-control" style="width: 100%" type="text" id="enganche_'.$value["version"].'" hidden>'+
+                            '<h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">MENSUALIDAD:</h5>' +
+                            '<input class="form-control" style="width: 100%" type="text" id="mensualidad_'.$value["version"].'" hidden>'+
+                            '<h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">PRECIO CONTADO: '.$value["precio"].'</h5>' +
+                            '<input class="form-control" style="width: 100%" type="text" id="precio_'.$value["version"].'" value="'.$value["precio"].'" hidden>'+
+                            '<a onclick="modalEditar(\''.$value["version"].'\')" style="display: flex; align-items: center; justify-content: center;" class="btn btn-primary" >Editar </a>' +
+                        '</div>' +
+                    '</div>';
+}
 
+echo $lista_versiones;
 ?>
