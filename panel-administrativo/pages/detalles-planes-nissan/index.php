@@ -22,7 +22,7 @@ var_dump($auto);
 
 
 $versiones = $conne->get_lista_versiones_nissan($auto["modelo"], $auto["ano"]);
-//var_dump($versiones);
+var_dump($versiones);
 ?>
 
 <h5>Hola</h5>
