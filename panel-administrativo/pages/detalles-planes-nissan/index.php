@@ -22,7 +22,7 @@ if ($resultQuery->num_rows > 0) {
 
 
 $versiones = $conne->get_lista_versiones_nissan($auto["modelo"], $auto["ano"]);
-var_dump($versiones);
+
 
 ?>
 
