@@ -1929,7 +1929,7 @@ public function get_lista_versiones_nissan($modelo, $ano){
                         '</div>';
       }
   
-  return  $lista_versiones;
+  echo json_encode($lista_versiones);
   $conn->close();
 }
 
