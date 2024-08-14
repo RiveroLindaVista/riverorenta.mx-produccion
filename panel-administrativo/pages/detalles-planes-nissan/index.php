@@ -6,7 +6,7 @@ $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DB);
 
 $conne = new Construir();
 // $marcas = $conne->get_lista_marcas();
-
+echo $_GET["id"];
 
 $sql = 'SELECT * FROM catalogo WHERE id="' . $_GET["id"] . '"';
 $resultQuery = $conn->query($sql);
