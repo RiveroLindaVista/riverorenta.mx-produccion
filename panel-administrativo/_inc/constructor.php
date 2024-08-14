@@ -1912,9 +1912,9 @@ public function get_lista_colores(){
 
 public function get_lista_versiones_nissan($modelo, $ano){
   $conn=new Conexion();
-  $consulta= $conn->query_lista_versiones_nissan($modelo, $ano);
+  $result=$conn->query_lista_versiones_nissan($modelo, $ano);
 
-    for($i=0;$i<count($consulta);$i++){
+/*     for($i=0;$i<count($consulta);$i++){
         $lista_versiones.='<div class="card" >' +
                             '<div class="card-body" >' +
                                 '<h3 style="display: flex; align-items: center; justify-content: center;" class="card-title">'.$consulta[$i]["version"].'</h3><hr/>' +
@@ -1927,10 +1927,15 @@ public function get_lista_versiones_nissan($modelo, $ano){
                                 '<a onclick="modalEditar(\''.$consulta[$i]["version"].'\')" style="display: flex; align-items: center; justify-content: center;" class="btn btn-primary" >Editar </a>' +
                             '</div>' +
                         '</div>';
-      }
-  
-  return  $lista_versiones;
-  $conn->close();
+      } */
+
+      if ($result) {
+          while ($row = $result->fetch_assoc()) {
+              $out[]=array_map("utf8_encode", $row);
+          }
+      } 
+    $conn=Database::close();
+  return  $out;
 }
 
 
