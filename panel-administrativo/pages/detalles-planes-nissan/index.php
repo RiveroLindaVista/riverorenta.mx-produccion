@@ -19,9 +19,9 @@ if ($resultQuery->num_rows > 0) {
 //echo $auto[0]["modelo"];
 
 $sqlVersiones = 'SELECT t1.version , t2.precio FROM versiones t1 LEFT JOIN catalogo t2 ON t1.tipo=t2.tipo WHERE t2.modelo="'.$auto["modelo"].'" AND t2.ano="'.$auto["ano"].'" group BY t1.version order BY t2.precio';
-$versiones = $conn->query($sqlVersiones);
+/* $versiones = $conn->query($sqlVersiones);
 
-var_dump($versiones);
+var_dump($versiones); */
 /* foreach ($vers as $key => $value) {
     $params = base64_encode(json_encode($value));
     $lista_versiones.='<div class="card" >' +
