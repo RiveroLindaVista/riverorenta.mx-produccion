@@ -16,7 +16,7 @@ if ($resultQuery->num_rows > 0) {
     }
 }
 
-var_dump($resultQuery);
+var_dump($auto);
 
 echo ' - ';
 
