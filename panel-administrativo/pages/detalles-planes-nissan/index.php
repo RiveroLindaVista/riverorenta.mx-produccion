@@ -18,7 +18,7 @@ if ($resultQuery->num_rows > 0) {
 
 //echo $auto[0]["modelo"];
 
-$sqlVersiones = $conne->get_lista_versiones_nissan($auto["modelo"], $auto["ano"]);
+$sqlVersiones = 'SELECT t1.version , t2.precio FROM versiones t1 LEFT JOIN catalogo t2 ON t1.tipo=t2.tipo WHERE t2.modelo="'.$auto["modelo"].'" AND t2.ano="'.$auto["ano"].'" group BY t1.version order BY t2.precio';
 $versiones = $conn->query($sqlVersiones);
 if ($versiones->num_rows > 0) {
     while ($row = $versiones->fetch_assoc()) {
