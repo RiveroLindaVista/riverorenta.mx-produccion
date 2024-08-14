@@ -6,7 +6,7 @@ $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DB);
 
 $conne = new Construir();
 // $marcas = $conne->get_lista_marcas();
-echo $_GET["id"];
+//echo $_GET["id"];
 
 $sql = 'SELECT * FROM catalogo WHERE id="' . $_GET["id"] . '"';
 $resultQuery = $conn->query($sql);
@@ -18,7 +18,7 @@ if ($resultQuery->num_rows > 0) {
 
 var_dump($auto);
 
-echo $auto[0]["modelo"];
+//echo $auto[0]["modelo"];
 
 
 $versiones = $conne->get_lista_versiones_nissan($auto[0]["modelo"], $auto[0]["ano"]);
