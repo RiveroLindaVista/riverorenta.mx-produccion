@@ -138,8 +138,15 @@ if(!isset($_SESSION["usuario"])){
                     <?php } ?>
                     <li class="<?= $codigos_qr;?>">
                         <a href="<?=URLP?>pages/codigos-qr" class="">
-                            <i class="material-icons">select_all</i>
+                            <i class="material-icons">data_check</i>
                             <span>Códigos QR</span>
+                        </a>
+                    </li>
+
+                    <li class="<?= $planes_nissan;?>">
+                        <a href="<?=URLP?>pages/planes-nissan" class="">
+                            <i class="material-icons">data_check</i>
+                            <span>Planes Nissan</span>
                         </a>
                     </li>
                     <!--<li>
