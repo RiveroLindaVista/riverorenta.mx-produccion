@@ -18,9 +18,9 @@ if ($resultQuery->num_rows > 0) {
 
 //var_dump($auto);
 
-echo $auto[0]["modelo"] ,' - ';
+echo $auto[0]["modelo"];
 
 
 $versiones = $conne->get_lista_versiones_nissan($auto[0]["modelo"], $auto[0]["ano"]);
-var_dump($versiones);
+//var_dump($versiones);
 ?>
