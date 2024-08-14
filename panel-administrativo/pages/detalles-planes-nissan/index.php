@@ -22,5 +22,5 @@ echo ' - ';
 
 
 $versiones = $conne->get_lista_versiones_nissan($auto[0]["modelo"], $auto[0]["ano"]);
-
+var_dump($version);
 ?>
