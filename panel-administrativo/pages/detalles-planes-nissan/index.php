@@ -89,6 +89,7 @@ foreach ($versiones as $key => $value) {
         <div class="container-fluid">
             <hr/>
             <div>
+                <h2>HOLA</h2>
                 <?= $lista_versiones; ?>
             </div>
         </div>
