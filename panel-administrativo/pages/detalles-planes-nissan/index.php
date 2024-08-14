@@ -39,5 +39,5 @@ foreach ($versiones as $key => $value) {
                     '</div>';
 }
 
-echo $lista_versiones;
+print_r($lista_versiones);
 ?>
