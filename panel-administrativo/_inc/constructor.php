@@ -1910,9 +1910,9 @@ public function get_lista_colores(){
   $conn->close();
 }
 
-public function get_lista_versiones_nissan(){
+public function get_lista_versiones_nissan($modelo, $ano){
   $conn=new Conexion();
-  $consulta= $conn->query_lista_versiones_nissan();
+  $consulta= $conn->query_lista_versiones_nissan($modelo, $ano);
 
     for($i=0;$i<count($consulta);$i++){
         $lista_versiones.='<div class="card" >' +
