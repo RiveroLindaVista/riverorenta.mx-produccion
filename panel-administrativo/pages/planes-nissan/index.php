@@ -8,7 +8,7 @@
 	if ($this_subpage=="nuevos") { $nuevos="active"; } else{ $nuevos="active"; }
 
 	$conn = new mysqli(DB_HOST, DB_USER,DB_PASSWORD, DB_DB);
-	$sql = 'SELECT * FROM catalogo WHERE ano IN("2022","2023","2024","2025") AND marca="NISSAN" GROUP BY modelo,ano ORDER BY modelo desc';
+	$sql = 'SELECT * FROM catalogo WHERE ano IN("2022","2023","2024","2025") AND marca="NISSAN" GROUP BY modelo,ano ORDER BY modelo asc';
 	$resultQuery = $conn->query($sql);
 	if ($resultQuery->num_rows > 0) {
 	   while($row = $resultQuery->fetch_assoc()) {
