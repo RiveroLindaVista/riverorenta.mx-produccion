@@ -2,7 +2,7 @@
 include ("../../_inc/_config.php");
 
 $conn = new mysqli(DB_HOST, DB_USER,DB_PASSWORD, DB_DB);
-
+echo '1';
 if (count($_POST)) {
     $query = 'SELECT * FROM planes_nissan WHERE modelo="'.$_POST["modelo"].'" and version="'.$_POST["version"].'" and ano="'.$_POST["ano"].'"';
 	$conn->query($query);
