@@ -3,7 +3,7 @@ include("../../_inc/conexion.php");
 include("../../_inc/consultas.php");
 
 $conn=new Conexion();
-echo '1';
+echo $_POST;
 /* 
 $query = 'SELECT * FROM planes_nissan WHERE modelo="'.$_POST["modelo"].'" and version="'.$_POST["version"].'" and ano="'.$_POST["ano"].'"';
 $result=$conn->query($sql);
