@@ -175,8 +175,8 @@ for($i=0;$i<count($versiones);$i++){
                 dataType: 'json',
                 url: 'update_plan.php',
                 success: function(res) {
-                        console.log(res);
-                        location.reload(true);
+                    console.log(res);
+                    location.reload(true);
                 }
 
             });
