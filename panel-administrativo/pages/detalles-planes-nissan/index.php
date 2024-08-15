@@ -140,7 +140,7 @@ for($i=0;$i<count($versiones);$i++){
 
     <script>
 
-        async function modalEditar(version, enganche, mensualidad, tipo, modelo, ano) {
+       function modalEditar(version, enganche, mensualidad, tipo, modelo, ano) {
 
             console.log(version,enganche,mensualidad,modelo,ano);
             $("#modal-edit-plan").modal('show');
@@ -168,14 +168,14 @@ for($i=0;$i<count($versiones);$i++){
                 modelo:modelo,
                 ano: ano,
             }
-console.log(params);
+
             $.ajax({
                 data: params,
                 type: 'POST',
                 dataType: 'json',
                 url: 'update_plan.php',
                 success: function(res) {
-                    console.log(res);
+                    console.log('JALA');
                     location.reload(true);
                 }
 
