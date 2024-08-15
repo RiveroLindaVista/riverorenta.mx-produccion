@@ -175,8 +175,11 @@ for($i=0;$i<count($versiones);$i++){
                 dataType: 'json',
                 url: 'update_plan.php',
                 success: function(res) {
-                    console.log('JALA');
-                    location.reload(true);
+                    if (res){
+                        console.log('JALA');
+                        location.reload(true);
+                    }
+
                 }
 
             });
