@@ -1,6 +1,7 @@
 <?php
 include("../../_inc/conexion.php");
 include("../../_inc/consultas.php");
+require_once("../../_inc/_config.php");
 
 $conn=new Conexion();
 //var_dump($_POST);
