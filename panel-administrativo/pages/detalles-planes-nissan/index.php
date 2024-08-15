@@ -42,7 +42,6 @@ for($i=0;$i<count($versiones);$i++){
                         </div>';
 }
 
-print_r($lista_versiones);
 ?>
 
 
