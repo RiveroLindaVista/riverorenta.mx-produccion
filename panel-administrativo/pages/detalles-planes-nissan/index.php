@@ -32,7 +32,7 @@ for($i=0;$i<count($versiones);$i++){
                                     <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">ENGANCHE: $ '.money_format('%.2n',$versiones[$i]["enganche"]).'</h5>
                                     <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">MENSUALIDAD: $ '.money_format('%.2n',$versiones[$i]["mensualidad"]).' </h5>
                                     <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">PRECIO CONTADO: '.money_format('%.2n',$versiones[$i]["precio"]).'</h5>
-                                    <a onclick="modalEditar(\''.$versiones[$i]["version"].'\',\''.$versiones[$i]["enganche"].'\',\''.$versiones[$i]["mensualidad"].'\',\''.$auto["ano"].'\')" style="display: flex; align-items: center; justify-content: center;color:white;" class="btn btn-danger" >Editar </a>
+                                    <a onclick="modalEditar(\''.$versiones[$i]["version"].'\',\''.$versiones[$i]["enganche"].'\',\''.$versiones[$i]["mensualidad"].'\',\''.$auto["modelo"].'\',\''.$auto["ano"].'\')" style="display: flex; align-items: center; justify-content: center;color:white;" class="btn btn-danger" >Editar </a>
                                 </div>
                             </div>
                         </div>';
@@ -138,9 +138,9 @@ for($i=0;$i<count($versiones);$i++){
 
     <script>
 
-        async function modalEditar(version, enganche, mensualidad, ano) {
+        async function modalEditar(version, enganche, mensualidad, modelo, ano) {
 
-            console.log(version,enganche,mensualidad,ano);
+            console.log(version,enganche,mensualidad,modelo,ano);
             $("#modal-edit-plan").modal('show');
             $("#idVersion").val(version);
             $("#enganche").val(enganche);
@@ -152,12 +152,14 @@ for($i=0;$i<count($versiones);$i++){
             let version = $("#idVersion").val();
             let enganche = $("#enganche").val();
             let mensualidad = $("#mensualidad").val();
+            let modelo = $("#modelo").val();
             let ano = $("#ano").val();
 
             let params = {
                 version: version,
                 enganche: enganche,
                 mensualidad: mensualidad,
+                modelo:modelo,
                 ano: ano,
             }
 console.log(params);
