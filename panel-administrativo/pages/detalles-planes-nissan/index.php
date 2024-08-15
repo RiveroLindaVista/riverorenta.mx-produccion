@@ -91,7 +91,7 @@ for($i=0;$i<count($versiones);$i++){
     <section class="content">
         <div class="container-fluid">
             <div class="row clearfix">
-                <h2> <?= $auto["modelo"]?> - <?=$auto["ano"]?></h2>
+                <h2 style="text-align:center"> <?= $auto["modelo"]?> - <?=$auto["ano"]?></h2>
 
                 <hr/>
 
@@ -128,7 +128,7 @@ for($i=0;$i<count($versiones);$i++){
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary" onclick="update_plan()">Guardar cambios</button>
+                        <button type="button" class="btn btn-primary" onclick="guardarPlan()">Guardar cambios</button>
                     </div>
                 </div>
             </div>
@@ -148,34 +148,32 @@ for($i=0;$i<count($versiones);$i++){
             $("#ano").val(ano);
         }
 
-        function update_invver() {
-            let ctrl_id = $("#ctrl-id").val();
-            let ctrl_metavalue = $("#ctrl-metavalue").val();
-            let ctrl_icono = $("#ctrl_icono").val();
-            let ctrl_orden = $("#ctrl-orden").val();
+        function guardarPlan() {
+            let version = $("#idVersion").val();
+            let enganche = $("#enganche").val();
+            let mensualidad = $("#mensualidad").val();
+            let ano = $("#ano").val();
 
             let params = {
-                func: 'update_invver',
-                id: ctrl_id,
-                metavalue: ctrl_metavalue,
-                icono: ctrl_icono,
-                orden: ctrl_orden
+                version: version,
+                enganche: enganche,
+                mensualidad: mensualidad,
+                ano: ano
             }
 
             $.ajax({
                 data: params,
                 type: 'POST',
                 dataType: 'json',
-                url: 'get_inventario_versiones.php',
+                url: 'update_plan.php',
                 success: function(res) {
                     console.log(res);
-                    if (res['error']) {
+/*                     if (res['error']) {
                         alert('error');
                     } else {
                         alert('guardado');
-                    }
-                    $("#modal-edit-invver").modal('show');
-                    change_tbl_inv_versiones();
+                    } */
+                    //$("#modal-edit-plan").modal('hide');
                 }
 
             });
