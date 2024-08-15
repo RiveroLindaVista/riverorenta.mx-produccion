@@ -27,22 +27,19 @@ for($i=0;$i<count($versiones);$i++){
     echo $versiones[$i]["version"];
     $params = base64_encode(json_encode($value));
     $lista_versiones.=  '<div class="col-md-4 col-sm-12 col-12">
-                            <div class="card" >
+                            <div class="card p-2" >
                                 <div class="card-body">
                                     <h3 style="display: flex; align-items: center; justify-content: center;" class="card-title">'.$versiones[$i]["version"].'</h3><hr/>
-                                    <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">ENGANCHE:</h5>
-                                    <input class="form-control" style="width: 100%" type="text" id="enganche_'.$versiones[$i]["version"].'" value="'.$versiones[$i]["enganche"].'" hidden>
-                                    <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">MENSUALIDAD:</h5>
-                                    <input class="form-control" style="width: 100%" type="text" id="mensualidad_'.$versiones[$i]["version"].'" value="'.$versiones[$i]["mensualidad"].'" hidden>
-                                    <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">PRECIO CONTADO: '.money_format('%(#10n',$versiones[$i]["precio"]).'</h5>
-                                    <a onclick="modalEditar(\''.$versiones[$i]["version"].'\',\''.$versiones[$i]["enganche"].'\',\''.$versiones[$i]["mensualidad"].'\')" style="display: flex; align-items: center; justify-content: center;" class="btn btn-primary" >Editar </a>
+                                    <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">ENGANCHE: $ '.money_format('%.2n',$versiones[$i]["enganche"]).'</h5>
+                                    <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">MENSUALIDAD: $ '.money_format('%.2n',$versiones[$i]["mensualidad"]).' </h5>
+                                    <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">PRECIO CONTADO: '.money_format('%.2n',$versiones[$i]["precio"]).'</h5>
+                                    <a onclick="modalEditar(\''.$versiones[$i]["version"].'\',\''.$versiones[$i]["enganche"].'\',\''.$versiones[$i]["mensualidad"].'\',\''.$auto["ano"].'\')" style="display: flex; align-items: center; justify-content: center;color:white;" class="btn btn-danger" >Editar </a>
                                 </div>
                             </div>
                         </div>';
 }
 
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -141,15 +138,14 @@ for($i=0;$i<count($versiones);$i++){
 
     <script>
 
-        async function modalEditar(version, enganche, mensualidad) {
+        async function modalEditar(version, enganche, mensualidad, ano) {
 
             console.log(version,enganche,mensualidad);
             $("#modal-edit-plan").modal('show');
-
-/*             $("#ctrl-id").val(paramobjt1['id']);
-            $("#ctrl-metavalue").val(paramobjt1['metavalue']);
-            $("#ctrl_icono").val(paramobjt1['icono']).change();
-            $("#ctrl-orden").val(paramobjt1['orden']); */
+            $("#idVersion").val(version);
+            $("#enganche").val(enganche);
+            $("#mensualidad").val(mensualidad);
+            $("#ano").val(ano);
         }
 
         function update_invver() {
