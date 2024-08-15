@@ -176,12 +176,7 @@ console.log(params);
                 url: 'update_plan.php',
                 success: function(res) {
                     console.log(res);
-/*                     if (res['error']) {
-                        alert('error');
-                    } else {
-                        alert('guardado');
-                    } */
-                    location.reload();
+                    location.reload(true);
                 }
 
             });
