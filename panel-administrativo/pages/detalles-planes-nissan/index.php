@@ -158,9 +158,9 @@ for($i=0;$i<count($versiones);$i++){
                 version: version,
                 enganche: enganche,
                 mensualidad: mensualidad,
-                ano: ano
+                ano: ano,
             }
-
+console.log(params);
             $.ajax({
                 data: params,
                 type: 'POST',
