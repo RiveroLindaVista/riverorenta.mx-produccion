@@ -27,8 +27,8 @@ for($i=0;$i<count($versiones);$i++){
     echo $versiones[$i]["version"];
     $params = base64_encode(json_encode($value));
     $lista_versiones.=  '<div class="col-md-4 col-sm-12 col-12">
-                            <div class="card p-2" >
-                                <div class="card-body">
+                            <div class="card" >
+                                <div class="card-body" style="padding:5px;">
                                     <h3 style="display: flex; align-items: center; justify-content: center;" class="card-title">'.$versiones[$i]["version"].'</h3><hr/>
                                     <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">ENGANCHE: $ '.money_format('%.2n',$versiones[$i]["enganche"]).'</h5>
                                     <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">MENSUALIDAD: $ '.money_format('%.2n',$versiones[$i]["mensualidad"]).' </h5>
