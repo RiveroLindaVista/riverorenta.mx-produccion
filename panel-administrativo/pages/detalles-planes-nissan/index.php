@@ -181,7 +181,7 @@ console.log(params);
                     } else {
                         alert('guardado');
                     } */
-                    locatio.reload();
+                    location.reload();
                 }
 
             });
