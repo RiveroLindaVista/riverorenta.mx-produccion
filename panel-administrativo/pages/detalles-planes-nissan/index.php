@@ -24,7 +24,6 @@ if ($resultQuery->num_rows > 0) {
 $versiones = $conne->get_lista_versiones_nissan($auto["modelo"], $auto["ano"]);
 //var_dump($versiones);
 for($i=0;$i<count($versiones);$i++){
-    echo $versiones[$i]["version"];
     $params = base64_encode(json_encode($value));
     $lista_versiones.=  '<div class="col-md-4 col-sm-12 col-12">
                             <div class="card" >
@@ -141,7 +140,7 @@ for($i=0;$i<count($versiones);$i++){
 
         async function modalEditar(version, enganche, mensualidad, ano) {
 
-            console.log(version,enganche,mensualidad);
+            console.log(version,enganche,mensualidad,ano);
             $("#modal-edit-plan").modal('show');
             $("#idVersion").val(version);
             $("#enganche").val(enganche);
