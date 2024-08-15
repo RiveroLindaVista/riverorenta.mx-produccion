@@ -24,7 +24,7 @@ if($auto){
     $queryInsert = 'INSERT INTO planes_nissan (slug,marca,modelo,version,tipo,ano,mensualidad,enganche) VALUES("'.$slug.'","NISSAN","'.$_POST["modelo"].'","'.$_POST["version"].'","'.$_POST["tipo"].'","'.$_POST["ano"].'","'.$_POST["mensualidad"].'","'.$_POST["enganche"].'")';
 	$conn->query($queryInsert);
 }
-echo json_encode('POPO');
+echo json_encode('OK');
 $conn->close();
 
 ?>
