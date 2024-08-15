@@ -140,7 +140,7 @@ for($i=0;$i<count($versiones);$i++){
 
     <script>
 
-        async function modalEditar(version, enganche, mensualidad, modelo, ano) {
+        async function modalEditar(version, enganche, mensualidad, tipo, modelo, ano) {
 
             console.log(version,enganche,mensualidad,modelo,ano);
             $("#modal-edit-plan").modal('show');
