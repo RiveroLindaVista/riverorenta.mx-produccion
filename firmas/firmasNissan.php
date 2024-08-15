@@ -329,11 +329,11 @@ include("header.php");
                 if (sucursalSelect.value === 'contry') {
 
                     divTextoSucursal.innerHTML = "<p>" +
-                        "Av. Eugenio Garza Sada No. 600 Sur Monterrey, NUEVO LEÓN 64740" +
+                        "Av. Eugenio Garza Sada 3800, Col. Mas Palomas C.P. 64780 Monterrey N.L." +
                         "</p>";
 
                     divTextoSucursalDos.innerHTML = "<p>" +
-                        "Av. Eugenio Garza Sada No. 600 Sur Monterrey, NUEVO LEÓN 64740" +
+                        "Av. Eugenio Garza Sada 3800, Col. Mas Palomas C.P. 64780 Monterrey N.L." +
                         "</p>";
 
                 } else if (sucursalSelect.value === 'lasTorres') {
