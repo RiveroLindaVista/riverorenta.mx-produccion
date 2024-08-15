@@ -1913,23 +1913,7 @@ public function get_lista_colores(){
 public function get_lista_versiones_nissan($modelo, $ano){
   $conn=new Conexion();
   $consulta= $conn->query_lista_versiones_nissan($modelo, $ano);
-return $consulta;
-    for($i=0;$i<count($consulta);$i++){
-        $lista_versiones.='<div class="card" >' +
-                            '<div class="card-body" >' +
-                                '<h3 style="display: flex; align-items: center; justify-content: center;" class="card-title">'.$consulta[$i]["version"].'</h3><hr/>' +
-                                '<h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">ENGANCHE:</h5>' +
-                                '<input class="form-control" style="width: 100%" type="text" id="enganche_'.$consulta[$i]["version"].'" hidden>'+
-                                '<h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">MENSUALIDAD:</h5>' +
-                                '<input class="form-control" style="width: 100%" type="text" id="mensualidad_'.$consulta[$i]["version"].'" hidden>'+
-                                '<h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">PRECIO CONTADO: '.$consulta[$i]["precio"].'</h5>' +
-                                '<input class="form-control" style="width: 100%" type="text" id="precio_'.$consulta[$i]["version"].'" value="'.$consulta[$i]["precio"].'" hidden>'+
-                                '<a onclick="modalEditar(\''.$consulta[$i]["version"].'\')" style="display: flex; align-items: center; justify-content: center;" class="btn btn-primary" >Editar </a>' +
-                            '</div>' +
-                        '</div>';
-      }
-  
-
+  return $consulta;
   $conn->close();
 }
 

@@ -31,11 +31,10 @@ for($i=0;$i<count($versiones);$i++){
                                 <div class="card-body">
                                     <h3 style="display: flex; align-items: center; justify-content: center;" class="card-title">'.$versiones[$i]["version"].'</h3><hr/>
                                     <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">ENGANCHE:</h5>
-                                    <input class="form-control" style="width: 100%" type="text" id="enganche_'.$versiones[$i]["version"].'" hidden>
+                                    <input class="form-control" style="width: 100%" type="text" id="enganche_'.$versiones[$i]["version"].'" value="'.$versiones[$i]["enganche"].'" hidden>
                                     <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">MENSUALIDAD:</h5>
-                                    <input class="form-control" style="width: 100%" type="text" id="mensualidad_'.$versiones[$i]["version"].'" hidden>
-                                    <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">PRECIO CONTADO: '.$versiones[$i]["precio"].'</h5>
-                                    <input class="form-control" style="width: 100%" type="text" id="precio_'.$versiones[$i]["version"].'" value="'.$versiones[$i]["precio"].'" hidden>
+                                    <input class="form-control" style="width: 100%" type="text" id="mensualidad_'.$versiones[$i]["version"].'" value="'.$versiones[$i]["mensualidad"].'" hidden>
+                                    <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">PRECIO CONTADO: '.money_format('%(#10n',$versiones[$i]["precio"]).'</h5>
                                     <a onclick="modalEditar(\''.$versiones[$i]["version"].'\')" style="display: flex; align-items: center; justify-content: center;" class="btn btn-primary" >Editar </a>
                                 </div>
                             </div>
@@ -92,10 +91,10 @@ for($i=0;$i<count($versiones);$i++){
         <!-- #END# Right Sidebar -->
     </section>
 
-    <section class="content p-3">
+    <section class="content">
         <div class="container-fluid">
             <div class="row clearfix">
-                <h2> <?= $auto["modelo"] ?></h2>
+                <h2> <?= $auto["modelo"]?> - <?=$auto["ano"]?></h2>
 
                 <hr/>
 
@@ -106,8 +105,99 @@ for($i=0;$i<count($versiones);$i++){
         </div>
     </section>
 
-        <!-- Jquery Core Js -->
-        <script src="../../plugins/jquery/jquery.min.js"></script>
+     <!-- Modal de edicion de inventarios versiones -->
+    <div class="modal fade bs-example-modal-lg" id="modal-edit-plan" name="modal-edit-plan" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="tituloModal">Versiones</h4>
+                </div>
+                    <div class="modal-body">
+                        <div>
+                            <div>
+                                <input id="idVersion" type="hidden">
+                            </div>
+                            <div>
+                                <label for="">Enganche</label>
+                                <input id="enganche" class="form-control" type="text">
+                            </div>
+                            <div>
+                                <label for="">Mensualidad</label>
+                                <input id="mensualidad" class="form-control" type="text">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" onclick="update_plan()">Guardar cambios</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+
+        async function open_modal_edit_invver(paramobj) {
+            let paramobjt1 = JSON.parse(atob(paramobj));
+
+            await change_select_icons('ctrl_icono');
+            console.log(paramobjt1['icono']);
+            $("#modal-edit-invver").modal('show');
+
+            $("#ctrl-id").val(paramobjt1['id']);
+            $("#ctrl-metavalue").val(paramobjt1['metavalue']);
+            // $("#ctrl_icono").find('option : selected');
+            $("#ctrl_icono").val(paramobjt1['icono']).change();
+            // $('#ctrl_icono option[text="volante"]').attr(selected, true);
+            // let volante  = 'volante';
+            // $('#ctrl_icono').val(volante);
+            // $('#ctrl_icono option[value="volante"]').prop("selected", true);
+            // console.log($('#ctrl_icono').find(':selected').val());
+            // console.log($("#ctrl_icono").val());
+            $("#ctrl-orden").val(paramobjt1['orden']);
+        }
+
+        function update_invver() {
+            let ctrl_id = $("#ctrl-id").val();
+            let ctrl_metavalue = $("#ctrl-metavalue").val();
+            let ctrl_icono = $("#ctrl_icono").val();
+            let ctrl_orden = $("#ctrl-orden").val();
+
+            let params = {
+                func: 'update_invver',
+                id: ctrl_id,
+                metavalue: ctrl_metavalue,
+                icono: ctrl_icono,
+                orden: ctrl_orden
+            }
+
+            $.ajax({
+                data: params,
+                type: 'POST',
+                dataType: 'json',
+                url: 'get_inventario_versiones.php',
+                success: function(res) {
+                    console.log(res);
+                    if (res['error']) {
+                        alert('error');
+                    } else {
+                        alert('guardado');
+                    }
+                    $("#modal-edit-invver").modal('show');
+                    change_tbl_inv_versiones();
+                }
+
+            });
+
+        }
+    </script>
+
+<!-- Jquery Core Js -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
 
 <!-- Bootstrap Core Js -->
 <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
