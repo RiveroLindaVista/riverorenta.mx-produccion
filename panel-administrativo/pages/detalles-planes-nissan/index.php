@@ -93,7 +93,7 @@ print_r($lista_versiones);
         <!-- #END# Right Sidebar -->
     </section>
 
-    <section class="content">
+    <section class="content p-3">
         <div class="container-fluid">
             <div class="row clearfix">
                 <h2> <?= $auto["modelo"] ?></h2>
