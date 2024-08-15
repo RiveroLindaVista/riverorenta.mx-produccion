@@ -44,3 +44,63 @@ for($i=0;$i<count($versiones);$i++){
 
 print_r($lista_versiones);
 ?>
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <?php include('../../_inc/_header.php'); ?>
+    <link rel='icon' type='image/png' href='https://www.gruporivero.com/assets/img/commun/gporiv.png' />
+    <!--link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/-->
+    <link rel='shortcut icon' type='image/png' href='https://www.gruporivero.com/assets/img/commun/gporiv.png' />
+
+    <!-- JQuery DataTable Css -->
+    <link href="../../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- Bootstrap Core Css -->
+    <link href="../../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- JQuery DataTable Css -->
+    <link href="../../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- Custom Css -->
+    <link href="../../css/style.css" rel="stylesheet">
+
+    <!-- Sweetalert Css -->
+    <link href="../../plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="../../css/themes/all-themes.css" rel="stylesheet" />
+
+    <!-- Bootstrap Select Css -->
+    <!-- <link href="../../plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet"> -->
+
+
+</head>
+
+<body class="theme-blue">
+    <!-- #Top Bar -->
+    <?php include('../../_inc/_search-bar.php'); ?>
+    <!-- #Menu -->
+    <section>
+        <?php include('../../_inc/_menu.php'); ?>
+        <!-- #END# Left Sidebar -->
+        <!-- Right Sidebar -->
+        <? //include('../../_inc/_gadgets.php');
+        ?>
+        <!-- #END# Right Sidebar -->
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <h2> <?= $auto["modelo"] ?></h2>
+
+            <hr/>
+
+            <div>
+                <?= $lista_versiones; ?>
+            </div>
+        </div>
+    </section>
