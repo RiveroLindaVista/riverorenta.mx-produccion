@@ -114,6 +114,7 @@ for($i=0;$i<count($versiones);$i++){
                             <div>
                                 <input id="idVersion" type="hidden">
                                 <input id="ano" type="hidden">
+                                <input id="modelo" type="hidden">
                             </div>
                             <div>
                                 <label for="">Enganche</label>
@@ -145,6 +146,7 @@ for($i=0;$i<count($versiones);$i++){
             $("#idVersion").val(version);
             $("#enganche").val(enganche);
             $("#mensualidad").val(mensualidad);
+            $("#modelo").val(modelo);
             $("#ano").val(ano);
         }
 
