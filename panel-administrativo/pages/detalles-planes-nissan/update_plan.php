@@ -15,7 +15,7 @@ if ($resultQuery->num_rows > 0) {
     }
 }
 
-echo $auto;
+var_dump($auto);
 
 /*     $query = "INSERT INTO accesorios (auto,num_inventario,descripcion,tiempo_instalacion,precio,status,instalacion,categoria) VALUES('$ano','$modelo','$tecnologia','$tipo')";
 	$conn->query($query); */
