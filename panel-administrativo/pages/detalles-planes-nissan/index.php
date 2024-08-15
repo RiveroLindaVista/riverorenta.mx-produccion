@@ -95,12 +95,14 @@ print_r($lista_versiones);
 
     <section class="content">
         <div class="container-fluid">
-            <h2> <?= $auto["modelo"] ?></h2>
+            <div class="row clearfix">
+                <h2> <?= $auto["modelo"] ?></h2>
 
-            <hr/>
+                <hr/>
 
-            <div>
-                <?= $lista_versiones; ?>
+                <div>
+                    <?= $lista_versiones; ?>
+                </div>
             </div>
         </div>
     </section>
