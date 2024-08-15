@@ -15,7 +15,7 @@
 	   		$nuevosCadena.='<tr onclick="gopage(\''.$row["id"].'\')">';
             $nuevosCadena.='<td>'.$row["modelo"].'</td>';
             $nuevosCadena.='<td>'.$row["ano"].'</td>';
-            $nuevosCadena.='<td><input class="btn" style="border-radius: 7px;background-color:#d40028;color:white;" value="Ver Planes"></td>';
+            $nuevosCadena.='<td><input class="btn" type="button" style="border-radius: 7px;background-color:#d40028;color:white;" value="Ver Planes"></td>';
             $nuevosCadena.='</tr>';
 	   }
 
