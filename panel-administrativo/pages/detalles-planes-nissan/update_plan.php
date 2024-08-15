@@ -4,7 +4,7 @@ include("../../_inc/consultas.php");
 
 $conn=new Conexion();
 echo '1';
-
+/* 
 $query = 'SELECT * FROM planes_nissan WHERE modelo="'.$_POST["modelo"].'" and version="'.$_POST["version"].'" and ano="'.$_POST["ano"].'"';
 $result=$conn->query($sql);
 if ($result) {
@@ -12,11 +12,11 @@ if ($result) {
         $out[]=$row;
     }
     echo json_encode($out);
-}
+} */
 
 /*     $query = "INSERT INTO accesorios (auto,num_inventario,descripcion,tiempo_instalacion,precio,status,instalacion,categoria) VALUES('$ano','$modelo','$tecnologia','$tipo')";
 	$conn->query($query); */
 
-$conn->close();
+/* $conn->close(); */
 
 ?>
