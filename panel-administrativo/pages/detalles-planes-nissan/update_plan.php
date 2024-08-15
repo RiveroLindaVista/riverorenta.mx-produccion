@@ -20,14 +20,10 @@ if ($resultQuery->num_rows > 0) {
 if($auto){
     $queryUpdate = 'UPDATE planes_nissan set mensualidad="'.$_POST["mensualidad"].'", enganche="'.$_POST["enganche"].'"';
 	$conn->query($queryUpdate);
-    echo $queryUpdate;
 } else {
     $queryInsert = 'INSERT INTO planes_nissan (slug,marca,modelo,version,tipo,ano,mensualidad,enganche) VALUES("'.$slug.'","NISSAN","'.$_POST["modelo"].'","'.$_POST["version"].'","'.$_POST["tipo"].'","'.$_POST["ano"].'","'.$_POST["mensualidad"].'","'.$_POST["enganche"].'")';
 	$conn->query($queryInsert);
 }
-
-/*     $query = "INSERT INTO accesorios (auto,num_inventario,descripcion,tiempo_instalacion,precio,status,instalacion,categoria) VALUES('$ano','$modelo','$tecnologia','$tipo')";
-	$conn->query($query); */
 
 $conn->close();
 
