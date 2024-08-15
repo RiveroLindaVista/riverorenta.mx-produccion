@@ -22,7 +22,7 @@ if ($resultQuery->num_rows > 0) {
 
 
 $versiones = $conne->get_lista_versiones_nissan($auto["modelo"], $auto["ano"]);
-var_dump($versiones);
+//var_dump($versiones);
 for($i=0;$i<count($versiones);$i++){
     echo $versiones[$i]["version"];
     $params = base64_encode(json_encode($value));
@@ -35,7 +35,7 @@ for($i=0;$i<count($versiones);$i++){
                                     <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">MENSUALIDAD:</h5>
                                     <input class="form-control" style="width: 100%" type="text" id="mensualidad_'.$versiones[$i]["version"].'" value="'.$versiones[$i]["mensualidad"].'" hidden>
                                     <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">PRECIO CONTADO: '.money_format('%(#10n',$versiones[$i]["precio"]).'</h5>
-                                    <a onclick="modalEditar(\''.$versiones[$i]["version"].'\')" style="display: flex; align-items: center; justify-content: center;" class="btn btn-primary" >Editar </a>
+                                    <a onclick="modalEditar(\''.$versiones[$i]["version"].'\',\''.$versiones[$i]["enganche"].'\',\''.$versiones[$i]["mensualidad"].'\')" style="display: flex; align-items: center; justify-content: center;" class="btn btn-primary" >Editar </a>
                                 </div>
                             </div>
                         </div>';
@@ -141,24 +141,15 @@ for($i=0;$i<count($versiones);$i++){
 
     <script>
 
-        async function open_modal_edit_invver(paramobj) {
-            let paramobjt1 = JSON.parse(atob(paramobj));
+        async function modalEditar(version, enganche, mensualidad) {
 
-            await change_select_icons('ctrl_icono');
-            console.log(paramobjt1['icono']);
-            $("#modal-edit-invver").modal('show');
+            console.log(version,enganche,mensualidad);
+            $("#modal-edit-plan").modal('show');
 
-            $("#ctrl-id").val(paramobjt1['id']);
+/*             $("#ctrl-id").val(paramobjt1['id']);
             $("#ctrl-metavalue").val(paramobjt1['metavalue']);
-            // $("#ctrl_icono").find('option : selected');
             $("#ctrl_icono").val(paramobjt1['icono']).change();
-            // $('#ctrl_icono option[text="volante"]').attr(selected, true);
-            // let volante  = 'volante';
-            // $('#ctrl_icono').val(volante);
-            // $('#ctrl_icono option[value="volante"]').prop("selected", true);
-            // console.log($('#ctrl_icono').find(':selected').val());
-            // console.log($("#ctrl_icono").val());
-            $("#ctrl-orden").val(paramobjt1['orden']);
+            $("#ctrl-orden").val(paramobjt1['orden']); */
         }
 
         function update_invver() {
