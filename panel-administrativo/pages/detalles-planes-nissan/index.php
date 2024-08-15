@@ -114,6 +114,7 @@ for($i=0;$i<count($versiones);$i++){
                         <div>
                             <div>
                                 <input id="idVersion" type="hidden">
+                                <input id="ano" type="hidden">
                             </div>
                             <div>
                                 <label for="">Enganche</label>
