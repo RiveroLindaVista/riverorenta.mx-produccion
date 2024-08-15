@@ -138,7 +138,7 @@ for($i=0;$i<count($versiones);$i++){
         </div>
     </div>
 
-    <script>
+    <script type="text/javascript">
 
        function modalEditar(version, enganche, mensualidad, tipo, modelo, ano) {
 
