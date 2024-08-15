@@ -26,7 +26,7 @@ var_dump($versiones);
 for($i=0;$i<count($versiones);$i++){
     echo $versiones[$i]["version"];
     $params = base64_encode(json_encode($value));
-    $lista_versiones.= $versiones[$i]["version"];
+    $lista_versiones.= '<div>'.$versiones[$i]["version"].'</div';
 
 /*     '<div class="card" >' +
                         '<div class="card-body" >' +
