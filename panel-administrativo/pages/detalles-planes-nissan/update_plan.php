@@ -6,7 +6,7 @@ require_once("../../_inc/_config.php");
 //var_dump($_POST);
 
 $slug = 'nissan-'.strtolower($_POST["modelo"]).'-'.$_POST["ano"];
-
+echo $slug;
 return $slug;
 
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DB);
