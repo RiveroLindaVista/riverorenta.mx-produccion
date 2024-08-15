@@ -26,19 +26,21 @@ var_dump($versiones);
 for($i=0;$i<count($versiones);$i++){
     echo $versiones[$i]["version"];
     $params = base64_encode(json_encode($value));
-    $lista_versiones.='<div class="card" >' +
+    $lista_versiones.= $versiones[$i]["version"];
+
+/*     '<div class="card" >' +
                         '<div class="card-body" >' +
-                            '<h3 style="display: flex; align-items: center; justify-content: center;" class="card-title">'.$versiones[0]["version"].'</h3><hr/>' +
+                            '<h3 style="display: flex; align-items: center; justify-content: center;" class="card-title">'.$versiones[$i]["version"].'</h3><hr/>' +
                             '<h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">ENGANCHE:</h5>' +
-                            '<input class="form-control" style="width: 100%" type="text" id="enganche_'.$versiones[0]["version"].'" hidden>'+
+                            '<input class="form-control" style="width: 100%" type="text" id="enganche_'.$versiones[$i]["version"].'" hidden>'+
                             '<h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">MENSUALIDAD:</h5>' +
-                            '<input class="form-control" style="width: 100%" type="text" id="mensualidad_'.$versiones[0]["version"].'" hidden>'+
-                            '<h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">PRECIO CONTADO: '.$versiones[0]["precio"].'</h5>' +
-                            '<input class="form-control" style="width: 100%" type="text" id="precio_'.$versiones[0]["version"].'" value="'.$versiones[0]["precio"].'" hidden>'+
-                            '<a onclick="modalEditar(\''.$versiones[0]["version"].'\')" style="display: flex; align-items: center; justify-content: center;" class="btn btn-primary" >Editar </a>' +
+                            '<input class="form-control" style="width: 100%" type="text" id="mensualidad_'.$versiones[$i]["version"].'" hidden>'+
+                            '<h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">PRECIO CONTADO: '.$versiones[$i]["precio"].'</h5>' +
+                            '<input class="form-control" style="width: 100%" type="text" id="precio_'.$versiones[$i]["version"].'" value="'.$versiones[$i]["precio"].'" hidden>'+
+                            '<a onclick="modalEditar(\''.$versiones[$i]["version"].'\')" style="display: flex; align-items: center; justify-content: center;" class="btn btn-primary" >Editar </a>' +
                         '</div>' +
-                    '</div>';
+                    '</div>'; */
 }
 
-//print_r($lista_versiones);
+print_r($lista_versiones);
 ?>
