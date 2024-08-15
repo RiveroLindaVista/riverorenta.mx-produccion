@@ -34,7 +34,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="<?=URLP?>">ADMINISTRACION  &nbsp; | &nbsp; GRUPO RIVERO</a>
+                <a class="navbar-brand" href="https://www.riverorenta.mx/produccion/panel-administrativo/pages/home/">ADMINISTRACION  &nbsp; | &nbsp; GRUPO RIVERO</a>
             </div>
         </div>
     </nav><!-- #Menu -->
