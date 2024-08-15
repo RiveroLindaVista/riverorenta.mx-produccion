@@ -6,7 +6,7 @@ $conn=new Conexion();
 //var_dump($_POST);
 
 $sql = 'SELECT * FROM planes_nissan WHERE modelo="'.$_POST["modelo"].'" and version="'.$_POST["version"].'" and ano="'.$_POST["ano"].'"';
-echo $query;
+
 $result=$conn->query($sql);
 if ($result) {
     while ($row = $result->fetch_assoc()) {
