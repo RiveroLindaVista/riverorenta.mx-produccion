@@ -249,6 +249,11 @@ $orden = $orden + 10;
                             <i class="material-icons">home</i> VERSIONES
                         </a>
                     </li>
+                    <li role="presentation" onclick="modulo_imagenes_versiones();">
+                        <a id="li_modulo_imagenes_versiones" href="#tab_imagenes_versiones" data-toggle="tab">
+                            <i class="material-icons">web</i> IMAGENES DE VERSIONES
+                        </a>
+                    </li>
                     <li role="presentation" onclick="modulo_portadas_web();">
                         <a id="li_modulo_portadas_web" href="#tab_portadas_web" data-toggle="tab">
                             <i class="material-icons">web</i> PORTADA WEB
@@ -259,11 +264,7 @@ $orden = $orden + 10;
                             <i class="material-icons">phone_android</i> PORTADA MOBILE
                         </a>
                     </li>
-                    <li role="presentation" onclick="modulo_otros();">
-                        <a id="li_modulo_otros" href="#tab_otros" data-toggle="tab">
-                            <i class="material-icons">web</i> OTRAS UTILERIAS
-                        </a>
-                    </li>
+
 
 
                 </ul>
@@ -394,25 +395,30 @@ $orden = $orden + 10;
                                 <div class="body">
                                     <div class="card-inside-title">
                                         <div class="row clearfix">
-                                            <div class="col-lg-3 col-md-2 col-sm-12">
+                                            <div class="col-lg-3 col-md-3 col-sm-12">
                                                 <div class="form-line">
                                                     <input type="text" class="form-control" placeholder="SLUG" id="nn_slug" disabled />
                                                 </div>
                                             </div>
-                                            <div class="col-lg-3 col-md-2 col-sm-12">
+                                            <div class="col-lg-3 col-md-3 col-sm-12">
                                                 <div class="form-line">
                                                     <input type="text" class="form-control" placeholder="Versión ej. LS, LTZ" id="nn_version" />
                                                 </div>
                                             </div>
-                                            <div class="col-lg-3 col-md-2 col-sm-12">
+                                            <div class="col-lg-3 col-md-3 col-sm-12">
                                                 <div class="form-line">
                                                     <input type="text" class="form-control" placeholder="Descripcion ej. Rines 18, cargador" id="nn_metavalue" />
                                                 </div>
                                             </div>
-                                            <div class="col-lg-3 col-md-2 col-sm-12">
-                                                <div class="form-line">
-                                                    <select id="nn_icono" class="form-control">
+                                            <div class="col-lg-3 col-md-3 col-sm-12" style="display: flex;">
+                                                <div class="form-line" style="width: 70%;">
+                                                    <select id="nn_icono" onchange="select_nn_icono()" class="form-control">
                                                     </select>
+                                                </div>
+                                                <div class="form-line" style="width: 30%; display: flex; align-items: center; justify-content: center; border: 1px rgb(243, 243, 243) solid;">
+                                                    <!-- <button class="" style="width: 100%; border: 0px transparent;"> -->
+                                                        <img id="nn_img_icon" src="" style="width: 25px; height: 25px; margin-right: 17px; margin-left: 14px;">
+                                                    <!-- </button> -->
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 col-md-12 col-sm-12">
@@ -595,6 +601,55 @@ $orden = $orden + 10;
 
                     </div>
                 </div>
+
+                <!-- IMAGENES DE VERSIONES -->
+                <div role="tabpanel" class="tab-pane fade" id="tab_imagenes_versiones">
+                    <!-- CKEditor -->
+                    <div class="row clearfix">
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h5>Imagenes de versiones</h5>
+                                </div>
+                                <div class="body">
+                                    <h4>VERSIONES</h4>
+                                    <div class="row" id="row_btns_list-versions">
+                                        <div class="col-md-3 div-btns-versions">
+                                            <button class="btn btn-success btns-versions" onclick="clcVersions('LT')">LT</button>
+                                        </div>
+                                        <div class="col-md-3 div-btns-versions">
+                                            <button class="btn btn-success btns-versions" onclick="clcVersions('LT PLUS')">LT PLUS</button>
+                                        </div>
+                                        <div class="col-md-3 div-btns-versions">
+                                            <button class="btn btn-success btns-versions" onclick="clcVersions('LT HEAVY')">LT HEAVY</button>
+                                        </div>
+                                        <div class="col-md-3 div-btns-versions">
+                                            <button class="btn btn-success btns-versions" onclick="clcVersions('LT PLAY')">LT PLAY</button>
+                                        </div>
+                                        <!-- by jquery -->
+                                    </div>
+                                    <!-- <div id="div_cargar_fondo">
+                                            by jquery
+                                    </div> -->
+                                    <hr style="border-bottom:solid 1px rgb(176, 187, 195);">
+                                    <div class="row" >
+                                        <div class="container-fluid" id="div_row_portada_mobile">
+                                            <div class="row">
+                                                <div class="col-md-10" >
+                                                    <img src="" alt="" style="height: 450px;">
+                                                    <img src="https://d3s2hob8w3xwk8.cloudfront.net/nueva-landing-autos/AVEO-HB_2024/Version_LT_AVEO-HB_2024.png" alt="">
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -758,6 +813,15 @@ $orden = $orden + 10;
         .select-editado {
             border: 1px solid #ccc !important;
             border-radius: 5px !important;
+        }
+
+        .btns-versions {
+            width: 100%;
+            border: 0px transparent !important;
+        }
+        .div-btns-versions{
+            padding: 1px;
+
         }
     </style>
     <script>
@@ -1277,8 +1341,13 @@ $orden = $orden + 10;
                 success: function(res) {
                     $.each(res, function(i, val) {
                         str_tbody += '<tr><td>' + val['version'] + '</td><td>' + val['metavalue'] + '</td><td>' + val['icono'] + '</td><td>' + val['orden'] + '</td><td>' + val['fecha'] + '</td><td>  <button type="button" class="form-control btn btn-danger" ondblclick=func_delete_invver(' + val['id'] + ')>eliminar</button>   <button type="button" class="form-control btn btn-info" onclick="open_modal_edit_invver(\'' + btoa(JSON.stringify(val)) + '\')">editar</button></td></tr>';
+                        // str_tbody += `<tr><td>  ${val['version']}  </td><td>  ${val['metavalue']}  </td><td>  ${val['icono']}  </td><td>  ${val['orden']}  </td><td>  ${val['fecha']}  </td><td>  <button type="button" class="form-control btn btn-danger" ondblclick=func_delete_invver(  ${val['id']}  )>eliminar</button>   <button type="button" class="form-control btn btn-info" onclick="open_modal_edit_invver(${btoa(JSON.stringify(val)) })">editar</button></td></tr>`;
                     });
                     $("#tbl-inv-versiones tbody").html(str_tbody);
+                    console.log('change_tbl_inv_versiones');
+            
+            console.log(str_tbody);
+            return true;
                 }
             });
 
@@ -1312,6 +1381,13 @@ $orden = $orden + 10;
 
         }
 
+        function select_nn_icono() {
+            let nn_icon = $("#nn_icono").val();
+            let urlimage = `https://d3s2hob8w3xwk8.cloudfront.net/features/det-${nn_icon}.svg`;
+            $("#nn_img_icon").attr('src', urlimage);
+            console.log(urlimage);
+            
+        }
 
 
         function save_inv_versions() {
@@ -1497,6 +1573,17 @@ $orden = $orden + 10;
             url.searchParams.set('tab', 'tab_portadas_mobile');
             window.history.pushState({}, '', url);
         }
+        function modulo_imagenes_versiones() {
+            $("#tab_imagenes_versiones").show();
+            $("#tab_portadas_mobile").hide();
+            $("#tab_portadas_web").hide();
+            $("#tab_invver").hide();
+            $("#tab_asignar_color").hide();
+            $("#tab_imagenes").hide();
+            const url = new URL(window.location);
+            url.searchParams.set('tab', 'tab_imagenes_versiones');
+            window.history.pushState({}, '', url);
+        }
         function modulo_colores(){
             $("#tab_imagenes").show();
             $("#tab_portadas_mobile").hide();
@@ -1671,6 +1758,10 @@ $orden = $orden + 10;
                 $("#li_modulo_portadas_web").click();
             } else if(tab == 'tab_portadas_mobile') {
                 $("#li_modulo_portadas_mobile").click();
+            } else if(tab == 'tab_imagenes_versiones') {
+                $("#li_modulo_imagenes_versiones").click();
+            } else {
+                $("#li_modulo_colores").click();
             }
         });
         
@@ -1995,6 +2086,13 @@ $orden = $orden + 10;
             $('#'+id_file_input).click();
         }
 
+        //Imagenes de versiones
+        function clcVersions(version) {
+
+            console.log(version);
+            
+
+        }
         
 
 
