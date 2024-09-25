@@ -610,36 +610,73 @@ $orden = $orden + 10;
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="card">
                                 <div class="header">
-                                    <h5>Imagenes de versiones</h5>
+                                    <h4>IMAGENES DE VERSIONES</h4>
                                 </div>
                                 <div class="body">
-                                    <h4>VERSIONES</h4>
-                                    <div class="row" id="row_btns_list-versions">
-                                        <div class="col-md-3 div-btns-versions">
-                                            <button class="btn btn-success btns-versions" onclick="clcVersions('LT')">LT</button>
-                                        </div>
-                                        <div class="col-md-3 div-btns-versions">
-                                            <button class="btn btn-success btns-versions" onclick="clcVersions('LT PLUS')">LT PLUS</button>
-                                        </div>
-                                        <div class="col-md-3 div-btns-versions">
-                                            <button class="btn btn-success btns-versions" onclick="clcVersions('LT HEAVY')">LT HEAVY</button>
-                                        </div>
-                                        <div class="col-md-3 div-btns-versions">
-                                            <button class="btn btn-success btns-versions" onclick="clcVersions('LT PLAY')">LT PLAY</button>
-                                        </div>
-                                        <!-- by jquery -->
-                                    </div>
+
                                     <!-- <div id="div_cargar_fondo">
                                             by jquery
                                     </div> -->
                                     <hr style="border-bottom:solid 1px rgb(176, 187, 195);">
                                     <div class="row" >
-                                        <div class="container-fluid" id="div_row_portada_mobile">
+                                        <div class="container-fluid">
                                             <div class="row">
-                                                <div class="col-md-10" >
-                                                    <img src="" alt="" style="height: 450px;">
-                                                    <img src="https://d3s2hob8w3xwk8.cloudfront.net/nueva-landing-autos/AVEO-HB_2024/Version_LT_AVEO-HB_2024.png" alt="">
+                                                <div class="col-md-6">
+                                                    <h4>Elige una version</h4>
+                                                    <div class="row"  style="background: rgb(224, 224, 224); padding: 15px; display: flex; align-items: center; justify-content: center;">
+                                                        <div id="row_btns_list-versions" style="display: block; width: auto;">
+
+                                                        </div>
+                                                        <!-- by jquery -->
+                                                    </div>
+
+                                                    <div class="" style="display: flex; align-items: center; justify-content: center;">
+                                                        <h4>Imagen de version especifico</h4>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div id="div_img_versiones" style="display: flex; align-items: center; justify-content: center; padding-bottom: 15px; padding-top: 15px;">
+                                                            <!-- imgage by jquery -->
+                                                        </div>
+                                                        <div id="div_img_versiones_input_img" style="display: flex; align-items: center; justify-content: center;">
+                                                            <!-- <input type="file" onchange="fun_listener_change(this, 'img_versions')" class="form-control"> -->
+                                                        </div>
+                                                        <div id="div_img_version_buton_guardar" style="display: flex; align-items: center; justify-content: center; padding-bottom: 10px;">
+                                                            
+                                                        </div>
+                                                        <div id="div_img_version_message" style="display: flex; align-items: center; justify-content: center; padding-bottom: 10px;">
+                                                            <!-- <ul style="position:absolute;" class="list-group" id="ul-modal-status2'+id_file_input+'">   </ul> -->
+                                                            
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                                <!-- <div class="col-md-2" >
+
+                                                </div> -->
+                                                <div class="col-md-6">
+                                                    <div class="" style="display: flex; align-items: center; justify-content: center;">
+                                                        <h4>Lateral general</h4>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div id="div_img_lateral_versiones" style="display: flex; align-items: center; justify-content: center; padding-bottom: 15px; padding-top: 15px;">
+                                                            <!-- <img style="width: 100%; height: auto;" src="https://d3s2hob8w3xwk8.cloudfront.net/nueva-landing-autos/AVEO-HB_2024/Version_lateral_AVEO-HB_2024.png" alt=""> -->
+                                                            <!-- https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/competencia/subir_imagen_icon_19.png -->
+                                                            <!-- <img id="id_img_laterales_versions" style="width: 100%; height: auto;" src="" alt=""> -->
+                                                        </div>
+                                                        
+                                                        <div id="div_img_lateral_versiones_input_img" style="display: flex; align-items: center; justify-content: center;">
+                                                            <!-- <input type="file" class="form-control"> -->
+                                                            <input id="id_input_laterales" type="file" onchange="fun_listener_change(this, 'id_img_laterales')" class="form-control">
+                                                        </div>
+                                                        <div id="div_img_lateral_button_guardar" style="display: flex; align-items: center; justify-content: center; padding-bottom: 10px;">
+                                                            
+                                                        </div>
+                                                        <div id="div_img_lateral_message" style="display: flex; align-items: center; justify-content: center; padding-bottom: 10px;">
+                                                            <!-- <ul style="position:absolute;" class="list-group" id="ul-modal-status2'+id_file_input+'">   </ul> -->
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                             
                                         </div>
@@ -1583,6 +1620,7 @@ $orden = $orden + 10;
             const url = new URL(window.location);
             url.searchParams.set('tab', 'tab_imagenes_versiones');
             window.history.pushState({}, '', url);
+            list_versions();
         }
         function modulo_colores(){
             $("#tab_imagenes").show();
@@ -2033,6 +2071,15 @@ $orden = $orden + 10;
             func_enviar_imagen_pw(id_obj, nameimg, filepath);
 
         }
+        function enviar_imagen_version(id_obj, nameimg, filepath) {
+            func_enviar_imagen_pw(id_obj, nameimg, filepath);
+        }
+
+        function enviar_imagen_lateral(id_file_input, nameimg, filepath) {
+
+            func_enviar_imagen_pw(id_file_input, nameimg, filepath);
+            
+        }
         
 
         function func_enviar_imagen_pw(obj, nameimg, filepath) {
@@ -2088,9 +2135,128 @@ $orden = $orden + 10;
 
         //Imagenes de versiones
         function clcVersions(version) {
+            let slug = '<?php echo $auto["slug"] ?>';
+            $.ajax({
+                type: "GET",
+                url: "https://api.gruporivero.com/v1/cars/"+slug,
+                data: null,
+                dataType: "json",
+                success: function (res) {
+                    let model = res.data.model.replaceAll(' ', '-');
+                    let year = res.data.year;
+                    let  model_year = model+'_'+year;
+                    console.log(model_year);
 
-            console.log(version);
-            
+                    version = version.replaceAll(' ', '-');
+                    let nameimg = 'Version_'+version+'_'+model_year+'.png';
+                    let img_on_error = 'https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/competencia/subir_imagen_icon_19.png';
+                    let url_image = 'https://d3s2hob8w3xwk8.cloudfront.net/nueva-landing-autos/'+model_year+'/'+nameimg;
+                    let id_img_versions = 'id_img_versions_'+version;
+                    let img_image =  '<img id="'+id_img_versions+'" style="width: 35%; height: auto;" src="'+url_image+'" onerror="this.onerror=null; this.src=\''+img_on_error+'\'" alt="">';
+                    // <img class="img_versions" style="width: 260px; height: auto;" src="https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/competencia/subir_imagen_icon_19.png" alt="">
+                    // <img style="width: 260px; height: auto;" src="https://d3s2hob8w3xwk8.cloudfront.net/nueva-landing-autos/AVEO-HB_2024/Version_LT_AVEO-HB_2024.png" alt="">
+                    $('#div_img_versiones').html(img_image);
+        
+                    let id_input_versions = 'id_input_versions_'+version;
+                    let input_file = '<input id="'+id_input_versions+'" type="file" onchange="fun_listener_change(this, \''+id_img_versions+'\')" class="form-control">';
+                    $('#div_img_versiones_input_img').html(input_file);
+                    console.log(version);
+
+                    //button to save image
+                    let path_image_to_save = 'nueva-landing-autos/'+model_year+'/';
+
+                    let button_save_img_version = '<button onclick="enviar_imagen_version(\''+id_input_versions+'\', \''+nameimg+'\', \''+path_image_to_save+'\' )" style="width: 100%;" class="btn btn-primary">Guardar imagen de version</button>';
+
+                    $('#div_img_version_buton_guardar').html(button_save_img_version);
+                    //message control
+                    let div_img_version_message = '<ul style="width: 100%;" class="list-group" id="ul-modal-status2'+id_input_versions+'">';
+                    $('#div_img_version_message').html(div_img_version_message);
+                    
+                }
+            });
+
+        }
+
+        async function list_versions() {
+            let slug = '<?php echo $auto["slug"] ?>';
+            let res = await $.ajax({
+                type: "GET",
+                url: "https://api.gruporivero.com/v1/cars/"+slug,
+                data: null,
+                dataType: "json",
+                success: async function (res) {
+                }
+            });
+
+            let html = '';
+                    let arr_versions = res.data.versions;
+                    for (let ii = 0; ii < arr_versions.length; ii++) {
+                        const version = arr_versions[ii];
+                        if (version.name == null) {
+                            continue;
+                        }
+                        
+                        
+                    // res.data.versions.forEach(async version => {
+
+                        let model = res.data.model.replaceAll(' ', '-');
+                        let year = res.data.year;
+                        let  model_year = model+'_'+year;
+
+                        let name_version = version.name.replaceAll(' ', '-');
+                        let nameimg = 'Version_'+name_version+'_'+model_year+'.png';
+                        let url_image = 'https://d3s2hob8w3xwk8.cloudfront.net/nueva-landing-autos/'+model_year+'/'+nameimg;
+
+                        let arr_urls_color = [];
+                        arr_urls_color[0] = url_image;                       
+                        
+                        //validar imagenes y plasmar el color del boton
+                        let comprobar_imagenes = await comprobarImagenes(arr_urls_color);
+                        console.log('COMPROBAR IMAGES: ', comprobar_imagenes);
+                        let class_btn_versions = '';
+                        if (comprobar_imagenes.exitosos > 0 && comprobar_imagenes.exitosos == (comprobar_imagenes.exitosos + comprobar_imagenes.errores) ) {
+                            class_btn_versions = 'btn btn-success';
+                        } else if (comprobar_imagenes.exitosos > 0 && comprobar_imagenes.exitosos != (comprobar_imagenes.exitosos + comprobar_imagenes.errores) ) {
+                            class_btn_versions = 'btn btn-warning';
+                        } else if (comprobar_imagenes.exitosos == 0) {
+                            class_btn_versions = 'btn btn-secondary';
+                        }
+
+                        html += '<div class="col-md-3 div-btns-versions" style="width: auto; padding: 2px;">'+
+                            '<button class="'+class_btn_versions+' btns-versions" onclick="clcVersions(\''+version.name+'\')">'+version.name+'</button>'+
+                            '</div>';
+
+                    // });//foreach
+                        }//for
+
+
+                    $('#row_btns_list-versions').html(html);
+
+                    // imagen lateral
+                    let model = res.data.model.replaceAll(' ', '-');
+                    let year = res.data.year;
+                    let  model_year = model+'_'+year;
+                    let nameimg_lateral = `Version_lateral_${model_year}.png`;
+                    let path_image_to_save_lateral = 'nueva-landing-autos/'+model_year+'/';
+
+                    let img_on_error = 'https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/competencia/subir_imagen_icon_19.png';
+                    let url_img_lateral = 'https://d3s2hob8w3xwk8.cloudfront.net/nueva-landing-autos/'+model_year+'/'+nameimg_lateral;
+                    
+
+                    let id_img_laterales = 'id_img_laterales';
+
+                    let html_img_laterales = '<img id="'+id_img_laterales+'" style="width: 57%; height: auto;" src="'+url_img_lateral+'" onerror="this.onerror=null; this.src=\''+img_on_error+'\'" alt="">';
+                    $('#div_img_lateral_versiones').html(html_img_laterales);
+
+                    let id_input_laterales = 'id_input_laterales';
+                    let html_lateral_button_guardar = `<button onclick="enviar_imagen_lateral('${id_input_laterales}', '${nameimg_lateral}', '${path_image_to_save_lateral}')" style="width: 100%;" class="btn btn-primary">Guardar imagen lateral</button>`;
+
+                    $('#div_img_lateral_button_guardar').html(html_lateral_button_guardar);
+
+                    //message control
+                    let div_img_lateral_message = '<ul style="width: 100%;" class="list-group" id="ul-modal-status2'+id_input_laterales+'">';
+                    $('#div_img_lateral_message').html(div_img_lateral_message);
+
 
         }
         
