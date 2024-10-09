@@ -253,6 +253,8 @@ if ($this_subpage=="promociones_taller") { $promociones_taller="active"; } else{
         var  d = new Date();
         var  ano = d.getFullYear();
 
+        console.log(ano);
+
         if (imagen_titulo!="" && descripcion!="") {
             if (!files) {
                 alert('Es necesario seleccionar una imagen.');
