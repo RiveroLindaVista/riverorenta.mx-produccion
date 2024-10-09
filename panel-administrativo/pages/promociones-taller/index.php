@@ -247,6 +247,8 @@ if ($this_subpage=="promociones_taller") { $promociones_taller="active"; } else{
         
         var tipo = "taller";
         var tipoUpper = "TALLER";
+        var tipo_promo = "taller";
+        var modelo_unidad = "taller";
 
         if (imagen_titulo!="" && descripcion!="") {
             if (!files) {
@@ -291,7 +293,8 @@ if ($this_subpage=="promociones_taller") { $promociones_taller="active"; } else{
                                 type:'POST',
                                 data:param,
                                 success: function(resp){
-                                    alert('Promoción dada de alta correctamente.')
+                                    console.log(resp, "QUERY");
+                                    alert('Promoción dada de alta correctamente.');
                                     location.reload();
                                 }
                             })
