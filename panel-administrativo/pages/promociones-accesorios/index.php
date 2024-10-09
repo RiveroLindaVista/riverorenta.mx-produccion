@@ -262,6 +262,9 @@ if ($this_subpage=="promociones_accesorios") { $promociones_accesorios="active";
         var tipo = "accesorios";
         var tipoUpper = "ACCESORIOS";
 
+        var  d = new  Date();
+        var  ano = d.getFullYear();
+
         if (imagen_titulo!="" && descripcion!="") {
             if (!files) {
                 alert('Es necesario seleccionar una imagen.');
@@ -298,7 +301,8 @@ if ($this_subpage=="promociones_accesorios") { $promociones_accesorios="active";
                                     marca:marca,
                                     imagen_titulo:imagen_titulo,
                                     tipo:tipo,
-                                    tipoUpper:tipoUpper
+                                    tipoUpper:tipoUpper,
+                                    ano: ano
                                 }
                                 $.ajax({
                                     url:'save.php',
