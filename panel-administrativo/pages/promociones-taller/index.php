@@ -250,6 +250,9 @@ if ($this_subpage=="promociones_taller") { $promociones_taller="active"; } else{
         var tipo_promo = "taller";
         var modelo_unidad = "taller";
 
+        var  d = new Date();
+        var  ano = d.getFullYear();
+
         if (imagen_titulo!="" && descripcion!="") {
             if (!files) {
                 alert('Es necesario seleccionar una imagen.');
@@ -286,7 +289,8 @@ if ($this_subpage=="promociones_taller") { $promociones_taller="active"; } else{
                                 marca:marca,
                                 imagen_titulo:imagen_titulo,
                                 tipo:tipo,
-                                tipoUpper:tipoUpper
+                                tipoUpper:tipoUpper,
+                                ano: ano
                             }
                             $.ajax({
                                 url:'save.php',

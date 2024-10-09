@@ -1124,7 +1124,7 @@ class Conexion extends Database{
         $cantidad = $param["cantidad"];
         $tipo_promo = $param["tipo_promo"];
 
-        $sql="INSERT INTO promociones (marca, modelo, modelo_unidad, ano, cantidad, forma, titulo2, status, tipo, tipo_promo) VALUES ('$marca', 'imagen', '$modelo_unidad', $ano, '$cantidad', '$forma', '$titulo2', 1, '$tipo', '$tipo_promo')";
+        $sql="INSERT INTO promociones (marca, modelo, modelo_unidad, ano, cantidad, forma, titulo2, status, tipo, tipo_promo) VALUES ('$marca', 'imagen', '$modelo_unidad', '$ano', '$cantidad', '$forma', '$titulo2', 1, '$tipo', '$tipo_promo')";
         echo $sql;
         $result=$conn->query($sql);         
     }
