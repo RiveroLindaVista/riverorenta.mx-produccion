@@ -295,7 +295,7 @@ if ($this_subpage=="promociones_taller") { $promociones_taller="active"; } else{
                                 success: function(resp){
                                     console.log(resp, "QUERY");
                                     alert('Promoción dada de alta correctamente.');
-                                    location.reload();
+                                    //location.reload();
                                 }
                             })
                         } else {
