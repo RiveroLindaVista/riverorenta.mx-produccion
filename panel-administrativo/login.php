@@ -1,5 +1,6 @@
 <?php
 include("_inc/_config.php");
+
 session_start();
 ?>
 <!DOCTYPE html>
@@ -123,9 +124,16 @@ session_start();
     				data:param,    				
     				success(res){
                         console.log(res)
-    					if (res==1) {
-    						console.log("/produccion/panel-administrativo/pages/home");
-    						window.location.href="<?= URL?>"+"/produccion/panel-administrativo/pages/home";
+    					if (res != 0) {
+
+                            if (res == 'POLITICAS') {
+                                console.log('-----SESION POLITICAS----'+res);
+                                
+                                window.location.href="<?= URL?>"+"/produccion/panel-administrativo/pages/politicas";    
+                            } else {
+                                console.log("SESION OTRO: "+res);
+                                window.location.href="<?= URL?>"+"/produccion/panel-administrativo/pages/home";
+                            }
     					}else{
     						alert('Error, Usuario o Contraseña incorrectos!.');
     					}

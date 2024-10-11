@@ -6,11 +6,56 @@ if(!isset($_SESSION["usuario"])){
     </script>
     <?php
 }
+//permisos de usuarios
+$arr_usuarios = [
+    'DESARROLLO' => [
+        'adwords',
+        'blog',
+        'agregarauto',
+        'promociones',
+        'firmas',
+        'unidades',
+        'versiones',
+        'colores_page',
+        'codigos_qr',
+        'planes_nissan',
+        'politicas_rivero',
+        'home',
+    ],
+    'TALLER' => [
+        'adwords',
+        'blog',
+        'agregarauto',
+        'promociones',
+        'firmas',
+        'unidades',
+        'versiones',
+        'colores_page',
+        'codigos_qr',
+        'planes_nissan',
+        'politicas_rivero',
+        'home',
+    ],
+    'MARKETING' => [
+        'blog',
+        'promociones',
+        'unidades',
+        'home',
+    ],
+    'POLITICAS' => [
+        'politicas'
+    ]
+];
+// echo  '<script>console.log(JSON.parse( JSON.stringy("'.  $arr_usuarios .'")) );</script>';
+echo "<script>console.log(JSON.parse('".json_encode($arr_usuarios)."')); </script>";
+
 ?>
 <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar" style="overflow-x: auto">
             <!-- User Info -->
-            <a href="https://www.riverorenta.mx/produccion/panel-administrativo/pages/home/">
+            <?php if(in_array('home', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
+                <a href="https://www.riverorenta.mx/produccion/panel-administrativo/pages/home/">
+            <?php } ?>
             <div class="user-info">
             </div></a>
             <!-- #User Info -->
@@ -18,53 +63,42 @@ if(!isset($_SESSION["usuario"])){
             <div class="menu">
                 <ul class="list">
                     <li class="header">MENU</li>
-                    <!--<li class="<?= $home;?>">
-                        <a href="<?=URLP?>">
-                            <i class="material-icons">home</i>
-                            <span>Home</span>
-                        </a>
-                    </li>-->
-          <!--           
-                    <li class="<?= $publicidad;?>">
-                        <a href="<?=URLP?>pages/publicidad">
-                            <i class="material-icons">hdr_strong</i>
-                            <span>Publicidad</span>
-                        </a>
-                    </li>
-            -->
+
+ 
+                    <?php if(in_array('adwords', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
                      <li class="<?= $adwords;?>">
                         <a href="<?=URLP?>pages/adwords">
                             <i class="material-icons">format_shapes</i>
                             <span>Adwords</span>
                         </a>
                     </li>
-            <!--           
-                    <li class="<?= $banner;?>">
-                        <a href="<?=URLP?>pages/banner">
-                            <i class="material-icons">photo_size_select_large</i>
-                            <span>Banners</span>
-                        </a>
-                    </li> -->
-                    
+                    <?php } ?>
+
+                    <?php if(in_array('blog', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
                     <li class="<?= $blog;?>">
                         <a href="<?=URLP?>pages/blog">
                             <i class="material-icons">developer_board</i>
                             <span>Blog</span>
                         </a>
                     </li>
-                    <?php if($_SESSION["usuario"] == "DESARROLLO"){ ?>
+                    <?php } ?>
+
+                    <?php if(in_array('agregarauto', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
                     <li class="<?= $agregarauto;?>">
                         <a href="<?=URLP?>pages/agregarauto">
                             <i class="material-icons">no_crash</i>
                             <span>Agregar Auto</span>
                         </a>
-                    </li> <?php } ?>
+                    </li> 
+                    <?php } ?>
+
 <!--                     <li class="<?= $contenido;?>">
                         <a href="<?=URLP?>pages/contenido-new-page">
                             <i class="material-icons">art_track</i>
                             <span>Pagina nueva</span>
                         </a>
                     </li> -->
+                    <?php if(in_array('promociones', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
                     <li class="<?= $promociones;?>">
                         <a class="menu-toggle waves-effect waves-block" style="cursor: pointer">
                             <i class="material-icons">wb_iridescent</i>
@@ -88,6 +122,7 @@ if(!isset($_SESSION["usuario"])){
                             </li>
                         </ul>
                     </li>
+                    <?php } ?>
 
 <!--                <li class="<?= $accesorios;?>">
                         <a href="<?=URLP?>pages/accesorios">
@@ -96,13 +131,16 @@ if(!isset($_SESSION["usuario"])){
                         </a>
                     </li> -->
 
+                    <?php if(in_array('firmas', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
                     <li class="<?= $firmas;?>">
                         <a href="https://www.riverorenta.mx/produccion/firmas/" target="_blank">
                             <i class="material-icons">contact_mail</i>
                             <span>Firmas Email</span>
                         </a>
                     </li>
-                    <?php if($_SESSION["usuario"] == "DESARROLLO"){ ?>
+                    <?php } ?>
+                    
+                    <?php if(in_array('unidades', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
                     <li class="<?= $unidades;?>" style="<?=$mostrar;?>">
                         <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
                             <i class="material-icons">directions_car</i>
@@ -120,15 +158,19 @@ if(!isset($_SESSION["usuario"])){
                                 </a>                               
                             </li>
                         </ul>
-                    </li> <?php } ?>
-                    <?php if($_SESSION["usuario"] == "DESARROLLO"){ ?>
+                    </li>
+                    <?php } ?>
+                    
+                    <?php if(in_array('versiones', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
                     <li class="<?= $versiones;?>">
                         <a href="<?=URLP?>pages/versiones" class="">
                             <i class="material-icons">local_car_wash</i>
                             <span>Versiones</span>
                         </a>
                     </li> 
-
+                    <?php } ?>
+                    
+                    <?php if(in_array('colores_page', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
                     <li class="<?= $colores_page;?>">
                         <a href="<?=URLP?>pages/colores" class="">
                             <i class="material-icons">color_lens</i>
@@ -136,19 +178,32 @@ if(!isset($_SESSION["usuario"])){
                         </a>
                     </li>
                     <?php } ?>
+
+                    <?php if(in_array('codigos_qr', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
                     <li class="<?= $codigos_qr;?>">
                         <a href="<?=URLP?>pages/codigos-qr" class="">
                             <i class="material-icons">select_all</i>
                             <span>Códigos QR</span>
                         </a>
                     </li>
-
+                    <?php } ?>
+                    
+                    <?php if(in_array('planes_nissan', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
                     <li class="<?= $planes_nissan;?>">
                         <a href="<?=URLP?>pages/planes-nissan" class="">
                             <i class="material-icons">attach_money</i>
                             <span>Planes Nissan</span>
                         </a>
                     </li>
+                    <?php } ?>
+                    <?php if(in_array('politicas', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
+                    <li class="<?= $politicas_rivero;?>">
+                        <a href="<?=URLP?>pages/politicas" class="">
+                            <i class="material-icons">contact_mail</i>
+                            <span>Politicas Rivero</span>
+                        </a>
+                    </li>
+                    <?php } ?>
                     <!--<li>
                         <a href="pages/helper-classes.html">
                             <i class="material-icons">layers</i>
@@ -477,6 +532,10 @@ if(!isset($_SESSION["usuario"])){
             <!-- #Menu -->
             <!-- Footer -->
             <div class="legal">
+                <div>
+                    <a onclick="sessionn()">Cerrar sesion</a>
+                </div>
+                <br>
                 <div class="copyright">
                     &copy; 2024 <a>Administracion - Grupo Rivero</a>.
                 </div>
@@ -484,6 +543,15 @@ if(!isset($_SESSION["usuario"])){
                     <b>Version: </b> 2.0.1
                 </div>
             </div>
+            <script>
+                function sessionn(){
+                    var host = window.location.host; 
+                    window.history.back();
+                    window.location.replace('https://'+host+'/produccion/panel-administrativo/login.php');
+                    console.log(host);
+                }
+
+            </script>
             <!-- #Footer -->
                 
 
