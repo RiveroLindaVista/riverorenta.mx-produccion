@@ -29,15 +29,28 @@ async function guardar_politica() {
     console.log('prepare updating');
     let nombre_politica = $('#nombre_politica').val();
     let input_file_length = $('#input-file-id')[0].files.length;
+    let input_image_length = $('#input-image-id')[0].files.length;
     
     let text = '';
-    if (nombre_politica === '' || input_file_length === 0) {
+    if (nombre_politica === '' || input_file_length === 0 || input_image_length === 0) {
         text = 'El nombre y el archivo son obligatorios';
     } else {
         let input_file_type = $('#input-file-id')[0].files[0].type;
+        let input_file_type_img = $('#input-image-id')[0].files[0].type;
         console.log(input_file_type);
         if (input_file_type !== 'application/pdf') {
             text = 'Solo se aceptan archivos PDF';
+        }
+        let ext_allowed = [
+            'image/png',
+            'image/jpg',
+            'image/jpeg',
+            'pngimage/png',
+            'pngimage/jpg',
+            'pngimage/jpeg',
+        ];
+        if (jQuery.inArray(input_file_type_img, ext_allowed) === -1) {
+            text = 'Solo se aceptan imagenes "jpg" y "png"';
         }
     }
     if (text !== '') {
@@ -49,7 +62,7 @@ async function guardar_politica() {
           });
           return true;
     }
-
+    // cargando y obteniendo nombre de archivo pdf
     let obj = 'input-file-id';
     let nameimg = nombre_politica+'.pdf'; 
 
@@ -59,10 +72,23 @@ async function guardar_politica() {
     
     let url_document = resp_upload;
 
+    //cargando y obteniendo nombre de imagen
+    let obj_img = 'input-image-id';
+    let ext_img = $('#input-image-id')[0].files[0].name;
+    ext_img = ext_img.split('.').pop();
+
+    let nameimg_img = nombre_politica+'.'+ext_img;
+    let resp_upload_img = await upload_image_function(obj_img, nameimg_img);
+    console.log('respuesta de upload externo');
+    console.log(resp_upload_img);
+    
+    let url_image = resp_upload_img;
+
     //Guardando informacion en BD
     let data = {
         nombre: nombre_politica,
         url_document: url_document,
+        url_image: url_image,
         function : 'insert_politica'
     }
     let resp = await post_ajax(data);
@@ -175,6 +201,7 @@ function reset_form_modal() {
     count_request_change_img = 0;
     $('#nombre_politica').val('');
     $('#input-file-id').val('');
+    $('#input-image-id').val('');
 }
 
 function edit_politica(nombre_politica) {

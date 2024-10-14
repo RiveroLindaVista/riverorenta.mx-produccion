@@ -71,8 +71,12 @@ echo json_encode('politicas module')
                                     <input id="nombre_politica" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-4 col-12" style="width:100%;">
-                                    <label for="">Archivo PDF</label>
+                                    <label for="">Archivo pdf</label>
                                     <input id="input-file-id" type="file" accept="application/pdf" class="form-control">
+                                </div>
+                                <div class="col-md-4 col-12" style="width:100%;">
+                                  <label for="">Imagen de presentacion</label>
+                                  <input id="input-image-id" type="file" accept="image/jpeg, image/png" class="form-control">
                                 </div>
                                 <div class="col-md-4 col-12" style="width:100%; display: flex; flex-direction: column; justify-content: end; align-items: center;">
                                     <!-- <label for="">Archivo PDF</label> -->

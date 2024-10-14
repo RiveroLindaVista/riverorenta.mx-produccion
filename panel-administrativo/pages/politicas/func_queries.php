@@ -23,10 +23,11 @@ class QueriesPolicy extends Conexion {
        $conn = Database::connect();
        $nombre = $request["nombre"];
        $url_document = $request["url_document"];
+       $url_image = $request["url_image"];
        
        $fecha = date('Y-m-d H:i:s');
 
-       $sql = "INSERT INTO politicas(id, nombre, url_document, fecha) VALUES(null, '$nombre', '$url_document', '$fecha')"; 
+       $sql = "INSERT INTO politicas(id, nombre, url_document, fecha, url_image) VALUES(null, '$nombre', '$url_document', '$fecha', '$url_image')"; 
        $result = $conn->query($sql);
        $conn = Database::close();
        return $result;
