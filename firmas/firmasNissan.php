@@ -69,6 +69,7 @@ include("header.php");
                                 <option value="contry" selected>Contry</option>
                                 <option value="lasTorres">Las Torres</option>
                                 <option value="valle">Valle</option>
+                                <option value="allende">Allende</option>
                             </select>
                         </div>
                     </div>
@@ -352,6 +353,15 @@ include("header.php");
                         "</p>";
                     divTextoSucursalDos.innerHTML = "<p>" +
                         "Av. Vasconcelos No.325 San Pedro Garza Garcia, NUEVO LEÓN 66220" +
+                        "</p>";
+
+                }  else if (sucursalSelect.value === 'allende') {
+
+                    divTextoSucursal.innerHTML = "<p>" +
+                        "Carr Nacional 301, San Javier, 67350 Cdad. de Allende, N.L." +
+                        "</p>";
+                    divTextoSucursalDos.innerHTML = "<p>" +
+                        "Carr Nacional 301, San Javier, 67350 Cdad. de Allende, N.L." +
                         "</p>";
 
                 }
