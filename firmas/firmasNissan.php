@@ -59,6 +59,7 @@ include("header.php");
                                 <option value="contry" selected>Contry</option>
                                 <option value="lasTorres">Las Torres</option>
                                 <option value="valle">Valle</option>
+                                <option value="allende">Allende</option>
                             </select>
                         </div>
 
@@ -319,6 +320,10 @@ include("header.php");
                 } else if (paginaSelect.value === 'valle') {
                     divTextoPagina.innerHTML = "<p>" + "nissanriverovalle.com" + "</p>";
                     divTextoPaginaDos.innerHTML = "<p>" + "nissanriverovalle.com" + "</p>";
+
+                } else if (paginaSelect.value === 'allende') {
+                    divTextoPagina.innerHTML = "<p>" + "nissanriveroallende.com" + "</p>";
+                    divTextoPaginaDos.innerHTML = "<p>" + "nissanriveroallende.com" + "</p>";
 
                 }
 
