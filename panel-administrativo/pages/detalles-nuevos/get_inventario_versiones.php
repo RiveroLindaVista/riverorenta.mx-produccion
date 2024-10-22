@@ -117,7 +117,7 @@ function change_select_icons($conn){
 }
 function update_invver($conn) {
     try {
-
+        $utf8 = $conn->set_charset("utf8");
         $id = $_POST["id"];
         $metavalue = $_POST["metavalue"];
         $icono = $_POST["icono"];
