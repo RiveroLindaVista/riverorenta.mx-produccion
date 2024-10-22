@@ -1529,7 +1529,7 @@ $orden = $orden + 10;
                     } else {
                         alert('guardado');
                     }
-                    $("#modal-edit-invver").modal('show');
+                    $("#modal-edit-invver").modal('hide');
                     change_tbl_inv_versiones();
                 }
 
