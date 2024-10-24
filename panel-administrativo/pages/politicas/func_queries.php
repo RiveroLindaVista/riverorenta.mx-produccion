@@ -1,7 +1,7 @@
 <?php
 
 date_default_timezone_set('America/Monterrey');
-
+$utf8 = $conn->set_charset("utf8");
 class QueriesPolicy extends Conexion {
 
     public function get_politicas() {
