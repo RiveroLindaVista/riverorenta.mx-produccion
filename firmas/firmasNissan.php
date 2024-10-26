@@ -374,7 +374,7 @@ include("header.php");
                         "Carr Nacional 301, San Javier, 67350 Cdad. de Allende, N.L." +
                         "</p>";
 
-                }  else if (sucursalSelect.value === 'HYP') {
+                }  else if (sucursalSelect.value === 'hyp') {
 
                     divTextoSucursal.innerHTML = "<p>" +
                         "Av. Alfonso Reyes 3237, Alta Vista Sur, 64740 Monterrey, N.L." +
