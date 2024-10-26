@@ -60,7 +60,6 @@ include("header.php");
                                 <option value="lasTorres">Las Torres</option>
                                 <option value="valle">Valle</option>
                                 <option value="allende">Allende</option>
-                                <option value="hyp">HYP</option>
                             </select>
                         </div>
 
@@ -72,6 +71,7 @@ include("header.php");
                                 <option value="lasTorres">Las Torres</option>
                                 <option value="valle">Valle</option>
                                 <option value="allende">Allende</option>
+                                <option value="hyp">HYP</option>
                             </select>
                         </div>
                     </div>
