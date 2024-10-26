@@ -60,6 +60,7 @@ include("header.php");
                                 <option value="lasTorres">Las Torres</option>
                                 <option value="valle">Valle</option>
                                 <option value="allende">Allende</option>
+                                <option value="hyp">HYP</option>
                             </select>
                         </div>
 
@@ -325,6 +326,10 @@ include("header.php");
                     divTextoPagina.innerHTML = "<p>" + "nissanriveroallende.com" + "</p>";
                     divTextoPaginaDos.innerHTML = "<p>" + "nissanriveroallende.com" + "</p>";
 
+                } else if (paginaSelect.value === 'hyp') {
+                    divTextoPagina.innerHTML = "<p>" + "nissanriveroallende.com" + "</p>";
+                    divTextoPaginaDos.innerHTML = "<p>" + "nissanriveroallende.com" + "</p>";
+
                 }
 
 
@@ -367,6 +372,15 @@ include("header.php");
                         "</p>";
                     divTextoSucursalDos.innerHTML = "<p>" +
                         "Carr Nacional 301, San Javier, 67350 Cdad. de Allende, N.L." +
+                        "</p>";
+
+                }  else if (sucursalSelect.value === 'HYP') {
+
+                    divTextoSucursal.innerHTML = "<p>" +
+                        "Av. Alfonso Reyes 3237, Alta Vista Sur, 64740 Monterrey, N.L." +
+                        "</p>";
+                    divTextoSucursalDos.innerHTML = "<p>" +
+                        "Av. Alfonso Reyes 3237, Alta Vista Sur, 64740 Monterrey, N.L." +
                         "</p>";
 
                 }
