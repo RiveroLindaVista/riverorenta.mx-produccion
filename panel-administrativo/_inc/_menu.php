@@ -43,7 +43,8 @@ $arr_usuarios = [
         'home',
     ],
     'POLITICAS' => [
-        'politicas'
+        'politicas',
+        'lista-politicas-empleados'
     ]
 ];
 // echo  '<script>console.log(JSON.parse( JSON.stringy("'.  $arr_usuarios .'")) );</script>';
@@ -201,6 +202,15 @@ echo "<script>console.log(JSON.parse('".json_encode($arr_usuarios)."')); </scrip
                         <a href="<?=URLP?>pages/politicas" class="">
                             <i class="material-icons">contact_mail</i>
                             <span>Politicas Rivero</span>
+                        </a>
+                    </li>
+                    <?php } ?>
+
+                    <?php if(in_array('lista-politicas-empleados', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
+                    <li class="<?= $lista_politicas_empleados;?>">
+                        <a href="<?=URLP?>pages/lista-politicas-empleados" class="">
+                            <i class="material-icons">developer_board</i>
+                            <span>Lista de empleados</span>
                         </a>
                     </li>
                     <?php } ?>
