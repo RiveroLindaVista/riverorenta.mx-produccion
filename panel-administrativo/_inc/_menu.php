@@ -41,6 +41,7 @@ $arr_usuarios = [
         'promociones',
         'unidades',
         'home',
+        'planes_nissan',
     ],
     'POLITICAS' => [
         'politicas',
