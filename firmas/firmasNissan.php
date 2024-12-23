@@ -340,11 +340,11 @@ include("header.php");
                 if (sucursalSelect.value === 'contry') {
 
                     divTextoSucursal.innerHTML = "<p>" +
-                        "Av. Eugenio Garza Sada 3800, Col. Mas Palomas C.P. 64780 Monterrey N.L." +
+                        "Av. Eugenio Garza Sada 3800, Mas Palomas (Valle de Santiago) Monterrey, NUEVO LEÓN 64780" +
                         "</p>";
 
                     divTextoSucursalDos.innerHTML = "<p>" +
-                        "Av. Eugenio Garza Sada 3800, Col. Mas Palomas C.P. 64780 Monterrey N.L." +
+                        "Av. Eugenio Garza Sada 3800, Mas Palomas (Valle de Santiago) Monterrey, NUEVO LEÓN 64780" +
                         "</p>";
 
                 } else if (sucursalSelect.value === 'lasTorres') {
@@ -359,10 +359,10 @@ include("header.php");
                 } else if (sucursalSelect.value === 'valle') {
 
                     divTextoSucursal.innerHTML = "<p>" +
-                        "Av. Vasconcelos No.325 San Pedro Garza Garcia, NUEVO LEÓN 66220" +
+                        "Calzada Del Valle 110, Col Del Valle San Pedro Garza Garcia, NUEVO LEÓN 66220" +
                         "</p>";
                     divTextoSucursalDos.innerHTML = "<p>" +
-                        "Av. Vasconcelos No.325 San Pedro Garza Garcia, NUEVO LEÓN 66220" +
+                        "Calzada Del Valle 110, Col Del Valle San Pedro Garza Garcia, NUEVO LEÓN 66220" +
                         "</p>";
 
                 }  else if (sucursalSelect.value === 'allende') {
