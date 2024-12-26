@@ -204,6 +204,7 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
             dataType: "json",           
             success: function (res) {
                 alert(res)
+                call_api();
             }
         });
         
