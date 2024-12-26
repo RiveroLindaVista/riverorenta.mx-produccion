@@ -118,9 +118,13 @@ foreach ($arr_versions_null as $key => $value) {
     } else {
         $str_versiones_sin_caracteristicas = '- - -';
     }
+    $btn_disabled = '';
+    if ($_SESSION['usuario']=='DESARROLLO') {
+        $btn_disabled = '<button  class="btn btn-danger" onclick=disable_from_catalogo(\''.$value["slug"].'\')>'.$delete_icon.'</button>';
+    }
     $tr_versiones .= '<td>'.$str_versiones_sin_caracteristicas.'</td>';
     $tr_versiones .= '<td> <button class="'.$flag_con_colores.'"></button></td>';
-    $tr_versiones .= '<td> <div><button class="btn btn-success" onclick=go_to_unidades_nuevos('.$value['id'].')>'.$view_icon.'</button> <button  class="btn btn-danger" onclick=disable_from_catalogo(\''.$value["slug"].'\')>'.$delete_icon.'</button></div></td>';
+    $tr_versiones .= '<td> <div><button class="btn btn-success" onclick=go_to_unidades_nuevos('.$value['id'].')>'.$view_icon.'</button>  '.$btn_disabled.'</div></td>';
     $tr_versiones .= '</tr>';
 }
 $arr_response = array(
