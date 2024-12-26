@@ -90,10 +90,17 @@ foreach ($catalogo_autos as $key => $val) {
 
 }
 $tr_versiones = '';
+$delete_icon = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+</svg>';
+$view_icon = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+  <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+</svg>';
 foreach ($arr_versions_null as $key => $value) {
     $flag_con_versiones = $value['con_versiones'] == 'NO' ? 'flag-red' : 'flag-green';
     $flag_con_colores = $value['con_colores'] == 'NO' ? 'flag-red' : 'flag-green';
-    $tr_versiones .= '<tr class="tr_body_versions" onclick=go_to_unidades_nuevos('.$value['id'].')>';
+    $tr_versiones .= '<tr class="tr_body_versions">';
     $tr_versiones .= '<td>'.$value['marca'].'</td>';
     $tr_versiones .= '<td>'.$value['modelo'].'</td>';
     $tr_versiones .= '<td>'.$value['slug'].'</td>';
@@ -113,6 +120,7 @@ foreach ($arr_versions_null as $key => $value) {
     }
     $tr_versiones .= '<td>'.$str_versiones_sin_caracteristicas.'</td>';
     $tr_versiones .= '<td> <button class="'.$flag_con_colores.'"></button></td>';
+    $tr_versiones .= '<td> <div><button class="btn btn-success" onclick=go_to_unidades_nuevos('.$value['id'].')>'.$view_icon.'</button> <button  class="btn btn-danger" onclick=disable_from_catalogo(\''.$value["slug"].'\')>'.$delete_icon.'</button></div></td>';
     $tr_versiones .= '</tr>';
 }
 $arr_response = array(

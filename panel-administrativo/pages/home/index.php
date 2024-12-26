@@ -54,6 +54,7 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
                             <th class="th_dflex">VERSIONES</th>
                             <th class="th_dflex">VERSIONES SIN DESCRIPCION</th>
                             <th class="th_dflex" >COLORES</th>
+                            <th class="th_dflex"> OPCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -189,6 +190,23 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
         location.href = host;
         // window.location = host + '/produccion/panel-administrativo/pages/detalles-nuevos/index.php?id=' + id;
         return false;
+    }
+
+    function disable_from_catalogo(slug) {
+        console.log(slug);
+        let data = {
+            slug: slug
+        }
+        $.ajax({
+            type: "POST",
+            url: "disable_from_catalogo.php",
+            data: data,
+            dataType: "json",           
+            success: function (res) {
+                alert(res)
+            }
+        });
+        
     }
 
     function call_api() {
