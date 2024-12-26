@@ -42,7 +42,7 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
         
         <div class="card bg-light mb-2" style="min-height: 200px;">
             <div class="card-header"></div>
-            <div class="card-body">
+            <div class="card-body" style="overflow-x: scroll;">
                 <h5 class="card-title"></h5>
 
                 <table class="table table-striped" id="tabla_versiones_incompletos" style="text-align: center;">
