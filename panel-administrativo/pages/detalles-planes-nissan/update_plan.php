@@ -6,6 +6,7 @@ require_once("../../_inc/_config.php");
 //var_dump($_POST);
 
 $slug = 'nissan-'.strtolower($_POST["modelo"]).'-'.$_POST["ano"];
+$slug = str_replace(' ', '-', $slug);
 
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DB);
 $sql = 'SELECT * FROM planes_nissan WHERE modelo="'.$_POST["modelo"].'" and version="'.$_POST["version"].'" and ano="'.$_POST["ano"].'"';
