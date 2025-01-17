@@ -42,7 +42,7 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
         
         <div class="card bg-light mb-2" style="min-height: 200px;">
             <div class="card-header"></div>
-            <div class="card-body">
+            <div class="card-body" style="overflow-x: scroll;">
                 <h5 class="card-title"></h5>
 
                 <table class="table table-striped" id="tabla_versiones_incompletos" style="text-align: center;">
@@ -54,6 +54,7 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
                             <th class="th_dflex">VERSIONES</th>
                             <th class="th_dflex">VERSIONES SIN DESCRIPCION</th>
                             <th class="th_dflex" >COLORES</th>
+                            <th class="th_dflex"> OPCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -189,6 +190,24 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
         location.href = host;
         // window.location = host + '/produccion/panel-administrativo/pages/detalles-nuevos/index.php?id=' + id;
         return false;
+    }
+
+    function disable_from_catalogo(slug) {
+        console.log(slug);
+        let data = {
+            slug: slug
+        }
+        $.ajax({
+            type: "POST",
+            url: "disable_from_catalogo.php",
+            data: data,
+            dataType: "json",           
+            success: function (res) {
+                alert(res)
+                call_api();
+            }
+        });
+        
     }
 
     function call_api() {
