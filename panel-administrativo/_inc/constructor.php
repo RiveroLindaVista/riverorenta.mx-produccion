@@ -1917,6 +1917,13 @@ public function get_lista_versiones_nissan($modelo, $ano){
   $conn->close();
 }
 
+public function get_lista_versiones_chevrolet($modelo, $ano){
+  $conn=new Conexion();
+  $consulta= $conn->query_lista_versiones_chevrolet($modelo, $ano);
+  return $consulta;
+  $conn->close();
+}
+
 
 public function get_lista_autos(){
   $conn=new Conexion();
