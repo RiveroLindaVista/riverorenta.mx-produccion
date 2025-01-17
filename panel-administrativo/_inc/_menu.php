@@ -19,6 +19,7 @@ $arr_usuarios = [
         'colores_page',
         'codigos_qr',
         'planes_nissan',
+        'planes_chevrolet',
         'politicas_rivero',
         'home',
     ],
@@ -42,6 +43,7 @@ $arr_usuarios = [
         'unidades',
         'home',
         'planes_nissan',
+        'planes_chevrolet',
     ],
     'POLITICAS' => [
         'politicas',
@@ -198,6 +200,16 @@ echo "<script>console.log(JSON.parse('".json_encode($arr_usuarios)."')); </scrip
                         </a>
                     </li>
                     <?php } ?>
+
+                    <?php if(in_array('planes_chevrolet', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
+                        <li class="<?= $planes_chevrolet;?>">
+                            <a href="<?=URLP?>pages/planes-chevrolet" class="">
+                                <i class="material-icons">attach_money</i>
+                                <span>Planes Chevrolet</span>
+                            </a>
+                        </li>
+                        <?php } ?>
+
                     <?php if(in_array('politicas', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
                     <li class="<?= $politicas_rivero;?>">
                         <a href="<?=URLP?>pages/politicas" class="">
