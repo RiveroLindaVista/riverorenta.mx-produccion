@@ -18,11 +18,11 @@ if ($resultQuery->num_rows > 0) {
 
 
 
-//echo $auto[0]["modelo"];
+echo $auto[0]["slug"];
 
 
 $versiones = $conne->get_lista_versiones_chevrolet($auto["modelo"], $auto["ano"]);
-var_dump($versiones);
+//var_dump($versiones);
 
 $enganches = $conne->get_lista_enganches_chevrolet($auto["slug"]);
 var_dump($enganches);
