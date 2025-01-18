@@ -18,7 +18,7 @@ if ($resultQuery->num_rows > 0) {
 
 
 
-echo $auto[0]["slug"];
+echo $auto["slug"];
 
 
 $versiones = $conne->get_lista_versiones_chevrolet($auto["modelo"], $auto["ano"]);
