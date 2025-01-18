@@ -22,7 +22,7 @@ if ($resultQuery->num_rows > 0) {
 
 
 $versiones = $conne->get_lista_versiones_chevrolet($auto["modelo"], $auto["ano"]);
-//var_dump($versiones);
+var_dump($versiones);
 for($i=0;$i<count($versiones);$i++){
     $params = base64_encode(json_encode($value));
     $lista_versiones.=  '<div class="col-md-4 col-sm-12 col-12">
@@ -107,7 +107,7 @@ for($i=0;$i<count($versiones);$i++){
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="tituloModal">Versiones</h4>
+                    <h4 class="modal-title" id="tituloModal">Version</h4>
                 </div>
                     <div class="modal-body">
                         <div>
@@ -176,7 +176,7 @@ for($i=0;$i<count($versiones);$i++){
                 url: 'update_plan.php',
                 success: function(res) {
                     console.log(res);
-                    location.reload(true);
+                    //location.reload(true);
                 }
 
             });

@@ -21,11 +21,13 @@ if ($resultQuery->num_rows > 0) {
 if($auto){
     $queryUpdate = 'UPDATE planes_chevrolet set mensualidad="'.$_POST["mensualidad"].'", enganche="'.$_POST["enganche"].'" WHERE modelo="'.$_POST["modelo"].'" and version="'.$_POST["version"].'" and ano="'.$_POST["ano"].'"';
 	$conn->query($queryUpdate);
+    echo json_encode($queryUpdate);
 } else {
     $queryInsert = 'INSERT INTO planes_chevrolet (slug,marca,modelo,version,tipo,ano,mensualidad,enganche) VALUES("'.$slug.'","CHEVROLET","'.$_POST["modelo"].'","'.$_POST["version"].'","'.$_POST["tipo"].'","'.$_POST["ano"].'","'.$_POST["mensualidad"].'","'.$_POST["enganche"].'")';
 	$conn->query($queryInsert);
+    echo json_encode($queryInsert);
 }
-echo json_encode('OK');
+
 $conn->close();
 
 ?>
