@@ -23,6 +23,10 @@ if ($resultQuery->num_rows > 0) {
 
 $versiones = $conne->get_lista_versiones_chevrolet($auto["modelo"], $auto["ano"]);
 var_dump($versiones);
+
+$enganches = $conne->get_lista_enganches_chevrolet($auto["slug"]);
+var_dump($enganches);
+
 for($i=0;$i<count($versiones);$i++){
     $params = base64_encode(json_encode($value));
     $lista_versiones.=  '<div class="col-md-4 col-sm-12 col-12">
