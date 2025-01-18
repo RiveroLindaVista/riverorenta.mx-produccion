@@ -1674,7 +1674,7 @@ class Conexion extends Database{
     public function query_lista_enganches_chevrolet($slug){
         $conn= Database::connect();
 
-        $sql = 'SELECT *, concat(marca,"-",modelo,"-",ano) as slug FROM planes_chevrolet WHERE slug="'.$slug.'" order BY tipo';
+        $sql = 'SELECT * FROM planes_chevrolet WHERE slug="'.$slug.'" order BY tipo';
         $result=$conn->query($sql);
         if ($result) {
             while ($row = $result->fetch_assoc()) {
