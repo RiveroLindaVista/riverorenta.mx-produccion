@@ -16,16 +16,8 @@ if ($resultQuery->num_rows > 0) {
     }
 }
 
-
-
-echo $auto["slug"];
-
-
 $versiones = $conne->get_lista_versiones_chevrolet($auto["modelo"], $auto["ano"]);
 //var_dump($versiones);
-
-$enganches = $conne->get_lista_enganches_chevrolet($auto["slug"]);
-var_dump($enganches);
 
 for($i=0;$i<count($versiones);$i++){
     $params = base64_encode(json_encode($value));
@@ -180,7 +172,7 @@ for($i=0;$i<count($versiones);$i++){
                 url: 'update_plan.php',
                 success: function(res) {
                     console.log(res);
-                    //location.reload(true);
+                    location.reload(true);
                 }
 
             });
