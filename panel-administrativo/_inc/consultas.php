@@ -1661,7 +1661,7 @@ class Conexion extends Database{
         $slugin = 'chevrolet-'.$modelo.'-'.$ano;
         $slug = str_replace(' ','-',$slug); 
 
-        $sql = 'SELECT *, concat(marca,"-",modelo,"-",ano) as slug FROM versiones WHERE modelo="'.$modelo.'" AND ano="'.$ano.'" order BY tipo';
+        $sql = 'SELECT t1.id, t1.version , t2.precio, t2.tipo, t3.enganche, t3.mensualidad, t1.ano, t2.ano, t3.ano, t2.slug, t3.slug FROM versiones t1 LEFT JOIN catalogo t2 ON t1.tipo=t2.tipo AND t1.modelo=t2.modelo AND t1.ano=t2.ano LEFT JOIN planes_chevrolet t3 ON t2.tipo=t3.tipo WHERE t2.modelo="'.$modelo.'" AND t2.ano="'.$ano.'" order BY t2.precio';
         $result=$conn->query($sql);
         if ($result) {
             while ($row = $result->fetch_assoc()) {
