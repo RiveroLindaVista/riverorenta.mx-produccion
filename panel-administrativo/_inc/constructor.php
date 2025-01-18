@@ -1924,6 +1924,14 @@ public function get_lista_versiones_chevrolet($modelo, $ano){
   $conn->close();
 }
 
+public function get_lista_enganches_chevrolet($slug){
+  $conn=new Conexion();
+  $consulta= $conn->query_lista_enganches_chevrolet($slug);
+  return $consulta;
+  $conn->close();
+}
+
+
 
 public function get_lista_autos(){
   $conn=new Conexion();
