@@ -8,16 +8,14 @@
 	if ($this_subpage=="nuevos") { $nuevos="active"; } else{ $nuevos="active"; }
 
 	$conn = new mysqli(DB_HOST, DB_USER,DB_PASSWORD, DB_DB);
-	$sql = 'SELECT * FROM catalogo WHERE ano IN("2022","2023","2024","2025") AND marca="CHEVROLET" GROUP BY modelo,ano ORDER BY modelo asc';
+	$sql = 'SELECT * FROM catalogo WHERE ano IN("2024","2025","2026") AND marca="CHEVROLET" GROUP BY modelo,ano ORDER BY modelo asc';
 	$resultQuery = $conn->query($sql);
-	if ($resultQuery->num_rows > 0) {
-	   while($row = $resultQuery->fetch_assoc()) {
+    for($i=0;$i<count($resultQuery);$i++){
 	   		$nuevosCadena.='<tr onclick="gopage(\''.$row["id"].'\')">';
             $nuevosCadena.='<td>'.$row["modelo"].'</td>';
             $nuevosCadena.='<td>'.$row["ano"].'</td>';
             $nuevosCadena.='<td><input class="btn" type="button" style="border-radius: 7px;background-color:#0376cd;color:white;" value="Ver Planes"></td>';
             $nuevosCadena.='</tr>';
-	   }
 	}
 
 $conn->close();
