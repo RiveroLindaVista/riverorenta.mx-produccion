@@ -10,6 +10,7 @@
 	$conn = new mysqli(DB_HOST, DB_USER,DB_PASSWORD, DB_DB);
 	$sql = 'SELECT * FROM catalogo WHERE ano IN("2024","2025","2026") AND marca="CHEVROLET" GROUP BY modelo,ano ORDER BY modelo asc';
 	$resultQuery = $conn->query($sql);
+    var_dump($resultQuery);
     for($i=0;$i<count($resultQuery);$i++){
 	   		$nuevosCadena.='<tr onclick="gopage(\''.$row["id"].'\')">';
             $nuevosCadena.='<td>'.$row["modelo"].'</td>';
