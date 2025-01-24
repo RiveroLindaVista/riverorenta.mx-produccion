@@ -13,15 +13,15 @@
 	if ($resultQuery->num_rows > 0) {
 	   while($row = $resultQuery->fetch_assoc()) {
         if ($row["marca"]=="CHEVROLET") {
-            $img_marca="https://gruporivero.com/assets/img/commun/icon-chevy.png";
+            $img_marca="https://d3s2hob8w3xwk8.cloudfront.net/assets/img/commun/icon-chevy.png";
         }else if ($row["marca"]=="BUICK") {
-            $img_marca="https://gruporivero.com/assets/img/commun/icon-buick.png";
+            $img_marca="https://d3s2hob8w3xwk8.cloudfront.net/assets/img/commun/icon-buick.png";
         }else if ($row["marca"]=="CADILLAC") {
-            $img_marca="https://gruporivero.com/assets/img/commun/icon-cadillac.png";
+            $img_marca="https://d3s2hob8w3xwk8.cloudfront.net/assets/img/commun/icon-cadillac.png";
         }else if ($row["marca"]=="GMC") {
-            $img_marca="https://gruporivero.com/assets/img/commun/icon-gmc.png";
+            $img_marca="https://d3s2hob8w3xwk8.cloudfront.net/assets/img/commun/icon-gmc.png";
         }else if ($row["marca"]=="NISSAN") {
-            $img_marca="https://gruporivero.com/assets/img/commun/icon-nissan.png";
+            $img_marca="https://d3s2hob8w3xwk8.cloudfront.net/assets/img/commun/icon-nissan.png";
         }
 	   	if($row["ano"]=="2018"){
 	   		$nuevosCadena.='
@@ -46,13 +46,13 @@ $sql = 'SELECT marca FROM inventario_nuevos GROUP BY marca ORDER BY marca';
     if ($resultQuery->num_rows > 0) {
        while($row = $resultQuery->fetch_assoc()) {
         if ($row["marca"]=="CHEVROLET") {
-            $img_marca="https://gruporivero.riverorenta.mx/assets/img/commun/icon-chevy.png";
+            $img_marca="https://d3s2hob8w3xwk8.cloudfront.net/assets/img/commun/icon-chevy.png";
         }else if ($row["marca"]=="BUICK") {
-            $img_marca="https://gruporivero.riverorenta.mx/assets/img/commun/icon-buick.png";
+            $img_marca="https://d3s2hob8w3xwk8.cloudfront.net/assets/img/commun/icon-buick.png";
         }else if ($row["marca"]=="CADILLAC") {
-            $img_marca="https://gruporivero.riverorenta.mx/assets/img/commun/icon-cadillac.png";
+            $img_marca="https://d3s2hob8w3xwk8.cloudfront.net/assets/img/commun/icon-cadillac.png";
         }else if ($row["marca"]=="GMC") {
-            $img_marca="https://gruporivero.riverorenta.mx/assets/img/commun/icon-gmc.png";
+            $img_marca="https://d3s2hob8w3xwk8.cloudfront.net/assets/img/commun/icon-gmc.png";
         }
         $marcas.='<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                     <a href="../../images/image-gallery/3.jpg" data-sub-html="Demo Description">
@@ -87,9 +87,9 @@ $conn->close();
 <html>
 <head>
    <?php include('../../_inc/_header.php');?>
-    <link rel='icon' type='image/png' href='https://www.gruporivero.com/assets/img/commun/gporiv.png' />
+    <link rel='icon' type='image/png' href='https://d3s2hob8w3xwk8.cloudfront.net/assets/img/commun/gporiv.png' />
     <!--link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/-->
-    <link rel='shortcut icon' type='image/png' href='https://www.gruporivero.com/assets/img/commun/gporiv.png' />
+    <link rel='shortcut icon' type='image/png' href='https://d3s2hob8w3xwk8.cloudfront.net/assets/img/commun/gporiv.png' />
 
         <!-- JQuery DataTable Css -->
     <link href="../../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
