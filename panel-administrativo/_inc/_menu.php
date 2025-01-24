@@ -21,6 +21,7 @@ $arr_usuarios = [
         'planes_nissan',
         'planes_chevrolet',
         'politicas_rivero',
+        'imagenes_de_campañas',
         'home',
     ],
     'TALLER' => [
@@ -44,6 +45,7 @@ $arr_usuarios = [
         'home',
         'planes_nissan',
         'planes_chevrolet',
+        'imagenes_de_campañas'
     ],
     'POLITICAS' => [
         'politicas',
@@ -206,6 +208,15 @@ echo "<script>console.log(JSON.parse('".json_encode($arr_usuarios)."')); </scrip
                             <a href="<?=URLP?>pages/planes-chevrolet" class="">
                                 <i class="material-icons">attach_money</i>
                                 <span>Planes Chevrolet</span>
+                            </a>
+                        </li>
+                        <?php } ?>
+
+                    <?php if(in_array('imagenes_de_campañas', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
+                        <li class="<?= $imagenes_de_campañas;?>">
+                            <a href="<?=URLP?>pages/imagenes-campañas" class="">
+                                <i class="material-icons">no_crash</i>
+                                <span>Imagenes de campañas</span>
                             </a>
                         </li>
                         <?php } ?>
