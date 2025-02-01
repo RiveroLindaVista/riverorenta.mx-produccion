@@ -44,11 +44,13 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
             <div class="card-header"></div>
             <div class="card-body" style="overflow-x: scroll;">
                 <h5 class="card-title"></h5>
-                <div class="row offset-4">
+                <div class="row">
                     <div class="col-md-6">
+                    </div>
+                    <div class="col-md-5">
                         <input onkeypress="if(event.keyCode == 13){func_search()}" id="input-search" class="form-control" type="text" placeholder="Escribir...">
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-1">
                         <button onclick="func_search()" type="button" class="btn btn-primary">Buscar</button>
                     </div>
                 </div>
