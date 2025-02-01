@@ -2157,6 +2157,46 @@ public function get_table_qrs(){
   return $out;
   
 }
+public function catalogo_autos_incompletos(){
+  $conn= Database::connect();
+  $sql = ''.
+  'SELECT 
+        cat.id, 
+        cat.status, 
+        cat.online, 
+        cat.marca,
+        cat.modelo,
+        cat.slug, 
+        cat.ano, 
+        CASE 
+            WHEN (SELECT COUNT(*) FROM inventario_colores col WHERE col.slug = cat.slug) > 0 THEN TRUE 
+            ELSE FALSE 
+        END AS has_colors,
+	    CASE
+		    WHEN (SELECT COUNT(*) FROM versiones ver WHERE ver.marca=cat.marca AND ver.modelo=cat.modelo AND ver.ano = cat.ano AND  ver.version IS NOT NULL) > 0 THEN TRUE
+		    ELSE FALSE
+        END AS has_versions,
+		    (SELECT  group_concat(ver2.version ) 
+			    FROM versiones ver2 
+                WHERE ver2.marca=cat.marca 
+                AND ver2.modelo=cat.modelo 
+                AND ver2.ano = cat.ano 
+                AND  ver2.version IS NOT NULL 
+                AND (SELECT COUNT(*) FROM inventario_versiones invver WHERE invver.slug = cat.slug AND invver.version = ver2.version ) = 0
+                ) has_versions_without_characteristics
+    FROM catalogo cat  
+    WHERE cat.status = 1 
+    GROUP BY cat.slug';
+
+  $result=$conn->query($sql);
+  if ($result) {
+      while ($row = $result->fetch_assoc()) {
+          $out[]=array_map("utf8_encode", $row);
+      }
+  } 
+  $conn=Database::close();
+  return $out;
+}
 public function catalogo_autos_activos(){
   $conn= Database::connect();
   $sql = 'SELECT * FROM catalogo where status = 1  GROUP BY slug, marca, modelo, ano';

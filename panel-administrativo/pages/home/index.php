@@ -44,6 +44,14 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
             <div class="card-header"></div>
             <div class="card-body" style="overflow-x: scroll;">
                 <h5 class="card-title"></h5>
+                <div class="row offset-4">
+                    <div class="col-md-6">
+                        <input onkeypress="if(event.keyCode == 13){func_search()}" id="input-search" class="form-control" type="text" placeholder="Escribir...">
+                    </div>
+                    <div class="col-md-2">
+                        <button onclick="func_search()" type="button" class="btn btn-primary">Buscar</button>
+                    </div>
+                </div>
 
                 <table class="table table-striped" id="tabla_versiones_incompletos" style="text-align: center;">
                     <thead>
@@ -183,6 +191,15 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
     }
 </style>
 <script>
+    let catalogo_autos_incompletos = [];
+    $(document).ready( async function () {
+        catalogo_autos_incompletos_All = await call_api();
+        catalogo_autos_incompletos = catalogo_autos_incompletos_All
+
+        await func_fill_table();
+    });
+    
+
     function go_to_unidades_nuevos(id){
         let host = '/produccion/panel-administrativo/pages/detalles-nuevos/index.php?id=' + id;
         // console.log(host);
@@ -210,26 +227,76 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
         
     }
 
-    function call_api() {
+    async function call_api() {
         console.log('CALL API');
-        $.ajax({
+        let response = await $.ajax({
             type: "POST",
-            url: "versiones_incompletos.php",
+            url: "catalogo_list_faltantes.php",
             data: [],
             dataType: "json",           
             success: function (res) {
-                console.log(res);
-                $('#tabla_versiones_incompletos tbody').html(res['body']);
-                $('#title_versiones_incompletas').text(`VERSIONES INCOMPLETAS (${res['cant_total']})`);;
-
-
             }
         });
+
+        return response;
+    }
+
+    async function func_fill_table() {
+                console.log(catalogo_autos_incompletos);
+                
+                $tr_versiones = '';
+                $delete_icon = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16"><path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/></svg>';
+                $view_icon = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16"><path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/><path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/></svg>';
+                for (let i = 0; i < catalogo_autos_incompletos.length; i++) {
+                    const value = catalogo_autos_incompletos[i];
+                    $flag_con_versiones = value['has_versions'] == 0 ? 'flag-red' : 'flag-green';
+                    $flag_con_colores = value['has_colors'] == 0 ? 'flag-red' : 'flag-green';
+                    $tr_versiones += '<tr class="tr_body_versions">';
+                    $tr_versiones += '<td>'+value['marca']+'</td>';
+                    $tr_versiones += '<td>'+value['modelo']+'</td>';
+                    $tr_versiones += '<td>'+value['slug']+'</td>';
+                    $tr_versiones += '<td> <button class="'+$flag_con_versiones+'"></button>'+'' +'</td>';
+                    $str_versiones_sin_caracteristicas = '';
+                    if (value['has_versions_without_characteristics']) {
+                        if ( value['has_versions_without_characteristics'].length > 0) {
+                            let arr_has_versions_without_characteristics = value['has_versions_without_characteristics'].split(',');
+                            for (let j = 0; j < arr_has_versions_without_characteristics.length; j++) {
+                                const val3 = arr_has_versions_without_characteristics[j];
+                                $separa = j == 0 ? '' : ', ';
+                                $str_versiones_sin_caracteristicas += $separa+ val3;
+                            }
+                        } else {
+                            $str_versiones_sin_caracteristicas = '- - -';
+                        }
+                    } else {
+                        $str_versiones_sin_caracteristicas = '- - -';
+                    }
+                    $btn_disabled = '';
+                    <?php if ($_SESSION['usuario']=='DESARROLLO') { ?>
+                        $btn_disabled = '<button  class="btn btn-danger" onclick=disable_from_catalogo(\''+value["slug"]+'\')>'+$delete_icon+'</button>';
+                    <?php } ?>
+                    $tr_versiones += '<td>'+$str_versiones_sin_caracteristicas+'</td>';
+                    $tr_versiones += '<td> <button class="'+$flag_con_colores+'"></button></td>';
+                    $tr_versiones += '<td> <div><button class="btn btn-success" onclick=go_to_unidades_nuevos('+value['id']+')>'+$view_icon+'</button>  '+$btn_disabled+'</div></td>';
+                    $tr_versiones += '</tr>';
+                }        
+                $('#tabla_versiones_incompletos tbody').html($tr_versiones);
+                $('#title_versiones_incompletas').text(`VERSIONES INCOMPLETAS (${catalogo_autos_incompletos.length})`);
+
     }
 
 
-    call_api();
-
+    async function func_search() {
+        let input_search = $('#input-search').val();
+        let regExp = new RegExp(input_search, 'gi');
+        catalogo_autos_incompletos = catalogo_autos_incompletos_All.filter((inf) => {
+            if (inf.marca.match(regExp) || inf.modelo.match(regExp) || inf.slug.match(regExp)) {
+                return true;
+            }
+        })
+        await func_fill_table();
+        
+    }
 
 </script>
 

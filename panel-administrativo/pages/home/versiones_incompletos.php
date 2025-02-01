@@ -1,16 +1,18 @@
 <?php  
 require_once("../../_inc/_config.php");
 include("../../_inc/constructor.php");
-
+//ARCHIVO NO USADO
 $conne = new Construir();
-$promoAutos = $conne->get_all_promos_autos();
-$promoTaller = $conne->get_all_promos_taller();
-$promoAccesorios = $conne->get_all_promos_accesorios();
 
 $catalogo_autos = $conne->catalogo_autos_activos();
                 // echo json_encode($catalogo_autos);
                 // return true;
 $arr_versions_null = array();
+
+$catalogo_autos_incompletos = $conne->catalogo_autos_incompletos();
+
+echo json_encode($catalogo_autos_incompletos);
+return true;
 foreach ($catalogo_autos as $key => $val) {
     // if ($key == 7) {
     //     break;
@@ -89,6 +91,7 @@ foreach ($catalogo_autos as $key => $val) {
     }
 
 }
+
 $tr_versiones = '';
 $delete_icon = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
   <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
@@ -105,24 +108,12 @@ foreach ($arr_versions_null as $key => $value) {
     $tr_versiones .= '<td>'.$value['modelo'].'</td>';
     $tr_versiones .= '<td>'.$value['slug'].'</td>';
     $tr_versiones .= '<td> <button class="'.$flag_con_versiones.'"></button>'.'' .'</td>';
-    $str_versiones_sin_caracteristicas = '';
-    if (isset($value['arr_versiones_sin_caracteristicas'])) {
-        if ( count($value['arr_versiones_sin_caracteristicas']) > 0) {
-            foreach ($value['arr_versiones_sin_caracteristicas'] as $key3 => $val3) {
-                $separa = $key3 == 0 ? '' : ', ';
-                $str_versiones_sin_caracteristicas .= $separa. $val3;
-            }
-        } else {
-            $str_versiones_sin_caracteristicas = '- - -';
-        }
-    } else {
-        $str_versiones_sin_caracteristicas = '- - -';
-    }
+
     $btn_disabled = '';
     if ($_SESSION['usuario']=='DESARROLLO') {
         $btn_disabled = '<button  class="btn btn-danger" onclick=disable_from_catalogo(\''.$value["slug"].'\')>'.$delete_icon.'</button>';
     }
-    $tr_versiones .= '<td>'.$str_versiones_sin_caracteristicas.'</td>';
+    $tr_versiones .= '<td>'.$value['has_versions_without_characteristics'].'</td>';
     $tr_versiones .= '<td> <button class="'.$flag_con_colores.'"></button></td>';
     $tr_versiones .= '<td> <div><button class="btn btn-success" onclick=go_to_unidades_nuevos('.$value['id'].')>'.$view_icon.'</button>  '.$btn_disabled.'</div></td>';
     $tr_versiones .= '</tr>';
