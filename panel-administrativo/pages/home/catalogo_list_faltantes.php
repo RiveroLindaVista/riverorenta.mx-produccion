@@ -9,7 +9,6 @@ $catalogo_autos_incompletos = $conne->catalogo_autos_incompletos();
 // return true;
 $arr_catalogo = array();
 foreach ($catalogo_autos_incompletos as $key => $val) {
-    // if ($val['has_versions'] == false  ||  $val['has_versions_without_characteristics'] != '' || $val['has_colors'] == false) {
 
     $model_year = $val['modelo'] . '-' . $val['ano'];
     $model_year = str_replace(' ', '-', $model_year);
@@ -20,7 +19,7 @@ foreach ($catalogo_autos_incompletos as $key => $val) {
     $url_catalogo = strtolower('https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . $val['marca'] . '/' . $model_year . '/pdf/catalogo.pdf');
     $url_manual = strtolower('https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . $val['marca'] . '/' . $model_year . '/pdf/manual.pdf');
     $url_video = strtolower('https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . $val['marca'] . '/' . $model_year . '/videos/video_modelo.mp4');
-    
+
 
     $val['has_gallery'] = empty(check_galery($slug)['data']['gallery']) ? false : true;
     $val['has_video'] = check_url_exists($url_video);
@@ -28,9 +27,9 @@ foreach ($catalogo_autos_incompletos as $key => $val) {
     $val['has_catalogo'] = check_url_exists($url_catalogo);
     $val['has_manual'] = check_url_exists($url_manual);
 
-
-    array_push($arr_catalogo, $val);
-    // }
+    if ($val['has_versions'] == false  ||  $val['has_versions_without_characteristics'] != '' || $val['has_colors'] == false || $val['has_gallery'] == false || $val['has_video'] == false || $val['has_ficha_tecnica'] == false || $val['has_catalogo'] == false || $val['has_manual'] == false) {
+        array_push($arr_catalogo, $val);
+    }
 }
 
 function check_url_exists($url)
@@ -50,7 +49,7 @@ function check_galery($slug)
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://api.gruporivero.com/v1/cars/'.$slug.'',
+            CURLOPT_URL => 'https://api.gruporivero.com/v1/cars/' . $slug . '',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
