@@ -47,6 +47,9 @@ $arr_usuarios = [
         'planes_chevrolet',
         'imagenes_de_campañas'
     ],
+    'MKT.DASHBOARD' => [
+        'home'
+    ],
     'POLITICAS' => [
         'politicas',
         'lista-politicas-empleados'

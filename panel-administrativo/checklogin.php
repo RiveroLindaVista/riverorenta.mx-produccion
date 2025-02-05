@@ -16,6 +16,9 @@ if ($username=="DESARROLLO" && $password==='todopoderoso') {
 }else if ($username=="POLITICAS" && $password==='politicas') {
 	$_SESSION['usuario'] = 'POLITICAS';
 	echo 'POLITICAS';
+}else if ($username=="MKT.DASHBOARD" && $password==='mkt.dashboard') {
+	$_SESSION['usuario'] = 'MKT.DASHBOARD';
+	echo 'MKT.DASHBOARD';
 }else{
 	echo 0;
 

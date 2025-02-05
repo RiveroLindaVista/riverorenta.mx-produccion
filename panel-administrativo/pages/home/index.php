@@ -79,7 +79,7 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
                 <div class="row" id="row-spinner">
                     <div class="col-md-12" style="display:flex; justify-content: center; align-items: center;">
                         <div style="display: grid;">
-                            <center><p id="time_waiting" style="font-weight: bold; font-size: x-large;">tiempo de espera 3 min</p></center>
+                            <center><p id="time_waiting" style="font-weight: bold; font-size: x-large;">tiempo de espera 4 min</p></center>
                             <br>
                             <center><img src="loader.gif" style="height: 70px; width: 70px;"></center>
                             <br>
@@ -212,7 +212,7 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
     $(document).ready( async function () {
         $('#row-spinner').show();
 
-        let remainingTime = 180;
+        let remainingTime = 240;
     let countdown = setInterval(() => {
         let minutes = Math.floor(remainingTime / 60);
         let seconds = remainingTime % 60;    
