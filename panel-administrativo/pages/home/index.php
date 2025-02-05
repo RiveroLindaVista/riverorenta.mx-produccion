@@ -54,7 +54,6 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
                         <button onclick="func_search()" type="button" class="btn btn-primary">Buscar</button>
                     </div>
                 </div>
-
                 <table class="table table-striped" id="tabla_versiones_incompletos" style="text-align: center;">
                     <thead>
                         <tr>
@@ -64,7 +63,7 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
                             <th class="th_dflex">VERSIONES</th>
                             <th class="th_dflex">VERSIONES SIN DESCRIPCION</th>
                             <th class="th_dflex" >COLORES</th>
-                            <th class="th_dflex" >GALLERIA</th>
+                            <th class="th_dflex" >GALERIA</th>
                             <th class="th_dflex" >VIDEO</th>
                             <th class="th_dflex" >FICHA</th>
                             <th class="th_dflex" >CATALOGO</th>
@@ -77,6 +76,16 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
                         <!-- <?= $tr_versiones ?> -->
                     </tbody>
                 </table>
+                <div class="row" id="row-spinner">
+                    <div class="col-md-12" style="display:flex; justify-content: center; align-items: center;">
+                        <div style="display: grid;">
+                            <center><p id="time_waiting" style="font-weight: bold; font-size: x-large;">tiempo de espera 3 min</p></center>
+                            <br>
+                            <center><img src="loader.gif" style="height: 70px; width: 70px;"></center>
+                            <br>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -201,10 +210,25 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
 <script>
     let catalogo_autos_incompletos = [];
     $(document).ready( async function () {
+        $('#row-spinner').show();
+
+        let remainingTime = 180;
+    let countdown = setInterval(() => {
+        let minutes = Math.floor(remainingTime / 60);
+        let seconds = remainingTime % 60;    
+        $('#time_waiting').html(`${minutes}:${seconds < 10 ? '0' + seconds : seconds}`);
+        remainingTime--;
+        if (remainingTime < 0) {
+            clearInterval(countdown);
+            $('#time_waiting').html('Tiempo agotado');
+        }
+    }, 1000);
+
         catalogo_autos_incompletos_All = await call_api();
         catalogo_autos_incompletos = catalogo_autos_incompletos_All
 
         await func_fill_table();
+        $('#row-spinner').hide();
     });
     
 
