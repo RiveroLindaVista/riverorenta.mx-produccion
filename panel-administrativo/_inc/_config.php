@@ -14,6 +14,11 @@ DEFINE("DB_USER",getenv('DB_USER'));
 DEFINE("DB_PASSWORD",getenv('DB_PASSWORD'));
 DEFINE("DB_DB", getenv('DB_DB'));
 
+//S3
+DEFINE("S3_KEY", getenv('S3_KEY'));
+DEFINE("S3_SECRET", getenv('S3_SECRET'));
+
+
 /*IVA*/
 DEFINE("precio_iva","1.16");
 /*PLACAS*/

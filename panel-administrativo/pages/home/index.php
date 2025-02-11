@@ -79,7 +79,7 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
                 <div class="row" id="row-spinner">
                     <div class="col-md-12" style="display:flex; justify-content: center; align-items: center;">
                         <div style="display: grid;">
-                            <center><p id="time_waiting" style="font-weight: bold; font-size: x-large;">tiempo de espera 4 min</p></center>
+                            <center><p id="time_waiting" style="font-weight: bold; font-size: x-large;">Tiempo de espera maximo 1 min</p></center>
                             <br>
                             <center><img src="loader.gif" style="height: 70px; width: 70px;"></center>
                             <br>
@@ -206,13 +206,20 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
         width: 25px;
         border: transparent;
     }
+    .flag-gray{
+        background: white;
+        border-radius: 100%;
+        height:25px;
+        width: 25px;
+        border: black solid 1px;
+    }
 </style>
 <script>
     let catalogo_autos_incompletos = [];
     $(document).ready( async function () {
         $('#row-spinner').show();
 
-        let remainingTime = 240;
+        let remainingTime = 60;
     let countdown = setInterval(() => {
         let minutes = Math.floor(remainingTime / 60);
         let seconds = remainingTime % 60;    
@@ -285,9 +292,9 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
                     $flag_con_colores = value['has_colors'] == 0 ? 'flag-red' : 'flag-green';
                     $flag_has_gallery = value['has_gallery'] == 0 ? 'flag-red' : 'flag-green';
                     $flag_has_video = value['has_video'] == 0 ? 'flag-red' : 'flag-green';
-                    $flag_has_ficha_tecnica = value['has_ficha_tecnica'] == 0 ? 'flag-red' : 'flag-green';
+                    $flag_has_ficha_tecnica = value['has_ficha_tecnica'] == 'N/A' ? 'flag-gray' : (value['has_ficha_tecnica'] == 0 ? 'flag-red' : 'flag-green');
                     $flag_has_catalogo = value['has_catalogo'] == 0 ? 'flag-red' : 'flag-green';
-                    $flag_has_manual = value['has_manual'] == 0 ? 'flag-red' : 'flag-green';
+                    $flag_has_manual = value['has_manual'] == 'N/A' ? 'flag-gray' : (value['has_manual'] == 0 ? 'flag-red' : 'flag-green');
 
                     $tr_versiones += '<tr class="tr_body_versions">';
                     $tr_versiones += '<td>'+value['marca']+'</td>';
