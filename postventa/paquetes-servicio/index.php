@@ -124,7 +124,10 @@
 			data: null,
 			dataType: "json",
 			success: function (response) {
+				console.log(response);
+				
 				response.data.forEach(element => {
+					console.log(element);
 					let img_ctrl = "";
 					if (element.type == "TALLER") {
 						img_ctrl += '<img src='+element.image+' alt="promo2" width="33%" />';
