@@ -58,7 +58,7 @@
 </div>
 </div>
 
-<div style="position: absolute;top:750px">
+<div id="div_promociones" style="position: absolute;top:750px">
 		<!-- <img src='assets/afinacion-mayor.jpg' alt="promo1" width="33%" />
 		<img src='assets/cambio-de-filtro.jpg' alt="promo2" width="33%" />
 		<img src='assets/frenos-delanteros.jpg' alt="promo3" width="33%" /><br/><br/>
@@ -74,6 +74,7 @@
 
 <script type="text/javascript">
 	$( document ).ready(function() {
+		promos_taller();
 		$.ajax({
 		  url: "getToken.php",
 		  type: 'GET',
@@ -116,6 +117,26 @@
 		  }
 		});
 	});
+	function promos_taller(){
+		$.ajax({
+			type: "get",
+			url: "https://api.gruporivero.com/v1/promos?per_page=100",
+			data: null,
+			dataType: "json",
+			success: function (response) {
+				response.data.forEach(element => {
+					let img_ctrl = "";
+					if (element.type == "TALLER") {
+						img_ctrl += '<img src='+element.image+' alt="promo2" width="33%" />';
+						if (count == 3 || count == 6) {
+							img_ctrl = '<br/><br/>';
+						}
+					}
+					$('#div_promociones').html(img_ctrl);;
+				});
+			}
+		});
+	}
 	function validarCamposLlenos(){
 		$("#respuesta").html("");
 		$("#paquetePoliza").html("");
