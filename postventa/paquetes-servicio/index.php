@@ -59,11 +59,11 @@
 </div>
 
 <div style="position: absolute;top:750px">
-		<img src='assets/afinacion-mayor.jpg' alt="promo1" width="33%" />
+		<!-- <img src='assets/afinacion-mayor.jpg' alt="promo1" width="33%" />
 		<img src='assets/cambio-de-filtro.jpg' alt="promo2" width="33%" />
 		<img src='assets/frenos-delanteros.jpg' alt="promo3" width="33%" /><br/><br/>
 
-		<img src='assets/mantenimiento-menor.jpg' alt="promo4" width="33%" />
+		<img src='assets/mantenimiento-menor.jpg' alt="promo4" width="33%" /> -->
 		<!--<img src='assets/encerado-express-taller-de-servicio-rivero.jpg' alt="promo5" width="33%" />
 		<img src='assets/cambio-de-anticongelante-taller-de-servicio-rivero.jpg' alt="promo6" width="33%" />-->
 
