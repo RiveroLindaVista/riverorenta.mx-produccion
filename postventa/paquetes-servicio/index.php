@@ -125,10 +125,11 @@
 			dataType: "json",
 			success: function (response) {
 				console.log(response);
-				
+				let img_ctrl = "";
+				let count = 0;
 				response.data.forEach(element => {
-					console.log(element);
-					let img_ctrl = "";
+					count++;
+					console.log(element);	
 					if (element.type == "TALLER") {
 						img_ctrl += '<img src='+element.image+' alt="promo2" width="33%" />';
 						if (count == 3 || count == 6) {
