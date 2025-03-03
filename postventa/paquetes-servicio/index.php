@@ -13,7 +13,7 @@
 
 		<div class="row" style="margin-right:0px">
 			<div class="col-12 col-md-3 p-4">
-				<center><img src="assets/header-logo.png" width="100%" style="max-width:280px"/><br>
+				<center><img src="assets/header-logo.webp" width="100%" style="max-width:280px"/><br>
 					<img src="assets/marcas.jpg" width="100%" style="max-width:280px"/>
 				</center>
 				<hr/>
