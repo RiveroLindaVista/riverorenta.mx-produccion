@@ -59,6 +59,7 @@ include("header.php");
                                 <option value="contry" selected>Contry</option>
                                 <option value="lasTorres">Las Torres</option>
                                 <option value="valle">Valle</option>
+                                <option value="allende">Allende</option>
                             </select>
                         </div>
 
@@ -69,6 +70,8 @@ include("header.php");
                                 <option value="contry" selected>Contry</option>
                                 <option value="lasTorres">Las Torres</option>
                                 <option value="valle">Valle</option>
+                                <option value="allende">Allende</option>
+                                <option value="hyp">HYP</option>
                             </select>
                         </div>
                     </div>
@@ -319,6 +322,14 @@ include("header.php");
                     divTextoPagina.innerHTML = "<p>" + "nissanriverovalle.com" + "</p>";
                     divTextoPaginaDos.innerHTML = "<p>" + "nissanriverovalle.com" + "</p>";
 
+                } else if (paginaSelect.value === 'allende') {
+                    divTextoPagina.innerHTML = "<p>" + "nissanriveroallende.com" + "</p>";
+                    divTextoPaginaDos.innerHTML = "<p>" + "nissanriveroallende.com" + "</p>";
+
+                } else if (paginaSelect.value === 'hyp') {
+                    divTextoPagina.innerHTML = "<p>" + "nissanriveroallende.com" + "</p>";
+                    divTextoPaginaDos.innerHTML = "<p>" + "nissanriveroallende.com" + "</p>";
+
                 }
 
 
@@ -329,11 +340,11 @@ include("header.php");
                 if (sucursalSelect.value === 'contry') {
 
                     divTextoSucursal.innerHTML = "<p>" +
-                        "Av. Eugenio Garza Sada No. 600 Sur Monterrey, NUEVO LEÓN 64740" +
+                        "Av. Eugenio Garza Sada 3800, Mas Palomas (Valle de Santiago) Monterrey, NUEVO LEÓN 64780" +
                         "</p>";
 
                     divTextoSucursalDos.innerHTML = "<p>" +
-                        "Av. Eugenio Garza Sada No. 600 Sur Monterrey, NUEVO LEÓN 64740" +
+                        "Av. Eugenio Garza Sada 3800, Mas Palomas (Valle de Santiago) Monterrey, NUEVO LEÓN 64780" +
                         "</p>";
 
                 } else if (sucursalSelect.value === 'lasTorres') {
@@ -348,10 +359,28 @@ include("header.php");
                 } else if (sucursalSelect.value === 'valle') {
 
                     divTextoSucursal.innerHTML = "<p>" +
-                        "Av. Vasconcelos No.325 San Pedro Garza Garcia, NUEVO LEÓN 66220" +
+                        "Calzada Del Valle 110, Col Del Valle San Pedro Garza Garcia, NUEVO LEÓN 66220" +
                         "</p>";
                     divTextoSucursalDos.innerHTML = "<p>" +
-                        "Av. Vasconcelos No.325 San Pedro Garza Garcia, NUEVO LEÓN 66220" +
+                        "Calzada Del Valle 110, Col Del Valle San Pedro Garza Garcia, NUEVO LEÓN 66220" +
+                        "</p>";
+
+                }  else if (sucursalSelect.value === 'allende') {
+
+                    divTextoSucursal.innerHTML = "<p>" +
+                        "Carr Nacional 301, San Javier, 67350 Cdad. de Allende, N.L." +
+                        "</p>";
+                    divTextoSucursalDos.innerHTML = "<p>" +
+                        "Carr Nacional 301, San Javier, 67350 Cdad. de Allende, N.L." +
+                        "</p>";
+
+                }  else if (sucursalSelect.value === 'hyp') {
+
+                    divTextoSucursal.innerHTML = "<p>" +
+                        "Av. Alfonso Reyes 3237, Alta Vista Sur, 64740 Monterrey, N.L." +
+                        "</p>";
+                    divTextoSucursalDos.innerHTML = "<p>" +
+                        "Av. Alfonso Reyes 3237, Alta Vista Sur, 64740 Monterrey, N.L." +
                         "</p>";
 
                 }

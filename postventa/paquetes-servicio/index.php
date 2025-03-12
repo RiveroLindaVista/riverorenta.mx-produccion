@@ -13,7 +13,7 @@
 
 		<div class="row" style="margin-right:0px">
 			<div class="col-12 col-md-3 p-4">
-				<center><img src="assets/header-logo.png" width="100%" style="max-width:280px"/><br>
+				<center><img src="assets/header-logo.webp" width="100%" style="max-width:280px"/><br>
 					<img src="assets/marcas.jpg" width="100%" style="max-width:280px"/>
 				</center>
 				<hr/>
@@ -58,12 +58,12 @@
 </div>
 </div>
 
-<div style="position: absolute;top:750px">
-		<img src='assets/afinacion-mayor.jpg' alt="promo1" width="33%" />
+<div id="div_promociones" style="position: absolute;top:750px">
+		<!-- <img src='assets/afinacion-mayor.jpg' alt="promo1" width="33%" />
 		<img src='assets/cambio-de-filtro.jpg' alt="promo2" width="33%" />
 		<img src='assets/frenos-delanteros.jpg' alt="promo3" width="33%" /><br/><br/>
 
-		<img src='assets/mantenimiento-menor.jpg' alt="promo4" width="33%" />
+		<img src='assets/mantenimiento-menor.jpg' alt="promo4" width="33%" /> -->
 		<!--<img src='assets/encerado-express-taller-de-servicio-rivero.jpg' alt="promo5" width="33%" />
 		<img src='assets/cambio-de-anticongelante-taller-de-servicio-rivero.jpg' alt="promo6" width="33%" />-->
 
@@ -74,6 +74,7 @@
 
 <script type="text/javascript">
 	$( document ).ready(function() {
+		promos_taller();
 		$.ajax({
 		  url: "getToken.php",
 		  type: 'GET',
@@ -116,6 +117,30 @@
 		  }
 		});
 	});
+	function promos_taller(){
+		$.ajax({
+			type: "get",
+			url: "https://api.gruporivero.com/v1/promos?per_page=100",
+			data: null,
+			dataType: "json",
+			success: function (response) {
+				console.log(response);
+				let img_ctrl = "";
+				let count = 0;
+				response.data.forEach(element => {
+					count++;
+					console.log(element);	
+					if (element.type == "TALLER") {
+						img_ctrl += '<img src='+element.image+' alt="promo2" width="33%" />';
+						if (count == 3 || count == 6) {
+							img_ctrl = '<br/><br/>';
+						}
+					}
+					$('#div_promociones').html(img_ctrl);;
+				});
+			}
+		});
+	}
 	function validarCamposLlenos(){
 		$("#respuesta").html("");
 		$("#paquetePoliza").html("");

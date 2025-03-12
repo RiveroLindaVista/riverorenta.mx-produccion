@@ -28,6 +28,12 @@ $param["imagen_titulo"] = $_POST["tipo"]."/".$_POST["imagen_titulo"].".jpg";
 $param["tipo"] = $_POST["tipo"];
 $param["tipoUpper"] = $_POST["tipoUpper"];
 $param["marca"] = $_POST["marca"];
+
+$param["modelo_unidad"] = str_replace(' ', '-', $_POST["modelo_unidad"]);
+$param["ano"] = $_POST["ano"];
+$param["cantidad"] = $_POST["cantidad"];
+$param["tipo_promo"] = $_POST["tipo_promo"];
+
 var_dump($param);
 
 $registro=$conn->query_insertar_promociones($param);

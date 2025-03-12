@@ -262,6 +262,9 @@ if ($this_subpage=="promociones_accesorios") { $promociones_accesorios="active";
         var tipo = "accesorios";
         var tipoUpper = "ACCESORIOS";
 
+        var  d = new  Date();
+        var  ano = d.getFullYear();
+
         if (imagen_titulo!="" && descripcion!="") {
             if (!files) {
                 alert('Es necesario seleccionar una imagen.');
@@ -285,7 +288,7 @@ if ($this_subpage=="promociones_accesorios") { $promociones_accesorios="active";
                     fd.append('numero', "1");
                     fd.append('slug', "accesorios");
                     $.ajax({
-                        url: 'https://riverorenta.mx/seminuevos/images/vista-360/upload_img.php',
+                        url: 'https://www.riverorenta.mx/seminuevos/images/vista-360/upload_img.php',
                         type: 'post',
                         data: fd,
                         contentType: false,
@@ -298,7 +301,8 @@ if ($this_subpage=="promociones_accesorios") { $promociones_accesorios="active";
                                     marca:marca,
                                     imagen_titulo:imagen_titulo,
                                     tipo:tipo,
-                                    tipoUpper:tipoUpper
+                                    tipoUpper:tipoUpper,
+                                    ano: ano
                                 }
                                 $.ajax({
                                     url:'save.php',
@@ -436,7 +440,7 @@ if ($this_subpage=="promociones_accesorios") { $promociones_accesorios="active";
             fd.append('slug', "accesorios");
 
             $.ajax({
-                url: 'https://riverorenta.mx/seminuevos/images/vista-360/upload_img.php',
+                url: 'https://www.riverorenta.mx/seminuevos/images/vista-360/upload_img.php',
                 type: 'POST',
                 data: fd,
                 contentType: false,

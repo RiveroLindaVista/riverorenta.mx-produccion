@@ -300,7 +300,7 @@ $last_blog = $conn->get_last_blog();
             fd.append('id_blog', id_blog);
 
             $.ajax({
-                url: 'https://riverorenta.mx/seminuevos/images/vista-360/upload_img_blog.php',
+                url: 'https://www.riverorenta.mx/seminuevos/images/vista-360/upload_img_blog.php',
                 type: 'post',
                 data: fd,
                 contentType: false,

@@ -1574,7 +1574,7 @@ public function get_all_catalogo_seminuevos_dev(){
                     </div>';
            }
         }
-        //https://riverorenta.mx/seminuevos/images/principal/inv_6238/imagen-preview.png
+        //https://www.riverorenta.mx/seminuevos/images/principal/inv_6238/imagen-preview.png
          
         return  $cadena;
      }
@@ -1910,6 +1910,28 @@ public function get_lista_colores(){
   $conn->close();
 }
 
+public function get_lista_versiones_nissan($modelo, $ano){
+  $conn=new Conexion();
+  $consulta= $conn->query_lista_versiones_nissan($modelo, $ano);
+  return $consulta;
+  $conn->close();
+}
+
+public function get_lista_versiones_chevrolet($modelo, $ano){
+  $conn=new Conexion();
+  $consulta= $conn->query_lista_versiones_chevrolet($modelo, $ano);
+  return $consulta;
+  $conn->close();
+}
+
+public function get_lista_enganches_chevrolet($slug){
+  $conn=new Conexion();
+  $consulta= $conn->query_lista_enganches_chevrolet($slug);
+  return $consulta;
+  $conn->close();
+}
+
+
 
 public function get_lista_autos(){
   $conn=new Conexion();
@@ -1927,7 +1949,8 @@ public function get_lista_autos(){
 public function get_lista_marcas(){
   $conn=new Conexion();
   $consulta= $conn->query_lista_marcas();
-
+  $lista_marcas = '';
+  $lista_marcas.='<option value="">Seleccione...</option>';
     for($i=0;$i<count($consulta);$i++){
         $marca=$consulta[$i]["marca"];
         $lista_marcas.='<option value="'.$marca.'">'.$marca.'</option>';
@@ -2134,6 +2157,100 @@ public function get_table_qrs(){
   return $out;
   
 }
+public function catalogo_autos_incompletos(){
+  $conn= Database::connect();
+  $sql = ''.
+  'SELECT 
+        cat.id, 
+        cat.status, 
+        cat.online, 
+        cat.marca,
+        cat.modelo,
+        cat.slug, 
+        cat.ano, 
+        CASE 
+            WHEN (SELECT COUNT(*) FROM inventario_colores col WHERE col.slug = cat.slug) > 0 THEN TRUE 
+            ELSE FALSE 
+        END AS has_colors,
+	    CASE
+		    WHEN (SELECT COUNT(*) FROM versiones ver WHERE ver.marca=cat.marca AND ver.modelo=cat.modelo AND ver.ano = cat.ano AND  ver.version IS NOT NULL) > 0 THEN TRUE
+		    ELSE FALSE
+        END AS has_versions,
+		    (SELECT  group_concat(ver2.version ) 
+			    FROM versiones ver2 
+                WHERE ver2.marca=cat.marca 
+                AND ver2.modelo=cat.modelo 
+                AND ver2.ano = cat.ano 
+                AND  ver2.version IS NOT NULL 
+                AND (SELECT COUNT(*) FROM inventario_versiones invver WHERE invver.slug = cat.slug AND invver.version = ver2.version ) = 0
+                ) has_versions_without_characteristics
+    FROM catalogo cat  
+    WHERE cat.status = 1 
+    GROUP BY cat.slug';
+
+  $result=$conn->query($sql);
+  if ($result) {
+      while ($row = $result->fetch_assoc()) {
+          $out[]=array_map("utf8_encode", $row);
+      }
+  } 
+  $conn=Database::close();
+  return $out;
+}
+public function catalogo_autos_activos(){
+  $conn= Database::connect();
+  $sql = 'SELECT * FROM catalogo where status = 1  GROUP BY slug, marca, modelo, ano';
+  $result=$conn->query($sql);
+  if ($result) {
+      while ($row = $result->fetch_assoc()) {
+          $out[]=array_map("utf8_encode", $row);
+      }
+  } 
+  $conn=Database::close();
+  return $out;
+}
+  public function get_versiones_not_null($marca, $modelo, $ano)
+  {
+    $out = array();
+    $conn = Database::connect();
+    $sql = 'SELECT * FROM riverorenta_grupormx_exp.versiones where marca="' . $marca . '" AND modelo = "' . $modelo . '" AND ano = "' . $ano . '" AND version IS NOT NULL;';
+    $result = $conn->query($sql);
+    if ($result) {
+      while ($row = $result->fetch_assoc()) {
+        $out[] = array_map("utf8_encode", $row);
+      }
+    }
+    $conn = Database::close();
+    return $out;
+  }
+
+  public function get_inventario_versiones($slug, $version){
+    $out = array();
+    $conn = Database::connect();
+    $sql = 'SELECT * FROM riverorenta_grupormx_exp.inventario_versiones where slug="' . $slug .'" AND version = "'.$version.'";';
+    $result = $conn->query($sql);
+    if ($result) {
+      while ($row = $result->fetch_assoc()) {
+        $out[] = array_map("utf8_encode", $row);
+      }
+    }
+    $conn = Database::close();
+    return $out;
+  }
+  
+  public function get_inventario_colores_by_slug($slug){
+    $out = array();
+    $conn = Database::connect();
+    $sql = 'SELECT * FROM riverorenta_grupormx_exp.inventario_colores WHERE slug="'.$slug.'"';
+    $result = $conn->query($sql);
+    if ($result) {
+      while ($row = $result->fetch_assoc()) {
+        $out[] = array_map("utf8_encode", $row);
+      }
+    }
+    $conn = Database::close();
+    return $out;
+  }
 
 /*Fin Class Construir*/
 }

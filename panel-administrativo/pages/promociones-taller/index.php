@@ -248,6 +248,11 @@ if ($this_subpage=="promociones_taller") { $promociones_taller="active"; } else{
         var tipo = "taller";
         var tipoUpper = "TALLER";
 
+        var  d = new Date();
+        var  ano = d.getFullYear();
+
+        console.log(ano);
+
         if (imagen_titulo!="" && descripcion!="") {
             if (!files) {
                 alert('Es necesario seleccionar una imagen.');
@@ -272,7 +277,7 @@ if ($this_subpage=="promociones_taller") { $promociones_taller="active"; } else{
                     fd.append('slug', "taller");
 
                     $.ajax({
-                    url: 'https://riverorenta.mx/seminuevos/images/vista-360/upload_img.php',
+                    url: 'https://www.riverorenta.mx/seminuevos/images/vista-360/upload_img.php',
                     type: 'post',
                     data: fd,
                     contentType: false,
@@ -284,14 +289,15 @@ if ($this_subpage=="promociones_taller") { $promociones_taller="active"; } else{
                                 marca:marca,
                                 imagen_titulo:imagen_titulo,
                                 tipo:tipo,
-                                tipoUpper:tipoUpper
+                                tipoUpper:tipoUpper,
+                                ano: ano
                             }
                             $.ajax({
                                 url:'save.php',
                                 type:'POST',
                                 data:param,
                                 success: function(resp){
-                                    alert('Promoción dada de alta correctamente.')
+                                    alert('Promoción dada de alta correctamente.');
                                     location.reload();
                                 }
                             })
@@ -421,7 +427,7 @@ if ($this_subpage=="promociones_taller") { $promociones_taller="active"; } else{
             fd.append('slug', "taller");
 
             $.ajax({
-                url: 'https://riverorenta.mx/seminuevos/images/vista-360/upload_img.php',
+                url: 'https://www.riverorenta.mx/seminuevos/images/vista-360/upload_img.php',
                 type: 'POST',
                 data: fd,
                 contentType: false,

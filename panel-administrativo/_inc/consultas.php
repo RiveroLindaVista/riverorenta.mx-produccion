@@ -1021,12 +1021,14 @@ class Conexion extends Database{
         $conn = Database::connect();
         $utf8 = $conn->set_charset("utf8");
 
-        $imagen=$param["imagen"];
         $pagina_titulo=$param["pagina_titulo"];
-        $imagen_titulo=$param["imagen_titulo"];
+        $imagen=$param["imagen"];
+        $slug=$param["slug"];
+        $carros_select = $param["carros_select"];
 
-        $sql="INSERT INTO adwords(titulo, imagen) VALUES ('$pagina_titulo', '$imagen')";
+        $sql="INSERT INTO adwords SET titulo='".$pagina_titulo."', imagen='".$imagen."', slug='".$slug."', carros_select='".$carros_select."'";
         $result=$conn->query($sql);
+        return $sql;
     }
 
     public function query_report_blogs(){
@@ -1117,8 +1119,12 @@ class Conexion extends Database{
         $titulo2 = $param["descripcion"];
         $tipo = $param["tipoUpper"];
         $marca = $param["marca"];
+        $modelo_unidad = $param["modelo_unidad"];
+        $ano = $param["ano"];
+        $cantidad = $param["cantidad"];
+        $tipo_promo = $param["tipo_promo"];
 
-        $sql="INSERT INTO promociones (marca, modelo, forma, titulo2, status, tipo) VALUES ('$marca', 'imagen', '$forma', '$titulo2', 1, '$tipo')";
+        $sql="INSERT INTO promociones (marca, modelo, modelo_unidad, ano, cantidad, forma, titulo2, status, tipo, tipo_promo) VALUES ('$marca', 'imagen', '$modelo_unidad', '$ano', '$cantidad', '$forma', '$titulo2', 1, '$tipo', '$tipo_promo')";
         $result=$conn->query($sql);         
     }
 
@@ -1636,10 +1642,64 @@ class Conexion extends Database{
         }
     }
 
+    public function query_lista_versiones_nissan($modelo, $ano){
+        $conn= Database::connect();
+
+        $sql = 'SELECT t1.version , t2.precio, t2.tipo, t3.enganche, t3.mensualidad FROM versiones t1 LEFT JOIN catalogo t2 ON t1.tipo=t2.tipo LEFT JOIN planes_nissan t3 ON t2.tipo=t3.tipo WHERE t2.modelo="'.$modelo.'" AND t2.ano="'.$ano.'" group BY t1.version order BY t2.precio';
+        $result=$conn->query($sql);
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $out[]=$row;
+            }
+            return $out;
+        }
+    }
+
+    public function query_lista_versiones_chevrolet($modelo, $ano){
+        $conn= Database::connect();
+
+        $slugin = 'chevrolet-'.$modelo.'-'.$ano;
+        $slug = str_replace(' ','-',$slug); 
+
+        $sql = 'SELECT t1.id, t1.version , t2.precio, t2.tipo, t3.enganche, t3.mensualidad, t1.ano, t2.ano, t3.ano, t2.slug, t3.slug FROM versiones t1 LEFT JOIN catalogo t2 ON t1.tipo=t2.tipo AND t1.modelo=t2.modelo AND t1.ano=t2.ano LEFT JOIN planes_chevrolet t3 ON t2.tipo=t3.tipo WHERE t2.modelo="'.$modelo.'" AND t2.ano="'.$ano.'" order BY t2.precio';
+        $result=$conn->query($sql);
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $out[]=$row;
+            }
+            return $out;
+        }
+    }
+
+    public function query_lista_enganches_chevrolet($slug){
+        $conn= Database::connect();
+
+        $sql = 'SELECT * FROM planes_chevrolet t1 LEFT JOIN catalogo t2 ON t1.slug=t2.slug WHERE slug="'.$slug.'" order BY tipo';
+        $result=$conn->query($sql);
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $out[]=$row;
+            }
+            return $out;
+        }
+    }
+
     public function query_modelos_by_marca($marca){
-        $auto=$auto;
+        // $auto=$auto;
         $conn= Database::connect();
         $sql = "SELECT modelo FROM versiones WHERE marca = '$marca' group by modelo";
+        $result=$conn->query($sql);
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $out[]=$row;
+            }
+            return $out;
+        }
+    }
+    public function query_anos_by_model($modelo){
+        // $auto=$auto;
+        $conn= Database::connect();
+        $sql = "SELECT ano FROM versiones WHERE modelo = '$modelo' group by ano";
         $result=$conn->query($sql);
         if ($result) {
             while ($row = $result->fetch_assoc()) {
@@ -1807,6 +1867,20 @@ class Conexion extends Database{
 
         $sql="UPDATE promociones SET forma='$nombre_nuevo' WHERE id='$id'";
         $result=$conn->query($sql);         
+    }
+
+    //Promociones
+    public function query_ano_by_modelo($auto){
+        $auto=$auto;
+        $conn= Database::connect();
+        $sql = "SELECT DISTINCT ano FROM catalogo WHERE modelo = '$auto' ORDER BY ano DESC ";
+        $result=$conn->query($sql);
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $out[]=$row;
+            }
+            return $out;
+        }
     }
 
     

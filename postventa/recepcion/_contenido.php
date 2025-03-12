@@ -14,7 +14,7 @@
       <!-- <div class="container"> -->
         <div class="row" style="width: 100%;">
           <div class="col-6 col-md-6">
-            <label class="" for="buscadorId"> Buscar</label>
+            <label class="" for="buscadorId"> Buscar.</label>
           </div>
           <div class="col-6 col-md-6" style="display:flex; align-items:center; justify-content:end;">
             <p id="totalRows"></p>

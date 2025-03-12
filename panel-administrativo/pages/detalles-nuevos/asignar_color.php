@@ -11,7 +11,7 @@ $sensor = 0;
 $modeloC = $_POST['modelo'];
 
 $conn=new Conexion();
-$param['modelo']=$modelo;
+$param['modelo']=$modeloC;
 $param['ano']=$ano;
 $param['color']=$color;
 $param['slug']=$slug;
