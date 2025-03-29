@@ -7,8 +7,9 @@ $sql = "SELECT marca FROM valuacion_autometrica WHERE year =".$ano." group by ma
 $resultQuery = $conn->query($sql);
 if ($resultQuery->num_rows > 0) {
     while($row = $resultQuery->fetch_assoc()) {
-        $opcionesMarcas.='<option value="'.$row['year'].'">'. $row['year'].'</option>';
+        echo $row['marca'];
+        $opcionesMarcas.='<option value="'.$row['marca'].'">'. $row['marca'].'</option>';
     }
 }
-echo $opcionesMarcas;
+return $opcionesMarcas;
 ?>
