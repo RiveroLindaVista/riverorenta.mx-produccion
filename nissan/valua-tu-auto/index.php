@@ -68,7 +68,7 @@ if ($marcasQry->num_rows > 0) {
             data: data,
             dataType: "json",
             success: function(resp) {
-                console.log(resp);
+                console.log(resp.JSON.parse());
             }
         });
 
