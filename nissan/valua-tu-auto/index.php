@@ -1,4 +1,5 @@
 <?php
+include("_config.php");
 echo 'HOLA';
 $conn = new mysqli(DB_HOST, DB_USER,DB_PASSWORD, DB_DB);
 $sql = "Select year from valuacion_autometrica group by year";
