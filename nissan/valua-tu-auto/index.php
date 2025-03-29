@@ -9,13 +9,13 @@ if ($resultQuery->num_rows > 0) {
     }
  }
 
-$sqlMarcas = "Select marca from valuacion_autometrica group by marca order by marca asc";
+/* $sqlMarcas = "Select marca from valuacion_autometrica group by marca order by marca asc";
 $marcasQry = $conn->query($sqlMarcas);
 if ($marcasQry->num_rows > 0) {
     while($row = $marcasQry->fetch_assoc()) {
         $opcionesMarcas.='<option value="'.$row['marca'].'">'. $row['marca'].'</option>';
     }
- }
+ } */
  ?>
 
 <!doctype html>
@@ -34,17 +34,17 @@ if ($marcasQry->num_rows > 0) {
     </head>
 
     <body>
-    <div class="container p-4" style="display:flex; justify-content: center; align-items: center;">
-        <div class="container" style="background-color:#d40028;">
+    <div class="container" style="display:flex; justify-content: center; align-items: center;">
+        <div class="container p-4" style="background-color:#d40028;">
             <h1 class="text-white text-center">Cuéntanos sobre tu auto</h1>
-            <div class="row" id="divYears">
+            <div class="row p-2" id="divYears">
                 <select class="form-select" id="filtroYears" onchange="getMarcas()">
                     <option value="0" disabled>Selecciona el año</option>
                     <?=$opcionesYears?>
                 </select>
 
             </div>
-            <div class="row" id="divMarcas" hidden>
+            <div class="row p-2" id="divMarcas" hidden>
                 <select class="form-control" id="filtroMarcas">
                     <?=$opcionesMarcas?>
                 </select>
@@ -57,6 +57,21 @@ if ($marcasQry->num_rows > 0) {
 <script>
     function getMarcas(){
         let select_ano = $('#filtroYears').val();
+
+        let data = {
+            ano: select_ano,
+        }
+    
+        $.ajax({
+            type: "POST",
+            url: "getMarcas.php",
+            data: data,
+            dataType: "json",
+            success: function(resp) {
+                console.log(resp);
+            }
+        });
+
         $("#divMarcas").attr('hidden', false);
         console.log(select_ano);
 
