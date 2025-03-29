@@ -5,6 +5,6 @@ include("constructor.php");
 $ano=$_POST['ano'];
 $conne = new Construir();
 $marcas = $conne->get_marcas($ano);
-var_dump($marcas);
+echo json_decode($marcas);
 return $marcas;
 ?>
