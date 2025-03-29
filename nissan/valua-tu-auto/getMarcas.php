@@ -11,5 +11,5 @@ if ($resultQuery->num_rows > 0) {
         $opcionesMarcas.='<option value="'.$row['marca'].'">'. $row['marca'].'</option>';
     }
 }
-return $opcionesMarcas;
+return $sql;
 ?>
