@@ -2,7 +2,7 @@
 require_once("_config.php");
 
 $ano=$_POST['ano'];
-$conne = new Conexion();
-$marcas = $conne->get_marcas($ano);
+$conn = new mysqli(DB_HOST, DB_USER,DB_PASSWORD, DB_DB);
+$marcas = $conn->get_marcas($ano);
 print_r($marcas);
 ?>
