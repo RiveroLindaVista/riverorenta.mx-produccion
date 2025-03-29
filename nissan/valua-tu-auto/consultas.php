@@ -8,10 +8,10 @@ class Conexion extends Database{
         $sql = "SELECT marca FROM valuacion_autometrica WHERE year =".$ano." group by marca";
         $result=$conn->query($sql);
         if ($result) {
-                    while ($row = $result->fetch_assoc()) {
-                        $out[]=$row;
-                    }
-                } 
+            while ($row = $result->fetch_assoc()) {
+                $out[]=$row;
+            }
+        } 
         return $out;
         $conn=Database::close();
     }
