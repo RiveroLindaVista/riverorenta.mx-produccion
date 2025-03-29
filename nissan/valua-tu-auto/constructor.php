@@ -7,7 +7,6 @@ class Construir extends Conexion{
 
       $conn=new Conexion();
       $consulta= $conn->query_marcas($ano);
-      return $consulta;
       if ($consulta) {
         for($i=0;$i<count($consulta);$i++){
             $cadena.='<option selected value="'.$consulta[$i].'">'.$consulta[$i].'</option>';
