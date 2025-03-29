@@ -1,6 +1,6 @@
 <?php
-require_once("../../_inc/_config.php");
-include("../../_inc/constructor.php");
+require_once("_config.php");
+
 
 $ano=$_POST['ano'];
 echo $ano;
