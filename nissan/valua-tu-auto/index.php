@@ -73,7 +73,6 @@ if ($marcasQry->num_rows > 0) {
         });
 
         $("#divMarcas").attr('hidden', false);
-        console.log(select_ano);
 
     }
 </script>
