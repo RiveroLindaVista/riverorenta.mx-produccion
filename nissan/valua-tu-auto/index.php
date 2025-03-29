@@ -34,19 +34,30 @@ if ($marcasQry->num_rows > 0) {
     </head>
 
     <body>
-    <div class="container" style="display:flex; justify-content: center; align-items: center;">
+    <div class="container p-4" style="display:flex; justify-content: center; align-items: center;">
         <div class="container" style="background-color:#d40028;">
-            <h1 class="text-white">Cuéntanos sobre tu auto</h1>
-            <label for="inputPassword6" class="col-form-label">Año:</label>
-            <select class="form-control" id="filtroYears">
-                <option value="0">Selecciona el año</option>
-                <?=$opcionesYears?>
-            </select>
-            <select class="form-control" id="filtroMarcas">
-                <?=$opcionesMarcas?>
-            </select>
+            <h1 class="text-white text-center">Cuéntanos sobre tu auto</h1>
+            <div class="row" id="divYears">
+                <select class="form-select" id="filtroYears" onchange="getMarcas()">
+                    <option value="0">Selecciona el año</option>
+                    <?=$opcionesYears?>
+                </select>
+
+            </div>
+            <div class="row" id="divMarcas" hidden>
+                <select class="form-control" id="filtroMarcas">
+                    <?=$opcionesMarcas?>
+                </select>
+            </div>
         </div>
     </div>
     </body>
     
 </html>
+<script>
+    function getMarcas(){
+        let select_ano = $('#filtroYears').val();
+        console.log(select_ano);
+
+    }
+</script>
