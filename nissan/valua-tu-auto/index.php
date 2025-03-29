@@ -37,7 +37,9 @@ if ($marcasQry->num_rows > 0) {
     <div class="container" style="display:flex; justify-content: center; align-items: center;">
         <div class="container" style="background-color:#d40028;">
             <h1 class="text-white">Cuéntanos sobre tu auto</h1>
+            <label for="inputPassword6" class="col-form-label">Año:</label>
             <select class="form-control" id="filtroYears">
+                <option value="0">Selecciona el año</option>
                 <?=$opcionesYears?>
             </select>
             <select class="form-control" id="filtroMarcas">
