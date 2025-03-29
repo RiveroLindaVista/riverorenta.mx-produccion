@@ -4,6 +4,7 @@ include_once("consultas.php");
 session_start();
 class Construir extends Conexion{
    public function get_marcas($ano){
+    return 'PIPI';
       $conn=new Conexion();
       $consulta= $conn->query_marcas($ano);
       if ($consulta) {
