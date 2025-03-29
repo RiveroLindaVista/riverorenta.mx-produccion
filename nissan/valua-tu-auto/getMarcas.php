@@ -1,10 +1,9 @@
 <?php
 include("_config.php");
+include("constructor.php");
 
 $ano=$_POST['ano'];
-
 $conne = new Construir();
-echo 'POPO';
 $marcas = $conne->get_marcas($ano);
-
+print_r($marcas);
 ?>
