@@ -1,6 +1,7 @@
 <?php
 echo 'HOLA';
 $conn = new mysqli(DB_HOST, DB_USER,DB_PASSWORD, DB_DB);
+$sql = "Select year from valuacion_autometrica group by year";
 $resultQuery = $conn->query($sql);
 if ($resultQuery->num_rows > 0) {
     while($row = $resultQuery->fetch_assoc()) {
