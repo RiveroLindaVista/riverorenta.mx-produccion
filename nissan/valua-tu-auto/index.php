@@ -1,13 +1,19 @@
 <?php
 include("_config.php");
-echo 'HOLA';
 $conn = new mysqli(DB_HOST, DB_USER,DB_PASSWORD, DB_DB);
 $sql = "Select year from valuacion_autometrica group by year order by year desc";
 $resultQuery = $conn->query($sql);
 if ($resultQuery->num_rows > 0) {
     while($row = $resultQuery->fetch_assoc()) {
         $opcionesYears.='<option value="'.$row['year'].'">'. $row['year'].'</option>';
-        echo $row['year'];
+    }
+ }
+
+$sqlMarcas = "Select marca from valuacion_autometrica group by marca order by marca asc";
+$marcasQry = $conn->query($sqlMarcas);
+if ($marcasQry->num_rows > 0) {
+    while($row = $marcasQry->fetch_assoc()) {
+        $opcionesMarcas.='<option value="'.$row['marca'].'">'. $row['marca'].'</option>';
     }
  }
  ?>
@@ -26,11 +32,15 @@ if ($resultQuery->num_rows > 0) {
     </head>
 
     <body>
-
+    <div>
         <h1>Cuéntanos sobre tu auto</h1>
         <select class="form-control" id="filtroYears">
             <?=$opcionesYears?>
         </select>
+        <select class="form-control" id="filtroMarcas">
+            <?=$opcionesMarcas?>
+        </select>
+    </div>
     </body>
     
 </html>
