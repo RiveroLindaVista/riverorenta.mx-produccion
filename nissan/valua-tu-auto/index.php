@@ -34,7 +34,7 @@ if ($marcasQry->num_rows > 0) {
     </head>
 
     <body>
-    <div style="display:flex; justify-content: center; align-items: center;">
+    <div class="container" style="display:flex; justify-content: center; align-items: center;">
         <div style="background-color:#d40028;">
             <h1 class="text-white">Cuéntanos sobre tu auto</h1>
             <select class="form-control" id="filtroYears">
