@@ -39,7 +39,7 @@ if ($marcasQry->num_rows > 0) {
             <h1 class="text-white text-center">Cuéntanos sobre tu auto</h1>
             <div class="row" id="divYears">
                 <select class="form-select" id="filtroYears" onchange="getMarcas()">
-                    <option value="0">Selecciona el año</option>
+                    <option value="0" disabled>Selecciona el año</option>
                     <?=$opcionesYears?>
                 </select>
 
@@ -57,6 +57,7 @@ if ($marcasQry->num_rows > 0) {
 <script>
     function getMarcas(){
         let select_ano = $('#filtroYears').val();
+        $("#divMarcas").attr('hidden', false);
         console.log(select_ano);
 
     }
