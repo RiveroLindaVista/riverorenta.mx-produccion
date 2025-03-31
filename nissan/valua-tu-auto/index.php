@@ -77,11 +77,12 @@ if ($marcasQry->num_rows > 0) {
                 });
 
                 console.log(opcionesMarcas);
+                $("#filtroMarcas").html(opcionesMarcas);
             }
         });
 
         /* $("#divMarcas").attr('hidden', false); */
-        $("#filtroMarcas").html(opcionesMarcas);
+
         
         
 
