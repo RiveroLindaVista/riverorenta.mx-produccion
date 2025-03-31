@@ -55,8 +55,15 @@ if ($marcasQry->num_rows > 0) {
             </div>
 
             <div class="row p-2" id="divVersiones" hidden>
-                <select class="form-select" id="filtroVersiones">
+                <select class="form-select" id="filtroVersiones" onchange="getKM()">
                 </select>
+            </div>
+
+            <div class="row" id="divKM" hidden>
+                <div class="input-group p-2 mb-3">
+                    <span class="input-group-text" id="basic-addon1">Kilometraje:</span>
+                    <input type="number" class="form-control" placeholder="Añade el kilometraje de tu vehículo" aria-label="KM" aria-describedby="basic-addon1" id="filtroKM" onkeypress="upKM()" onkeydown="upKM()">
+                </div>
             </div>
         </div>
     </div>
@@ -79,7 +86,7 @@ if ($marcasQry->num_rows > 0) {
             dataType: "json",
             success: function(resp) {
                 
-                let opcionesMarcas = '';
+                let opcionesMarcas = '<option value="0">Selecciona la marca...</option>';
                 resp.forEach(elem => {
                    opcionesMarcas += `
                         <option value="${elem.marca}">${elem.marca}</option>
@@ -158,6 +165,30 @@ if ($marcasQry->num_rows > 0) {
             }
         });
 
+    }
+
+    function getVersiones(){
+        $("#divKM").attr('hidden', false);
+    }
+
+    function getOferta(){
+
+        let select_marca = $('#filtroMarcas').val();
+        let select_ano = $('#filtroYears').val();
+        let select_modelo = $('#filtroModelos').val();
+        let select_version = $('#filtroVersiones').val();
+
+        select_version = select_version.replace(" ", "%20")
+
+        const requestOptions = {
+            method: "GET",
+            redirect: "follow"
+        };
+
+        fetch("https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=nissan&year="+select_ano+"&brand="+select_marca+"&subbrand="+select_version+"+&kilometraje="+select_km+"", requestOptions)
+        .then((response) => response.text())
+        .then((result) => console.log(result))
+        .catch((error) => console.error(error));
     }
 </script>
 
