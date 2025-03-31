@@ -65,6 +65,11 @@ if ($marcasQry->num_rows > 0) {
                     <input type="number" class="form-control" placeholder="Añade el kilometraje de tu vehículo" aria-label="KM" aria-describedby="basic-addon1" id="filtroKM" onkeypress="upKM()" onkeydown="upKM()">
                 </div>
             </div>
+
+            <div class="row p-2" id="btnOferta" hidden>
+                <button class="btn btn-dark bg-dark" type="button">Ver Oferta</button>
+            </div>
+
         </div>
     </div>
     </body>
@@ -169,6 +174,18 @@ if ($marcasQry->num_rows > 0) {
 
     function getKM(){
         $("#divKM").attr('hidden', false);
+    }
+
+    function upKM(){
+        setTimeout(() => {
+            let kms = $("#filtroKM").val();
+
+            if(kms == ""){
+                $("#btnOferta").attr('hidden', true);
+            } else {
+                $("#btnOferta").attr('hidden', false);
+            }
+        }, 300);
     }
 
     function getOferta(){
