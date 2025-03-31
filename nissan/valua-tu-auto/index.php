@@ -49,7 +49,7 @@ if ($marcasQry->num_rows > 0) {
                 </select>
             </div>
 
-            <div class="row p-2" id="divModelos" hidden>
+            <div class="row p-2" id="divModelos" hidden onchange="getVersiones()">
                 <select class="form-select" id="filtroModelos">
                 </select>
             </div>
