@@ -93,13 +93,11 @@ if ($marcasQry->num_rows > 0) {
 
     @keyframes slide-in {
     from {
-        translate: -50vw 0;
-        scale: 200% 1;
+        translate: 5 0;
     }
 
     to {
         translate: 0 0;
-        scale: 100% 1;
     }
     }
 </style>
