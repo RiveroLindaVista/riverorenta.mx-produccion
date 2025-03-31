@@ -6,5 +6,5 @@ $ano=$_POST['ano'];
 $conne = new Construir();
 $marcas = $conne->get_marcas($ano);
 echo json_encode($marcas);
-return 'popo';
+return json_encode($marcas);
 ?>
