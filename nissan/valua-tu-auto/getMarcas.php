@@ -11,5 +11,5 @@ for($i=0;$i<count($marcas);$i++){
 }
 
 echo json_encode($cadena);
-return json_encode($marcas);
+return $cadena;
 ?>
