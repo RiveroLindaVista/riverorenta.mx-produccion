@@ -79,10 +79,20 @@ if ($marcasQry->num_rows > 0) {
 
         <div id="ofertaFinal" class="container p-4" style="background-color:#d40028;" hidden>
 
-            <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">OFERTA VÁLIDA POR 7 DÍAS</h3>
+            <div class="row">
+                <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">DESCRIPCIÓN DEL AUTO</h3>
 
-            <h2 id="precio" class="text-white text-center"></h2>
+                <div id="descripcionAuto">
 
+
+
+                </div>    
+            </div>
+            <div class="row">
+                <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">OFERTA VÁLIDA POR 7 DÍAS</h3>
+
+                <h2 id="precio" class="text-white text-center"></h2>
+            </div>
 
         </div>
     </div>
@@ -234,7 +244,13 @@ if ($marcasQry->num_rows > 0) {
 
         let precio = '$ '+new Intl.NumberFormat('en-US').format(obj.lineal[0].purchase)+'.00 MXN';
 
+        let descripcionAuto = `
+            <p class="text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">${obj.lineal[0].brand}</p>
+            <p class="text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">${obj.lineal[0].subbrand} - ${obj.lineal[0].year}</p>
+            <p class="text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">${obj.lineal[0].version}</p>
+            `;
         $("#precio").html(precio);
+        $("#descripcionAuto").html(descripcionAuto);
 
         console.log(data);
     }
@@ -276,6 +292,14 @@ if ($marcasQry->num_rows > 0) {
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         background-color: #94001c;
+    }
+
+    #descripcionAuto{
+        border-top: 2px solid #d40028;
+        border-left: 1px solid #d40028 ;
+        border-radius: 15px ;
+        padding: 10px;
+        box-shadow: 1px 2px 3px 1px;
     }
 
     @keyframes slide-in {
