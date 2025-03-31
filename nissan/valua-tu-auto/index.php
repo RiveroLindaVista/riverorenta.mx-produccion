@@ -86,7 +86,12 @@ if ($marcasQry->num_rows > 0) {
 </script>
 
 <style>
-    #divYears #divMarcas  {
+    #divYears{
+        animation-duration: 1s;
+        animation-name: slide-in;
+    }
+
+    #divMarcas{
         animation-duration: 1s;
         animation-name: slide-in;
     }
