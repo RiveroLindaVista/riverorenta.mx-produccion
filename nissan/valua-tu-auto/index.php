@@ -98,7 +98,7 @@ if ($marcasQry->num_rows > 0) {
             marca: select_marca,
             ano: select_ano,
         }
-        $("#divModelos").attr('hidden', false);
+
         $.ajax({
             type: "POST",
             url: "getModelos.php",
@@ -115,8 +115,11 @@ if ($marcasQry->num_rows > 0) {
                 });
 
                 console.log(opcionesModelos);
-                
-                $("#filtroModelos").html(opcionesModelos);
+                setTimeout(() => {
+                    $("#divModelos").attr('hidden', false);
+                    $("#filtroModelos").html(opcionesModelos);
+                }, 1000);
+
             }
         });
 
