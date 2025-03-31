@@ -196,14 +196,15 @@ if ($marcasQry->num_rows > 0) {
         let select_version = $('#filtroVersiones').val();
         let select_km = $('#filtroKM').val();
 
-        select_version = select_version.replaceAll(" ", "%20")
-console.log(select_version);
+        select_version = select_version.replaceAll(" ", "%20");
+        select_modelo = select_modelo.replaceAll(" ", "%20");
+
         const requestOptions = {
             method: "GET",
             redirect: "follow"
         };
 
-        fetch("https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=nissan&year="+select_ano+"&brand="+select_marca+"&subbrand="+select_version+"+&kilometraje="+select_km+"", requestOptions)
+        fetch("https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=nissan&year="+select_ano+"&brand="+select_marca+"&subbrand="+select_modelo+"&version="+select_version+"&kilometraje="+select_km+"", requestOptions)
         .then((response) => response.text())
         .then((result) => console.log(result))
         .catch((error) => console.error(error));
