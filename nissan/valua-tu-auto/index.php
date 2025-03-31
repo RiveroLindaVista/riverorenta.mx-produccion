@@ -36,7 +36,7 @@ if ($marcasQry->num_rows > 0) {
     <body style="background-color:#1d1d1d;">
     <div class="container" style="display:flex; justify-content: center; align-items: center;">
         <div id="formOferta" class="container p-4" style="background-color:#d40028;">
-            <h1 class="text-white text-center">Cuéntanos sobre tu auto</h1>
+            <h1 class="text-white text-center" style="font-family: Narrow">Cuéntanos sobre tu auto</h1>
             <div class="row p-2" id="divYears">
                 <label for="basic-url" class="form-label text-white">¿Qué año es tu auto?</label>
                 <select class="form-select" id="filtroYears" onchange="getMarcas()">
@@ -79,7 +79,7 @@ if ($marcasQry->num_rows > 0) {
 
         <div id="ofertaFinal" class="container p-4" style="background-color:#d40028;" hidden>
 
-            <h3 class="text-center">Oferta válida por 7 días</h3>
+            <h3 class="text-center text-white" style="font-family: Narrow">Oferta válida por 7 días</h3>
 
             <h2 id="precio" class="text-white text-center"></h2>
 
@@ -266,13 +266,30 @@ if ($marcasQry->num_rows > 0) {
         animation-name: slide-in;
     }
 
-    @keyframes slide-in {
-    from {
-        translate: 0 -20px;
+    #formOferta{
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        background-color: #94001c;
     }
 
-    to {
-        translate: 0 0;
+    #ofertaFinal{
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        background-color: #94001c;
     }
+
+    @keyframes slide-in {
+        from {
+            translate: 0 -20px;
+        }
+
+        to {
+            translate: 0 0;
+        }
+    }
+
+    @font-face{
+        font-family: Narrow;
+        src: url('Narrow/owners-narrow-black.ttf');
     }
 </style>
