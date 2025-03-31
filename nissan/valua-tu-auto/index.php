@@ -118,7 +118,7 @@ if ($marcasQry->num_rows > 0) {
                 setTimeout(() => {
                     $("#divModelos").attr('hidden', false);
                     $("#filtroModelos").html(opcionesModelos);
-                }, 1000);
+                }, 10000);
 
             }
         });
