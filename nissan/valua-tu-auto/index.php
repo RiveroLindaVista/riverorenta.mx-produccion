@@ -44,7 +44,7 @@ if ($marcasQry->num_rows > 0) {
                 </select>
 
             </div>
-            <div class="row p-2" id="divMarcas" hidden>
+            <div class="row p-2" id="divMarcas" >
             <select class="form-control" id="filtroMarcas">
             </select>
             </div>
@@ -80,7 +80,7 @@ if ($marcasQry->num_rows > 0) {
             }
         });
 
-        $("#divMarcas").attr('hidden', false);
+        /* $("#divMarcas").attr('hidden', false); */
         $("#filtroMarcas").html(opcionesMarcas);
         
         
