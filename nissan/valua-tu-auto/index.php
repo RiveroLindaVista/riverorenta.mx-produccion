@@ -91,11 +91,11 @@ if ($marcasQry->num_rows > 0) {
 
     function getModelos(){
 
-        let select_modelo = $('#filtroModelos').val();
+        let select_marca = $('#filtroMarcas').val();
         let select_ano = $('#filtroYears').val();
 
         let data = {
-            modelo: select_modelo,
+            marca: select_marca,
             ano: select_ano,
         }
 
