@@ -196,7 +196,7 @@ if ($marcasQry->num_rows > 0) {
         let select_version = $('#filtroVersiones').val();
         let select_km = $('#filtroKM').val();
 
-        select_version = select_version.replace(" ", "%20")
+        select_version = select_version.replaceAll(" ", "%20")
 console.log(select_version);
         const requestOptions = {
             method: "GET",
