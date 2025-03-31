@@ -211,7 +211,7 @@ if ($marcasQry->num_rows > 0) {
     }
 
     function objetoOferta(obj){
-        console.log('KAKAKAK');
+        console.log(obj);
     }
 </script>
 
