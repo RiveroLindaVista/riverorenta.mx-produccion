@@ -79,7 +79,7 @@ if ($marcasQry->num_rows > 0) {
 
         <div id="ofertaFinal" class="container p-4" hidden>
 
-            <div class="row">
+            <div class="row align-items-center">
                 <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">DESCRIPCIÓN DEL AUTO</h3>
 
                 <div id="descripcionAuto">
@@ -245,9 +245,9 @@ if ($marcasQry->num_rows > 0) {
         let precio = '$ '+new Intl.NumberFormat('en-US').format(obj.lineal[0].purchase)+'.00 MXN';
 
         let descripcionAuto = `
-            <p class="text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">${obj.lineal[0].brand}</p>
-            <p class="text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">${obj.lineal[0].subbrand} - ${obj.lineal[0].year}</p>
-            <p class="text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">${obj.lineal[0].version}</p>
+            <p style="font-family: Narrow;">${obj.lineal[0].brand}</p>
+            <p style="font-family: Narrow;">${obj.lineal[0].subbrand} - ${obj.lineal[0].year}</p>
+            <p style="font-family: Narrow;">${obj.lineal[0].version}</p>
             `;
         $("#precio").html(precio);
         $("#descripcionAuto").html(descripcionAuto);
