@@ -35,7 +35,7 @@ if ($marcasQry->num_rows > 0) {
 
     <body style="background-color:#1d1d1d;">
     <div class="container" style="display:flex; justify-content: center; align-items: center;">
-        <div id="formOferta" class="container p-4" style="background-color:#d40028;">
+        <div id="formOferta" class="container p-4">
             <h1 class="text-white text-center" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">CUÉNTANOS SOBRE TU AUTO</h1>
             <div class="row p-2" id="divYears">
                 <label for="basic-url" class="form-label text-white">¿Qué año es tu auto?</label>
@@ -77,7 +77,7 @@ if ($marcasQry->num_rows > 0) {
 
         </div>
 
-        <div id="ofertaFinal" class="container p-4" style="background-color:#d40028;" hidden>
+        <div id="ofertaFinal" class="container p-4" hidden>
 
             <div class="row">
                 <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">DESCRIPCIÓN DEL AUTO</h3>
@@ -295,11 +295,13 @@ if ($marcasQry->num_rows > 0) {
     }
 
     #descripcionAuto{
+        background-color: white;
         border-top: 2px solid #d40028;
-        border-left: 1px solid #d40028 ;
-        border-radius: 15px ;
+        border-left: 1px solid #d40028;
+        border-radius: 15px;
         padding: 10px;
         box-shadow: 1px 2px 3px 1px;
+        max-width: 500px;
     }
 
     @keyframes slide-in {
