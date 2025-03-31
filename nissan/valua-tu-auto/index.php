@@ -211,7 +211,10 @@ if ($marcasQry->num_rows > 0) {
     }
 
     function objetoOferta(obj){
-        console.log(obj);
+
+        let data = obj.lineal;
+
+        console.log(data);
     }
 </script>
 
