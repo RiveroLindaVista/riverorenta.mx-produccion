@@ -44,8 +44,13 @@ if ($marcasQry->num_rows > 0) {
                 </select>
 
             </div>
-            <div class="row p-2" id="divMarcas" hidden>
+            <div class="row p-2" id="divMarcas" hidden onchange="getModelos()">
                 <select class="form-select" id="filtroMarcas">
+                </select>
+            </div>
+
+            <div class="row p-2" id="divModelos" hidden>
+                <select class="form-select" id="filtroModelos">
                 </select>
             </div>
         </div>
@@ -79,6 +84,38 @@ if ($marcasQry->num_rows > 0) {
                 console.log(opcionesMarcas);
                 $("#divMarcas").attr('hidden', false);
                 $("#filtroMarcas").html(opcionesMarcas);
+            }
+        });
+
+    }
+
+    function getModelos(){
+
+        let select_modelo = $('#filtroModelos').val();
+        let select_ano = $('#filtroYears').val();
+
+        let data = {
+            modelo: select_modelo,
+            ano: select_ano,
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "getModelos.php",
+            data: data,
+            dataType: "json",
+            success: function(resp) {
+                
+                let opcionesModelos = '';
+                resp.forEach(elem => {
+                    opcionesModelos += `
+                            <option value="${elem.modelo}">${elem.modelo}</option>
+                    `;
+                });
+
+                console.log(opcionesModelos);
+                $("#divModelos").attr('hidden', false);
+                $("#filtroModelos").html(opcionesMarcas);
             }
         });
 
