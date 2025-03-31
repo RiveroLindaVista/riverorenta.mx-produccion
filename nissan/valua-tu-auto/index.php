@@ -82,7 +82,7 @@ if ($marcasQry->num_rows > 0) {
             <div class="row align-items-center">
                 <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">DESCRIPCIÓN DEL AUTO</h3>
 
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center justify-content-center mb-3">
                     <div id="descripcionAuto">
 
 
@@ -94,6 +94,10 @@ if ($marcasQry->num_rows > 0) {
                 <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">OFERTA VÁLIDA POR 7 DÍAS</h3>
 
                 <h2 id="precio" class="text-white text-center"></h2>
+            </div>
+
+            <div class="row">
+                <button class="btn btn-dark bg-dark" type="button" onclick="nuevaOferta()">Elige otro auto</button>
             </div>
 
         </div>
@@ -255,6 +259,18 @@ if ($marcasQry->num_rows > 0) {
         $("#descripcionAuto").html(descripcionAuto);
 
         console.log(data);
+    }
+
+    function nuevaOferta(){
+        $('#filtroMarcas').val(0);
+        $('#filtroYears').val('2026');
+        $('#filtroModelos').val(0);
+        $('#filtroVersiones').val(0);
+        $('#filtroKM').val("");
+
+        $("#formOferta").attr('hidden', false);
+        $("#ofertaFinal").attr('hidden', true);
+
     }
 </script>
 
