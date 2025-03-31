@@ -70,7 +70,7 @@ if ($marcasQry->num_rows > 0) {
                 <button class="btn btn-dark bg-dark" type="button" onclick="getOferta()">Ver Oferta</button>
             </div>
 
-            <div id="cargando" class="spinner-grow text-light" role="status" hidden>
+            <div id="cargando" class="spinner-grow text-light text-center" role="status" hidden>
                 <span class="visually-hidden">Loading...</span>
             </div>
 
@@ -203,6 +203,7 @@ if ($marcasQry->num_rows > 0) {
 
     function getOferta(){
 
+        $("#btnOferta").attr('hidden', true);
         $("#cargando").attr('hidden', false);
 
         let select_marca = $('#filtroMarcas').val();
@@ -255,6 +256,11 @@ if ($marcasQry->num_rows > 0) {
     }
 
     #divVersiones{
+        animation-duration: 1s;
+        animation-name: slide-in;
+    }
+
+    #precio{
         animation-duration: 1s;
         animation-name: slide-in;
     }
