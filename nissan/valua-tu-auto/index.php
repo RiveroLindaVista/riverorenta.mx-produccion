@@ -98,13 +98,14 @@ if ($marcasQry->num_rows > 0) {
             marca: select_marca,
             ano: select_ano,
         }
-
+        console.log('1');
         $.ajax({
             type: "POST",
             url: "getModelos.php",
             data: data,
             dataType: "json",
             success: function(resp) {
+                console.log('2');
                 console.log(resp);
                 
                 let opcionesModelos = '';

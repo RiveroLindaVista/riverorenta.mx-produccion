@@ -17,16 +17,20 @@ class Conexion extends Database{
     }
 
     public function query_modelos($ano, $marca){
-        
-        $conn= Database::connect();
-        $sql = "SELECT modelo FROM valuacion_autometrica WHERE year =2025 and marca ='Chevrolet' ";
-        $result=$conn->query($sql);
-        if ($result) {
-            while ($row = $result->fetch_assoc()) {
-                $out[]=$row;
-            }
-        } 
-        return $out;
-        $conn=Database::close();
+        try {
+            $conn= Database::connect();
+            $sql = "SELECT modelo FROM valuacion_autometrica WHERE year =2025 and marca ='Chevrolet' ";
+            $result=$conn->query($sql);
+            if ($result) {
+                while ($row = $result->fetch_assoc()) {
+                    $out[]=$row;
+                }
+            } 
+            return $out;
+            $conn=Database::close();
+        } catch (Exception $th) {
+            return $th.getMessage();
+        }
+
     }
 }
