@@ -56,12 +56,12 @@ if ($marcasQry->num_rows > 0) {
 </html>
 <script>
     function getMarcas(){
+
         let select_ano = $('#filtroYears').val();
 
         let data = {
             ano: select_ano,
         }
-        console.log(data);
     
         $.ajax({
             type: "POST",
