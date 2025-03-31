@@ -35,7 +35,7 @@ if ($marcasQry->num_rows > 0) {
 
     <body>
     <div class="container" style="display:flex; justify-content: center; align-items: center;">
-        <div class="container p-4" style="background-color:#d40028;">
+        <div id="formOferta" class="container p-4" style="background-color:#d40028;">
             <h1 class="text-white text-center">Cuéntanos sobre tu auto</h1>
             <div class="row p-2" id="divYears">
                 <select class="form-select" id="filtroYears" onchange="getMarcas()">
@@ -69,6 +69,15 @@ if ($marcasQry->num_rows > 0) {
             <div class="row p-2" id="btnOferta" hidden>
                 <button class="btn btn-dark bg-dark" type="button" onclick="getOferta()">Ver Oferta</button>
             </div>
+
+        </div>
+
+        <div id="ofertaFinal" class="container p-4" style="background-color:#d40028;" hidden>
+
+            <h3>Oferta válida por 7 días</h3>
+
+            <h2 id="precio" class="text-white"></h2>
+
 
         </div>
     </div>
@@ -211,8 +220,11 @@ if ($marcasQry->num_rows > 0) {
     }
 
     function objetoOferta(obj){
-
+        $("#formOferta").attr('hidden', true);
+        $("#ofertaFinal").attr('hidden', false);
         let data = obj.lineal;
+
+        $("#precio").html(obj.lineal[0].purchase);
 
         console.log(data);
     }
