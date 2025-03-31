@@ -10,6 +10,6 @@ for($i=0;$i<count($marcas);$i++){
     $cadena.='<option selected value="'.$marcas[$i].'">'.$marcas[$i].'</option>';
 }
 
-echo $cadena;
+print_r($cadena);
 return $cadena;
 ?>
