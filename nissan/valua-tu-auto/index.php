@@ -71,7 +71,7 @@ if ($marcasQry->num_rows > 0) {
                 <button class="btn btn-dark bg-dark" type="button" onclick="getOferta()">Ver Oferta</button>
             </div>
 
-            <div id="cargando" class="d-flex justify-content-center spinner-grow text-light text-center" role="status" hidden>
+            <div id="cargando" class="spinner-grow text-light text-center" role="status" hidden>
                 <span class="visually-hidden">Loading...</span>
             </div>
 
