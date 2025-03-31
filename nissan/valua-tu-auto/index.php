@@ -167,7 +167,7 @@ if ($marcasQry->num_rows > 0) {
 
     }
 
-    function getVersiones(){
+    function getKM(){
         $("#divKM").attr('hidden', false);
     }
 
