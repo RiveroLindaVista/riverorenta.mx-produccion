@@ -82,11 +82,13 @@ if ($marcasQry->num_rows > 0) {
             <div class="row align-items-center">
                 <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">DESCRIPCIÓN DEL AUTO</h3>
 
-                <div id="descripcionAuto">
+                <div class="d-flex align-items-center">
+                    <div id="descripcionAuto">
 
 
 
-                </div>    
+                    </div>
+                </div>
             </div>
             <div class="row">
                 <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">OFERTA VÁLIDA POR 7 DÍAS</h3>
