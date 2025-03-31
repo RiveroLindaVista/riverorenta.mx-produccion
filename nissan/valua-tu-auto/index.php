@@ -78,9 +78,9 @@ if ($marcasQry->num_rows > 0) {
                 console.log(opcionesMarcas);
             }
         });
-
-        $("#divMarcas").attr('hidden', false);
         $("#divMarcas").html(opcionesMarcas);
+        $("#divMarcas").attr('hidden', false);
+        
 
     }
 </script>
