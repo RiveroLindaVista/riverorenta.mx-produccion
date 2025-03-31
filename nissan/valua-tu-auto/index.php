@@ -105,6 +105,7 @@ if ($marcasQry->num_rows > 0) {
             data: data,
             dataType: "json",
             success: function(resp) {
+                console.log(resp);
                 
                 let opcionesModelos = '';
                 resp.forEach(elem => {
