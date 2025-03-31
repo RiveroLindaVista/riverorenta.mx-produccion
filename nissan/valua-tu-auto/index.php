@@ -61,6 +61,7 @@ if ($marcasQry->num_rows > 0) {
         let data = {
             ano: select_ano,
         }
+        console.log(data);
     
         $.ajax({
             type: "POST",
