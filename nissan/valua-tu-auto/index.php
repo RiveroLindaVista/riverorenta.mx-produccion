@@ -44,7 +44,7 @@ if ($marcasQry->num_rows > 0) {
                 </select>
 
             </div>
-            <div class="row p-2" id="divMarcas" hidden>
+            <div class="row p-2" id="divMarcas" disabled>
             </div>
         </div>
     </div>
@@ -79,7 +79,7 @@ if ($marcasQry->num_rows > 0) {
             }
         });
         $("#divMarcas").html(opcionesMarcas);
-        $("#divMarcas").attr('hidden', false);
+        $("#divMarcas").attr('disabled', false);
         
 
     }
