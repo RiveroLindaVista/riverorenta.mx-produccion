@@ -74,9 +74,9 @@ if ($marcasQry->num_rows > 0) {
 
         <div id="ofertaFinal" class="container p-4" style="background-color:#d40028;" hidden>
 
-            <h3 class="text-align-center">Oferta válida por 7 días</h3>
+            <h3 class="text-center">Oferta válida por 7 días</h3>
 
-            <h2 id="precio" class="text-white"></h2>
+            <h2 id="precio" class="text-white text-center"></h2>
 
 
         </div>
@@ -224,7 +224,7 @@ if ($marcasQry->num_rows > 0) {
         $("#ofertaFinal").attr('hidden', false);
         let data = obj.lineal;
 
-        let precio = '$ '+new Intl.NumberFormat().format(obj.lineal[0].purchase)+'.00 MXN';
+        let precio = '$ '+new Intl.NumberFormat('en-US').format(obj.lineal[0].purchase)+'.00 MXN';
 
         $("#precio").html(precio);
 
