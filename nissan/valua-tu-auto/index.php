@@ -121,7 +121,7 @@ if ($marcasQry->num_rows > 0) {
                     $("#filtroModelos").html(opcionesModelos);
                 }, 300);
 
-            }    error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            },    error: function(XMLHttpRequest, textStatus, errorThrown) { 
                 alert("Status: " + textStatus); alert("Error: " + errorThrown); 
             }   
         });
