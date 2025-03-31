@@ -206,7 +206,7 @@ if ($marcasQry->num_rows > 0) {
 
         fetch("https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=nissan&year="+select_ano+"&brand="+select_marca+"&subbrand="+select_modelo+"&version="+select_version+"&kilometraje="+select_km+"", requestOptions)
         .then((response) => response.text())
-        .then((result) => console.log(JSON.parse(result[0])))
+        .then((result) => console.log(JSON.parse(result)))
         .catch((error) => console.error(error));
     }
 </script>
