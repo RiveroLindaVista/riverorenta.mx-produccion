@@ -44,8 +44,8 @@ if ($marcasQry->num_rows > 0) {
                 </select>
 
             </div>
-            <div class="row p-2" id="divMarcas" >
-            <select class="form-control" id="filtroMarcas">
+            <div class="row p-2" id="divMarcas" hidden>
+            <select class="form-select" id="filtroMarcas">
             </select>
             </div>
         </div>
@@ -77,14 +77,29 @@ if ($marcasQry->num_rows > 0) {
                 });
 
                 console.log(opcionesMarcas);
+                $("#divMarcas").attr('hidden', false);
                 $("#filtroMarcas").html(opcionesMarcas);
             }
         });
 
-        /* $("#divMarcas").attr('hidden', false); */
-
-        
-        
-
     }
 </script>
+
+<style>
+    .divMarcas {
+        animation-duration: 1s;
+        animation-name: slide-in;
+    }
+
+    @keyframes slide-in {
+    from {
+        translate: -50vw 0;
+        scale: 200% 1;
+    }
+
+    to {
+        translate: 0 0;
+        scale: 100% 1;
+    }
+    }
+</style>
