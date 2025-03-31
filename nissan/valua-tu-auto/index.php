@@ -67,7 +67,7 @@ if ($marcasQry->num_rows > 0) {
             </div>
 
             <div class="row p-2" id="btnOferta" hidden>
-                <button class="btn btn-dark bg-dark" type="button">Ver Oferta</button>
+                <button class="btn btn-dark bg-dark" type="button" onclick="getOferta()">Ver Oferta</button>
             </div>
 
         </div>
@@ -123,7 +123,7 @@ if ($marcasQry->num_rows > 0) {
             dataType: "json",
             success: function(resp) {
                 
-                let opcionesModelos = '';
+                let opcionesModelos = '<option value="0">Selecciona el modelo...</option>';
                 resp.forEach(elem => {
                     opcionesModelos += `
                             <option value="${elem.modelo}">${elem.modelo}</option>
@@ -157,7 +157,7 @@ if ($marcasQry->num_rows > 0) {
             dataType: "json",
             success: function(resp) {
                 
-                let opcionesVersiones = '';
+                let opcionesVersiones = '<option value="0">Selecciona la versión...</option>';
                 resp.forEach(elem => {
                     opcionesVersiones += `
                         <option value="${elem.version}">${elem.version}</option>
@@ -194,6 +194,7 @@ if ($marcasQry->num_rows > 0) {
         let select_ano = $('#filtroYears').val();
         let select_modelo = $('#filtroModelos').val();
         let select_version = $('#filtroVersiones').val();
+        let select_km = $('#filtroKM').val();
 
         select_version = select_version.replace(" ", "%20")
 
