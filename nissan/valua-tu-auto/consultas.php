@@ -19,7 +19,7 @@ class Conexion extends Database{
     public function query_modelos($ano, $marca){
 
         $conn= Database::connect();
-        $sql = "SELECT modelo FROM valuacion_autometrica WHERE year =2025 and marca ='Chevrolet' ";
+        $sql = "SELECT modelo FROM valuacion_autometrica WHERE year =".$ano." and marca ='".$marca."' group by modelo";
         $result=$conn->query($sql);
         if ($result) {
             while ($row = $result->fetch_assoc()) {
