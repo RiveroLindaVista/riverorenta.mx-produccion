@@ -71,7 +71,7 @@ if ($marcasQry->num_rows > 0) {
                 <button class="btn btn-dark bg-dark" type="button" onclick="getOferta()">Ver Oferta</button>
             </div>
 
-            <div id="cargando" class="spinner-grow text-light text-center" role="status" hidden>
+            <div id="cargando" class="d-flex justify-content-center spinner-grow text-light text-center" role="status" hidden>
                 <span class="visually-hidden">Loading...</span>
             </div>
 
@@ -80,7 +80,7 @@ if ($marcasQry->num_rows > 0) {
         <div id="ofertaFinal" class="container p-4" hidden>
 
             <div class="row align-items-center">
-                <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">DESCRIPCIÓN DEL AUTO</h3>
+                <h2 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">DESCRIPCIÓN DEL AUTO</h3>
 
                 <div class="d-flex align-items-center justify-content-center mb-3">
                     <div id="descripcionAuto">
@@ -258,7 +258,6 @@ if ($marcasQry->num_rows > 0) {
         $("#precio").html(precio);
         $("#descripcionAuto").html(descripcionAuto);
 
-        console.log(data);
     }
 
     function nuevaOferta(){
@@ -301,6 +300,11 @@ if ($marcasQry->num_rows > 0) {
     }
 
     #precio{
+        animation-duration: 1s;
+        animation-name: slide-in;
+    }
+
+    #btnOferta{
         animation-duration: 1s;
         animation-name: slide-in;
     }
