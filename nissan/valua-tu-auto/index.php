@@ -45,9 +45,6 @@ if ($marcasQry->num_rows > 0) {
 
             </div>
             <div class="row p-2" id="divMarcas" hidden>
-                <select class="form-control" id="filtroMarcas">
-                    <?=$opcionesMarcas?>
-                </select>
             </div>
         </div>
     </div>
@@ -70,10 +67,19 @@ if ($marcasQry->num_rows > 0) {
             dataType: "json",
             success: function(resp) {
                 console.log(resp);
+                let opcionesMarcas = '<select class="form-control" id="filtroMarcas">';
+                resp.forEach(elem => {
+                   opcionesMarcas += `
+                        <option value="${elem.marca}">${elem.marca}</option>
+                   `;
+                });
+
+                opcionesMarcas += '</select>';
             }
         });
 
         $("#divMarcas").attr('hidden', false);
+        $("#divMarcas").html(opcionesMarcas);
 
     }
 </script>
