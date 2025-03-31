@@ -30,4 +30,19 @@ class Conexion extends Database{
         $conn=Database::close();
 
     }
+
+    public function query_versiones($modelo, $ano, $marca){
+
+        $conn= Database::connect();
+        $sql = "SELECT version FROM valuacion_autometrica WHERE year =".$ano." and marca ='".$marca."' and modelo ='".$modelo."'";
+        $result=$conn->query($sql);
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $out[]=$row;
+            }
+        } 
+        return $out;
+        $conn=Database::close();
+
+    }
 }

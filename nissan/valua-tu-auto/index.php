@@ -53,6 +53,11 @@ if ($marcasQry->num_rows > 0) {
                 <select class="form-select" id="filtroModelos">
                 </select>
             </div>
+
+            <div class="row p-2" id="divVersiones" hidden>
+                <select class="form-select" id="filtroVersiones">
+                </select>
+            </div>
         </div>
     </div>
     </body>
@@ -98,15 +103,13 @@ if ($marcasQry->num_rows > 0) {
             marca: select_marca,
             ano: select_ano,
         }
-        console.log('1');
+
         $.ajax({
             type: "POST",
             url: "getModelos.php",
             data: data,
             dataType: "json",
             success: function(resp) {
-                console.log('2');
-                console.log(resp);
                 
                 let opcionesModelos = '';
                 resp.forEach(elem => {
@@ -115,10 +118,42 @@ if ($marcasQry->num_rows > 0) {
                     `;
                 });
 
-                console.log(opcionesModelos);
                 $("#divModelos").attr('hidden', false);
                 $("#filtroModelos").html(opcionesModelos);
 
+            }
+        });
+
+    }
+
+    function getVersiones(){
+
+        let select_marca = $('#filtroMarcas').val();
+        let select_ano = $('#filtroYears').val();
+        let select_modelo = $('#filtroModelos').val();
+
+        let data = {
+            modelo: select_modelo,
+            marca: select_marca,
+            ano: select_ano,
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "getVersiones.php",
+            data: data,
+            dataType: "json",
+            success: function(resp) {
+                
+                let opcionesVersiones = '';
+                resp.forEach(elem => {
+                    opcionesVersiones += `
+                        <option value="${elem.version}">${elem.version}</option>
+                    `;
+                });
+
+                $("#divVersiones").attr('hidden', false);
+                $("#filtroVersiones").html(opcionesVersiones);
 
             }
         });
@@ -138,6 +173,11 @@ if ($marcasQry->num_rows > 0) {
     }
 
     #divModelos{
+        animation-duration: 1s;
+        animation-name: slide-in;
+    }
+
+    #divVersiones{
         animation-duration: 1s;
         animation-name: slide-in;
     }
