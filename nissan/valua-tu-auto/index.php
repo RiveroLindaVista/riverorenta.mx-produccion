@@ -96,8 +96,8 @@ if ($marcasQry->num_rows > 0) {
                 <h2 id="precio" class="text-white text-center"></h2>
             </div>
 
-            <div class="row">
-                <button class="btn btn-dark bg-dark" type="button" onclick="nuevaOferta()">Elige otro auto</button>
+            <div class="row d-flex justify-content-center">
+                <button class="btn btn-dark bg-dark" type="button" style="width:auto;" onclick="nuevaOferta()">Elige otro auto</button>
             </div>
 
         </div>
@@ -267,6 +267,11 @@ if ($marcasQry->num_rows > 0) {
         $('#filtroModelos').val(0);
         $('#filtroVersiones').val(0);
         $('#filtroKM').val("");
+        $("#cargando").attr('hidden', true);
+        $("#divMarcas").attr('hidden', true);
+        $("#divModelos").attr('hidden', true);
+        $("#divVersiones").attr('hidden', true);
+        $("#divKM").attr('hidden', true);
 
         $("#formOferta").attr('hidden', false);
         $("#ofertaFinal").attr('hidden', true);
