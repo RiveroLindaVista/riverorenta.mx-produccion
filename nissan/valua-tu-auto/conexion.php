@@ -12,6 +12,7 @@ class Database{
  
     function connect() {
         $con = mysqli_connect($this->_host, $this->_username, $this->_password, $this->_database);
+        $con->set_charset('utf8');
         if (!$con) {
             die('Could not connect to database!');
         } else {
