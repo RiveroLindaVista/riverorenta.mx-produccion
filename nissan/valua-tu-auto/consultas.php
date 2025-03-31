@@ -26,7 +26,7 @@ class Conexion extends Database{
                 $out[]=$row;
             }
         } 
-        return $sql;
+        return $out;
         $conn=Database::close();
     }
 }

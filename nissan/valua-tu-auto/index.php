@@ -115,7 +115,7 @@ if ($marcasQry->num_rows > 0) {
 
                 console.log(opcionesModelos);
                 $("#divModelos").attr('hidden', false);
-                $("#filtroModelos").html(opcionesMarcas);
+                $("#filtroModelos").html(opcionesModelos);
             }
         });
 
@@ -129,6 +129,11 @@ if ($marcasQry->num_rows > 0) {
     }
 
     #divMarcas{
+        animation-duration: 1s;
+        animation-name: slide-in;
+    }
+
+    #divModelos{
         animation-duration: 1s;
         animation-name: slide-in;
     }
