@@ -66,7 +66,7 @@ if ($marcasQry->num_rows > 0) {
             data: data,
             dataType: "json",
             success: function(resp) {
-                console.log(resp);
+                
                 let opcionesMarcas = '<select class="form-control" id="filtroMarcas">';
                 resp.forEach(elem => {
                    opcionesMarcas += `
@@ -75,6 +75,7 @@ if ($marcasQry->num_rows > 0) {
                 });
 
                 opcionesMarcas += '</select>';
+                console.log(opcionesMarcas);
             }
         });
 
