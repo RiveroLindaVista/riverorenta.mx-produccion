@@ -783,7 +783,7 @@ $orden = $orden + 10;
 
                                         </div>
                                         <div class="fallback">
-                                            <input accept="image/webp" style="display: none;" type="file" id="_file_web" size="1024" name="file_web" />
+                                            <input accept="image/webp" style="display: none;" type="file" id="_file_web" size="2048" name="file_web" />
                                         </div>
                                     </form>
                                     <input id="imagen_color" type="text" multiple hidden="" />
