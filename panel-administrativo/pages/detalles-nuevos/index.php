@@ -766,7 +766,7 @@ $orden = $orden + 10;
 
                                         </div>
                                         <div class="fallback">
-                                            <input accept="image/png" style="display: none;" type="file" id="_file" size="1024" name="file" />
+                                            <input accept="image/png" style="display: none;" type="file" id="_file" size="2048" name="file" />
                                         </div>
                                     </form>
                                     <input id="imagen_color" type="text" multiple hidden="" />
