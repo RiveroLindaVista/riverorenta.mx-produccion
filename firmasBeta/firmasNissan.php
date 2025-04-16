@@ -87,7 +87,7 @@ include("header.php");
                             <img class="divisionImgStyleEmpresarial" id="divisionImagen" src="" alt="ayuda">
                         </div>
                         <div class="imgPrimosizq col-6">
-                            <img class="styleNissanPrimos" src="imgs/somos_primos_nissan.png" alt="ayuda">
+                            <img class="styleNissanPrimos" src="imgs/iniciaviaje.png" alt="ayuda">
                         </div>
                     </div>
                     <br>
