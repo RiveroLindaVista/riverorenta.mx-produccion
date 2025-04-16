@@ -137,7 +137,7 @@ include("header.php");
                                                 alt="ayuda" style="max-width: 64%;">
                                         </div>
                                         <div class="col-6" style="height: 60px; margin-top: 10px;">
-                                            <img src="https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/imgs/somos_primos_nissanDos.png"
+                                            <img src="https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/imgs/iniciaviaje.png"
                                                 alt="ayuda" style="max-width: 80%; margin-top:9px;">
                                         </div>
                                     </div>

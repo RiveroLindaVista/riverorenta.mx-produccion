@@ -14,9 +14,7 @@
     <div id="container">
         <div class="fondoH">
             <div class="header">
-                <img class="logoRivero" src="imgs/somos_primos_chevrolet.png" alt="logoRivero">
                 <img class="logoRivero" src="imgs/logo_rivero.png" alt="logoRivero">
-                <img class="logoRivero" src="imgs/somos_primos_nissan.png" alt="logoRivero">
             </div>
             <br>
             <div class="header-menu">
