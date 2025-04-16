@@ -13,7 +13,7 @@
 
     <div id="container">
         <div class="fondoH">
-            <div class="header">
+            <div class="header p-2">
                 <img class="logoRivero" src="imgs/logo_rivero.png" alt="logoRivero">
             </div>
             <br>
