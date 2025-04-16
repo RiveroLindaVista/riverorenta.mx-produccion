@@ -51,11 +51,10 @@
     margin: 20px;
     /* border-radius: 6px; */
     overflow: inherit;
-    background: #000000;
     cursor: default;
     transition: all 400ms ease;
     color: black;
-    padding: 3px 13px 32px;
+    padding: 20px;
 }
 
 .tarjetNissan{
