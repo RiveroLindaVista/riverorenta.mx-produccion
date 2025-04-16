@@ -1,0 +1,379 @@
+/* Estilos de las imagenes de los logos */
+
+.logoRivero {
+    margin: auto;
+    max-width: 13%;
+}
+
+/* Estilos del CARD */
+
+.cardFormulario {
+    width: auto;
+    margin: 20px;
+    border-radius: 6px;
+    overflow: inherit;
+    background: #fff;
+    cursor: default;
+    transition: all 400ms ease;
+    color: black;
+    padding: 40px 20px 40px;
+}
+
+
+.cardFondoChevrolet {
+    width: 700px;
+    height: 300px;
+    margin: 20px;
+    overflow: inherit;
+    background: #0F3261;
+    cursor: default;
+    transition: all 400ms ease;
+    color: black;
+    padding: 10px 20px 20px;
+}
+
+.cardPrincipalChevrolet {
+    width: auto;
+    height: 220px;
+    margin-top: -5px;
+    border-radius: 10px;
+    overflow: inherit;
+    background: #0082D6;
+    cursor: default;
+    transition: all 400ms ease;
+    color: black;
+    /* padding: 40px 20px 40px; */
+}
+
+.cardFondoNissan {
+    width: 700px;
+    height: 300px;
+    margin: 20px;
+    /* border-radius: 6px; */
+    overflow: inherit;
+    background: #000000;
+    cursor: default;
+    transition: all 400ms ease;
+    color: black;
+    padding: 3px 13px 32px;
+}
+
+.tarjetNissan{
+    display: flex;
+    justify-content: center;
+}
+
+.cardPrincipalNissan {
+    width: auto;
+    height: 260px;
+    margin-top: 10px;
+    border-radius: 10px;
+    overflow: inherit;
+    background: #fff;
+    cursor: default;
+    transition: all 400ms ease;
+    color: black;
+    /* padding: 40px 20px 40px; */
+}
+
+.cardPrincipalEmpresarial {
+    width: auto;
+    height: 220px;
+    margin-top: -5px;
+    border-radius: 10px;
+    overflow: inherit;
+    background: #d6d6d6;
+    cursor: default;
+    transition: all 400ms ease;
+    color: black;
+    /* padding: 40px 20px 40px; */
+}
+
+.cardFondoEmpresarial {
+    width: 700px;
+    height: 300px;
+    margin: 20px;
+    overflow: inherit;
+    background: #1e345e;
+    cursor: default;
+    transition: all 400ms ease;
+    color: black;
+    padding: 10px 20px 20px;
+}
+
+/* Estilos de los elementos del card de Chevrolet y Nissan */
+
+.imgPrimosizq {
+    height: 60px;
+}
+
+.imgDivisionDer {
+    height: 60px;
+}
+
+.divisionImgStyle {
+    max-width: 40%;
+}
+
+.divisionImgStyleEmpresarial {
+    max-width: 20%;
+}
+
+.imgFlotillas {
+    max-width: 75% !important;
+    margin-top: -10px;
+}
+
+.imgOtro {
+    max-width: 85% !important;
+    margin-top: 6px;
+}
+
+/* .conteidoChevrolet{
+    margin-left: -32px;
+
+} */
+
+.imgOtroNissan {
+    max-width: 95% !important;
+    margin-top: 20px;
+}
+
+.imgCorporativo {
+    max-width: 47% !important;
+}
+
+.contenidoNissan{
+    margin-top: 32px;
+}
+
+.divisionImgStyleDos {
+    max-width: 40%;
+}
+
+.imgFlotillasDos {
+    max-width: 75% !important;
+    margin-top: -10px;
+}
+
+.imgOtroDos {
+    max-width: 85% !important;
+}
+
+.styleChevroletPrimos {
+    max-width: 60%;
+    margin-left: 45%;
+}
+
+.styleNissanPrimos {
+    max-width: 60%;
+    margin-left: 40%;
+    margin-top: 20px;
+}
+
+.imgLogoPrimoNissan {
+    max-width: 120%;
+    margin-left: -40%;
+}
+
+.imgLogoPrimo {
+    max-width: 103%;
+    margin-left: -30%;
+}
+
+.imgPrimo {
+    justify-content: center;
+    align-items: center;
+}
+
+
+.stylePuestoChevrolet,
+.styleNombreChevrolet,
+.styleCorreoChevrolet,
+.styleTelefonoChevrolet,
+.stylePaginaChevrolet,
+.styleSucursalChevrolet {
+    margin-top: -14px;
+    font-family:Arial;
+}
+
+.stylePuestoChevrolet {
+    font-size: 21px;
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.styleNombreChevrolet {
+    font-size: 38px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #0F3261 !important;
+    text-transform: uppercase;
+    margin-top: -25px;
+}
+
+.styleCorreoChevrolet{
+    color: #fff;
+    text-decoration: none;
+}
+
+.styleTelefonoChevrolet{
+    color: #fff;
+    text-decoration: none;
+}
+
+.stylePaginaChevrolet{
+    color: #fff;
+    text-decoration: none;
+}
+
+.styleSucursalChevrolet {
+    font-size: small !important;
+    color: #fff;
+    text-decoration: none;
+}
+
+.stylePuestoNissan,
+.styleNombreNissan,
+.styleCorreoNissan,
+.styleTelefonoNissan,
+.stylePaginaNissan,
+.styleSucursalNissan {
+    margin-top: -14px;
+}
+
+.stylePuestoNissan {
+    font-size: 21px;
+    color: #000000;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.styleNombreNissan {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000000 !important;
+    text-transform: capitalize;
+    margin-top: -25px;
+}
+
+.styleCorreoNissan{
+    font-family:bahnschrift;
+    color: #000000;
+}
+
+.styleTelefonoNissan{
+    font-family:bahnschrift;
+    color: #000000;
+}
+
+.stylePaginaNissan{
+    font-family:bahnschrift;
+    color: #000000;
+}
+
+.styleSucursalNissan {
+    font-family:bahnschrift;
+    font-size: small !important;
+    color: #000000;
+}
+
+.stylePuestoCorporativo,
+.styleNombreCorporativo,
+.styleCorreoCorporativo,
+.styleTelefonoCorporativo,
+.stylePaginaCorporativo,
+.styleSucursalCorporativo {
+    margin-top: -14px;
+    font-family:Arial;
+}
+
+.stylePuestoCorporativo {
+    font-size: 21px;
+    letter-spacing: 0.10em;
+    color: #1e345e;
+    text-transform: capitalize;
+}
+
+.styleNombreCorporativo {
+    font-size: 38px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #0F3261 !important;
+    text-transform: uppercase;
+    margin-top: -25px;
+}
+
+.styleCorreoCorporativo{
+    color: #1e345e;
+    text-decoration: none;
+}
+
+.styleTelefonoCorporativo{
+    color: #1e345e;
+    text-decoration: none;
+}
+
+.stylePaginaCorporativo{
+    color: #1e345e;
+    text-decoration: none;
+}
+
+.styleSucursalCorporativo {
+    font-size: small !important;
+    color: #1e345e;
+    text-decoration: none;
+}
+
+/* Estilos de los botones de Chevrolet y Nissan */
+
+.btnLogoNissan {
+    width: 250px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.btnLogoChevrolet {
+    width: 280px;
+    padding-top: 3%;
+    cursor: pointer;
+}
+
+.btnLogoEmpresarial {
+    width: 155px;
+    padding-top: 3%;
+    cursor: pointer;
+}
+
+/* Estilos del Form de Chevrolet */
+.contenedorUno {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: auto;
+}
+
+.contenedorDos {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.form-section {
+    margin-bottom: 15px;
+}
+
+.form-section label {
+    text-align: center;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.form-section input,
+.form-section select {
+    width: 104%;
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

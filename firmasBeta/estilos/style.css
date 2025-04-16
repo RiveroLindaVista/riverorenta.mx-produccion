@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  outline: none;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  color: black;
+  margin: 0px;
+  padding: 0px;
+}
+
+header {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+:root {
+  --body-bg-color: #e5ecef;
+  /* Fondo principal */
+  --theme-bg-color: #fafafb;
+  /* Fondo donde van impresas las cosas */
+  --body-font: "Poppins", sans-serif;
+  /* Estilo de letra de los btn */
+  --header-bg-color: #33373a;
+  /* Color del header */
+}
+
+
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+body {
+  background-color: var(--body-bg-color);
+  font-family: var(--body-font);
+  font-size: 15px;
+}
+
+h {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 45px;
+  text-transform: uppercase;
+  border: none;
+}
+
+.fondo {
+  display: flex;
+  flex-direction: column;
+  max-width: 1400px;
+  height: auto;
+  margin: 0 auto;
+  overflow: inherit;
+  /* background-color: var(--theme-bg-color); */
+}
+
+/* Este header es el que mantiene bonito el header */
+.header {
+  display: flex;
+  align-items: center;
+  transition: box-shadow 0.3s;
+  flex-shrink: 0;
+  padding: 0 40px;
+  white-space: nowrap;
+  background-color: var(--header-bg-color);
+  /* height: 80px; */
+  /* width: 100%; */
+  font-size: 14px;
+  justify-content: space-between;
+}
+
+.header-menu a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.header-menu a:not(:first-child) {
+  margin-left: 50px;
+}
+
+#dataTables_length {
+  display: none;
+}
+
+/* Estilos para los Botones CHEVROLET y NISSAN */
+
+.styleChevrolet {
+  height: 68px;
+  /* La altura se ajusta automáticamente para mantener la proporción */
+}
+
+.styleNissan {
+  background-color: red !important;
+}
+
+.styleEmpresarial {
+  background-color: #1e345e !important;
+}
+
+.styleNissanCopiar {
+  margin-left: 50px;  
+  background-color: rgb(0, 0, 0) !important;
+}
