@@ -260,10 +260,10 @@
 }
 
 .stylePuestoNissan {
-    font-size: 21px;
+    font-size: 25px;
     color: #383838;
     text-transform: capitalize;
-    margin-top: -20px;
+    margin-top: -25px;
     font-family: NarrowMedium;
 }
 
@@ -296,6 +296,7 @@
     font-family: GothamBook;
     font-size: small !important;
     color: #383838;
+    margin-top: 40px;
 }
 
 .stylePuestoCorporativo,

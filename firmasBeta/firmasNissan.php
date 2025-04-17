@@ -112,7 +112,7 @@ include("header.php");
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row justify-content-center" style="margin-top:35px">
                         <div class="styleSucursalNissan" id="txtSucursal">
                         </div>
                     </div>
@@ -277,8 +277,8 @@ include("header.php");
                 if (inputNombre.value.length >= 25) {
                     var tamaño = document.getElementById('txtNombre');
                     var tamañoDos = document.getElementById('txtNombreDos');
-                    tamaño.style.fontSize = "27px";
-                    tamañoDos.style.fontSize = "27px";
+                    tamaño.style.fontSize = "30px";
+                    tamañoDos.style.fontSize = "30px";
                 } else {
                     var tamaño = document.getElementById('txtNombre');
                     var tamañoDos = document.getElementById('txtNombre');
