@@ -112,7 +112,7 @@ include("header.php");
                             </div>
                         </div>
                     </div>
-                    <div class="row justify-content-center" style="margin-top:35px">
+                    <div class="row justify-content-center">
                         <div class="styleSucursalNissan" id="txtSucursal">
                         </div>
                     </div>
