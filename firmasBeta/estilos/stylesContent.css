@@ -4,6 +4,11 @@
     src: url('Narrow/owners-narrow-black.ttf');
 }
 
+@font-face{
+    font-family: NarrowMedium;
+    src: url('NarrowMedium/owners-narrow-medium.otf');
+}
+
 .logoRivero {
     margin: auto;
     max-width: 13%;
@@ -252,6 +257,7 @@
     font-weight: bold;
     text-transform: capitalize;
     margin-top: -20px;
+    font-family: NarrowMedium;
 }
 
 .styleNombreNissan {
