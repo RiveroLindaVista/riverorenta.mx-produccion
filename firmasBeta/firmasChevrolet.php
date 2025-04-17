@@ -159,16 +159,16 @@ include("header.php");
                             color: #0F3261 !important; text-transform: uppercase; margin-top: -25px;">
                                         </div>
 
-                                        <div id="txtCorreoDos" style="font-family:Arial; color: #fff; margin-top: -16px; ">
+                                        <div id="txtCorreoDos" style="font-family:Arial; color: #383838;">
                                         </div>
 
-                                        <div id="txtTelefonoDos" style="font-family:Arial; color: #fff; margin-top: -10px; ">
+                                        <div id="txtTelefonoDos" style="font-family:Arial; color: #383838;">
                                         </div>
 
-                                        <div id="txtPaginaAreaDos" style="font-family:Arial; color: #fff; margin-top: -10px; ">
+                                        <div id="txtPaginaAreaDos" style="font-family:Arial; color: #383838;">
                                         </div>
 
-                                        <div id="txtSucursalDos" style="font-family:Arial; color: #fff; margin-top: -10px; ">
+                                        <div id="txtSucursalDos" style="font-family:Arial; color: #383838;">
                                         </div>
                                     </div>
                                     <div class="col-3 d-flex"
