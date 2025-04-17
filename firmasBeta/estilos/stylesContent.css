@@ -64,6 +64,8 @@
 .cardPrincipalNissan {
     width: auto;
     height: 260px;
+    padding-left: 35px;
+    padding-right: 35px;
     border-radius: 10px;
     overflow: inherit;
     background: #fff;
@@ -101,10 +103,16 @@
 /* Estilos de los elementos del card de Chevrolet y Nissan */
 
 .imgPrimosizq {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 60px;
 }
 
 .imgDivisionDer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 60px;
 }
 
