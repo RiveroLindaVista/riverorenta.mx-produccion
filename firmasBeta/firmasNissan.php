@@ -253,7 +253,6 @@ include("header.php");
         }
 
         function cambiarImagen() {
-            console.log("AYDUADISANK")
             var areaSelect = document.getElementById("areaSelect");
             var divisionImagen = document.getElementById("divisionImagen");
             var divisionImagenDos = document.getElementById("divisionImagenDos");

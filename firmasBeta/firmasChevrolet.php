@@ -92,14 +92,16 @@ include("header.php");
 
         <div class="tarjetNissan" id="tarjetaChevrolet">
             <div class="cardFondoChevrolet row">
-                <div class="imgDivisionDer col-6">
-                    <img class="divisionImgStyle" id="divisionImagen" src="" alt="ayuda">
-                </div>
-                <div class="imgPrimosizq col-6">
-                    <img class="styleChevroletPrimos" src="imgs/somos_primos_chevrolet.png" alt="ayuda">
-                </div>
-
                 <div class="cardPrincipalChevrolet mb-4 col-12">
+                    <div class="row" style="background-color:#3377d2;border-radius: 0px 0px 30px 30px;padding-bottom:15px;padding-top:15px;">
+                        <div class="imgDivisionDer col-6">
+                            <img class="divisionImgStyle" id="divisionImagen" src="" alt="chevrolet">
+                        </div>
+                        <div class="imgPrimosizq col-6">
+                            <img class="styleNissanPrimos" src="imgs/iniciaviaje.png" alt="chevrolet">
+                        </div>
+                    </div>
+
                     <br>
                     <div class="row">
                         <div class="conteidoChevrolet col-9">
