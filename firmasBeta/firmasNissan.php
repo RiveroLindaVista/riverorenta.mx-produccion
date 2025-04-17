@@ -145,27 +145,27 @@ include("header.php");
                                 </div>
                                 <div style="margin-left: 20px;margin-top: 46px;;" class="col-9 row">
                                     <div id="txtPuestoDos"
-                                        style="font-weight: bold; margin-top: -16px;  font-size: 21px; color: #000000; text-transform: capitalize;">
+                                        style="font-weight: bold; font-size: 21px; color: #000000; text-transform: capitalize;">
                                     </div>
 
                                     <div id="txtNombreDos"
-                                        style="font-size: 28px; font-weight: bold; text-transform: capitalize; margin-top: -25px; color: rgb(0, 0, 0) !important;">
+                                        style="font-size: 28px; font-weight: bold; text-transform: capitalize; color: rgb(0, 0, 0) !important;">
                                     </div>
 
                                     <div id="txtCorreoDos"
-                                        style="font-family:bahnschrift; color: #000000; margin-top: -16px;">
+                                        style="font-family:bahnschrift; color: #000000;">
                                     </div>
 
                                     <div id="txtTelefonoDos"
-                                        style="font-family:bahnschrift; color: #000000; margin-top: -10px; ">
+                                        style="font-family:bahnschrift; color: #000000; ">
                                     </div>
 
                                     <div id="txtPaginaAreaDos"
-                                        style="font-family:bahnschrift; color: #000000; margin-top: -10px; ">
+                                        style="font-family:bahnschrift; color: #000000; ">
                                     </div>
 
                                     <div id="txtSucursalDos"
-                                        style="font-family:bahnschrift; color: #000000; margin-top: -10px; ">
+                                        style="font-family:bahnschrift; color: #000000; ">
                                     </div>
                                 </div>
                                 <div class="col-3 d-flex"
