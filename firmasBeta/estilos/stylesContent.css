@@ -309,44 +309,48 @@
 .styleTelefonoCorporativo,
 .stylePaginaCorporativo,
 .styleSucursalCorporativo {
-    margin-top: -14px;
+    margin-top: 0px;
     font-family:Arial;
 }
 
 .stylePuestoCorporativo {
-    font-size: 21px;
+    font-size: 25px;
     letter-spacing: 0.10em;
-    color: #1e345e;
+    color: #383838;
     text-transform: capitalize;
-}
-
-.styleNombreCorporativo {
-    font-size: 38px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: #0F3261 !important;
-    text-transform: uppercase;
+    font-family: NarrowMedium;
     margin-top: -25px;
 }
 
+.styleNombreCorporativo {
+    font-size: 30px;
+    font-family: Narrow;
+    color: #383838 !important;
+    text-transform: capitalize;
+}
+
 .styleCorreoCorporativo{
-    color: #1e345e;
+    color: #383838;
     text-decoration: none;
 }
 
 .styleTelefonoCorporativo{
-    color: #1e345e;
+    color: #383838;
     text-decoration: none;
+    margin-top: -20px;
 }
 
 .stylePaginaCorporativo{
-    color: #1e345e;
+    color: #383838;
     text-decoration: none;
+    margin-top: -20px;
 }
 
 .styleSucursalCorporativo {
     font-size: small !important;
-    color: #1e345e;
+    color: #383838;
     text-decoration: none;
+    margin-top: 40px;
 }
 
 /* Estilos de los botones de Chevrolet y Nissan */

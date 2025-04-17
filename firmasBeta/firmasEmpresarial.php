@@ -92,41 +92,43 @@ include("header.php");
 
         <div class="tarjetNissan" id="tarjetaChevrolet">
             <div class="cardFondoEmpresarial row">
-                <div class="imgDivisionDer col-6">
-                    <img class="divisionImgStyle" id="divisionImagen" src="" alt="ayuda">
-                </div>
-                <div class="imgPrimosizq col-6">
-                    <img class="styleChevroletPrimos" src="imgs/somos_primos_chevrolet.png" alt="ayuda">
-                </div>
-
-                <div class="cardPrincipalEmpresarial mb-4 col-12">
-                    <br>
-                    <div class="row">
-                        <div class="conteidoChevrolet col-9">
-                            <div class="stylePuestoCorporativo" id="txtPuesto">
-                            </div>
-
-                            <div class="styleNombreCorporativo" id="txtNombre">
-                            </div>
-
-                            <div class="styleCorreoCorporativo" id="txtCorreo">
-                            </div>
-
-                            <div class="styleTelefonoCorporativo" id="txtTelefono">
-                            </div>
-
-                            <div class="stylePaginaCorporativo" id="txtPaginaArea">
-                            </div>
-
-                            <div class="styleSucursalCorporativo" id="txtSucursal">
-                            </div>
+                <div class="cardPrincipalEmpresarial mb-4 col-12" style="height: 274px;">
+                    <div class="row" style="background-color:#b32535;border-radius: 0px 0px 30px 30px;padding-bottom:15px;padding-top:15px;">
+                        <div class="imgDivisionDer col-6">
+                            <img class="divisionImgStyleEmpresarial" id="divisionImagen" src="" alt="ayuda">
                         </div>
-                        <div class="imgPrimo col-3 d-flex">
-                            <img class="imgLogoPrimoNissan" src="imgs/logoPrimo.png" alt="Bienvenido">
+                        <div class="imgPrimosizq col-6">
+                            <img class="styleNissanPrimos" src="imgs/iniciaviaje.png" alt="ayuda">
                         </div>
                     </div>
                 </div>
+                
+                <br>
+                <div class="row">
+                    <div class="conteidoChevrolet col-7">
 
+                        <div class="styleNombreCorporativo" id="txtNombre">
+                        </div>
+
+                        <div class="stylePuestoCorporativo" id="txtPuesto">
+                        </div>
+
+                    </div>
+                    <div class="imgPrimo col-3 d-flex">
+                        <div class="styleCorreoCorporativo" id="txtCorreo">
+                        </div>
+
+                        <div class="styleTelefonoCorporativo" id="txtTelefono">
+                        </div>
+
+                        <div class="stylePaginaCorporativo" id="txtPaginaArea">
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="styleSucursalCorporativo" id="txtSucursal">
+                    </div>
+                </div>
             </div>
         </div>
 
