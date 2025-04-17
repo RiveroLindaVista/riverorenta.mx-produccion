@@ -248,7 +248,7 @@ include("header.php");
             var divisionImagen = document.getElementById("divisionImagen");
             var divisionImagenDos = document.getElementById("divisionImagenDos");
 
-            divisionImagen.src = 'divisiones/corporativo.png';
+            divisionImagen.src = 'imgs/logo_rivero.png';
             divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisiones/corporativo.png';
             divisionImagen.className = 'imgCorporativo';
         }
@@ -302,8 +302,8 @@ include("header.php");
             var divTextoPaginaDos = document.getElementById("txtPaginaAreaDos");
 
             if (paginaSelect.value === 'bodyShop') {
-                divTextoPagina.innerHTML = "<p>" + "gruporivero.com/taller-de-colision" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com/taller-de-colision" + "</p>";
+                divTextoPagina.innerHTML = "<p>" + "gruporivero.com" + "</p>";
+                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com" + "</p>";
 
             } else if (paginaSelect.value === 'flotillas') {
                 divTextoPagina.innerHTML = "<p>" + "riverorenta.com/empresarial" + "</p>";
@@ -314,12 +314,12 @@ include("header.php");
                 divTextoPaginaDos.innerHTML = "<p>" + "riverorenta.com" + "</p>";
 
             } else if (paginaSelect.value === 'seminuevos') {
-                divTextoPagina.innerHTML = "<p>" + "gruporivero.com/catalogo/seminuevos" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com/catalogo/seminuevos" + "</p>";
+                divTextoPagina.innerHTML = "<p>" + "gruporivero.com" + "</p>";
+                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com" + "</p>";
 
             } else if (paginaSelect.value === 'tallerServicio') {
-                divTextoPagina.innerHTML = "<p>" + "gruporivero.com/taller-de-servicio" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com/taller-de-servicio" + "</p>";
+                divTextoPagina.innerHTML = "<p>" + "gruporivero.com" + "</p>";
+                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com" + "</p>";
 
             } else if (paginaSelect.value === 'transportes') {
                 divTextoPagina.innerHTML = "<p>" + "transportesrivero.com.mx" + "</p>";
