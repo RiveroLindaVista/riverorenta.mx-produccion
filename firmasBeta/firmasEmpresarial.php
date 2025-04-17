@@ -101,7 +101,6 @@ include("header.php");
                             <img class="styleNissanPrimos" src="imgs/iniciaviaje.png" alt="ayuda">
                         </div>
                     </div>
-                </div>
                 
                 <br>
                 <div class="row">
@@ -129,6 +128,7 @@ include("header.php");
                     <div class="styleSucursalCorporativo" id="txtSucursal">
                     </div>
                 </div>
+            </div>
             </div>
         </div>
 
