@@ -93,7 +93,7 @@ include("header.php");
         <div class="tarjetNissan" id="tarjetaChevrolet">
             <div class="cardFondoEmpresarial row">
                 <div class="cardPrincipalEmpresarial mb-4 col-12" style="height: 274px;">
-                    <div class="row" style="background-color:#b32535;border-radius: 0px 0px 30px 30px;padding-bottom:15px;padding-top:15px;">
+                    <div class="row" style="background-color:#103261;border-radius: 0px 0px 30px 30px;padding-bottom:15px;padding-top:15px;">
                         <div class="imgDivisionDer col-6">
                             <img class="divisionImgStyleEmpresarial" id="divisionImagen" src="" alt="ayuda">
                         </div>
