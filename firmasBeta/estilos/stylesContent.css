@@ -54,7 +54,6 @@
     cursor: default;
     transition: all 400ms ease;
     color: black;
-    padding: 20px;
 }
 
 .tarjetNissan{
@@ -65,7 +64,6 @@
 .cardPrincipalNissan {
     width: auto;
     height: 260px;
-    margin-top: 10px;
     border-radius: 10px;
     overflow: inherit;
     background: #fff;
@@ -125,7 +123,6 @@
 
 .imgOtro {
     max-width: 85% !important;
-    margin-top: 6px;
 }
 
 /* .conteidoChevrolet{
