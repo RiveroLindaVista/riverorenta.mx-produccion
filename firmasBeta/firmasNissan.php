@@ -82,7 +82,7 @@ include("header.php");
         <div class="tarjetNissan">
             <div class="cardFondoNissan row">
                 <div class="cardPrincipalNissan mb-4 col-12" style="height: 274px;">
-                    <div class="row" style="background-color:#b32535;border-radius: 0px 0px 30px 30px;padding-bottom:10px;padding-top:10px;">
+                    <div class="row" style="background-color:#b32535;border-radius: 0px 0px 30px 30px;padding-bottom:15px;padding-top:15px;">
                         <div class="imgDivisionDer col-6">
                             <img class="divisionImgStyleEmpresarial" id="divisionImagen" src="" alt="ayuda">
                         </div>

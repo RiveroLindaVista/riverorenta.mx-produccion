@@ -9,6 +9,11 @@
     src: url('NarrowMedium/owners-narrow-medium.otf');
 }
 
+@font-face{
+    font-family: GothamBook;
+    src: url('GothamBook/gotham-book.ttf');
+}
+
 .logoRivero {
     margin: auto;
     max-width: 13%;
@@ -224,16 +229,19 @@
 .styleCorreoChevrolet{
     color: #fff;
     text-decoration: none;
+    font-size: GothamBook;
 }
 
 .styleTelefonoChevrolet{
     color: #fff;
     text-decoration: none;
+    font-size: GothamBook;
 }
 
 .stylePaginaChevrolet{
     color: #fff;
     text-decoration: none;
+    font-size: GothamBook;
 }
 
 .styleSucursalChevrolet {
@@ -254,7 +262,6 @@
 .stylePuestoNissan {
     font-size: 21px;
     color: #383838;
-    font-weight: bold;
     text-transform: capitalize;
     margin-top: -20px;
     font-family: NarrowMedium;
@@ -269,24 +276,24 @@
 }
 
 .styleCorreoNissan{
-    font-family:bahnschrift;
+    font-family: GothamBook;
     color: #383838;
 }
 
 .styleTelefonoNissan{
-    font-family:bahnschrift;
+    font-family: GothamBook;
     color: #383838;
     margin-top: -20px;
 }
 
 .stylePaginaNissan{
-    font-family:bahnschrift;
+    font-family: GothamBook;
     color: #383838;
     margin-top: -20px;
 }
 
 .styleSucursalNissan {
-    font-family:bahnschrift;
+    font-family: GothamBook;
     font-size: small !important;
     color: #383838;
 }
