@@ -89,11 +89,12 @@
 
 .cardPrincipalEmpresarial {
     width: auto;
-    height: 220px;
-    margin-top: -5px;
+    height: 260px;
+    padding-left: 35px!important;
+    padding-right: 35px!important;
     border-radius: 10px;
     overflow: inherit;
-    background: #d6d6d6;
+    background-color: #f2f2f2;
     cursor: default;
     transition: all 400ms ease;
     color: black;
@@ -101,13 +102,11 @@
 }
 
 .cardFondoEmpresarial {
-    width: auto;
-    height: 260px;
-    padding-left: 35px!important;
-    padding-right: 35px!important;
-    border-radius: 10px;
+    width: 700px;
+    height: 300px;
+    margin: 20px;
+    /* border-radius: 6px; */
     overflow: inherit;
-    background-color: #f2f2f2;
     cursor: default;
     transition: all 400ms ease;
     color: black;
