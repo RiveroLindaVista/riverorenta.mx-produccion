@@ -101,7 +101,7 @@ include("header.php");
                             </div>
 
                         </div>
-                        <div class="imgPrimo col-5 d-flex">
+                        <div class="imgPrimo col-5">
                             <div class="styleCorreoNissan" id="txtCorreo">
                             </div>
 

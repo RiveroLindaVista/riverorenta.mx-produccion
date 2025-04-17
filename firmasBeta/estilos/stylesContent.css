@@ -249,7 +249,7 @@
 
 .stylePuestoNissan {
     font-size: 21px;
-    color: #000000;
+    color: #383838;
     font-weight: bold;
     text-transform: capitalize;
 }
@@ -257,7 +257,7 @@
 .styleNombreNissan {
     font-size: 28px;
     font-weight: bold;
-    color: #000000 !important;
+    color: #383838 !important;
     text-transform: capitalize;
     margin-top: -25px;
     font-family: Narrow;
@@ -265,23 +265,23 @@
 
 .styleCorreoNissan{
     font-family:bahnschrift;
-    color: #000000;
+    color: #383838;
 }
 
 .styleTelefonoNissan{
     font-family:bahnschrift;
-    color: #000000;
+    color: #383838;
 }
 
 .stylePaginaNissan{
     font-family:bahnschrift;
-    color: #000000;
+    color: #383838;
 }
 
 .styleSucursalNissan {
     font-family:bahnschrift;
     font-size: small !important;
-    color: #000000;
+    color: #383838;
 }
 
 .stylePuestoCorporativo,
