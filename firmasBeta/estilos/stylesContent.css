@@ -1,4 +1,8 @@
 /* Estilos de las imagenes de los logos */
+@font-face{
+    font-family: Narrow;
+    src: url('Narrow/owners-narrow-black.ttf');
+}
 
 .logoRivero {
     margin: auto;
@@ -256,6 +260,7 @@
     color: #000000 !important;
     text-transform: capitalize;
     margin-top: -25px;
+    font-family: Narrow;
 }
 
 .styleCorreoNissan{

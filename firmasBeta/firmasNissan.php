@@ -92,13 +92,16 @@ include("header.php");
                     </div>
                     <br>
                     <div class="row">
-                        <div class="contenidoNissan col-9">
-                            <div class="stylePuestoNissan" id="txtPuesto">
-                            </div>
+                        <div class="contenidoNissan col-7">
 
                             <div class="styleNombreNissan" id="txtNombre">
                             </div>
 
+                            <div class="stylePuestoNissan" id="txtPuesto">
+                            </div>
+
+                        </div>
+                        <div class="imgPrimo col-5 d-flex">
                             <div class="styleCorreoNissan" id="txtCorreo">
                             </div>
 
@@ -107,12 +110,10 @@ include("header.php");
 
                             <div class="stylePaginaNissan" id="txtPaginaArea">
                             </div>
-
-                            <div class="styleSucursalNissan" id="txtSucursal">
-                            </div>
                         </div>
-                        <div class="imgPrimo col-3 d-flex">
-                            <img class="imgLogoPrimo" src="imgs/logoPrimo.png" alt="Bienvenido">
+                    </div>
+                    <div class="row">
+                        <div class="styleSucursalNissan" id="txtSucursal">
                         </div>
                     </div>
                 </div>
