@@ -349,7 +349,10 @@ include("header.php");
             var divTextoPagina = document.getElementById("txtPaginaArea");
             var divTextoPaginaDos = document.getElementById("txtPaginaAreaDos");
 
-            if (paginaSelect.value === 'bodyShop') {
+            divTextoPagina.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
+            divTextoPaginaDos.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
+
+/*             if (paginaSelect.value === 'bodyShop') {
                 divTextoPagina.innerHTML = "<p>" + "gruporivero.com/taller-de-colision" + "</p>";
                 divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com/taller-de-colision" + "</p>";
 
@@ -376,7 +379,7 @@ include("header.php");
             } else if (paginaSelect.value === 'otro') {
                 divTextoPagina.innerHTML = "<p>" + "gruporivero.com" + "</p>";
                 divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com" + "</p>";
-            }
+            } */
 
 
             var sucursalSelect = document.getElementById("sucursalSelect");
