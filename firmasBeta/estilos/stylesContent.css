@@ -46,15 +46,15 @@
 
 .cardPrincipalChevrolet {
     width: auto;
-    height: 220px;
-    margin-top: -5px;
+    height: 260px;
+    padding-left: 35px!important;
+    padding-right: 35px!important;
     border-radius: 10px;
     overflow: inherit;
-    background: #0082D6;
+    background: #fff;
     cursor: default;
     transition: all 400ms ease;
     color: black;
-    /* padding: 40px 20px 40px; */
 }
 
 .cardFondoNissan {

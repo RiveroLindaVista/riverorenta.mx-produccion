@@ -246,7 +246,10 @@ include("header.php");
         var divisionImagen = document.getElementById("divisionImagen");
         var divisionImagenDos = document.getElementById("divisionImagenDos");
 
-        if (areaSelect.value === 'bodyShop') {
+        divisionImagen.src = 'divisiones/otro.png';
+        divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/otro.png';
+
+/*         if (areaSelect.value === 'bodyShop') {
             divisionImagen.src = 'divisiones/bodyShop.png';
             divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/bodyShop.png';
             divisionImagen.className = 'divisionImgStyle';
@@ -294,7 +297,7 @@ include("header.php");
             divisionImagen.className = 'imgOtro';
             divisionImagenDos.style.maxWidth = '70%';
             divisionImagenDos.style.marginTop = '-25px';
-        }
+        } */
     }
 
     function actualizarTexto() {
