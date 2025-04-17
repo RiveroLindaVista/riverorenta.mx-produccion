@@ -152,7 +152,7 @@
 }
 
 .contenidoNissan{
-    margin-top: 32px;
+    margin-top: 30px;
 }
 
 .divisionImgStyleDos {
@@ -199,7 +199,7 @@
 .styleTelefonoChevrolet,
 .stylePaginaChevrolet,
 .styleSucursalChevrolet {
-    margin-top: -14px;
+    margin: 0px;
     font-family:Arial;
 }
 
