@@ -111,7 +111,7 @@ if ($marcasQry->num_rows > 0) {
 
         </div>
     </div>
-    <input type="hidden" name="descripcion_auto" value="<?= $captcha_text ?>">
+    <input type="hidden" id="descripcion_auto" name="descripcion_auto" value="<?= htmlspecialchars($captcha_text) ?>">
     </body>
     
 </html>
