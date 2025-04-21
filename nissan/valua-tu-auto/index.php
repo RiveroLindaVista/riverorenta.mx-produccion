@@ -288,7 +288,7 @@ if ($marcasQry->num_rows > 0) {
 
     function getCAPTCHA(){
 
-        let captcha_input = $('#filtroMarcas').val();
+        let captcha_input = $('#captcha_input').val();
 
         let data = {
             captcha_input: captcha_input,
@@ -296,7 +296,7 @@ if ($marcasQry->num_rows > 0) {
 
         $.ajax({
             type: "POST",
-            url: "getCAPTCHA.php",
+            url: "captcha.php",
             data: data,
             dataType: "json",
             success: function(resp) {
