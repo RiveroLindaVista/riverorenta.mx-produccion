@@ -70,9 +70,9 @@ if ($marcasQry->num_rows > 0) {
             </div>
 
             <div class="row" id="captcha" hidden>
-                <p class="text-white">Introduce el texto que ves en la imagen:</p>
+                <p class="text-white m-0">Introduce el texto que ves en la imagen:</p>
                 <img class="mb-1" src="captcha.php" style="width:200px;height: 80px" alt="CAPTCHA"><br>
-                <input type="text" id="captcha_input" name="captcha_input" required><br>
+                <input type="text" id="captcha_input" class="mb-1" name="captcha_input" required><br>
                 <button type="button" class="btn bg-dark text-white" onclick="getCAPTCHA()">LISTO</button>
             </div>
 
@@ -305,6 +305,7 @@ if ($marcasQry->num_rows > 0) {
 
                 if(resp == "1"){
                     $("#btnOferta").attr('hidden', false);
+                    $("#captcha").attr('hidden', true);
                 } else {
                     $("#btnOferta").attr('hidden', true);
                 }
