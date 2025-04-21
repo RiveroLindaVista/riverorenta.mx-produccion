@@ -250,12 +250,18 @@ include("header.php");
         divisionImagen.src = 'divisiones/otro.png';
         divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/otro.png';
 
+        var paginaSelect = document.getElementById("paginaSelect");
+        var divTextoPagina = document.getElementById("txtPaginaArea");
+        var divTextoPaginaDos = document.getElementById("txtPaginaAreaDos");
+
         if (areaSelect.value === 'bodyShop') {
             divisionImagen.src = 'divisiones/bodyShop.png';
             divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/bodyShop.png';
             divisionImagen.className = 'divisionImgStyle';
             divisionImagenDos.style.maxWidth = '40%';
             divisionImagenDos.style.marginTop = '0px';
+            divTextoPagina.innerHTML = "<p>" + "chevroletrivero.com/taller-de-colision" + "</p>";
+            divTextoPaginaDos.innerHTML = "<p>" + "chevroletrivero.com/taller-de-colision" + "</p>";
 
         } else if (areaSelect.value === 'flotillas') {
             divisionImagen.src = 'divisiones/flotillas.png';
@@ -263,6 +269,8 @@ include("header.php");
             divisionImagen.className = 'imgFlotillas';
             divisionImagenDos.style.marginTop = '0px';
             divisionImagenDos.style.maxWidth = '40%';
+            divTextoPagina.innerHTML = "<p>" + "riverorenta.com/empresarial" + "</p>";
+            divTextoPaginaDos.innerHTML = "<p>" + "riverorenta.com/empresarial" + "</p>";
 
         } else if (areaSelect.value === 'rentas') {
             divisionImagen.src = 'divisiones/rentas.png';
@@ -270,6 +278,8 @@ include("header.php");
             divisionImagen.className = 'divisionImgStyle';
             divisionImagenDos.style.maxWidth = '40%';
             divisionImagenDos.style.marginTop = '0px';
+            divTextoPagina.innerHTML = "<p>" + "riverorenta.com" + "</p>";
+            divTextoPaginaDos.innerHTML = "<p>" + "riverorenta.com" + "</p>";
 
         } else if (areaSelect.value === 'seminuevos') {
             divisionImagen.src = 'divisiones/seminuevos.png';
@@ -277,6 +287,8 @@ include("header.php");
             divisionImagen.className = 'divisionImgStyle';
             divisionImagenDos.style.maxWidth = '40%';
             divisionImagenDos.style.marginTop = '0px';
+            divTextoPagina.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
+            divTextoPaginaDos.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
 
         } else if (areaSelect.value === 'tallerServicio') {
             divisionImagen.src = 'divisiones/tallerServicio.png';
@@ -284,6 +296,8 @@ include("header.php");
             divisionImagen.className = 'divisionImgStyle';
             divisionImagenDos.style.maxWidth = '40%';
             divisionImagenDos.style.marginTop = '0px';
+            divTextoPagina.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
+            divTextoPaginaDos.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
 
         } else if (areaSelect.value === 'transportes') {
             divisionImagen.src = 'divisiones/transportes.png';
@@ -291,6 +305,8 @@ include("header.php");
             divisionImagen.className = 'divisionImgStyle';
             divisionImagenDos.style.marginTop = '0px';
             divisionImagenDos.style.maxWidth = '40%';
+            divTextoPagina.innerHTML = "<p>" + "transportesrivero.com.mx" + "</p>";
+            divTextoPaginaDos.innerHTML = "<p>" + "transportesrivero.com.mx" + "</p>";
 
         } else if (areaSelect.value === 'otro') {
             divisionImagen.src = 'divisiones/otro.png';
@@ -298,6 +314,8 @@ include("header.php");
             divisionImagen.className = 'imgOtro';
             divisionImagenDos.style.maxWidth = '70%';
             divisionImagenDos.style.marginTop = '-25px';
+            divTextoPagina.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
+            divTextoPaginaDos.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
         }
     }
 
@@ -343,41 +361,6 @@ include("header.php");
 
             divTextoTelefono.innerHTML = "<p>" + inputTelefono.value + "</p>";
             divTextoTelefonoDos.innerHTML = "<p>" + inputTelefono.value + "</p>";
-
-
-            var paginaSelect = document.getElementById("paginaSelect");
-            var divTextoPagina = document.getElementById("txtPaginaArea");
-            var divTextoPaginaDos = document.getElementById("txtPaginaAreaDos");
-
-            if (paginaSelect.value === 'bodyShop') {
-                divTextoPagina.innerHTML = "<p>" + "chevroletrivero.com/taller-de-colision" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "chevroletrivero.com/taller-de-colision" + "</p>";
-
-            } else if (paginaSelect.value === 'flotillas') {
-                divTextoPagina.innerHTML = "<p>" + "riverorenta.com/empresarial" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "riverorenta.com/empresarial" + "</p>";
-
-            } else if (paginaSelect.value === 'rentas') {
-                divTextoPagina.innerHTML = "<p>" + "riverorenta.com" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "riverorenta.com" + "</p>";
-
-            } else if (paginaSelect.value === 'seminuevos') {
-                divTextoPagina.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
-
-            } else if (paginaSelect.value === 'tallerServicio') {
-                divTextoPagina.innerHTML = "<p>" + "chevroletrivero.com/taller-de-servicio" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "chevroletrivero.com/taller-de-servicio" + "</p>";
-
-            } else if (paginaSelect.value === 'transportes') {
-                divTextoPagina.innerHTML = "<p>" + "transportesrivero.com.mx" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "transportesrivero.com.mx" + "</p>";
-
-            } else if (paginaSelect.value === 'otro') {
-                divTextoPagina.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
-            }
-
 
             var sucursalSelect = document.getElementById("sucursalSelect");
             var divTextoSucursal = document.getElementById("txtSucursal");
