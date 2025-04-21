@@ -18,7 +18,7 @@ include("header.php");
                 </center>
                 <form action="">
 
-                    <div class="contenedorUno">
+                    <div class="contenedorUno justify-content-center">
                         <div class="form-section">
                             <label for="puestoInput">Ingresa tu Puesto:</label>
                             <input type="text" name="puestoInput" id="puestoInput" placeholder="Ingresa el nombre de tu puesto" onkeypress="actualizarTexto()"

@@ -18,7 +18,7 @@ include("header.php");
                 </center>
                 <form action="">
 
-                    <div class="contenedorUno">
+                    <div class="contenedorUno justify-content-center">
                         <div class="form-section">
                             <label for="puestoInput">Ingresa tu Puesto:</label>
                             <input type="text" name="puestoInput" id="puestoInput" placeholder="Ingresa el nombre de tu puesto" onkeypress="actualizarTexto()"
@@ -73,7 +73,7 @@ include("header.php");
                             </select>
                         </div>
 
-                        <!-- <div class="form-section" hidden>
+                        <div class="form-section" hidden>
                             <label for="sucursalSelect">Sucursal:</label>
                             <select name="sucursalSelect" id="sucursalSelect"
                                 onchange="actualizarTexto(); funcionImprimirCodigo()">
@@ -86,7 +86,7 @@ include("header.php");
                                 <option value="venustianoCarranza">Venustiano Carranza</option>
                                 <option value="transportes">Transportes</option>
                             </select>
-                        </div> -->
+                        </div>
                     </div>
                 </form>
             </div>
