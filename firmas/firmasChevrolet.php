@@ -261,8 +261,8 @@ include("header.php");
             divisionImagen.src = 'divisiones/flotillas.png';
             divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/flotillas.png';
             divisionImagen.className = 'imgFlotillas';
-            divisionImagenDos.style.marginTop = '-20px';
-            divisionImagenDos.style.maxWidth = '70%';
+            divisionImagenDos.style.marginTop = '0px';
+            divisionImagenDos.style.maxWidth = '40%';
 
         } else if (areaSelect.value === 'rentas') {
             divisionImagen.src = 'divisiones/rentas.png';
