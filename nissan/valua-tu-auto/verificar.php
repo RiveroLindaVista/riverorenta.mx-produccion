@@ -2,8 +2,8 @@
 session_start();
 
 if ($_POST['captcha_input'] === $_SESSION['captcha']) {
-    echo "1";
+    echo $_SESSION['captcha'];
 } else {
-    echo "0";
+    echo $_SESSION['captcha'];
 }
 ?>
