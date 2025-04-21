@@ -71,9 +71,9 @@ if ($marcasQry->num_rows > 0) {
 
             <div class="row" id="captcha">
                 <p class="text-white">Introduce el texto que ves en la imagen:</p>
-                <img class="mb-1" src="captcha.php" style="width:200px;height: 80px" alt="CAPTCHA"><br><br>
+                <img class="mb-1" src="captcha.php" style="width:200px;height: 80px" alt="CAPTCHA"><br>
                 <input type="text" id="captcha_input" name="captcha_input" required>
-                <button type="btn bg-dark" onclick="getCAPTCHA()">LISTO</button>
+                <button type="button" class="btn bg-dark" onclick="getCAPTCHA()">LISTO</button>
             </div>
 
             <div class="row p-2" id="btnOferta" hidden>
@@ -220,9 +220,9 @@ if ($marcasQry->num_rows > 0) {
             let kms = $("#filtroKM").val();
 
             if(kms == ""){
-                $("#btnOferta").attr('hidden', true);
+                $("#captcha").attr('hidden', true);
             } else {
-                $("#btnOferta").attr('hidden', false);
+                $("#captcha").attr('hidden', false);
             }
         }, 300);
     }
@@ -302,6 +302,12 @@ if ($marcasQry->num_rows > 0) {
             success: function(resp) {
 
                 console.log(resp);
+
+                if(resp == "1"){
+                    $("#btnOferta").attr('hidden', false);
+                } else {
+                    $("#btnOferta").attr('hidden', true);
+                }
                 
 /*                 let opcionesVersiones = '<option value="0">Selecciona la versión...</option>';
                 resp.forEach(elem => {
