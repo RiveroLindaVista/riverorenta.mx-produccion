@@ -71,9 +71,9 @@ if ($marcasQry->num_rows > 0) {
 
             <div class="row" id="captcha">
                 <p class="text-white">Introduce el texto que ves en la imagen:</p>
-                <img src="captcha.php" style="width:200px;height: 80px" alt="CAPTCHA"><br><br>
+                <img class="mb-1" src="captcha.php" style="width:200px;height: 80px" alt="CAPTCHA"><br><br>
                 <input type="text" id="captcha_input" name="captcha_input" required>
-                <button type="submit" onclick="getCAPTCHA()">Enviar</button>
+                <button type="btn bg-dark" onclick="getCAPTCHA()">LISTO</button>
             </div>
 
             <div class="row p-2" id="btnOferta" hidden>
