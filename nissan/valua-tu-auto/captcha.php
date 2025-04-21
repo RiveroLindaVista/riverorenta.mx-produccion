@@ -1,7 +1,5 @@
 <?php
-session_start();
-$captcha_text = substr(str_shuffle('ABCDEFGHJKLMNPQRSTUVWXYZ23456789'), 0, 6);
-$_SESSION['captcha'] = $captcha_text;
+$captcha_text = $_GET['text'] ?? 'ERROR';
 
 // Crear imagen
 $width = 120;

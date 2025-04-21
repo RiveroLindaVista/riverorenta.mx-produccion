@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include("_config.php");
 $conn = new mysqli(DB_HOST, DB_USER,DB_PASSWORD, DB_DB);
 $sql = "Select year from valuacion_autometrica group by year order by year desc";
@@ -17,7 +17,7 @@ if ($marcasQry->num_rows > 0) {
         $opcionesMarcas.='<option value="'.$row['marca'].'">'. $row['marca'].'</option>';
     }
  } */
-
+ $captcha_text = substr(str_shuffle("ABCDEFGHJKLMNPQRSTUVWXYZ23456789"), 0, 6);
 ?>
 
 <!doctype html>
@@ -71,7 +71,7 @@ if ($marcasQry->num_rows > 0) {
 
             <div class="row" id="captcha" hidden>
                 <p class="text-white m-0">Introduce el texto que ves en la imagen:</p>
-                <img class="mb-1" src="captcha.php" style="width:200px;height: 80px" alt="CAPTCHA"><br>
+                <img class="mb-1" src="captcha.php?text=<?= urlencode($captcha_text) ?>" style="width:200px;height: 80px" alt="CAPTCHA"><br>
                 <input type="text" id="captcha_input" class="mb-1" name="captcha_input" required><br>
                 <button type="button" class="btn bg-dark text-white" onclick="getCAPTCHA()">LISTO</button>
             </div>
@@ -111,6 +111,7 @@ if ($marcasQry->num_rows > 0) {
 
         </div>
     </div>
+    <input type="hidden" name="descripcion_auto" value="<?= htmlspecialchars($captcha_text) ?>">
     </body>
     
 </html>
@@ -290,9 +291,11 @@ if ($marcasQry->num_rows > 0) {
     function getCAPTCHA(){
 
         let captcha_input = $('#captcha_input').val();
+        let descripcion_auto = $('#descripcion_auto').val();
 
         let data = {
             captcha_input: captcha_input,
+            desca: descripcion_auto,
         }
 
         $.ajax({

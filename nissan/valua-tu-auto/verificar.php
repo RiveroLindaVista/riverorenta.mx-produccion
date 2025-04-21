@@ -1,7 +1,6 @@
 <?php
-session_start();
 
-if ($_POST['captcha_input'] === $_SESSION['captcha']) {
+if ($_POST['captcha_input'] === $_POST['desca']) {
     echo "1";
 } else {
     echo "0";
