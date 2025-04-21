@@ -296,7 +296,7 @@ if ($marcasQry->num_rows > 0) {
 
         $.ajax({
             type: "POST",
-            url: "captcha.php",
+            url: "verificar.php",
             data: data,
             dataType: "json",
             success: function(resp) {
