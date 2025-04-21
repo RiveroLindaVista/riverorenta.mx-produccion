@@ -349,12 +349,9 @@ include("header.php");
             var divTextoPagina = document.getElementById("txtPaginaArea");
             var divTextoPaginaDos = document.getElementById("txtPaginaAreaDos");
 
-            divTextoPagina.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
-            divTextoPaginaDos.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
-
-/*             if (paginaSelect.value === 'bodyShop') {
-                divTextoPagina.innerHTML = "<p>" + "gruporivero.com/taller-de-colision" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com/taller-de-colision" + "</p>";
+            if (paginaSelect.value === 'bodyShop') {
+                divTextoPagina.innerHTML = "<p>" + "chevroletrivero.com/taller-de-colision" + "</p>";
+                divTextoPaginaDos.innerHTML = "<p>" + "chevroletrivero.com/taller-de-colision" + "</p>";
 
             } else if (paginaSelect.value === 'flotillas') {
                 divTextoPagina.innerHTML = "<p>" + "riverorenta.com/empresarial" + "</p>";
@@ -365,21 +362,21 @@ include("header.php");
                 divTextoPaginaDos.innerHTML = "<p>" + "riverorenta.com" + "</p>";
 
             } else if (paginaSelect.value === 'seminuevos') {
-                divTextoPagina.innerHTML = "<p>" + "gruporivero.com/catalogo/seminuevos" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com/catalogo/seminuevos" + "</p>";
+                divTextoPagina.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
+                divTextoPaginaDos.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
 
             } else if (paginaSelect.value === 'tallerServicio') {
-                divTextoPagina.innerHTML = "<p>" + "gruporivero.com/taller-de-servicio" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com/taller-de-servicio" + "</p>";
+                divTextoPagina.innerHTML = "<p>" + "chevroletrivero.com/taller-de-servicio" + "</p>";
+                divTextoPaginaDos.innerHTML = "<p>" + "chevroletrivero.com/taller-de-servicio" + "</p>";
 
             } else if (paginaSelect.value === 'transportes') {
                 divTextoPagina.innerHTML = "<p>" + "transportesrivero.com.mx" + "</p>";
                 divTextoPaginaDos.innerHTML = "<p>" + "transportesrivero.com.mx" + "</p>";
 
             } else if (paginaSelect.value === 'otro') {
-                divTextoPagina.innerHTML = "<p>" + "gruporivero.com" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com" + "</p>";
-            } */
+                divTextoPagina.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
+                divTextoPaginaDos.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
+            }
 
 
             var sucursalSelect = document.getElementById("sucursalSelect");
