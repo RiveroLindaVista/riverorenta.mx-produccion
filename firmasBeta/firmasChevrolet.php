@@ -29,13 +29,13 @@ include("header.php");
                             <label for="areaSelect">Selecciona tu Área:</label>
                             <select name="areaSelect" id="areaSelect"
                                 onchange="cambiarImagen(); funcionImprimirCodigo()">
-                                <option value="bodyShop" selected>Body Shop</option>
+                                <option value="otro" selected>Otro</option>
+                                <option value="bodyShop">Body Shop</option>
                                 <option value="flotillas">Flotillas</option>
                                 <option value="rentas">Rentas</option>
                                 <option value="seminuevos">Seminuevos</option>
                                 <option value="tallerServicio">Taller de Servicio</option>
                                 <option value="transportes">Transportes</option>
-                                <option value="otro">Otro</option>
                             </select>
                         </div>
 
@@ -57,7 +57,7 @@ include("header.php");
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
-                        <div class="form-section">
+                        <div class="form-section" hidden>
                             <label for="paginaSelect">Página de tu Área:</label>
                             <select name="paginaSelect" id="paginaSelect"
                                 onchange="actualizarTexto(); funcionImprimirCodigo()">
