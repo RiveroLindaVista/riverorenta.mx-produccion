@@ -278,7 +278,7 @@ include("header.php");
             } else if (areaSelect.value === 'otro') {
                 divisionImagen.src = 'imgs/logo_rivero.png';
                 divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/otro.png';
-                divisionImagen.className = 'imgOtro';
+                divisionImagen.className = 'imgAdministrativo';
                 divisionImagenDos.style.maxWidth = '70%';
                 divisionImagenDos.style.marginTop = '-25px';
                 divTextoPagina.innerHTML = "<p>" + "gruporivero.com" + "</p>";
