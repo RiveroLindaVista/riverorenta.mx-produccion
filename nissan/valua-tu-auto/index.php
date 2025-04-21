@@ -270,7 +270,8 @@ if ($marcasQry->num_rows > 0) {
     }
 
     function nuevaOferta(){
-        $('#filtroMarcas').val(0);
+        location.reload();
+/*         $('#filtroMarcas').val(0);
         $('#filtroYears').val('2026');
         $('#filtroModelos').val(0);
         $('#filtroVersiones').val(0);
@@ -282,7 +283,7 @@ if ($marcasQry->num_rows > 0) {
         $("#divKM").attr('hidden', true);
 
         $("#formOferta").attr('hidden', false);
-        $("#ofertaFinal").attr('hidden', true);
+        $("#ofertaFinal").attr('hidden', true); */
 
     }
 
@@ -308,6 +309,9 @@ if ($marcasQry->num_rows > 0) {
                     $("#captcha").attr('hidden', true);
                 } else {
                     $("#btnOferta").attr('hidden', true);
+                    var capt = document.getElementById('captcha_input');
+                    capt.style.background= "red";
+
                 }
                 
 /*                 let opcionesVersiones = '<option value="0">Selecciona la versión...</option>';
