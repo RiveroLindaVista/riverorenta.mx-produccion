@@ -406,10 +406,10 @@ include("header.php");
 
             } else if (sucursalSelect.value === 'humbertoLobo') {
 
-                divTextoSucursal.innerHTML = "<p>" +
+                divTextoSucursal.innerHTML = "<p style='font-size:12px !important'>" +
                     "Av. Humberto Lobo #660 cruz con Rio Rhin, Col. Del Valle, San Pedro Garza Garcia, Nuevo León, CP 66220" +
                     "</p>";
-                divTextoSucursalDos.innerHTML = "<p>" +
+                divTextoSucursalDos.innerHTML = "<p style='font-size:12px !important'>" +
                     "Av. Humberto Lobo #660 cruz con Rio Rhin, Col. Del Valle, San Pedro Garza Garcia, Nuevo León, CP 66220" +
                     "</p>";
 
@@ -432,10 +432,10 @@ include("header.php");
                     "</p>";
 
             } else if (sucursalSelect.value === 'loboAlianza') {
-                divTextoSucursal.innerHTML = "<p>" +
+                divTextoSucursal.innerHTML = "<p style='font-size:12px !important'>" +
                     "Av. José Vasconcelos #1555 Entre Neil Armstrong y Av. De los Conquistadores Col. Del Valle, San Pedro Garza Garcia, Nuevo León, CP 66220" +
                     "</p>";
-                divTextoSucursalDos.innerHTML = "<p>" +
+                divTextoSucursalDos.innerHTML = "<p style='font-size:12px !important'>" +
                     "Av. José Vasconcelos #1555 Entre Neil Armstrong y Av. De los Conquistadores Col. Del Valle, San Pedro Garza Garcia, Nuevo León, CP 66220" +
                     "</p>";
             } else if (sucursalSelect.value === 'venustianoCarranza') {
@@ -446,10 +446,10 @@ include("header.php");
                     "Venustiano Carranza 811, Col. Centro, 64000 Monterrey, N.L." +
                     "</p>";
             }else if (sucursalSelect.value === 'transportes') {
-                divTextoSucursal.innerHTML = "<p>" +
+                divTextoSucursal.innerHTML = "<p style='font-size:12px !important'>" +
                     "Salvador Chávez 101, Fraccionamiento Campestre La Encarnación, Campestre, 66633 Cdad. Apodaca, N.L." +
                     "</p>";
-                divTextoSucursalDos.innerHTML = "<p>" +
+                divTextoSucursalDos.innerHTML = "<p style='font-size:12px !important'>" +
                     "Salvador Chávez 101, Fraccionamiento Campestre La Encarnación, Campestre, 66633 Cdad. Apodaca, N.L." +
                     "</p>";
             }
