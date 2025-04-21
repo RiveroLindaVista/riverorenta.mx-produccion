@@ -21,7 +21,7 @@ include("header.php");
                     <div class="contenedorUno">
                         <div class="form-section">
                             <label for="puestoInput">Ingresa tu Puesto:</label>
-                            <input type="text" name="puestoInput" id="puestoInput" onkeypress="actualizarTexto()"
+                            <input type="text" name="puestoInput" id="puestoInput" placeholder="Ingresa el nombre de tu puesto" onkeypress="actualizarTexto()"
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
@@ -40,20 +40,20 @@ include("header.php");
                         </div> -->
 
                         <div class="form-section">
-                            <label for="nombreInput">Nombre Completo:</label>
-                            <input type="text" id="nombreInput" onkeypress="actualizarTexto()"
+                            <label for="nombreInput">Nombre:</label>
+                            <input type="text" id="nombreInput" placeholder="Ingresa tu nombre" onkeypress="actualizarTexto()"
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
                         <div class="form-section">
                             <label for="correoInput">Correo:</label>
-                            <input type="email" name="correoInput" id="correoInput" onkeypress="actualizarTexto()"
+                            <input type="email" name="correoInput" id="correoInput" placeholder="Ingresa tu correo" onkeypress="actualizarTexto()"
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
                         <div class="form-section">
                             <label for="telefonoInput">Telefono o Extensión:</label>
-                            <input type="tel" name="telefonoInput" id="telefonoInput" onkeypress="actualizarTexto()"
+                            <input type="tel" name="telefonoInput" id="telefonoInput" placeholder="Ingresa tu tel/extensión" onkeypress="actualizarTexto()"
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
@@ -92,41 +92,43 @@ include("header.php");
 
         <div class="tarjetNissan" id="tarjetaChevrolet">
             <div class="cardFondoEmpresarial row">
-                <div class="imgDivisionDer col-6">
-                    <img class="divisionImgStyle" id="divisionImagen" src="" alt="ayuda">
-                </div>
-                <div class="imgPrimosizq col-6">
-                    <img class="styleChevroletPrimos" src="imgs/somos_primos_chevrolet.png" alt="ayuda">
-                </div>
-
-                <div class="cardPrincipalEmpresarial mb-4 col-12">
-                    <br>
-                    <div class="row">
-                        <div class="conteidoChevrolet col-9">
-                            <div class="stylePuestoCorporativo" id="txtPuesto">
-                            </div>
-
-                            <div class="styleNombreCorporativo" id="txtNombre">
-                            </div>
-
-                            <div class="styleCorreoCorporativo" id="txtCorreo">
-                            </div>
-
-                            <div class="styleTelefonoCorporativo" id="txtTelefono">
-                            </div>
-
-                            <div class="stylePaginaCorporativo" id="txtPaginaArea">
-                            </div>
-
-                            <div class="styleSucursalCorporativo" id="txtSucursal">
-                            </div>
+                <div class="cardPrincipalEmpresarial mb-4 col-12" style="height: 274px;">
+                    <div class="row" style="background-color:#103261;border-radius: 0px 0px 30px 30px;padding-bottom:15px;padding-top:15px;">
+                        <div class="imgDivisionDer col-6">
+                            <img class="divisionImgStyleEmpresarial" id="divisionImagen" src="" alt="ayuda">
                         </div>
-                        <div class="imgPrimo col-3 d-flex">
-                            <img class="imgLogoPrimoNissan" src="imgs/logoPrimo.png" alt="Bienvenido">
+                        <div class="imgPrimosizq col-6">
+                            <img class="styleNissanPrimos" src="imgs/iniciaviaje.png" alt="ayuda">
+                        </div>
+                    </div>
+                
+                <br>
+                <div class="row">
+                    <div class="conteidoChevrolet col-7">
+
+                        <div class="styleNombreCorporativo" id="txtNombre">
+                        </div>
+
+                        <div class="stylePuestoCorporativo" id="txtPuesto">
+                        </div>
+
+                    </div>
+                    <div class="imgPrimo col-5">
+                        <div class="styleCorreoCorporativo" id="txtCorreo">
+                        </div>
+
+                        <div class="styleTelefonoCorporativo" id="txtTelefono">
+                        </div>
+
+                        <div class="stylePaginaCorporativo" id="txtPaginaArea">
                         </div>
                     </div>
                 </div>
-
+                <div class="row justify-content-center">
+                    <div class="styleSucursalCorporativo" id="txtSucursal">
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
 
@@ -246,7 +248,7 @@ include("header.php");
             var divisionImagen = document.getElementById("divisionImagen");
             var divisionImagenDos = document.getElementById("divisionImagenDos");
 
-            divisionImagen.src = 'divisiones/corporativo.png';
+            divisionImagen.src = 'imgs/logo_rivero.png';
             divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisiones/corporativo.png';
             divisionImagen.className = 'imgCorporativo';
         }
@@ -300,8 +302,8 @@ include("header.php");
             var divTextoPaginaDos = document.getElementById("txtPaginaAreaDos");
 
             if (paginaSelect.value === 'bodyShop') {
-                divTextoPagina.innerHTML = "<p>" + "gruporivero.com/taller-de-colision" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com/taller-de-colision" + "</p>";
+                divTextoPagina.innerHTML = "<p>" + "gruporivero.com" + "</p>";
+                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com" + "</p>";
 
             } else if (paginaSelect.value === 'flotillas') {
                 divTextoPagina.innerHTML = "<p>" + "riverorenta.com/empresarial" + "</p>";
@@ -312,12 +314,12 @@ include("header.php");
                 divTextoPaginaDos.innerHTML = "<p>" + "riverorenta.com" + "</p>";
 
             } else if (paginaSelect.value === 'seminuevos') {
-                divTextoPagina.innerHTML = "<p>" + "gruporivero.com/catalogo/seminuevos" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com/catalogo/seminuevos" + "</p>";
+                divTextoPagina.innerHTML = "<p>" + "gruporivero.com" + "</p>";
+                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com" + "</p>";
 
             } else if (paginaSelect.value === 'tallerServicio') {
-                divTextoPagina.innerHTML = "<p>" + "gruporivero.com/taller-de-servicio" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com/taller-de-servicio" + "</p>";
+                divTextoPagina.innerHTML = "<p>" + "gruporivero.com" + "</p>";
+                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com" + "</p>";
 
             } else if (paginaSelect.value === 'transportes') {
                 divTextoPagina.innerHTML = "<p>" + "transportesrivero.com.mx" + "</p>";
@@ -353,10 +355,10 @@ include("header.php");
 
             } else if (sucursalSelect.value === 'humbertoLobo') {
 
-                divTextoSucursal.innerHTML = "<p>" +
+                divTextoSucursal.innerHTML = "<p style='font-size:12px !important'>" +
                     "Av. Humberto Lobo #660 cruz con Rio Rhin, Col. Del Valle, San Pedro Garza Garcia, Nuevo León, CP 66220" +
                     "</p>";
-                divTextoSucursalDos.innerHTML = "<p>" +
+                divTextoSucursalDos.innerHTML = "<p style='font-size:12px !important'>" +
                     "Av. Humberto Lobo #660 cruz con Rio Rhin, Col. Del Valle, San Pedro Garza Garcia, Nuevo León, CP 66220" +
                     "</p>";
 
@@ -379,10 +381,10 @@ include("header.php");
                     "</p>";
 
             } else if (sucursalSelect.value === 'loboAlianza') {
-                divTextoSucursal.innerHTML = "<p>" +
+                divTextoSucursal.innerHTML = "<p style='font-size:9px !important'>" +
                     "Av. José Vasconcelos #1555 Entre Neil Armstrong y Av. De los Conquistadores Col. Del Valle, San Pedro Garza Garcia, Nuevo León, CP 66220" +
                     "</p>";
-                divTextoSucursalDos.innerHTML = "<p>" +
+                divTextoSucursalDos.innerHTML = "<p style='font-size:9px !important'>" +
                     "Av. José Vasconcelos #1555 Entre Neil Armstrong y Av. De los Conquistadores Col. Del Valle, San Pedro Garza Garcia, Nuevo León, CP 66220" +
                     "</p>";
             } else if (sucursalSelect.value === 'venustianoCarranza') {
@@ -393,10 +395,10 @@ include("header.php");
                     "Venustiano Carranza 811, Col. Centro, 64000 Monterrey, N.L." +
                     "</p>";
             }else if (sucursalSelect.value === 'transportes') {
-                divTextoSucursal.innerHTML = "<p>" +
+                divTextoSucursal.innerHTML = "<p style='font-size:12px !important'>" +
                     "Salvador Chávez 101, Fraccionamiento Campestre La Encarnación, Campestre, 66633 Cdad. Apodaca, N.L." +
                     "</p>";
-                divTextoSucursalDos.innerHTML = "<p>" +
+                divTextoSucursalDos.innerHTML = "<p style='font-size:12px !important'>" +
                     "Salvador Chávez 101, Fraccionamiento Campestre La Encarnación, Campestre, 66633 Cdad. Apodaca, N.L." +
                     "</p>";
             }

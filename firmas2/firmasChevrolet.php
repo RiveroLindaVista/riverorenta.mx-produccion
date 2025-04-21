@@ -21,7 +21,7 @@ include("header.php");
                     <div class="contenedorUno">
                         <div class="form-section">
                             <label for="puestoInput">Ingresa tu Puesto:</label>
-                            <input type="text" name="puestoInput" id="puestoInput" placeholder="Ingresa el nombre de tu puesto" onkeypress="actualizarTexto()"
+                            <input type="text" name="puestoInput" id="puestoInput" onkeypress="actualizarTexto()"
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
@@ -29,35 +29,35 @@ include("header.php");
                             <label for="areaSelect">Selecciona tu Área:</label>
                             <select name="areaSelect" id="areaSelect"
                                 onchange="cambiarImagen(); funcionImprimirCodigo()">
-                                <option value="otro" selected>Otro</option>
-                                <option value="bodyShop">Body Shop</option>
+                                <option value="bodyShop" selected>Body Shop</option>
                                 <option value="flotillas">Flotillas</option>
                                 <option value="rentas">Rentas</option>
                                 <option value="seminuevos">Seminuevos</option>
                                 <option value="tallerServicio">Taller de Servicio</option>
                                 <option value="transportes">Transportes</option>
+                                <option value="otro">Otro</option>
                             </select>
                         </div>
 
                         <div class="form-section">
-                            <label for="nombreInput">Nombre:</label>
-                            <input type="text" id="nombreInput" placeholder="Ingresa tu nombre" onkeypress="actualizarTexto()"
+                            <label for="nombreInput">Nombre Completo:</label>
+                            <input type="text" id="nombreInput" onkeypress="actualizarTexto()"
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
                         <div class="form-section">
                             <label for="correoInput">Correo:</label>
-                            <input type="email" name="correoInput" id="correoInput" placeholder="Ingresa tu correo" onkeypress="actualizarTexto()"
+                            <input type="email" name="correoInput" id="correoInput" onkeypress="actualizarTexto()"
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
                         <div class="form-section">
                             <label for="telefonoInput">Telefono o Extensión:</label>
-                            <input type="tel" name="telefonoInput" id="telefonoInput" placeholder="Ingresa tu tel/extensión" onkeypress="actualizarTexto()"
+                            <input type="tel" name="telefonoInput" id="telefonoInput" onkeypress="actualizarTexto()"
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
-                        <div class="form-section" hidden>
+                        <div class="form-section">
                             <label for="paginaSelect">Página de tu Área:</label>
                             <select name="paginaSelect" id="paginaSelect"
                                 onchange="actualizarTexto(); funcionImprimirCodigo()">
@@ -92,28 +92,23 @@ include("header.php");
 
         <div class="tarjetNissan" id="tarjetaChevrolet">
             <div class="cardFondoChevrolet row">
-                <div class="cardPrincipalChevrolet mb-4 col-12">
-                    <div class="row" style="background-color:#3377d2;border-radius: 0px 0px 30px 30px;padding-bottom:15px;padding-top:15px;">
-                        <div class="imgDivisionDer col-6">
-                            <img class="divisionImgStyle" id="divisionImagen" src="" alt="chevrolet">
-                        </div>
-                        <div class="imgPrimosizq col-6">
-                            <img class="styleNissanPrimos" src="imgs/iniciaviaje.png" alt="chevrolet">
-                        </div>
-                    </div>
+                <div class="imgDivisionDer col-6">
+                    <img class="divisionImgStyle" id="divisionImagen" src="" alt="ayuda">
+                </div>
+                <div class="imgPrimosizq col-6">
+                    <img class="styleChevroletPrimos" src="imgs/somos_primos_chevrolet.png" alt="ayuda">
+                </div>
 
+                <div class="cardPrincipalChevrolet mb-4 col-12">
                     <br>
                     <div class="row">
-                        <div class="conteidoChevrolet col-7">
+                        <div class="conteidoChevrolet col-9">
+                            <div class="stylePuestoChevrolet" id="txtPuesto">
+                            </div>
 
                             <div class="styleNombreChevrolet" id="txtNombre">
                             </div>
 
-                            <div class="stylePuestoChevrolet" id="txtPuesto">
-                            </div>
-
-                        </div>
-                        <div class="imgPrimo col-5">
                             <div class="styleCorreoChevrolet" id="txtCorreo">
                             </div>
 
@@ -122,10 +117,12 @@ include("header.php");
 
                             <div class="stylePaginaChevrolet" id="txtPaginaArea">
                             </div>
+
+                            <div class="styleSucursalChevrolet" id="txtSucursal">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="styleSucursalChevrolet" id="txtSucursal">
+                        <div class="imgPrimo col-3 d-flex">
+                            <img class="imgLogoPrimoNissan" src="imgs/logoPrimo.png" alt="Bienvenido">
                         </div>
                     </div>
                 </div>
@@ -160,16 +157,16 @@ include("header.php");
                             color: #0F3261 !important; text-transform: uppercase; margin-top: -25px;">
                                         </div>
 
-                                        <div id="txtCorreoDos" style="font-family:Arial; color: #383838;">
+                                        <div id="txtCorreoDos" style="font-family:Arial; color: #fff; margin-top: -16px; ">
                                         </div>
 
-                                        <div id="txtTelefonoDos" style="font-family:Arial; color: #383838;">
+                                        <div id="txtTelefonoDos" style="font-family:Arial; color: #fff; margin-top: -10px; ">
                                         </div>
 
-                                        <div id="txtPaginaAreaDos" style="font-family:Arial; color: #383838;">
+                                        <div id="txtPaginaAreaDos" style="font-family:Arial; color: #fff; margin-top: -10px; ">
                                         </div>
 
-                                        <div id="txtSucursalDos" style="font-family:Arial; color: #383838;">
+                                        <div id="txtSucursalDos" style="font-family:Arial; color: #fff; margin-top: -10px; ">
                                         </div>
                                     </div>
                                     <div class="col-3 d-flex"
@@ -246,9 +243,6 @@ include("header.php");
         var areaSelect = document.getElementById("areaSelect");
         var divisionImagen = document.getElementById("divisionImagen");
         var divisionImagenDos = document.getElementById("divisionImagenDos");
-
-        divisionImagen.src = 'divisiones/otro.png';
-        divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/otro.png';
 
         if (areaSelect.value === 'bodyShop') {
             divisionImagen.src = 'divisiones/bodyShop.png';
@@ -349,10 +343,7 @@ include("header.php");
             var divTextoPagina = document.getElementById("txtPaginaArea");
             var divTextoPaginaDos = document.getElementById("txtPaginaAreaDos");
 
-            divTextoPagina.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
-            divTextoPaginaDos.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
-
-/*             if (paginaSelect.value === 'bodyShop') {
+            if (paginaSelect.value === 'bodyShop') {
                 divTextoPagina.innerHTML = "<p>" + "gruporivero.com/taller-de-colision" + "</p>";
                 divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com/taller-de-colision" + "</p>";
 
@@ -379,7 +370,7 @@ include("header.php");
             } else if (paginaSelect.value === 'otro') {
                 divTextoPagina.innerHTML = "<p>" + "gruporivero.com" + "</p>";
                 divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com" + "</p>";
-            } */
+            }
 
 
             var sucursalSelect = document.getElementById("sucursalSelect");
@@ -406,10 +397,10 @@ include("header.php");
 
             } else if (sucursalSelect.value === 'humbertoLobo') {
 
-                divTextoSucursal.innerHTML = "<p style='font-size:12px !important'>" +
+                divTextoSucursal.innerHTML = "<p>" +
                     "Av. Humberto Lobo #660 cruz con Rio Rhin, Col. Del Valle, San Pedro Garza Garcia, Nuevo León, CP 66220" +
                     "</p>";
-                divTextoSucursalDos.innerHTML = "<p style='font-size:12px !important'>" +
+                divTextoSucursalDos.innerHTML = "<p>" +
                     "Av. Humberto Lobo #660 cruz con Rio Rhin, Col. Del Valle, San Pedro Garza Garcia, Nuevo León, CP 66220" +
                     "</p>";
 
@@ -432,10 +423,10 @@ include("header.php");
                     "</p>";
 
             } else if (sucursalSelect.value === 'loboAlianza') {
-                divTextoSucursal.innerHTML = "<p style='font-size:9px !important'>" +
+                divTextoSucursal.innerHTML = "<p>" +
                     "Av. José Vasconcelos #1555 Entre Neil Armstrong y Av. De los Conquistadores Col. Del Valle, San Pedro Garza Garcia, Nuevo León, CP 66220" +
                     "</p>";
-                divTextoSucursalDos.innerHTML = "<p style='font-size:9px !important'>" +
+                divTextoSucursalDos.innerHTML = "<p>" +
                     "Av. José Vasconcelos #1555 Entre Neil Armstrong y Av. De los Conquistadores Col. Del Valle, San Pedro Garza Garcia, Nuevo León, CP 66220" +
                     "</p>";
             } else if (sucursalSelect.value === 'venustianoCarranza') {
@@ -446,10 +437,10 @@ include("header.php");
                     "Venustiano Carranza 811, Col. Centro, 64000 Monterrey, N.L." +
                     "</p>";
             }else if (sucursalSelect.value === 'transportes') {
-                divTextoSucursal.innerHTML = "<p style='font-size:12px !important'>" +
+                divTextoSucursal.innerHTML = "<p>" +
                     "Salvador Chávez 101, Fraccionamiento Campestre La Encarnación, Campestre, 66633 Cdad. Apodaca, N.L." +
                     "</p>";
-                divTextoSucursalDos.innerHTML = "<p style='font-size:12px !important'>" +
+                divTextoSucursalDos.innerHTML = "<p>" +
                     "Salvador Chávez 101, Fraccionamiento Campestre La Encarnación, Campestre, 66633 Cdad. Apodaca, N.L." +
                     "</p>";
             }

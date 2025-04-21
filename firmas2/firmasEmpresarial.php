@@ -21,43 +21,43 @@ include("header.php");
                     <div class="contenedorUno">
                         <div class="form-section">
                             <label for="puestoInput">Ingresa tu Puesto:</label>
-                            <input type="text" name="puestoInput" id="puestoInput" placeholder="Ingresa el nombre de tu puesto" onkeypress="actualizarTexto()"
+                            <input type="text" name="puestoInput" id="puestoInput" onkeypress="actualizarTexto()"
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
-                        <div class="form-section">
+                        <!-- <div class="form-section">
                             <label for="areaSelect">Selecciona tu Área:</label>
                             <select name="areaSelect" id="areaSelect"
                                 onchange="cambiarImagen(); funcionImprimirCodigo()">
-                                <option value="otro" selected>Otro</option>
-                                <option value="bodyShop">Body Shop</option>
+                                <option value="bodyShop" selected>Body Shop</option>
                                 <option value="flotillas">Flotillas</option>
                                 <option value="rentas">Rentas</option>
                                 <option value="seminuevos">Seminuevos</option>
                                 <option value="tallerServicio">Taller de Servicio</option>
                                 <option value="transportes">Transportes</option>
+                                <option value="otro">Otro</option>
                             </select>
-                        </div>
+                        </div> -->
 
                         <div class="form-section">
-                            <label for="nombreInput">Nombre:</label>
-                            <input type="text" id="nombreInput" placeholder="Ingresa tu nombre" onkeypress="actualizarTexto()"
+                            <label for="nombreInput">Nombre Completo:</label>
+                            <input type="text" id="nombreInput" onkeypress="actualizarTexto()"
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
                         <div class="form-section">
                             <label for="correoInput">Correo:</label>
-                            <input type="email" name="correoInput" id="correoInput" placeholder="Ingresa tu correo" onkeypress="actualizarTexto()"
+                            <input type="email" name="correoInput" id="correoInput" onkeypress="actualizarTexto()"
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
                         <div class="form-section">
                             <label for="telefonoInput">Telefono o Extensión:</label>
-                            <input type="tel" name="telefonoInput" id="telefonoInput" placeholder="Ingresa tu tel/extensión" onkeypress="actualizarTexto()"
+                            <input type="tel" name="telefonoInput" id="telefonoInput" onkeypress="actualizarTexto()"
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
-                        <div class="form-section" hidden>
+                        <div class="form-section">
                             <label for="paginaSelect">Página de tu Área:</label>
                             <select name="paginaSelect" id="paginaSelect"
                                 onchange="actualizarTexto(); funcionImprimirCodigo()">
@@ -91,41 +91,38 @@ include("header.php");
         </div>
 
         <div class="tarjetNissan" id="tarjetaChevrolet">
-            <div class="cardFondoChevrolet row">
-                <div class="cardPrincipalChevrolet mb-4 col-12">
-                    <div class="row" style="background-color:#3377d2;border-radius: 0px 0px 30px 30px;padding-bottom:15px;padding-top:15px;">
-                        <div class="imgDivisionDer col-6">
-                            <img class="divisionImgStyle" id="divisionImagen" src="" alt="chevrolet">
-                        </div>
-                        <div class="imgPrimosizq col-6">
-                            <img class="styleNissanPrimos" src="imgs/iniciaviaje.png" alt="chevrolet">
-                        </div>
-                    </div>
+            <div class="cardFondoEmpresarial row">
+                <div class="imgDivisionDer col-6">
+                    <img class="divisionImgStyle" id="divisionImagen" src="" alt="ayuda">
+                </div>
+                <div class="imgPrimosizq col-6">
+                    <img class="styleChevroletPrimos" src="imgs/somos_primos_chevrolet.png" alt="ayuda">
+                </div>
 
+                <div class="cardPrincipalEmpresarial mb-4 col-12">
                     <br>
                     <div class="row">
-                        <div class="conteidoChevrolet col-7">
-
-                            <div class="styleNombreChevrolet" id="txtNombre">
+                        <div class="conteidoChevrolet col-9">
+                            <div class="stylePuestoCorporativo" id="txtPuesto">
                             </div>
 
-                            <div class="stylePuestoChevrolet" id="txtPuesto">
+                            <div class="styleNombreCorporativo" id="txtNombre">
                             </div>
 
+                            <div class="styleCorreoCorporativo" id="txtCorreo">
+                            </div>
+
+                            <div class="styleTelefonoCorporativo" id="txtTelefono">
+                            </div>
+
+                            <div class="stylePaginaCorporativo" id="txtPaginaArea">
+                            </div>
+
+                            <div class="styleSucursalCorporativo" id="txtSucursal">
+                            </div>
                         </div>
-                        <div class="imgPrimo col-5">
-                            <div class="styleCorreoChevrolet" id="txtCorreo">
-                            </div>
-
-                            <div class="styleTelefonoChevrolet" id="txtTelefono">
-                            </div>
-
-                            <div class="stylePaginaChevrolet" id="txtPaginaArea">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="styleSucursalChevrolet" id="txtSucursal">
+                        <div class="imgPrimo col-3 d-flex">
+                            <img class="imgLogoPrimoNissan" src="imgs/logoPrimo.png" alt="Bienvenido">
                         </div>
                     </div>
                 </div>
@@ -133,43 +130,42 @@ include("header.php");
             </div>
         </div>
 
-        <div id="fondoChevrolet" style="display: flex; justify-content: center; display: none;" >
+        <div id="fondoCorporativo" style="display: flex; justify-content: center; display: none;" >
             <table style="width: 700px !important; height: 300px !important; margin: 20px; overflow: inherit; 
-        background: #0F3261; cursor: default; transition: all 400ms ease; color: black; padding: 10px 20px 20px;">
+        background: #1e345e; cursor: default; transition: all 400ms ease; color: black; padding: 10px 20px 20px;">
                 <tbody>
                     <tr>
                         <td>
                             <div style="display: flex;">
                                 <div class="col-6" style="height: 60px;">
-                                    <img id="divisionImagenDos" src="" alt="ayuda">
+                                <img id="divisionImagenDos" src="https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisiones/corporativo.png" alt="ayuda" style="max-width: 125px;">
                                 </div>
                                 <div class="col-6" style="height: 60px;">
-                                    <img src="https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/imgs/somos_primos_chevrolet.png"
-                                        alt="ayuda" style="max-width: 55%; margin-left: 45%;">
+                                <img src="https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/imgs/somos_primos_chevrolet.png" alt="ayuda" style="max-width: 32%;margin-left: 68%;">
                                 </div>
                             </div>
-                            <div style="height: 220px; margin-top: -5px; border-radius: 10px; overflow: inherit;  background: #0082D6; 
+                            <div style="height: 220px; margin-top: -5px; border-radius: 10px; overflow: inherit;  background: #d6d6d6; 
                                 cursor: default; transition: all 400ms ease; color: black; padding: 10px 10px 10px;">
                                 <div class="row" style="display: flex;">
                                     <div class="col-9">
                                         <div id="txtPuestoDos" style="font-family:Arial; margin-top: -10px;  font-size: 21px;
-                            color: #fff; text-transform: capitalize;">
+                            color: #0F3261; text-transform: capitalize;">
                                         </div>
 
                                         <div id="txtNombreDos" style=" font-size: 38px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
                             color: #0F3261 !important; text-transform: uppercase; margin-top: -25px;">
                                         </div>
 
-                                        <div id="txtCorreoDos" style="font-family:Arial; color: #383838;">
+                                        <div id="txtCorreoDos" style="font-family:Arial; color: #0F3261; margin-top: -16px; ">
                                         </div>
 
-                                        <div id="txtTelefonoDos" style="font-family:Arial; color: #383838;">
+                                        <div id="txtTelefonoDos" style="font-family:Arial; color: #0F3261; margin-top: -10px; ">
                                         </div>
 
-                                        <div id="txtPaginaAreaDos" style="font-family:Arial; color: #383838;">
+                                        <div id="txtPaginaAreaDos" style="font-family:Arial; color: #0F3261; margin-top: -10px; ">
                                         </div>
 
-                                        <div id="txtSucursalDos" style="font-family:Arial; color: #383838;">
+                                        <div id="txtSucursalDos" style="font-family:Arial; color: #0F3261; margin-top: -10px; ">
                                         </div>
                                     </div>
                                     <div class="col-3 d-flex"
@@ -203,7 +199,7 @@ include("header.php");
 
     function funcionImprimirCodigo() {
         setTimeout(() => {
-            var contenedor = document.getElementById("fondoChevrolet");
+            var contenedor = document.getElementById("fondoCorporativo");
             var textarea = document.getElementById("codigo");
 
             textarea.rows = 20;
@@ -225,7 +221,7 @@ include("header.php");
 
     function exportarComoImagen() {
         /* $('#tarjetaChevrolet').show(); */
-        var contenedor = document.querySelector('.cardFondoChevrolet');
+        var contenedor = document.querySelector('.cardFondoEmpresarial');
 
         html2canvas(contenedor, {
             useCORS: true,
@@ -242,64 +238,18 @@ include("header.php");
         /* $('#tarjetaChevrolet').hide(); */
     }
 
+    
+
     function cambiarImagen() {
-        var areaSelect = document.getElementById("areaSelect");
-        var divisionImagen = document.getElementById("divisionImagen");
-        var divisionImagenDos = document.getElementById("divisionImagenDos");
+            console.log("AYDUADISANK")
+            var areaSelect = document.getElementById("areaSelect");
+            var divisionImagen = document.getElementById("divisionImagen");
+            var divisionImagenDos = document.getElementById("divisionImagenDos");
 
-        divisionImagen.src = 'divisiones/otro.png';
-        divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/otro.png';
-
-        if (areaSelect.value === 'bodyShop') {
-            divisionImagen.src = 'divisiones/bodyShop.png';
-            divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/bodyShop.png';
-            divisionImagen.className = 'divisionImgStyle';
-            divisionImagenDos.style.maxWidth = '40%';
-            divisionImagenDos.style.marginTop = '0px';
-
-        } else if (areaSelect.value === 'flotillas') {
-            divisionImagen.src = 'divisiones/flotillas.png';
-            divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/flotillas.png';
-            divisionImagen.className = 'imgFlotillas';
-            divisionImagenDos.style.marginTop = '-20px';
-            divisionImagenDos.style.maxWidth = '70%';
-
-        } else if (areaSelect.value === 'rentas') {
-            divisionImagen.src = 'divisiones/rentas.png';
-            divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/rentas.png';
-            divisionImagen.className = 'divisionImgStyle';
-            divisionImagenDos.style.maxWidth = '40%';
-            divisionImagenDos.style.marginTop = '0px';
-
-        } else if (areaSelect.value === 'seminuevos') {
-            divisionImagen.src = 'divisiones/seminuevos.png';
-            divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/seminuevos.png';
-            divisionImagen.className = 'divisionImgStyle';
-            divisionImagenDos.style.maxWidth = '40%';
-            divisionImagenDos.style.marginTop = '0px';
-
-        } else if (areaSelect.value === 'tallerServicio') {
-            divisionImagen.src = 'divisiones/tallerServicio.png';
-            divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/tallerServicio.png';
-            divisionImagen.className = 'divisionImgStyle';
-            divisionImagenDos.style.maxWidth = '40%';
-            divisionImagenDos.style.marginTop = '0px';
-
-        } else if (areaSelect.value === 'transportes') {
-            divisionImagen.src = 'divisiones/transportes.png';
-            divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/transportes.png';
-            divisionImagen.className = 'divisionImgStyle';
-            divisionImagenDos.style.marginTop = '0px';
-            divisionImagenDos.style.maxWidth = '40%';
-
-        } else if (areaSelect.value === 'otro') {
-            divisionImagen.src = 'divisiones/otro.png';
-            divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/otro.png';
-            divisionImagen.className = 'imgOtro';
-            divisionImagenDos.style.maxWidth = '70%';
-            divisionImagenDos.style.marginTop = '-25px';
+            divisionImagen.src = 'divisiones/corporativo.png';
+            divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisiones/corporativo.png';
+            divisionImagen.className = 'imgCorporativo';
         }
-    }
 
     function actualizarTexto() {
         setTimeout(() => {
@@ -349,10 +299,7 @@ include("header.php");
             var divTextoPagina = document.getElementById("txtPaginaArea");
             var divTextoPaginaDos = document.getElementById("txtPaginaAreaDos");
 
-            divTextoPagina.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
-            divTextoPaginaDos.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
-
-/*             if (paginaSelect.value === 'bodyShop') {
+            if (paginaSelect.value === 'bodyShop') {
                 divTextoPagina.innerHTML = "<p>" + "gruporivero.com/taller-de-colision" + "</p>";
                 divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com/taller-de-colision" + "</p>";
 
@@ -379,7 +326,7 @@ include("header.php");
             } else if (paginaSelect.value === 'otro') {
                 divTextoPagina.innerHTML = "<p>" + "gruporivero.com" + "</p>";
                 divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com" + "</p>";
-            } */
+            }
 
 
             var sucursalSelect = document.getElementById("sucursalSelect");
@@ -406,10 +353,10 @@ include("header.php");
 
             } else if (sucursalSelect.value === 'humbertoLobo') {
 
-                divTextoSucursal.innerHTML = "<p style='font-size:12px !important'>" +
+                divTextoSucursal.innerHTML = "<p>" +
                     "Av. Humberto Lobo #660 cruz con Rio Rhin, Col. Del Valle, San Pedro Garza Garcia, Nuevo León, CP 66220" +
                     "</p>";
-                divTextoSucursalDos.innerHTML = "<p style='font-size:12px !important'>" +
+                divTextoSucursalDos.innerHTML = "<p>" +
                     "Av. Humberto Lobo #660 cruz con Rio Rhin, Col. Del Valle, San Pedro Garza Garcia, Nuevo León, CP 66220" +
                     "</p>";
 
@@ -432,10 +379,10 @@ include("header.php");
                     "</p>";
 
             } else if (sucursalSelect.value === 'loboAlianza') {
-                divTextoSucursal.innerHTML = "<p style='font-size:9px !important'>" +
+                divTextoSucursal.innerHTML = "<p>" +
                     "Av. José Vasconcelos #1555 Entre Neil Armstrong y Av. De los Conquistadores Col. Del Valle, San Pedro Garza Garcia, Nuevo León, CP 66220" +
                     "</p>";
-                divTextoSucursalDos.innerHTML = "<p style='font-size:9px !important'>" +
+                divTextoSucursalDos.innerHTML = "<p>" +
                     "Av. José Vasconcelos #1555 Entre Neil Armstrong y Av. De los Conquistadores Col. Del Valle, San Pedro Garza Garcia, Nuevo León, CP 66220" +
                     "</p>";
             } else if (sucursalSelect.value === 'venustianoCarranza') {
@@ -446,10 +393,10 @@ include("header.php");
                     "Venustiano Carranza 811, Col. Centro, 64000 Monterrey, N.L." +
                     "</p>";
             }else if (sucursalSelect.value === 'transportes') {
-                divTextoSucursal.innerHTML = "<p style='font-size:12px !important'>" +
+                divTextoSucursal.innerHTML = "<p>" +
                     "Salvador Chávez 101, Fraccionamiento Campestre La Encarnación, Campestre, 66633 Cdad. Apodaca, N.L." +
                     "</p>";
-                divTextoSucursalDos.innerHTML = "<p style='font-size:12px !important'>" +
+                divTextoSucursalDos.innerHTML = "<p>" +
                     "Salvador Chávez 101, Fraccionamiento Campestre La Encarnación, Campestre, 66633 Cdad. Apodaca, N.L." +
                     "</p>";
             }

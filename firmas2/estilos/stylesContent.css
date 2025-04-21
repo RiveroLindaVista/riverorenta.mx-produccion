@@ -1,18 +1,4 @@
 /* Estilos de las imagenes de los logos */
-@font-face{
-    font-family: Narrow;
-    src: url('Narrow/owners-narrow-black.ttf');
-}
-
-@font-face{
-    font-family: NarrowMedium;
-    src: url('NarrowMedium/owners-narrow-medium.otf');
-}
-
-@font-face{
-    font-family: GothamBook;
-    src: url('GothamBook/gotham-book.ttf');
-}
 
 .logoRivero {
     margin: auto;
@@ -39,22 +25,24 @@
     height: 300px;
     margin: 20px;
     overflow: inherit;
+    background: #0F3261;
     cursor: default;
     transition: all 400ms ease;
     color: black;
+    padding: 10px 20px 20px;
 }
 
 .cardPrincipalChevrolet {
     width: auto;
-    height: 260px;
-    padding-left: 35px!important;
-    padding-right: 35px!important;
+    height: 220px;
+    margin-top: -5px;
     border-radius: 10px;
     overflow: inherit;
-    background-color: #f2f2f2;
+    background: #0082D6;
     cursor: default;
     transition: all 400ms ease;
     color: black;
+    /* padding: 40px 20px 40px; */
 }
 
 .cardFondoNissan {
@@ -63,9 +51,11 @@
     margin: 20px;
     /* border-radius: 6px; */
     overflow: inherit;
+    background: #000000;
     cursor: default;
     transition: all 400ms ease;
     color: black;
+    padding: 3px 13px 32px;
 }
 
 .tarjetNissan{
@@ -76,11 +66,10 @@
 .cardPrincipalNissan {
     width: auto;
     height: 260px;
-    padding-left: 35px!important;
-    padding-right: 35px!important;
+    margin-top: 10px;
     border-radius: 10px;
     overflow: inherit;
-    background-color: #f2f2f2;
+    background: #fff;
     cursor: default;
     transition: all 400ms ease;
     color: black;
@@ -89,12 +78,11 @@
 
 .cardPrincipalEmpresarial {
     width: auto;
-    height: 260px;
-    padding-left: 35px!important;
-    padding-right: 35px!important;
+    height: 220px;
+    margin-top: -5px;
     border-radius: 10px;
     overflow: inherit;
-    background-color: #f2f2f2;
+    background: #d6d6d6;
     cursor: default;
     transition: all 400ms ease;
     color: black;
@@ -105,31 +93,26 @@
     width: 700px;
     height: 300px;
     margin: 20px;
-    /* border-radius: 6px; */
     overflow: inherit;
+    background: #1e345e;
     cursor: default;
     transition: all 400ms ease;
     color: black;
+    padding: 10px 20px 20px;
 }
 
 /* Estilos de los elementos del card de Chevrolet y Nissan */
 
 .imgPrimosizq {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 60px;
 }
 
 .imgDivisionDer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 60px;
 }
 
 .divisionImgStyle {
-    max-width: 50%!important;
+    max-width: 40%;
 }
 
 .divisionImgStyleEmpresarial {
@@ -143,6 +126,7 @@
 
 .imgOtro {
     max-width: 85% !important;
+    margin-top: 6px;
 }
 
 /* .conteidoChevrolet{
@@ -160,6 +144,7 @@
 }
 
 .contenidoNissan{
+    margin-top: 32px;
 }
 
 .divisionImgStyleDos {
@@ -182,6 +167,8 @@
 
 .styleNissanPrimos {
     max-width: 60%;
+    margin-left: 40%;
+    margin-top: 20px;
 }
 
 .imgLogoPrimoNissan {
@@ -206,52 +193,43 @@
 .styleTelefonoChevrolet,
 .stylePaginaChevrolet,
 .styleSucursalChevrolet {
-    margin: 0px;
+    margin-top: -14px;
     font-family:Arial;
 }
 
 .stylePuestoChevrolet {
-    font-size: 25px;
-    color: #383838;
+    font-size: 21px;
+    color: #fff;
     text-transform: capitalize;
-    margin-top: -25px;
-    font-family: NarrowMedium;
 }
 
 .styleNombreChevrolet {
-    font-size: 30px;
-    font-family: Narrow;
-    color: #383838;
-    text-transform: capitalize;
-    font-family: Narrow;
+    font-size: 38px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #0F3261 !important;
+    text-transform: uppercase;
+    margin-top: -25px;
 }
 
 .styleCorreoChevrolet{
-    color: #383838;
+    color: #fff;
     text-decoration: none;
-    font-family: GothamBook;
 }
 
 .styleTelefonoChevrolet{
-    color: #383838;
+    color: #fff;
     text-decoration: none;
-    font-family: GothamBook;
-    margin-top: -20px;
 }
 
 .stylePaginaChevrolet{
-    color: #383838;
+    color: #fff;
     text-decoration: none;
-    font-family: GothamBook;
-    margin-top: -20px;
 }
 
 .styleSucursalChevrolet {
     font-size: small !important;
-    color: #383838;
+    color: #fff;
     text-decoration: none;
-    margin-top: 30px;
-    font-family: GothamBook;
 }
 
 .stylePuestoNissan,
@@ -260,47 +238,43 @@
 .styleTelefonoNissan,
 .stylePaginaNissan,
 .styleSucursalNissan {
-    margin-top: 0px;
+    margin-top: -14px;
 }
 
 .stylePuestoNissan {
-    font-size: 25px;
-    color: #383838;
+    font-size: 21px;
+    color: #000000;
+    font-weight: bold;
     text-transform: capitalize;
-    margin-top: -25px;
-    font-family: NarrowMedium;
 }
 
 .styleNombreNissan {
-    font-size: 30px;
+    font-size: 28px;
     font-weight: bold;
-    color: #383838 !important;
+    color: #000000 !important;
     text-transform: capitalize;
-    font-family: Narrow;
+    margin-top: -25px;
 }
 
 .styleCorreoNissan{
-    font-family: GothamBook;
-    color: #383838;
+    font-family:bahnschrift;
+    color: #000000;
 }
 
 .styleTelefonoNissan{
-    font-family: GothamBook;
-    color: #383838;
-    margin-top: -20px;
+    font-family:bahnschrift;
+    color: #000000;
 }
 
 .stylePaginaNissan{
-    font-family: GothamBook;
-    color: #383838;
-    margin-top: -20px;
+    font-family:bahnschrift;
+    color: #000000;
 }
 
 .styleSucursalNissan {
-    font-family: GothamBook;
+    font-family:bahnschrift;
     font-size: small !important;
-    color: #383838;
-    margin-top: 40px;
+    color: #000000;
 }
 
 .stylePuestoCorporativo,
@@ -309,46 +283,44 @@
 .styleTelefonoCorporativo,
 .stylePaginaCorporativo,
 .styleSucursalCorporativo {
-    margin-top: 0px;
+    margin-top: -14px;
+    font-family:Arial;
 }
 
 .stylePuestoCorporativo {
-    font-size: 25px;
-    color: #383838;
+    font-size: 21px;
+    letter-spacing: 0.10em;
+    color: #1e345e;
     text-transform: capitalize;
-    font-family: NarrowMedium;
-    margin-top: -25px;
 }
 
 .styleNombreCorporativo {
-    font-size: 30px;
-    font-family: Narrow;
-    color: #383838 !important;
-    text-transform: capitalize;
+    font-size: 38px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #0F3261 !important;
+    text-transform: uppercase;
+    margin-top: -25px;
 }
 
 .styleCorreoCorporativo{
-    color: #383838;
+    color: #1e345e;
     text-decoration: none;
 }
 
 .styleTelefonoCorporativo{
-    color: #383838;
+    color: #1e345e;
     text-decoration: none;
-    margin-top: -20px;
 }
 
 .stylePaginaCorporativo{
-    color: #383838;
+    color: #1e345e;
     text-decoration: none;
-    margin-top: -20px;
 }
 
 .styleSucursalCorporativo {
     font-size: small !important;
-    color: #383838;
+    color: #1e345e;
     text-decoration: none;
-    margin-top: 40px;
 }
 
 /* Estilos de los botones de Chevrolet y Nissan */

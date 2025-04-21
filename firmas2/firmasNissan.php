@@ -21,7 +21,7 @@ include("header.php");
                     <div class="contenedorUno">
                         <div class="form-section">
                             <label for="puestoInput">Ingresa tu Puesto:</label>
-                            <input type="text" name="puestoInput" id="puestoInput" placeholder="Ingresa el nombre de tu puesto" onkeypress="actualizarTexto()"
+                            <input type="text" name="puestoInput" id="puestoInput" onkeypress="actualizarTexto()"
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
@@ -35,20 +35,20 @@ include("header.php");
                         </div> -->
 
                         <div class="form-section">
-                            <label for="nombreInput">Nombre:</label>
-                            <input type="text" name="nombreInput" id="nombreInput" placeholder="Ingresa tu nombre" onkeypress="actualizarTexto()"
+                            <label for="nombreInput">Nombre Completo:</label>
+                            <input type="text" name="nombreInput" id="nombreInput" onkeypress="actualizarTexto()"
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
                         <div class="form-section">
                             <label for="correoInput">Correo:</label>
-                            <input type="email" name="correoInput" id="correoInput" placeholder="Ingresa tu correo" onkeypress="actualizarTexto()"
+                            <input type="email" name="correoInput" id="correoInput" onkeypress="actualizarTexto()"
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
                         <div class="form-section">
                             <label for="telefonoInput">Telefono o Extensión:</label>
-                            <input type="tel" name="telefonoInput" id="telefonoInput" placeholder="Ingresa tu tel/extensión" onkeypress="actualizarTexto()"
+                            <input type="tel" name="telefonoInput" id="telefonoInput" onkeypress="actualizarTexto()"
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
@@ -82,26 +82,23 @@ include("header.php");
         <div class="tarjetNissan">
             <div class="cardFondoNissan row">
                 <div class="cardPrincipalNissan mb-4 col-12" style="height: 274px;">
-                    <div class="row" style="background-color:#b32535;border-radius: 0px 0px 30px 30px;padding-bottom:15px;padding-top:15px;">
+                    <div class="row">
                         <div class="imgDivisionDer col-6">
                             <img class="divisionImgStyleEmpresarial" id="divisionImagen" src="" alt="ayuda">
                         </div>
                         <div class="imgPrimosizq col-6">
-                            <img class="styleNissanPrimos" src="imgs/iniciaviaje.png" alt="ayuda">
+                            <img class="styleNissanPrimos" src="imgs/somos_primos_nissan.png" alt="ayuda">
                         </div>
                     </div>
                     <br>
                     <div class="row">
-                        <div class="contenidoNissan col-7">
+                        <div class="contenidoNissan col-9">
+                            <div class="stylePuestoNissan" id="txtPuesto">
+                            </div>
 
                             <div class="styleNombreNissan" id="txtNombre">
                             </div>
 
-                            <div class="stylePuestoNissan" id="txtPuesto">
-                            </div>
-
-                        </div>
-                        <div class="imgPrimo col-5">
                             <div class="styleCorreoNissan" id="txtCorreo">
                             </div>
 
@@ -110,10 +107,12 @@ include("header.php");
 
                             <div class="stylePaginaNissan" id="txtPaginaArea">
                             </div>
+
+                            <div class="styleSucursalNissan" id="txtSucursal">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="styleSucursalNissan" id="txtSucursal">
+                        <div class="imgPrimo col-3 d-flex">
+                            <img class="imgLogoPrimo" src="imgs/logoPrimo.png" alt="Bienvenido">
                         </div>
                     </div>
                 </div>
@@ -138,34 +137,34 @@ include("header.php");
                                                 alt="ayuda" style="max-width: 64%;">
                                         </div>
                                         <div class="col-6" style="height: 60px; margin-top: 10px;">
-                                            <img src="https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/imgs/iniciaviaje.png"
+                                            <img src="https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/imgs/somos_primos_nissanDos.png"
                                                 alt="ayuda" style="max-width: 80%; margin-top:9px;">
                                         </div>
                                     </div>
                                 </div>
                                 <div style="margin-left: 20px;margin-top: 46px;;" class="col-9 row">
                                     <div id="txtPuestoDos"
-                                        style="font-weight: bold; font-size: 21px; color: #000000; text-transform: capitalize;">
+                                        style="font-weight: bold; margin-top: -16px;  font-size: 21px; color: #000000; text-transform: capitalize;">
                                     </div>
 
                                     <div id="txtNombreDos"
-                                        style="font-size: 28px; font-weight: bold; text-transform: capitalize; color: rgb(0, 0, 0) !important;">
+                                        style="font-size: 28px; font-weight: bold; text-transform: capitalize; margin-top: -25px; color: rgb(0, 0, 0) !important;">
                                     </div>
 
                                     <div id="txtCorreoDos"
-                                        style="font-family:bahnschrift; color: #000000;">
+                                        style="font-family:bahnschrift; color: #000000; margin-top: -16px;">
                                     </div>
 
                                     <div id="txtTelefonoDos"
-                                        style="font-family:bahnschrift; color: #000000; ">
+                                        style="font-family:bahnschrift; color: #000000; margin-top: -10px; ">
                                     </div>
 
                                     <div id="txtPaginaAreaDos"
-                                        style="font-family:bahnschrift; color: #000000; ">
+                                        style="font-family:bahnschrift; color: #000000; margin-top: -10px; ">
                                     </div>
 
                                     <div id="txtSucursalDos"
-                                        style="font-family:bahnschrift; color: #000000; ">
+                                        style="font-family:bahnschrift; color: #000000; margin-top: -10px; ">
                                     </div>
                                 </div>
                                 <div class="col-3 d-flex"
@@ -253,6 +252,7 @@ include("header.php");
         }
 
         function cambiarImagen() {
+            console.log("AYDUADISANK")
             var areaSelect = document.getElementById("areaSelect");
             var divisionImagen = document.getElementById("divisionImagen");
             var divisionImagenDos = document.getElementById("divisionImagenDos");
@@ -276,8 +276,8 @@ include("header.php");
                 if (inputNombre.value.length >= 25) {
                     var tamaño = document.getElementById('txtNombre');
                     var tamañoDos = document.getElementById('txtNombreDos');
-                    tamaño.style.fontSize = "30px";
-                    tamañoDos.style.fontSize = "30px";
+                    tamaño.style.fontSize = "27px";
+                    tamañoDos.style.fontSize = "27px";
                 } else {
                     var tamaño = document.getElementById('txtNombre');
                     var tamañoDos = document.getElementById('txtNombre');
