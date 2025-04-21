@@ -74,6 +74,7 @@ if ($marcasQry->num_rows > 0) {
                 <p class="text-white m-0">Introduce el texto que ves en la imagen:</p>
                 <img class="mb-1" src="captcha.php?text=<?= urlencode($captcha_text) ?>" style="width:200px;height: 80px" alt="CAPTCHA"><br>
                 <input type="text" id="captcha_input" class="mb-1" name="captcha_input" required><br>
+                <p id="msjCaptcha" class="text-white m-0" hidden>Captcha Incorrecto.</p>
                 <button type="button" class="btn bg-dark text-white" onclick="getCAPTCHA()">LISTO</button>
             </div>
 
@@ -300,7 +301,7 @@ if ($marcasQry->num_rows > 0) {
             captcha_input: captcha_input,
             desca: descripcion_auto,
         }
-console.log(data);
+
         $.ajax({
             type: "POST",
             url: "verificar.php",
@@ -313,11 +314,12 @@ console.log(data);
                 if(resp == "1"){
                     $("#btnOferta").attr('hidden', false);
                     $("#captcha").attr('hidden', true);
+                    $("#msjCaptcha").attr('hidden', true);
                 } else {
                     $("#btnOferta").attr('hidden', true);
                     var capt = document.getElementById('captcha_input');
                     capt.style.background= "#f5a0a0fa";
-
+                    $("#msjCaptcha").attr('hidden', false);
                 }
                 
 /*                 let opcionesVersiones = '<option value="0">Selecciona la versión...</option>';
