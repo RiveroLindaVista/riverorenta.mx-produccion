@@ -276,7 +276,7 @@ include("header.php");
                 divTextoPaginaDos.innerHTML = "<p>" + "transportesrivero.com.mx" + "</p>";
 
             } else if (areaSelect.value === 'otro') {
-                divisionImagen.src = 'divisiones/otro.png';
+                divisionImagen.src = 'imgs/logo_rivero.png';
                 divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/otro.png';
                 divisionImagen.className = 'imgOtro';
                 divisionImagenDos.style.maxWidth = '70%';
