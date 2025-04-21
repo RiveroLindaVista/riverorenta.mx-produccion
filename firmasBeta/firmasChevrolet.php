@@ -21,7 +21,7 @@ include("header.php");
                     <div class="contenedorUno">
                         <div class="form-section">
                             <label for="puestoInput">Ingresa tu Puesto:</label>
-                            <input type="text" name="puestoInput" id="puestoInput" onkeypress="actualizarTexto()"
+                            <input type="text" name="puestoInput" id="puestoInput" placeholder="Ingresa el nombre de tu puesto" onkeypress="actualizarTexto()"
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
@@ -40,20 +40,20 @@ include("header.php");
                         </div>
 
                         <div class="form-section">
-                            <label for="nombreInput">Nombre Completo:</label>
-                            <input type="text" id="nombreInput" onkeypress="actualizarTexto()"
+                            <label for="nombreInput">Nombre:</label>
+                            <input type="text" id="nombreInput" placeholder="Ingresa tu nombre" onkeypress="actualizarTexto()"
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
                         <div class="form-section">
                             <label for="correoInput">Correo:</label>
-                            <input type="email" name="correoInput" id="correoInput" onkeypress="actualizarTexto()"
+                            <input type="email" name="correoInput" id="correoInput" placeholder="Ingresa tu correo" onkeypress="actualizarTexto()"
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
                         <div class="form-section">
                             <label for="telefonoInput">Telefono o Extensión:</label>
-                            <input type="tel" name="telefonoInput" id="telefonoInput" onkeypress="actualizarTexto()"
+                            <input type="tel" name="telefonoInput" id="telefonoInput" placeholder="Ingresa tu tel/extensión" onkeypress="actualizarTexto()"
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
