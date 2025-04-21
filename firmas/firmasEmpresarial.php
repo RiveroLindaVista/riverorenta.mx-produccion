@@ -61,17 +61,19 @@ include("header.php");
                             <label for="paginaSelect">Página de tu Área:</label>
                             <select name="paginaSelect" id="paginaSelect"
                                 onchange="actualizarTexto(); funcionImprimirCodigo()">
-                                <option value="bodyShop">Body Shop</option>
-                                <option value="flotillas">Flotillas</option>
-                                <option value="rentas">Rentas</option>
-                                <option value="seminuevos">Seminuevos</option>
-                                <option value="tallerServicio">Taller de Servicio</option>
+                                <option value="otro" selected>Administrativo</option>
                                 <option value="transportes">Transportes</option>
-                                <option value="otro" selected>Otro</option>
+                                <option value="rentas">Rentas</option>
+                                <!-- <option value="bodyShop">Body Shop</option>
+                                <option value="flotillas">Flotillas</option>
+                                <option value="seminuevos">Seminuevos</option>
+                                <option value="tallerServicio">Taller de Servicio</option> -->
+                                
+                                
                             </select>
                         </div>
 
-                        <div class="form-section">
+                        <div class="form-section" hidden>
                             <label for="sucursalSelect">Sucursal:</label>
                             <select name="sucursalSelect" id="sucursalSelect"
                                 onchange="actualizarTexto(); funcionImprimirCodigo()">
@@ -243,7 +245,6 @@ include("header.php");
     
 
     function cambiarImagen() {
-            console.log("AYDUADISANK")
             var areaSelect = document.getElementById("areaSelect");
             var divisionImagen = document.getElementById("divisionImagen");
             var divisionImagenDos = document.getElementById("divisionImagenDos");
@@ -251,6 +252,28 @@ include("header.php");
             divisionImagen.src = 'imgs/logo_rivero.png';
             divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisiones/corporativo.png';
             divisionImagen.className = 'imgCorporativo';
+
+            if (areaSelect.value === 'rentas') {
+                divisionImagen.src = 'divisiones/rentas.png';
+                divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/rentas.png';
+                divisionImagen.className = 'divisionImgStyle';
+                divisionImagenDos.style.maxWidth = '40%';
+                divisionImagenDos.style.marginTop = '0px';
+
+            } else if (areaSelect.value === 'transportes') {
+                divisionImagen.src = 'divisiones/transportes.png';
+                divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/transportes.png';
+                divisionImagen.className = 'divisionImgStyle';
+                divisionImagenDos.style.marginTop = '0px';
+                divisionImagenDos.style.maxWidth = '40%';
+
+            } else if (areaSelect.value === 'otro') {
+                divisionImagen.src = 'divisiones/otro.png';
+                divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/otro.png';
+                divisionImagen.className = 'imgOtro';
+                divisionImagenDos.style.maxWidth = '70%';
+                divisionImagenDos.style.marginTop = '-25px';
+            }
         }
 
     function actualizarTexto() {

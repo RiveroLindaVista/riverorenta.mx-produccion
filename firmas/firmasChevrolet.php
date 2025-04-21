@@ -29,13 +29,13 @@ include("header.php");
                             <label for="areaSelect">Selecciona tu Área:</label>
                             <select name="areaSelect" id="areaSelect"
                                 onchange="cambiarImagen(); funcionImprimirCodigo()">
-                                <option value="otro" selected>Otro</option>
+                                <option value="otro" selected>Nuevos</option>
                                 <option value="bodyShop">Body Shop</option>
                                 <option value="flotillas">Flotillas</option>
-                                <option value="rentas">Rentas</option>
                                 <option value="seminuevos">Seminuevos</option>
                                 <option value="tallerServicio">Taller de Servicio</option>
-                                <option value="transportes">Transportes</option>
+                                <!-- <option value="transportes">Transportes</option>
+                                <option value="rentas">Rentas</option> -->
                             </select>
                         </div>
 

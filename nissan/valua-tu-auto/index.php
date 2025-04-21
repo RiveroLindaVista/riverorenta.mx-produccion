@@ -309,8 +309,6 @@ if ($marcasQry->num_rows > 0) {
             dataType: "json",
             success: function(resp) {
 
-                console.log(resp);
-
                 if(resp == "1"){
                     $("#btnOferta").attr('hidden', false);
                     $("#captcha").attr('hidden', true);
@@ -321,16 +319,6 @@ if ($marcasQry->num_rows > 0) {
                     capt.style.background= "#f5a0a0fa";
                     $("#msjCaptcha").attr('hidden', false);
                 }
-                
-/*                 let opcionesVersiones = '<option value="0">Selecciona la versión...</option>';
-                resp.forEach(elem => {
-                    opcionesVersiones += `
-                        <option value="${elem.version}">${elem.version}</option>
-                    `;
-                });
-
-                $("#divVersiones").attr('hidden', false);
-                $("#filtroVersiones").html(opcionesVersiones); */
 
             }
         });
