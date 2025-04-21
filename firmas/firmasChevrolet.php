@@ -260,8 +260,8 @@ include("header.php");
             divisionImagen.className = 'divisionImgStyle';
             divisionImagenDos.style.maxWidth = '40%';
             divisionImagenDos.style.marginTop = '0px';
-            divTextoPagina.innerHTML = "<p>" + "chevroletrivero.com/taller-de-colision" + "</p>";
-            divTextoPaginaDos.innerHTML = "<p>" + "chevroletrivero.com/taller-de-colision" + "</p>";
+            divTextoPagina.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
+            divTextoPaginaDos.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
 
         } else if (areaSelect.value === 'flotillas') {
             divisionImagen.src = 'divisiones/flotillas.png';

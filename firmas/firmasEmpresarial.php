@@ -57,7 +57,7 @@ include("header.php");
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
-                        <div class="form-section">
+                        <div class="form-section" hidden>
                             <label for="paginaSelect">Página de tu Área:</label>
                             <select name="paginaSelect" id="paginaSelect"
                                 onchange="actualizarTexto(); funcionImprimirCodigo()">
@@ -253,12 +253,18 @@ include("header.php");
             divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisiones/corporativo.png';
             divisionImagen.className = 'imgCorporativo';
 
+            var paginaSelect = document.getElementById("paginaSelect");
+            var divTextoPagina = document.getElementById("txtPaginaArea");
+            var divTextoPaginaDos = document.getElementById("txtPaginaAreaDos");
+
             if (areaSelect.value === 'rentas') {
                 divisionImagen.src = 'divisiones/rentas.png';
                 divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/rentas.png';
                 divisionImagen.className = 'divisionImgStyle';
                 divisionImagenDos.style.maxWidth = '40%';
                 divisionImagenDos.style.marginTop = '0px';
+                divTextoPagina.innerHTML = "<p>" + "riverorenta.com" + "</p>";
+                divTextoPaginaDos.innerHTML = "<p>" + "riverorenta.com" + "</p>";
 
             } else if (areaSelect.value === 'transportes') {
                 divisionImagen.src = 'divisiones/transportes.png';
@@ -266,6 +272,8 @@ include("header.php");
                 divisionImagen.className = 'divisionImgStyle';
                 divisionImagenDos.style.marginTop = '0px';
                 divisionImagenDos.style.maxWidth = '40%';
+                divTextoPagina.innerHTML = "<p>" + "transportesrivero.com.mx" + "</p>";
+                divTextoPaginaDos.innerHTML = "<p>" + "transportesrivero.com.mx" + "</p>";
 
             } else if (areaSelect.value === 'otro') {
                 divisionImagen.src = 'divisiones/otro.png';
@@ -273,6 +281,8 @@ include("header.php");
                 divisionImagen.className = 'imgOtro';
                 divisionImagenDos.style.maxWidth = '70%';
                 divisionImagenDos.style.marginTop = '-25px';
+                divTextoPagina.innerHTML = "<p>" + "gruporivero.com" + "</p>";
+                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com" + "</p>";
             }
         }
 
@@ -318,41 +328,6 @@ include("header.php");
 
             divTextoTelefono.innerHTML = "<p>" + inputTelefono.value + "</p>";
             divTextoTelefonoDos.innerHTML = "<p>" + inputTelefono.value + "</p>";
-
-
-            var paginaSelect = document.getElementById("paginaSelect");
-            var divTextoPagina = document.getElementById("txtPaginaArea");
-            var divTextoPaginaDos = document.getElementById("txtPaginaAreaDos");
-
-            if (paginaSelect.value === 'bodyShop') {
-                divTextoPagina.innerHTML = "<p>" + "gruporivero.com" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com" + "</p>";
-
-            } else if (paginaSelect.value === 'flotillas') {
-                divTextoPagina.innerHTML = "<p>" + "riverorenta.com/empresarial" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "riverorenta.com/empresarial" + "</p>";
-
-            } else if (paginaSelect.value === 'rentas') {
-                divTextoPagina.innerHTML = "<p>" + "riverorenta.com" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "riverorenta.com" + "</p>";
-
-            } else if (paginaSelect.value === 'seminuevos') {
-                divTextoPagina.innerHTML = "<p>" + "gruporivero.com" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com" + "</p>";
-
-            } else if (paginaSelect.value === 'tallerServicio') {
-                divTextoPagina.innerHTML = "<p>" + "gruporivero.com" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com" + "</p>";
-
-            } else if (paginaSelect.value === 'transportes') {
-                divTextoPagina.innerHTML = "<p>" + "transportesrivero.com.mx" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "transportesrivero.com.mx" + "</p>";
-
-            } else if (paginaSelect.value === 'otro') {
-                divTextoPagina.innerHTML = "<p>" + "gruporivero.com" + "</p>";
-                divTextoPaginaDos.innerHTML = "<p>" + "gruporivero.com" + "</p>";
-            }
-
 
             var sucursalSelect = document.getElementById("sucursalSelect");
             var divTextoSucursal = document.getElementById("txtSucursal");
