@@ -297,7 +297,7 @@ if ($marcasQry->num_rows > 0) {
             captcha_input: captcha_input,
             desca: descripcion_auto,
         }
-
+console.log(data);
         $.ajax({
             type: "POST",
             url: "verificar.php",
