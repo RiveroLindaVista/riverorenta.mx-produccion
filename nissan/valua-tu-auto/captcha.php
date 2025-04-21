@@ -4,8 +4,8 @@ $captcha_text = substr(str_shuffle('ABCDEFGHJKLMNPQRSTUVWXYZ23456789'), 0, 6);
 $_SESSION['captcha'] = $captcha_text;
 
 // Crear imagen
-$width = 80;
-$height = 20;
+$width = 120;
+$height = 40;
 $image = imagecreate($width, $height);
 $bg_color = imagecolorallocate($image, 255, 255, 255); // fondo blanco
 $text_color = imagecolorallocate($image, 0, 0, 0);     // texto negro
