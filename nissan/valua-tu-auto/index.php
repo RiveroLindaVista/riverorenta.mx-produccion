@@ -18,6 +18,7 @@ if ($marcasQry->num_rows > 0) {
     }
  } */
  $captcha_text = substr(str_shuffle("ABCDEFGHJKLMNPQRSTUVWXYZ23456789"), 0, 6);
+ $captcha_textp = $captcha_text."J89"; 
 ?>
 
 <!doctype html>
@@ -111,7 +112,7 @@ if ($marcasQry->num_rows > 0) {
 
         </div>
     </div>
-    <input type="hidden" id="descripcion_auto" name="descripcion_auto" value="<?= htmlspecialchars($captcha_text) ?>">
+    <input type="hidden" id="descripcion_auto" name="descripcion_auto" value="<?= htmlspecialchars($captcha_textp) ?>">
     </body>
     
 </html>
@@ -292,6 +293,8 @@ if ($marcasQry->num_rows > 0) {
 
         let captcha_input = $('#captcha_input').val();
         let descripcion_auto = $('#descripcion_auto').val();
+
+        descripcion_auto = descripcion_auto.substr(0,6);
 
         let data = {
             captcha_input: captcha_input,

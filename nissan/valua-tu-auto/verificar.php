@@ -1,8 +1,8 @@
 <?php
 
 if ($_POST['captcha_input'] === $_POST['desca']) {
-    echo $_POST['captcha_input'];
+    echo "1";
 } else {
-    echo $_POST['desca'].' _ '.$_POST['captcha_input'];
+    echo "0";
 }
 ?>
