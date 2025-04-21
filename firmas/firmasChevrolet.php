@@ -269,8 +269,8 @@ include("header.php");
             divisionImagen.className = 'imgFlotillas';
             divisionImagenDos.style.marginTop = '0px';
             divisionImagenDos.style.maxWidth = '40%';
-            divTextoPagina.innerHTML = "<p>" + "riverorenta.com/empresarial" + "</p>";
-            divTextoPaginaDos.innerHTML = "<p>" + "riverorenta.com/empresarial" + "</p>";
+            divTextoPagina.innerHTML = "<p>" + "flotillas.gruporivero.com/" + "</p>";
+            divTextoPaginaDos.innerHTML = "<p>" + "flotillas.gruporivero.com/" + "</p>";
 
         } else if (areaSelect.value === 'rentas') {
             divisionImagen.src = 'divisiones/rentas.png';
