@@ -70,10 +70,10 @@ if ($marcasQry->num_rows > 0) {
             </div>
 
             <div class="row" id="captcha">
-            <p>Introduce el texto que ves en la imagen:</p>
-            <img src="captcha.php" alt="CAPTCHA"><br><br>
-            <input type="text" name="captcha_input" required>
-            <button type="submit">Enviar</button>
+                <p class="text-white">Introduce el texto que ves en la imagen:</p>
+                <img src="captcha.php" alt="CAPTCHA"><br><br>
+                <input type="text" id="captcha_input" name="captcha_input" required>
+                <button type="submit">Enviar</button>
             </div>
 
             <div class="row p-2" id="btnOferta" hidden>
@@ -283,6 +283,38 @@ if ($marcasQry->num_rows > 0) {
 
         $("#formOferta").attr('hidden', false);
         $("#ofertaFinal").attr('hidden', true);
+
+    }
+
+    function getCAPTCHA(){
+
+        let captcha_input = $('#filtroMarcas').val();
+
+        let data = {
+            captcha_input: captcha_input,
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "getCAPTCHA.php",
+            data: data,
+            dataType: "json",
+            success: function(resp) {
+
+                console.log(resp);
+                
+/*                 let opcionesVersiones = '<option value="0">Selecciona la versión...</option>';
+                resp.forEach(elem => {
+                    opcionesVersiones += `
+                        <option value="${elem.version}">${elem.version}</option>
+                    `;
+                });
+
+                $("#divVersiones").attr('hidden', false);
+                $("#filtroVersiones").html(opcionesVersiones); */
+
+            }
+        });
 
     }
 </script>
