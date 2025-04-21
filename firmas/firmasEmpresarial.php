@@ -25,7 +25,7 @@ include("header.php");
                                 onkeydown="actualizarTexto()" onchange="funcionImprimirCodigo()">
                         </div>
 
-                        <!-- <div class="form-section">
+                        <div class="form-section">
                             <label for="areaSelect">Selecciona tu Área:</label>
                             <select name="areaSelect" id="areaSelect"
                                 onchange="cambiarImagen(); funcionImprimirCodigo()">
@@ -37,7 +37,7 @@ include("header.php");
                                 <option value="transportes">Transportes</option>
                                 <option value="otro">Otro</option>
                             </select>
-                        </div> -->
+                        </div>
 
                         <div class="form-section">
                             <label for="nombreInput">Nombre:</label>
