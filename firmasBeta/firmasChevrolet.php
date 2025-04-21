@@ -432,10 +432,10 @@ include("header.php");
                     "</p>";
 
             } else if (sucursalSelect.value === 'loboAlianza') {
-                divTextoSucursal.innerHTML = "<p style='font-size:12px !important'>" +
+                divTextoSucursal.innerHTML = "<p style='font-size:9px !important'>" +
                     "Av. José Vasconcelos #1555 Entre Neil Armstrong y Av. De los Conquistadores Col. Del Valle, San Pedro Garza Garcia, Nuevo León, CP 66220" +
                     "</p>";
-                divTextoSucursalDos.innerHTML = "<p style='font-size:12px !important'>" +
+                divTextoSucursalDos.innerHTML = "<p style='font-size:9px !important'>" +
                     "Av. José Vasconcelos #1555 Entre Neil Armstrong y Av. De los Conquistadores Col. Del Valle, San Pedro Garza Garcia, Nuevo León, CP 66220" +
                     "</p>";
             } else if (sucursalSelect.value === 'venustianoCarranza') {
