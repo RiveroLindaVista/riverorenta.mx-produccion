@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("_config.php");
 $conn = new mysqli(DB_HOST, DB_USER,DB_PASSWORD, DB_DB);
 $sql = "Select year from valuacion_autometrica group by year order by year desc";
@@ -16,7 +17,8 @@ if ($marcasQry->num_rows > 0) {
         $opcionesMarcas.='<option value="'.$row['marca'].'">'. $row['marca'].'</option>';
     }
  } */
- ?>
+
+?>
 
 <!doctype html>
 <html>
@@ -65,6 +67,13 @@ if ($marcasQry->num_rows > 0) {
                     <span class="input-group-text" id="basic-addon1">Kilometraje:</span>
                     <input type="number" class="form-control" placeholder="Añade el kilometraje de tu vehículo" aria-label="KM" aria-describedby="basic-addon1" id="filtroKM" onkeypress="upKM()" onkeydown="upKM()">
                 </div>
+            </div>
+
+            <div class="row" id="captcha">
+            <p>Introduce el texto que ves en la imagen:</p>
+            <img src="captcha.php" alt="CAPTCHA"><br><br>
+            <input type="text" name="captcha_input" required>
+            <button type="submit">Enviar</button>
             </div>
 
             <div class="row p-2" id="btnOferta" hidden>
