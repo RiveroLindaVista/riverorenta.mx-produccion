@@ -310,7 +310,7 @@ if ($marcasQry->num_rows > 0) {
                 } else {
                     $("#btnOferta").attr('hidden', true);
                     var capt = document.getElementById('captcha_input');
-                    capt.style.background= "red";
+                    capt.style.background= "#f5a0a0fa";
 
                 }
                 
