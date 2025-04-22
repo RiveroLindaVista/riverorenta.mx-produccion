@@ -3,6 +3,14 @@ include_once("consultas.php");
 
 session_start();
 class Construir extends Conexion{
+
+   public function get_anos(){
+
+      $conn=new Conexion();
+      $consulta= $conn->query_anos();
+      return $consulta;
+   }
+
    public function get_marcas($ano){
 
       $conn=new Conexion();

@@ -2,6 +2,21 @@
 include_once("conexion.php");
 
 class Conexion extends Database{
+
+    public function query_anos(){
+        
+        $conn= Database::connect();
+        $sql = "SELECT year FROM valuacion_autometrica group by year order by year desc";
+        $result=$conn->query($sql);
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $out[]=$row;
+            }
+        } 
+        return $out;
+        $conn=Database::close();
+    }
+
     public function query_marcas($ano){
         
         $conn= Database::connect();

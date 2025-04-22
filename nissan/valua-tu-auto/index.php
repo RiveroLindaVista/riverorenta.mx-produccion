@@ -2,13 +2,13 @@
 
 include("_config.php");
 $conn = new mysqli(DB_HOST, DB_USER,DB_PASSWORD, DB_DB);
-$sql = "Select year from valuacion_autometrica group by year order by year desc";
+/* $sql = "Select year from valuacion_autometrica group by year order by year desc";
 $resultQuery = $conn->query($sql);
 if ($resultQuery->num_rows > 0) {
     while($row = $resultQuery->fetch_assoc()) {
         $opcionesYears.='<option value="'.$row['year'].'">'. $row['year'].'</option>';
     }
- }
+ } */
 
 /* $sqlMarcas = "Select marca from valuacion_autometrica group by marca order by marca asc";
 $marcasQry = $conn->query($sqlMarcas);
@@ -43,8 +43,6 @@ if ($marcasQry->num_rows > 0) {
             <div class="row p-2" id="divYears">
                 <label for="basic-url" class="form-label text-white">¿Qué año es tu auto?</label>
                 <select class="form-select" id="filtroYears" onchange="getMarcas()">
-                    <option value="0" disabled>Selecciona el año</option>
-                    <?=$opcionesYears?>
                 </select>
 
             </div>
@@ -118,6 +116,30 @@ if ($marcasQry->num_rows > 0) {
     
 </html>
 <script>
+
+$(document).ready(function() {
+
+    $.ajax({
+            type: "POST",
+            url: "getYears.php",
+            data: data,
+            dataType: "json",
+            success: function(resp) {
+                
+                let opcionesYears = '<option value="0">Selecciona el año...</option>';
+                resp.forEach(elem => {
+                   opcionesYears += `
+                        <option value="${elem.year}">${elem.year}</option>
+                   `;
+                });
+
+                console.log(opcionesYears);
+                $("#filtroYears").html(opcionesYears);
+            }
+        });
+})
+
+
     function getMarcas(){
 
         let select_ano = $('#filtroYears').val();
