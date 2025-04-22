@@ -119,6 +119,10 @@ if ($marcasQry->num_rows > 0) {
 
 $(document).ready(function() {
 
+    let data = {
+        ano: 1,
+    }
+
     $.ajax({
             type: "POST",
             url: "getYears.php",
