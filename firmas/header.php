@@ -30,6 +30,9 @@
 
                     <a onclick="openEmpresarial()" class="btn btn-primary btn-lg active styleEmpresarial" role="button">
                         <img src="divisiones/corporativo.png" alt="logoNissan" class="btnLogoEmpresarial"></a>
+
+                        <a onclick="openTransportes()" class="btn btn-primary btn-lg active styleTransportes" role="button">
+                            <img src="divisiones/transportes.png" alt="logoTransportes" class="btnLogoTransportes"></a>
                 </center>
                 <br>
             </div>
@@ -57,6 +60,11 @@
     function openEmpresarial() {
 
         window.location.replace('firmasEmpresarial.php');
+    }
+
+    function openTransportes() {
+
+        window.location.replace('firmasTransportes.php');
     }
     </script>
 
