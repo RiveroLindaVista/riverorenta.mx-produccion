@@ -13,6 +13,7 @@
   <script>
     // URL de destino (puedes construirla dinámicamente)
     const params = new URLSearchParams(window.location.search);
+    console.log(window.location);
     const usuario = "juan";
     const accion = "ver";
     const pagina = params.get('pagina');
