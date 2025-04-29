@@ -14,7 +14,7 @@
     // URL de destino (puedes construirla dinámicamente)
     const usuario = "juan";
     const accion = "ver";
-    const url = `http://www.google.com/calendar/event?action=TEMPLATE&usuario=${usuario}&accion=${accion}`;
+    const url = `http://www.google.com/calendar/event?action=TEMPLATE&dates=20201031T11:00:00-01:00/20201031T12:00:00-01:00&usuario=${usuario}&accion=${accion}`;
 
     // Generar el QR
     new QRCode(document.getElementById("qrcode"), {
