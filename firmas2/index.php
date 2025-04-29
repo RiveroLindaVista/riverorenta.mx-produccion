@@ -6,8 +6,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
-
-  <h2>Generador de QR para un enlace</h2>
   <div id="qrcode"></div>
 
   <script>
