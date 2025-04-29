@@ -14,7 +14,7 @@
     // URL de destino (puedes construirla dinámicamente)
     const usuario = "juan";
     const accion = "ver";
-    const url = `http://www.google.com/calendar/event?action=TEMPLATE&dates=20251031T11:00:00-01:00/20251031T12:00:00-01:00&text=Taller+Cita+de+Servicio&usuario=${usuario}&accion=${accion}`;
+    const url = `http://www.google.com/calendar/event?action=TEMPLATE&dates=20251031T11:00:00-01:00/20251031T12:00:00-01:00&text=Taller+Cita+de+Servicio&location=Av.Miguel+Alemnán+5400&details=Cita+en+taller+de+servicio+para+tu+Aveo+2020+en+Rivero+Linda+Vista&usuario=${usuario}&accion=${accion}`;
    // http://www.google.com/calendar/event?action=TEMPLATE&dates=20201031T11:00:00-01:00/20201031T12:00:00-01:00&text=Taller+Cita+de+Servicio&location=Av.Miguel+Alemnán+5400&details=Cita+en+taller+de+servicio+para+tu+Aveo+2020+en+Rivero+Linda+Vista
     // Generar el QR
     new QRCode(document.getElementById("qrcode"), {
