@@ -6,7 +6,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
-  <div id="qrcode"></div>
+  <div id="qrcode" style="display: flex;justify-content: center;"></div>
 
   <script>
     // URL de destino (puedes construirla dinámicamente)
