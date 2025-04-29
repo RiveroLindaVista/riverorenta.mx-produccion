@@ -30,7 +30,6 @@ include("header.php");
                             <select name="areaSelect" id="areaSelect"
                                 onchange="cambiarImagen(); funcionImprimirCodigo()">
                                 <option value="otro" selected>Administrativo</option>
-                                <option value="transportes">Transportes</option>
                                 <option value="rentas">Rentas</option>
                                 <!-- <option value="bodyShop">Body Shop</option>
                                 <option value="flotillas">Flotillas</option>
@@ -62,7 +61,6 @@ include("header.php");
                             <select name="paginaSelect" id="paginaSelect"
                                 onchange="actualizarTexto(); funcionImprimirCodigo()">
                                 <option value="otro" selected>Administrativo</option>
-                                <option value="transportes">Transportes</option>
                                 <option value="rentas">Rentas</option>
                                 <!-- <option value="bodyShop">Body Shop</option>
                                 <option value="flotillas">Flotillas</option>
@@ -84,7 +82,6 @@ include("header.php");
                                 <option value="gomezMorin">Gomez Morin</option>
                                 <option value="loboAlianza">Humberto Lobo Alianza</option>
                                 <option value="venustianoCarranza">Venustiano Carranza</option>
-                                <option value="transportes">Transportes</option>
                             </select>
                         </div>
                     </div>
