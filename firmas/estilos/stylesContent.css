@@ -375,6 +375,12 @@
     cursor: pointer;
 }
 
+.btnLogoTransportes {
+    width: 155px;
+    padding-top: 3%;
+    cursor: pointer;
+}
+
 /* Estilos del Form de Chevrolet */
 .contenedorUno {
     display: flex;
