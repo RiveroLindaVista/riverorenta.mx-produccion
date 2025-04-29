@@ -1,11 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Generador de QR</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
-    <h2>helllo world222222</h2>
+
+  <h2>Generador de QR para un enlace</h2>
+  <div id="qrcode"></div>
+
+  <script>
+    // URL de destino (puedes construirla dinámicamente)
+    const usuario = "juan";
+    const accion = "ver";
+    const url = `https://ejemplo.com/procesar.php?usuario=${usuario}&accion=${accion}`;
+
+    // Generar el QR
+    new QRCode(document.getElementById("qrcode"), {
+      text: url,
+      width: 200,
+      height: 200
+    });
+  </script>
+
 </body>
 </html>
