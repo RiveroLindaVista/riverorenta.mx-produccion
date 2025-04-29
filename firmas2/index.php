@@ -14,7 +14,7 @@
     // URL de destino (puedes construirla dinámicamente)
     const usuario = "juan";
     const accion = "ver";
-    const pagina = $_POST["pagina"];
+    //const pagina = $_POST["pagina"];
     
     //const url = `${pagina}&usuario=${usuario}&accion=${accion}`;
 
