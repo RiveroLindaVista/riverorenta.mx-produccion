@@ -326,7 +326,7 @@ $(document).ready(function() {
             console.log("Entro al primero del IF");
         } else {
             console.log("Entro al SEGUNDO del IF");
-            if (obj.lineal[0].sale == "" ){
+            if (obj.lineal[0].sale != "" ){
                 let formula = (obj.lineal[0].purchase + obj.lineal[0].sale) / 2;
 
                 precioPrimo = '$ '+new Intl.NumberFormat('en-US').format(formula)+'.00 MXN';
