@@ -100,9 +100,30 @@ if ($marcasQry->num_rows > 0) {
                 </div>
             </div>
             <div class="row">
-                <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">OFERTA VÁLIDA POR 7 DÍAS</h3>
+                <div class="btnOfertaNormal">
+                    <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">OFERTA VÁLIDA POR 7 DÍAS</h3>
 
-                <h2 id="precio" class="text-white text-center"></h2>
+                    <h2 id="precio" class="text-white text-center"></h2>
+                    <img style="top: 40px;position:absolute;right: 12px;height: 30px;" src="https://www.riverorenta.mx/valua-tu-carro/img/iconos/flecha_blanca.svg">
+                </div>
+            </div>
+
+            <div class="row" id="OfertaPrimo" hidden>
+                <div class="btnOfertaPrimo">
+                    <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">PRECIO PRIMO VÁLIDO POR 48 HRS</h3>
+
+                    <h2 id="precioPrimo" class="text-white text-center"><img style="height: 50px;filter: saturate(230%);" src="https://www.riverorenta.mx/valua-tu-carro/img/precio-primo.png"></h2>
+                    <div style="font-size:1em;line-height:20px !important">Con el precio Primo tienes solamente 48 horas para tomar la decisión, solo es cuestión que tengas a la mano la siguiente papelería:<br>
+                        <ul style="font-size: 1em;margin-top:10px;">
+                            <li>Factura Original</li>
+                            <li>Refrendos</li>
+                            <li>INE</li>
+                            <li>Comprobante de Domicilio</li>
+                            <li>Constancia de Insitituto de Control Vehicular</li>
+                            <li>Carátula Estado de Cuenta Bancario</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <div class="row d-flex justify-content-center">
@@ -285,16 +306,30 @@ $(document).ready(function() {
         $("#formOferta").attr('hidden', true);
         $("#ofertaFinal").attr('hidden', false);
         let data = obj.lineal;
+//NISSAN, CHEVROLET, MAZDA, TOYOTA, HONDA
 
         let precio = '$ '+new Intl.NumberFormat('en-US').format(obj.lineal[0].purchase)+'.00 MXN';
 
         let descripcionAuto = `
-            <p style="font-family: Narrow;">${obj.lineal[0].brand}</p>
-            <p style="font-family: Narrow;">${obj.lineal[0].subbrand} - ${obj.lineal[0].year}</p>
-            <p style="font-family: Narrow;">${obj.lineal[0].version}</p>
+            <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].brand} - ${obj.lineal[0].subbrand} - ${obj.lineal[0].year}</p>
+            <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].version}</p>
             `;
         $("#precio").html(precio);
         $("#descripcionAuto").html(descripcionAuto);
+
+        let precioPrimo = "";
+
+        if(obj.lineal[0].sale == "" || obj.linear[0].brand.toLowerCase().includes("chevrolet") == false || obj.linear[0].brand.toLowerCase().includes("nissan") == false || obj.linear[0].brand.toLowerCase().includes("mazda") == false || obj.linear[0].brand.toLowerCase().includes("mazda") == false || obj.linear[0].brand.toLowerCase().includes("toyota") == false){
+            
+        } else {
+            let formula = (obj.lineal[0].purchase + obj.lineal[0].sale) / 2;
+
+            precioPrimo = '$ '+new Intl.NumberFormat('en-US').format(formula)+'.00 MXN';
+            $("#precioPrimo").html(precioPrimo);
+            $("#OfertaPrimo").attr('hidden', false);
+        }
+
+
 
     }
 
@@ -403,6 +438,28 @@ $(document).ready(function() {
         padding: 10px;
         box-shadow: 1px 2px 3px 1px;
         max-width: 500px;
+    }
+
+    .btnOfertaNormal{
+        cursor: pointer;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        color: white;
+        border-radius: 10px;
+        padding: 10px;
+        position: relative;
+        background-color: #d40028;
+    }
+
+    .btnOfertaPrimo{
+        cursor: pointer;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        color: white;
+        border-radius: 10px;
+        padding: 10px;
+        position: relative;
+        background-color: #d40028;
     }
 
     @keyframes slide-in {
