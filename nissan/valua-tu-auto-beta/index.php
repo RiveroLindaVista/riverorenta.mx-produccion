@@ -319,6 +319,9 @@ $(document).ready(function() {
 
         let precioPrimo = "";
 
+        console.log("Marca: Chevrolet", obj.linear[0].brand.toLowerCase().includes("chevrolet"));
+        console.log("Precio Venta: ", obj.lineal[0].sale);
+
         if(obj.lineal[0].sale == "" || obj.linear[0].brand.toLowerCase().includes("chevrolet") == false || obj.linear[0].brand.toLowerCase().includes("nissan") == false || obj.linear[0].brand.toLowerCase().includes("mazda") == false || obj.linear[0].brand.toLowerCase().includes("mazda") == false || obj.linear[0].brand.toLowerCase().includes("toyota") == false){
             
         } else {
