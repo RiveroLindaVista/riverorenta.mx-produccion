@@ -113,7 +113,7 @@ $response_decoded_token = json_decode($response, true);
 $resp = mb_convert_encoding($resp, 'ISO-8859-1', 'UTF-8');
 
 $curl = curl_init();
-
+// marketing@gruporivero.com, mkt@gruporivero.com
 curl_setopt_array($curl, array(
   CURLOPT_URL => 'https://multimarca.gruporivero.com/api/v1/send/email',
   CURLOPT_RETURNTRANSFER => true,
@@ -124,7 +124,7 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
   CURLOPT_POSTFIELDS =>'{
-    "to":"jcruz@gruporivero.com",
+    "to":"jcruz@gruporivero.com,jvalles@gruporivero.com,marketing@gruporivero.com,mkt@gruporivero.com",
     "clientName":"Equipo de Marketing",
     "subject":"Falta de material para paginas web",
     "body":"'.$resp.'",
