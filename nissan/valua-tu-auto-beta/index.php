@@ -322,14 +322,18 @@ $(document).ready(function() {
         console.log("Marca: Chevrolet", obj.lineal[0].brand.toLowerCase().includes("chevrolet"));
         console.log("Precio Venta: ", obj.lineal[0].sale);
 
-        if(obj.lineal[0].sale == "" || obj.lineal[0].brand.toLowerCase().includes("chevrolet") == false || obj.lineal[0].brand.toLowerCase().includes("nissan") == false || obj.lineal[0].brand.toLowerCase().includes("mazda") == false || obj.lineal[0].brand.toLowerCase().includes("mazda") == false || obj.lineal[0].brand.toLowerCase().includes("toyota") == false){
-            
+        if(obj.lineal[0].brand.toLowerCase().includes("chevrolet") == false && obj.lineal[0].brand.toLowerCase().includes("nissan") == false && obj.lineal[0].brand.toLowerCase().includes("mazda") == false && obj.lineal[0].brand.toLowerCase().includes("mazda") == false && obj.lineal[0].brand.toLowerCase().includes("toyota") == false){
+            console.log("Entro al primero del IF");
         } else {
-            let formula = (obj.lineal[0].purchase + obj.lineal[0].sale) / 2;
 
-            precioPrimo = '$ '+new Intl.NumberFormat('en-US').format(formula)+'.00 MXN';
-            $("#precioPrimo").html(precioPrimo);
-            $("#OfertaPrimo").attr('hidden', false);
+            if (obj.lineal[0].sale == "" ){
+                let formula = (obj.lineal[0].purchase + obj.lineal[0].sale) / 2;
+
+                precioPrimo = '$ '+new Intl.NumberFormat('en-US').format(formula)+'.00 MXN';
+                $("#precioPrimo").html(precioPrimo);
+                $("#OfertaPrimo").attr('hidden', false);
+            }
+
         }
 
 
