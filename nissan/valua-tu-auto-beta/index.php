@@ -112,7 +112,7 @@ if ($marcasQry->num_rows > 0) {
                 <div class="btnOfertaPrimo">
                     <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">PRECIO PRIMO VÁLIDO POR 48 HRS</h3>
 
-                    <h2 id="precioPrimo" class="text-white text-center"><img style="height: 50px;filter: saturate(230%);" src="https://www.riverorenta.mx/valua-tu-carro/img/precio-primo.png"></h2>
+                    <h2 class="text-white text-center"><img style="height: 50px;filter: saturate(230%);" src="https://www.riverorenta.mx/valua-tu-carro/img/precio-primo.png"><span id="precioPrimo" style="font-size: calc(1.325rem + .9vw);"></span></h2>
                     <div style="font-size:1em;line-height:20px !important">Con el precio Primo tienes solamente 48 horas para tomar la decisión, solo es cuestión que tengas a la mano la siguiente papelería:<br>
                         <ul style="font-size: 1em;margin-top:10px;">
                             <li>Factura Original</li>
@@ -325,7 +325,7 @@ $(document).ready(function() {
         if(obj.lineal[0].brand.toLowerCase().includes("chevrolet") == false && obj.lineal[0].brand.toLowerCase().includes("nissan") == false && obj.lineal[0].brand.toLowerCase().includes("mazda") == false && obj.lineal[0].brand.toLowerCase().includes("mazda") == false && obj.lineal[0].brand.toLowerCase().includes("toyota") == false){
             console.log("Entro al primero del IF");
         } else {
-
+            console.log("Entro al SEGUNDO del IF");
             if (obj.lineal[0].sale == "" ){
                 let formula = (obj.lineal[0].purchase + obj.lineal[0].sale) / 2;
 
@@ -336,7 +336,7 @@ $(document).ready(function() {
 
         }
 
-
+        console.log("IGNORO");
 
     }
 
