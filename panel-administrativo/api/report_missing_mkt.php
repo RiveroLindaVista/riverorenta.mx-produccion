@@ -1,5 +1,6 @@
 <?php
-
+// https://localhost/produccion/panel-administrativo/api/report_missing_mkt.php
+// DESCRIPTION: 'Reporta por correo las unidades que no tienen material para su publicacion en la pagina web.',
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
