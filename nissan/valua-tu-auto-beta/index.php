@@ -122,6 +122,7 @@ if ($marcasQry->num_rows > 0) {
                             <li>Constancia de Insitituto de Control Vehicular</li>
                             <li>Carátula Estado de Cuenta Bancario</li>
                         </ul>
+                        <img style="top: 40px;position:absolute;right: 12px;height: 30px;" src="https://www.riverorenta.mx/valua-tu-carro/img/iconos/flecha_blanca.svg">
                     </div>
                 </div>
             </div>
@@ -467,6 +468,14 @@ $(document).ready(function() {
         padding: 10px;
         position: relative;
         background-color: #d40028;
+    }
+
+    .btnOfertaPrimo:hover{
+        background-color:rgb(173, 4, 35);
+    }
+
+    .btnOfertaNormal:hover{
+        background-color:rgb(173, 4, 35);
     }
 
     @keyframes slide-in {

@@ -34,6 +34,7 @@ include("header.php");
                                 <option value="flotillas">Flotillas</option>
                                 <option value="seminuevos">Seminuevos</option>
                                 <option value="tallerServicio">Taller de Servicio</option>
+                                <option value="refacciones">Refacciones</option>
                                 <!-- <option value="transportes">Transportes</option>
                                 <option value="rentas">Rentas</option> -->
                             </select>
@@ -293,6 +294,15 @@ include("header.php");
         } else if (areaSelect.value === 'tallerServicio') {
             divisionImagen.src = 'divisiones/tallerServicio.png';
             divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/tallerServicio.png';
+            divisionImagen.className = 'divisionImgStyle';
+            divisionImagenDos.style.maxWidth = '40%';
+            divisionImagenDos.style.marginTop = '0px';
+            divTextoPagina.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
+            divTextoPaginaDos.innerHTML = "<p>" + "chevroletrivero.com" + "</p>";
+
+        } else if (areaSelect.value === 'refacciones') {
+            divisionImagen.src = 'divisiones/refacciones.png';
+            divisionImagenDos.src = 'https://d3s2hob8w3xwk8.cloudfront.net/imgFirmas/divisionesM/refacciones.png';
             divisionImagen.className = 'divisionImgStyle';
             divisionImagenDos.style.maxWidth = '40%';
             divisionImagenDos.style.marginTop = '0px';
