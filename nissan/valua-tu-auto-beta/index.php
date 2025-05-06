@@ -146,6 +146,30 @@ if ($marcasQry->num_rows > 0) {
                 </div>
             </div>
 
+            <div id="formCita" class="container p-4" >
+                <div>
+                    <h1 class="text-white text-center m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">ÚLTIMO PASO</h1><br/>
+                    <p class="text-white text-center m-0"> Revisión física y mecánica de tu unidad </p>
+                    <p class="text-white text-center m-0"> Tiempo estimado de cita es de 1 hora </p>
+                </div>
+                <div>
+                    <img style="position: relative;" src="../images/sucursales/sucursal-nissan-rivero-contry" width="100%">
+                    <p class="text-white text-center m-0" style="position: absolute; bottom: 1;"> Agencia Nissan Rivero Contry Centro de Valuación </p>
+                </div>
+                <div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.1087190421126!2d-100.28514202477353!3d25.634516977431964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bfa1df343707%3A0x63f249c78c4935a7!2sAv.%20Eugenio%20Garza%20Sada%203800%2C%20M%C3%A1s%20Palomas%20(Valle%20de%20Santiago)%2C%2064780%20Monterrey%2C%20N.L.!5e0!3m2!1ses!2smx!4v1722980277064!5m2!1ses!2smx" width="600" height="250" title="ContImgMap" style="border: 0" allowFullScreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.7em;">Nombre:</p>
+                <input style="border-radius: 5px; width: 100%; height: 40px;font-size: 1.2em" placeholder="Ingresa tu nombre" type="text" id="nombre" name="nombre" required>
+                <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.7em;">Correo:</p>
+                <input style="border-radius: 5px; width: 100%; height: 40px;font-size: 1.2em" placeholder="Ingresa tu correo" type="text" id="correo" name="correo" required>
+                <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.7em;">Teléfono:</p>
+                <input style="border-radius: 5px; width: 100%; height: 40px;font-size: 1.2em" placeholder="Ingresa tu teléfono" type="number" id="telefono" max="10" name="telefono" required>
+                <div class="row p-2" id="btnOferta">
+                    <button class="btn btn-dark bg-dark" type="button" onclick="getOferta()">Ver Oferta</button>
+                </div>
+            </div>
+
         </div>
 
 
@@ -450,8 +474,8 @@ $(document).ready(function() {
             $(id).css("borderColor","#2b9c1fc7");
         return 1;
         } else {
-        $(id).css("borderColor","yellow");
-        return 0;
+            $(id).css("borderColor","yellow");
+            return 0;
         }
     }
 
@@ -462,6 +486,8 @@ $(document).ready(function() {
             $(id).css("borderColor","#2b9c1fc7");
         }
     }
+
+
 </script>
 
 <style>
