@@ -131,15 +131,15 @@ if ($marcasQry->num_rows > 0) {
                 <button class="btn btn-dark bg-dark" type="button" style="width:auto;" onclick="nuevaOferta()">Elige otro auto</button>
             </div>
 
-            <div id="formCita" class="container p-4" hidden>
-                <p class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1em;">Nombre:</p><br/>
-                <input type="text" id="nombre" class="mb-1" name="nombre" required>
-                <p class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1em;">Correo:</p><br/>
-                <input type="text" id="correo" class="mb-1" name="correo" required>
-                <p class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1em;">Teléfono:</p><br/>
-                <input type="text" id="telefono" class="mb-1" name="telefono" required>
-            </div>
+        </div>
 
+        <div id="formCita" class="container p-4" hidden>
+                <p class="text-center text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1em;">Nombre:</p><br/>
+                <input style="border-radius: 5px;" placeholder="Ingresa tu nombre" type="text" id="nombre" name="nombre" required>
+                <p class="text-center text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1em;">Correo:</p><br/>
+                <input style="border-radius: 5px;" placeholder="Ingresa tu correo" type="text" id="correo" name="correo" required>
+                <p class="text-center text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1em;">Teléfono:</p><br/>
+                <input style="border-radius: 5px;" placeholder="Ingresa tu teléfono" type="number" id="telefono" max="10" name="telefono" required>
         </div>
     </div>
     <input type="hidden" id="descripcion_auto" name="descripcion_auto" value="<?= htmlspecialchars($captcha_textp) ?>">
@@ -410,6 +410,7 @@ $(document).ready(function() {
 
     function selectOferta(oferta){
         $("#formCita").attr('hidden', false);
+        $("#ofertaFinal").attr('hidden', true);
         console.log(oferta);
     }
 </script>
