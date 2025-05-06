@@ -87,60 +87,61 @@ if ($marcasQry->num_rows > 0) {
         </div>
 
         <div id="ofertaFinal" class="container p-4" hidden>
+            <div id="of1">
+                <div class="row align-items-center">
+                    <h2 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">DESCRIPCIÓN DEL AUTO</h3>
 
-            <div class="row align-items-center">
-                <h2 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">DESCRIPCIÓN DEL AUTO</h3>
+                    <div class="d-flex align-items-center justify-content-center mb-3">
+                        <div id="descripcionAuto">
 
-                <div class="d-flex align-items-center justify-content-center mb-3">
-                    <div id="descripcionAuto">
-
-
-
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="btnOfertaNormal" onclick="selectOferta('normal')">
-                    <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">OFERTA VÁLIDA POR 7 DÍAS</h3>
+                <div class="row">
+                    <div class="btnOfertaNormal" onclick="selectOferta('normal')">
+                        <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">OFERTA VÁLIDA POR 7 DÍAS</h3>
 
-                    <h2 id="precio" class="text-white text-center"></h2>
-                    <img style="top: 40px;position:absolute;right: 12px;height: 30px;" src="https://www.riverorenta.mx/valua-tu-carro/img/iconos/flecha_blanca.svg">
-                </div>
-            </div>
-
-            <div class="row" id="OfertaPrimo" hidden>
-                <div class="btnOfertaPrimo" onclick="selectOferta('primo')">
-                    <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">PRECIO PRIMO VÁLIDO POR 48 HRS</h3>
-
-                    <h2 class="text-white text-center"><img style="height: 50px;filter: saturate(230%);" src="https://www.riverorenta.mx/valua-tu-carro/img/precio-primo.png"><span id="precioPrimo" style="font-size: calc(1.325rem + .9vw);"></span></h2>
-                    <div style="font-size:1em;line-height:20px !important">Con el precio Primo tienes solamente 48 horas para tomar la decisión, solo es cuestión que tengas a la mano la siguiente papelería:<br>
-                        <ul style="font-size: 1em;margin-top:10px;">
-                            <li>Factura Original</li>
-                            <li>Refrendos</li>
-                            <li>INE</li>
-                            <li>Comprobante de Domicilio</li>
-                            <li>Constancia de Insitituto de Control Vehicular</li>
-                            <li>Carátula Estado de Cuenta Bancario</li>
-                        </ul>
+                        <h2 id="precio" class="text-white text-center"></h2>
                         <img style="top: 40px;position:absolute;right: 12px;height: 30px;" src="https://www.riverorenta.mx/valua-tu-carro/img/iconos/flecha_blanca.svg">
                     </div>
                 </div>
+
+                <div class="row" id="OfertaPrimo" hidden>
+                    <div class="btnOfertaPrimo" onclick="selectOferta('primo')">
+                        <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">PRECIO PRIMO VÁLIDO POR 48 HRS</h3>
+
+                        <h2 class="text-white text-center"><img style="height: 50px;filter: saturate(230%);" src="https://www.riverorenta.mx/valua-tu-carro/img/precio-primo.png"><span id="precioPrimo" style="font-size: calc(1.325rem + .9vw);"></span></h2>
+                        <div style="font-size:1em;line-height:20px !important">Con el precio Primo tienes solamente 48 horas para tomar la decisión, solo es cuestión que tengas a la mano la siguiente papelería:<br>
+                            <ul style="font-size: 1em;margin-top:10px;">
+                                <li>Factura Original</li>
+                                <li>Refrendos</li>
+                                <li>INE</li>
+                                <li>Comprobante de Domicilio</li>
+                                <li>Constancia de Insitituto de Control Vehicular</li>
+                                <li>Carátula Estado de Cuenta Bancario</li>
+                            </ul>
+                            <img style="top: 40px;position:absolute;right: 12px;height: 30px;" src="https://www.riverorenta.mx/valua-tu-carro/img/iconos/flecha_blanca.svg">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                    <button class="btn btn-dark bg-dark" type="button" style="width:auto;" onclick="nuevaOferta()">Elige otro auto</button>
+                </div>
             </div>
 
-            <div class="row d-flex justify-content-center">
-                <button class="btn btn-dark bg-dark" type="button" style="width:auto;" onclick="nuevaOferta()">Elige otro auto</button>
+            <div id="formCita" class="container p-4" hidden>
+                <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1em;">Nombre:</p><br/>
+                <input style="border-radius: 5px; width: 100%; height: 40px;" placeholder="Ingresa tu nombre" type="text" id="nombre" name="nombre" required>
+                <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1em;">Correo:</p><br/>
+                <input style="border-radius: 5px; width: 100%; height: 40px;" placeholder="Ingresa tu correo" type="text" id="correo" name="correo" required>
+                <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1em;">Teléfono:</p><br/>
+                <input style="border-radius: 5px; width: 100%; height: 40px;" placeholder="Ingresa tu teléfono" type="number" id="telefono" max="10" name="telefono" required>
             </div>
 
         </div>
 
-        <div id="formCita" class="container p-4" hidden>
-                <p class="text-center text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1em;">Nombre:</p><br/>
-                <input style="border-radius: 5px;" placeholder="Ingresa tu nombre" type="text" id="nombre" name="nombre" required>
-                <p class="text-center text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1em;">Correo:</p><br/>
-                <input style="border-radius: 5px;" placeholder="Ingresa tu correo" type="text" id="correo" name="correo" required>
-                <p class="text-center text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1em;">Teléfono:</p><br/>
-                <input style="border-radius: 5px;" placeholder="Ingresa tu teléfono" type="number" id="telefono" max="10" name="telefono" required>
-        </div>
+
     </div>
     <input type="hidden" id="descripcion_auto" name="descripcion_auto" value="<?= htmlspecialchars($captcha_textp) ?>">
     </body>
@@ -411,6 +412,7 @@ $(document).ready(function() {
     function selectOferta(oferta){
         $("#formCita").attr('hidden', false);
         $("#ofertaFinal").attr('hidden', true);
+        $("#of1").attr('hidden', true);
         console.log(oferta);
     }
 </script>
