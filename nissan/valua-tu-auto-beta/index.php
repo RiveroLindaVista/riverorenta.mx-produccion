@@ -132,16 +132,16 @@ if ($marcasQry->num_rows > 0) {
 
             <div id="formCita" class="container p-4" hidden>
                 <div>
-                    <h1 class="text-white text-center" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">CUÉNTANOS SOBRE TU AUTO</h1><br/>
+                    <h1 class="text-white text-center m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">CUÉNTANOS SOBRE TU AUTO</h1><br/>
                     <p class="text-white"> Te haremos llegar en este instante la información </p>
                 </div>
                 <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.7em;">Nombre:</p>
-                <input style="border-radius: 5px; width: 100%; height: 40px;" placeholder="Ingresa tu nombre" type="text" id="nombre" name="nombre" required>
+                <input style="border-radius: 5px; width: 100%; height: 40px;font-size: 1.2em" placeholder="Ingresa tu nombre" type="text" id="nombre" name="nombre" required>
                 <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.7em;">Correo:</p>
-                <input style="border-radius: 5px; width: 100%; height: 40px;" placeholder="Ingresa tu correo" type="text" id="correo" name="correo" required>
+                <input style="border-radius: 5px; width: 100%; height: 40px;font-size: 1.2em" placeholder="Ingresa tu correo" type="text" id="correo" name="correo" required>
                 <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.7em;">Teléfono:</p>
-                <input style="border-radius: 5px; width: 100%; height: 40px;" placeholder="Ingresa tu teléfono" type="number" id="telefono" max="10" name="telefono" required>
-                <div class="row p-2" id="btnOferta" hidden>
+                <input style="border-radius: 5px; width: 100%; height: 40px;font-size: 1.2em" placeholder="Ingresa tu teléfono" type="number" id="telefono" max="10" name="telefono" required>
+                <div class="row p-2" id="btnOferta">
                     <button class="btn btn-dark bg-dark" type="button" onclick="getOferta()">Ver Oferta</button>
                 </div>
             </div>
@@ -299,29 +299,45 @@ $(document).ready(function() {
 
     function getOferta(){
 
-        $("#btnOferta").attr('hidden', true);
-        $("#cargando").attr('hidden', false);
+        var valCorreo=validarCorreo($("#correo").val(),"#correo");
 
-        let select_marca = $('#filtroMarcas').val();
-        let select_ano = $('#filtroYears').val();
-        let select_modelo = $('#filtroModelos').val();
-        let select_version = $('#filtroVersiones').val();
-        let select_km = $('#filtroKM').val();
+        if($("#telefono").val().length<10){
+            campoVacio("#telefono");
+        }
 
-        select_version = select_version.replaceAll(" ", "%20");
-        select_modelo = select_modelo.replaceAll(" ", "%20");
+        if($("#nombre").val()!=""&&$("#correo").val()!=""&&$("#telefono").val()!=""&&valCorreo==1&&$("#telefono").val().length==10){
+            $("#btnOferta").attr('hidden', true);
+            $("#cargando").attr('hidden', false);
 
-        let obj = '{"lineal": [{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "4 pts. LS, 1.3l, TM5, a\/ac., BA, R-15","km_group": "A","sale": 239000,"purchase": 209800},{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "Valor kilometraje","km_group": "A","sale": -4800,"purchase": -4800}]}';
-        objetoOferta(JSON.parse(obj));
-/*         const requestOptions = {
-            method: "GET",
-            redirect: "follow"
-        };
+            let select_marca = $('#filtroMarcas').val();
+            let select_ano = $('#filtroYears').val();
+            let select_modelo = $('#filtroModelos').val();
+            let select_version = $('#filtroVersiones').val();
+            let select_km = $('#filtroKM').val();
 
-        fetch("https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=nissan&year="+select_ano+"&brand="+select_marca+"&subbrand="+select_modelo+"&version="+select_version+"&kilometraje="+select_km+"", requestOptions)
-        .then((response) => response.text())
-        .then((result) => this.objetoOferta(JSON.parse(result)))
-        .catch((error) => console.error(error)); */
+            select_version = select_version.replaceAll(" ", "%20");
+            select_modelo = select_modelo.replaceAll(" ", "%20");
+
+            let obj = '{"lineal": [{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "4 pts. LS, 1.3l, TM5, a\/ac., BA, R-15","km_group": "A","sale": 239000,"purchase": 209800},{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "Valor kilometraje","km_group": "A","sale": -4800,"purchase": -4800}]}';
+            objetoOferta(JSON.parse(obj));
+    /*         const requestOptions = {
+                method: "GET",
+                redirect: "follow"
+            };
+
+            fetch("https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=nissan&year="+select_ano+"&brand="+select_marca+"&subbrand="+select_modelo+"&version="+select_version+"&kilometraje="+select_km+"", requestOptions)
+            .then((response) => response.text())
+            .then((result) => this.objetoOferta(JSON.parse(result)))
+            .catch((error) => console.error(error)); */
+        } else {
+            campoVacio("#nombre");
+            validarCorreo("#correo");
+            if($("#telefono").val().length<10){
+                $("#telefono").css("borderColor","yellow");
+            }else{
+                $("#telefono").css("borderColor","#2485FB");
+            }
+        }
     }
 
     function objetoOferta(obj){
@@ -425,6 +441,24 @@ $(document).ready(function() {
         $("#formCita").attr('hidden', false);
         $("#ofertaFinal").attr('hidden', false);
         $("#formOferta").attr('hidden', true);
+    }
+
+    function validarCorreo(valor,id) {
+        if ( /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i.test(valor)){
+            $(id).css("borderColor","#2485FB");
+        return 1;
+        } else {
+        $(id).css("borderColor","yellow");
+        return 0;
+        }
+    }
+
+    function campoVacio(id){
+        if($(id).val()==""){
+            $(id).css("borderColor","yellow");
+        }else{
+            $(id).css("borderColor","#2485FB");
+        }
     }
 </script>
 
