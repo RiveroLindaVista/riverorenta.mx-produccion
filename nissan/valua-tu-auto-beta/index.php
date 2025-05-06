@@ -76,8 +76,8 @@ if ($marcasQry->num_rows > 0) {
                 <button type="button" class="btn bg-dark text-white" onclick="getCAPTCHA()">LISTO</button>
             </div>
 
-            <div class="row p-2" id="btnOferta" hidden>
-                <button class="btn btn-dark bg-dark" type="button" onclick="getOferta()">Ver Oferta</button>
+            <div class="row p-2" id="btnSig" hidden>
+                <button class="btn btn-dark bg-dark" type="button" onclick="siguienteDatos()">Siguiente</button>
             </div>
 
             <div id="cargando" class="spinner-grow text-light text-center" role="status" hidden>
@@ -131,12 +131,15 @@ if ($marcasQry->num_rows > 0) {
             </div>
 
             <div id="formCita" class="container p-4" hidden>
-                <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.8em;">Nombre:</p>
+                <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.7em;">Nombre:</p>
                 <input style="border-radius: 5px; width: 100%; height: 40px;" placeholder="Ingresa tu nombre" type="text" id="nombre" name="nombre" required>
-                <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.8em;">Correo:</p>
+                <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.7em;">Correo:</p>
                 <input style="border-radius: 5px; width: 100%; height: 40px;" placeholder="Ingresa tu correo" type="text" id="correo" name="correo" required>
-                <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.8em;">Teléfono:</p>
+                <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.7em;">Teléfono:</p>
                 <input style="border-radius: 5px; width: 100%; height: 40px;" placeholder="Ingresa tu teléfono" type="number" id="telefono" max="10" name="telefono" required>
+                <div class="row p-2" id="btnOferta" hidden>
+                    <button class="btn btn-dark bg-dark" type="button" onclick="getOferta()">Ver Oferta</button>
+                </div>
             </div>
 
         </div>
@@ -394,11 +397,11 @@ $(document).ready(function() {
             success: function(resp) {
 
                 if(resp == "1"){
-                    $("#btnOferta").attr('hidden', false);
+                    $("#btnSig").attr('hidden', false);
                     $("#captcha").attr('hidden', true);
                     $("#msjCaptcha").attr('hidden', true);
                 } else {
-                    $("#btnOferta").attr('hidden', true);
+                    $("#btnSig").attr('hidden', true);
                     var capt = document.getElementById('captcha_input');
                     capt.style.background= "#f5a0a0fa";
                     $("#msjCaptcha").attr('hidden', false);
@@ -410,9 +413,13 @@ $(document).ready(function() {
     }
 
     function selectOferta(oferta){
-        $("#formCita").attr('hidden', false);
         $("#of1").attr('hidden', true);
         console.log(oferta);
+    }
+
+    function siguienteDatos(){
+        $("#formCita").attr('hidden', false);
+        $("#formOferta").attr('hidden', true);
     }
 </script>
 
