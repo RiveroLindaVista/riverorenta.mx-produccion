@@ -153,7 +153,7 @@ if ($marcasQry->num_rows > 0) {
                     <p class="text-white text-center m-0"> Tiempo estimado de cita es de 1 hora </p>
                 </div>
                 <div>
-                    <img style="position: relative;" src="../images/sucursales/sucursal-nissan-rivero-contry" width="100%">
+                    <img style="position: relative;" src="images/sucursales/sucursal-nissan-rivero-contry" width="100%">
                     <p class="text-white text-center m-0" style="position: absolute; bottom: 1;"> Agencia Nissan Rivero Contry Centro de Valuación </p>
                 </div>
                 <div>
