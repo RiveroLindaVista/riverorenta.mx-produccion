@@ -88,10 +88,10 @@ if ($marcasQry->num_rows > 0) {
 
         <div id="ofertaFinal" class="container p-4" hidden>
             <div id="of1" hidden>
-                <div class="row align-items-center" style="width: 100%;">
+                <div class="row align-items-center">
                     <h2 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">DESCRIPCIÓN DEL AUTO</h3>
 
-                    <div class="d-flex align-items-center justify-content-center mb-3">
+                    <div class="d-flex align-items-center justify-content-center mb-3" style="width: 100%;">
                         <div id="descripcionAuto">
 
                         </div>
