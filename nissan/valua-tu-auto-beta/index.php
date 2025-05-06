@@ -88,7 +88,7 @@ if ($marcasQry->num_rows > 0) {
 
         <div id="ofertaFinal" class="container p-4" hidden>
             <div id="of1">
-                <div class="row align-items-center">
+                <div class="row align-items-center" style="width: 100%;">
                     <h2 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">DESCRIPCIÓN DEL AUTO</h3>
 
                     <div class="d-flex align-items-center justify-content-center mb-3">
@@ -411,7 +411,6 @@ $(document).ready(function() {
 
     function selectOferta(oferta){
         $("#formCita").attr('hidden', false);
-        $("#ofertaFinal").attr('hidden', true);
         $("#of1").attr('hidden', true);
         console.log(oferta);
     }
