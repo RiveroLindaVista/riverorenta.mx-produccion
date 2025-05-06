@@ -91,7 +91,7 @@ if ($marcasQry->num_rows > 0) {
                 <div class="row align-items-center">
                     <h2 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">DESCRIPCIÓN DEL AUTO</h3>
 
-                    <div class="d-flex align-items-center justify-content-center mb-3" style="width: 100%;">
+                    <div class="d-flex align-items-center justify-content-center mb-3">
                         <div id="descripcionAuto">
 
                         </div>
@@ -514,7 +514,7 @@ $(document).ready(function() {
         border-radius: 15px;
         padding: 10px;
         box-shadow: 1px 2px 3px 1px;
-        max-width: 500px;
+        width: 100%;
     }
 
     .btnOfertaNormal{
