@@ -335,7 +335,7 @@ $(document).ready(function() {
             if($("#telefono").val().length<10){
                 $("#telefono").css("borderColor","yellow");
             }else{
-                $("#telefono").css("borderColor","#2485FB");
+                $("#telefono").css("borderColor","#2b9c1fc7");
             }
         }
     }
@@ -445,7 +445,7 @@ $(document).ready(function() {
 
     function validarCorreo(valor,id) {
         if ( /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i.test(valor)){
-            $(id).css("borderColor","#2485FB");
+            $(id).css("borderColor","#2b9c1fc7");
         return 1;
         } else {
         $(id).css("borderColor","yellow");
@@ -457,7 +457,7 @@ $(document).ready(function() {
         if($(id).val()==""){
             $(id).css("borderColor","yellow");
         }else{
-            $(id).css("borderColor","#2485FB");
+            $(id).css("borderColor","#2b9c1fc7");
         }
     }
 </script>
