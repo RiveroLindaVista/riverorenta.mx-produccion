@@ -100,7 +100,7 @@ if ($marcasQry->num_rows > 0) {
                 </div>
             </div>
             <div class="row">
-                <div class="btnOfertaNormal">
+                <div class="btnOfertaNormal" onclick="selectOferta('normal')">
                     <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">OFERTA VÁLIDA POR 7 DÍAS</h3>
 
                     <h2 id="precio" class="text-white text-center"></h2>
@@ -109,7 +109,7 @@ if ($marcasQry->num_rows > 0) {
             </div>
 
             <div class="row" id="OfertaPrimo" hidden>
-                <div class="btnOfertaPrimo">
+                <div class="btnOfertaPrimo" onclick="selectOferta('primo')">
                     <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">PRECIO PRIMO VÁLIDO POR 48 HRS</h3>
 
                     <h2 class="text-white text-center"><img style="height: 50px;filter: saturate(230%);" src="https://www.riverorenta.mx/valua-tu-carro/img/precio-primo.png"><span id="precioPrimo" style="font-size: calc(1.325rem + .9vw);"></span></h2>
@@ -131,6 +131,15 @@ if ($marcasQry->num_rows > 0) {
                 <button class="btn btn-dark bg-dark" type="button" style="width:auto;" onclick="nuevaOferta()">Elige otro auto</button>
             </div>
 
+            <div id="formCita" class="container p-4" hidden>
+                <p class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1em;">Nombre:</p><br/>
+                <input type="text" id="nombre" class="mb-1" name="nombre" required>
+                <p class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1em;">Correo:</p><br/>
+                <input type="text" id="correo" class="mb-1" name="correo" required>
+                <p class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1em;">Teléfono:</p><br/>
+                <input type="text" id="telefono" class="mb-1" name="telefono" required>
+            </div>
+
         </div>
     </div>
     <input type="hidden" id="descripcion_auto" name="descripcion_auto" value="<?= htmlspecialchars($captcha_textp) ?>">
@@ -138,6 +147,8 @@ if ($marcasQry->num_rows > 0) {
     
 </html>
 <script>
+
+    var ofertaElegida = '';
 
 $(document).ready(function() {
 
@@ -306,7 +317,7 @@ $(document).ready(function() {
     }
 
     function objetoOferta(obj){
-    console.log("Objeto",obj);
+
         $("#formOferta").attr('hidden', true);
         $("#ofertaFinal").attr('hidden', false);
         let data = obj.lineal;
@@ -315,7 +326,7 @@ $(document).ready(function() {
         let precio = '$ '+new Intl.NumberFormat('en-US').format(obj.lineal[0].purchase)+'.00 MXN';
 
         let descripcionAuto = `
-            <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].brand} - ${obj.lineal[0].subbrand} - ${obj.lineal[0].year}</p>
+            <p style="font-family: Narrow;text-align: center;font-size: 2em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
             <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].version}</p>
             `;
         $("#precio").html(precio);
@@ -395,6 +406,11 @@ $(document).ready(function() {
             }
         });
 
+    }
+
+    function selectOferta(oferta){
+        $("#formCita").attr('hidden', false);
+        console.log(oferta);
     }
 </script>
 
