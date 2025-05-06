@@ -87,7 +87,7 @@ if ($marcasQry->num_rows > 0) {
         </div>
 
         <div id="ofertaFinal" class="container p-4" hidden>
-            <div id="of1">
+            <div id="of1" hidden>
                 <div class="row align-items-center" style="width: 100%;">
                     <h2 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">DESCRIPCIÓN DEL AUTO</h3>
 
@@ -131,6 +131,10 @@ if ($marcasQry->num_rows > 0) {
             </div>
 
             <div id="formCita" class="container p-4" hidden>
+                <div>
+                    <h1 class="text-white text-center" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">CUÉNTANOS SOBRE TU AUTO</h1><br/>
+                    <p class="text-white"> Te haremos llegar en este instante la información </p>
+                </div>
                 <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.7em;">Nombre:</p>
                 <input style="border-radius: 5px; width: 100%; height: 40px;" placeholder="Ingresa tu nombre" type="text" id="nombre" name="nombre" required>
                 <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.7em;">Correo:</p>
