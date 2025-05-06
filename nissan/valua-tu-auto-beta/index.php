@@ -131,11 +131,11 @@ if ($marcasQry->num_rows > 0) {
             </div>
 
             <div id="formCita" class="container p-4" hidden>
-                <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1em;">Nombre:</p><br/>
+                <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.8em;">Nombre:</p>
                 <input style="border-radius: 5px; width: 100%; height: 40px;" placeholder="Ingresa tu nombre" type="text" id="nombre" name="nombre" required>
-                <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1em;">Correo:</p><br/>
+                <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.8em;">Correo:</p>
                 <input style="border-radius: 5px; width: 100%; height: 40px;" placeholder="Ingresa tu correo" type="text" id="correo" name="correo" required>
-                <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1em;">Teléfono:</p><br/>
+                <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.8em;">Teléfono:</p>
                 <input style="border-radius: 5px; width: 100%; height: 40px;" placeholder="Ingresa tu teléfono" type="number" id="telefono" max="10" name="telefono" required>
             </div>
 
