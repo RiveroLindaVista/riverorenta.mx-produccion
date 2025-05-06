@@ -332,7 +332,7 @@ $(document).ready(function() {
         } else {
             campoVacio("#nombre");
             validarCorreo("#correo");
-            if($("#telefono").val().length<10){
+            if($("#telefono").val().length != 10){
                 $("#telefono").css("borderColor","yellow");
             }else{
                 $("#telefono").css("borderColor","#2b9c1fc7");
