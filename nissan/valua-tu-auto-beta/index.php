@@ -419,6 +419,7 @@ $(document).ready(function() {
 
     function siguienteDatos(){
         $("#formCita").attr('hidden', false);
+        $("#ofertaFinal").attr('hidden', false);
         $("#formOferta").attr('hidden', true);
     }
 </script>
