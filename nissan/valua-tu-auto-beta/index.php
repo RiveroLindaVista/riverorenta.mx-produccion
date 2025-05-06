@@ -148,12 +148,12 @@ if ($marcasQry->num_rows > 0) {
 
             <div id="formCita" class="container p-4" >
                 <div>
-                    <h1 class="text-white text-center m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">ÚLTIMO PASO</h1><br/>
+                    <h1 class="text-white text-center m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">ÚLTIMO PASO</h1>
                     <p class="text-white text-center m-0"> Revisión física y mecánica de tu unidad </p>
                     <p class="text-white text-center m-0"> Tiempo estimado de cita es de 1 hora </p>
                 </div>
                 <div>
-                    <img style="position: relative;" src="images/sucursales/sucursal-nissan-rivero-contry" width="100%">
+                    <img class="imgSucursal" style="position: relative;" src="images/sucursales/sucursal-nissan-rivero-contry" width="100%">
                     <p class="text-white text-center m-0" style="position: absolute; bottom: 1;"> Agencia Nissan Rivero Contry Centro de Valuación </p>
                 </div>
                 <div>
@@ -587,4 +587,16 @@ $(document).ready(function() {
         font-family: Narrow;
         src: url('Narrow/owners-narrow-black.ttf');
     }
+
+    .imgSucursal{
+        width: 600px;
+    }
+
+    @media only screen and (max-width: 767px) {
+        .imgSucursal{
+            width: 100%;
+        }
+    }
+
+
 </style>
