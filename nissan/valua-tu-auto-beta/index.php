@@ -130,7 +130,7 @@ if ($marcasQry->num_rows > 0) {
                 </div>
             </div>
 
-            <div id="formCita" class="container p-4" hidden>
+            <div id="formDatos" class="container p-4" hidden>
                 <div>
                     <h1 class="text-white text-center m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">CUÉNTANOS SOBRE TU AUTO</h1><br/>
                     <p class="text-white"> Te haremos llegar en este instante la información </p>
@@ -343,7 +343,9 @@ $(document).ready(function() {
     function objetoOferta(obj){
 
         $("#formOferta").attr('hidden', true);
+        $("#formDatos").attr('hidden', true);
         $("#ofertaFinal").attr('hidden', false);
+        $("#of1").attr('hidden', false);
         let data = obj.lineal;
 //NISSAN, CHEVROLET, MAZDA, TOYOTA, HONDA
 
@@ -438,7 +440,7 @@ $(document).ready(function() {
     }
 
     function siguienteDatos(){
-        $("#formCita").attr('hidden', false);
+        $("#formDatos").attr('hidden', false);
         $("#ofertaFinal").attr('hidden', false);
         $("#formOferta").attr('hidden', true);
     }
