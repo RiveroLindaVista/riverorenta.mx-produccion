@@ -2,6 +2,8 @@
 
 include("_config.php");
 $conn = new mysqli(DB_HOST, DB_USER,DB_PASSWORD, DB_DB);
+
+$hoy = date('Y-m-d');
 /* $sql = "Select year from valuacion_autometrica group by year order by year desc";
 $resultQuery = $conn->query($sql);
 if ($resultQuery->num_rows > 0) {
@@ -162,7 +164,7 @@ if ($marcasQry->num_rows > 0) {
                 <p class="text-white text-center m-0" style="font-size: .7em;">Av. Eugenio Garza Sada 3800, Mas Palomas (Valle de Santiago) Monterrey, NL 64780</p>
                 <hr/>
                 <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.7em;">¿Cuándo te vemos?</p>
-                <input style="border-radius: 5px; width: 100%; height: 40px;font-size: 1.2em" type="date" id="fecha" name="fecha" required>
+                <input style="border-radius: 5px; width: 100%; height: 40px;font-size: 1.2em" type="date" id="fecha" name="fecha" value="<?= $hoy ?>" >
                 <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.7em;">Elige una hora:</p>
                 <select class="form-select" id="hora">
                     <option value="09:00">09:00</option>
