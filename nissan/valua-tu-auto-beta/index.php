@@ -304,6 +304,7 @@ $(document).ready(function() {
     }
 
     function objetoOferta(obj){
+    console.log("Objeto",obj);
         $("#formOferta").attr('hidden', true);
         $("#ofertaFinal").attr('hidden', false);
         let data = obj.lineal;
