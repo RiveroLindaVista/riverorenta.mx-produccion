@@ -538,7 +538,7 @@ $(document).ready(function() {
         let marca = $('#filtroMarcas').val();
         let modelo = $('#filtroModelos').val();
         let version = $('#filtroVersiones').val();
-        let kilometraje = $('#filtroKM').val();
+        let kilometraje = parseInt($('#filtroKM').val());
         let fecha = $('#fecha').val();
         let hora = $('#hora').val();
 
