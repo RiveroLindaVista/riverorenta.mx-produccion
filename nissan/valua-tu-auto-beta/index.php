@@ -493,6 +493,7 @@ $(document).ready(function() {
 
     function selectOferta(oferta){
         $("#of1").attr('hidden', true);
+        $("#formCitas").attr('hidden', false);
 
         ofertas.ofertaElegida = oferta;
 
