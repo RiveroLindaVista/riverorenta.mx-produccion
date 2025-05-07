@@ -596,9 +596,9 @@ if ($marcasQry->num_rows > 0) {
         horadosLink =  horadosLink + hora.substring(2,5);
         horadosLink = horadosLink.replaceAll(":","");
 
-        let qrLink = "http://www.google.com/calendar/event?action=TEMPLATE&dates="+fecha.replaceAll("-", "")+"T"+hora.replaceAll(":", "")+"/"+fecha.replaceAll("-", "")+"T"+horadosLink+"&text=Cita+de+Valuacion+Nissan+Rivero&location="+direccion.replaceAll(" ", "+")+"&details=Cita+en+centro+de+valuacion+para+tu+"+modelo+"+en+la+sucursal+Rivero+Contry";
+        let qrLink = "http://www.google.com/calendar/event?action=TEMPLATE&dates="+fecha.replaceAll("-", "")+"T"+hora.replaceAll(":", "")+"/"+fecha.replaceAll("-", "")+"T"+horadosLink+"&text=Cita+de+Valuacion+Nissan+Rivero&location="+direccion.replaceAll(" ", "+")+"&details=Cita+en+centro+de+valuacion+para+tu+"+modelo.replaceAll(" ", "+")+"+en+la+sucursal+Rivero+Contry";
 
-        let frame = '<iframe src="https://www.riverorenta.mx/produccion/riveroQR/index.php?pagina='+qrLink+'" style="width: 100%; height: 200; border: none;"></frame>';
+        let frame = '<iframe src="https://www.riverorenta.mx/produccion/riveroQR/index.php?pagina='+qrLink+'" width="100%" height=200 style="border: 0" title="QRNissan"></frame>';
         $("#divQR").html(frame);
         console.log(qrLink);
     }
