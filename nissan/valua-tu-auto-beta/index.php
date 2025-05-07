@@ -48,7 +48,6 @@ if ($marcasQry->num_rows > 0) {
                 <label for="basic-url" class="form-label text-white">¿Qué año es tu auto?</label>
                 <select class="form-select" id="filtroYears" onchange="getMarcas()">
                 </select>
-
             </div>
             <div class="row p-2" id="divMarcas" hidden onchange="getModelos()">
                 <select class="form-select" id="filtroMarcas">
@@ -166,7 +165,7 @@ if ($marcasQry->num_rows > 0) {
                 <p class="text-white text-center m-0" style="font-size: .7em;">Av. Eugenio Garza Sada 3800, Mas Palomas (Valle de Santiago) Monterrey, NL 64780</p>
                 <hr/>
                 <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.7em;">¿Cuándo te vemos?</p>
-                <input style="border-radius: 5px; width: 100%; height: 40px;font-size: 1.2em" type="date" id="fecha" name="fecha" value="<?= $manana ?>" >
+                <input style="border-radius: 5px; width: 100%; height: 40px;font-size: 1.2em" type="date" id="fecha" name="fecha" value="<?= $manana ?>" min="<?= $manana ?>" >
                 <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.7em;">Elige una hora:</p>
                 <select class="form-select" id="hora">
                     <option value="09:00">09:00</option>
