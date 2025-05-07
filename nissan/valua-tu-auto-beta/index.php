@@ -593,7 +593,7 @@ if ($marcasQry->num_rows > 0) {
         }
         console.log(horadosLink);
         // Aqui tenemos 10
-        horadosLink =  horadosLink + horarioSelect.time.substring(2,8);
+        horadosLink =  horadosLink + hora.substring(2,5);
         horadosLink = horadosLink.replaceAll(":","");
 
         let qrLink = "http://www.google.com/calendar/event?action=TEMPLATE&dates="+fecha.replaceAll("-", "")+"T"+hora.replaceAll(":", "");+"/"+fecha.replaceAll("-", "")+"T"+horadosLink+"&text=Cita+de+Valuacion+Nissan+Rivero&location="+direccion.replaceAll(" ", "+")+"&details=Cita+en+centro+de+valuacion+para+tu+"+modelo+"+en+la+sucursal+Rivero+Contry";
