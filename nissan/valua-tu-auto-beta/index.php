@@ -192,6 +192,21 @@ if ($marcasQry->num_rows > 0) {
                 </div>
             </div>
 
+            <div id="formCalendar" class="container p-2" hidden>
+                <div>
+                    <h1 id="genial" class="text-white text-center m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;"></h1>
+                    <p id="teesperamos" class="text-white text-center m-0"> Revisión física y mecánica de tu unidad </p>
+                    <p id="papeleria" class="text-white text-center m-0" style="font-size:.7em"> Tiempo estimado de cita es de 1 hora </p>
+                </div>
+                <div id="divQR" class="d-flex justify-content-center">
+                    
+                </div>
+
+                <div id="btnCalendar" class="row p-2">
+                    <img src="images/botones/btn_calendar.svg">
+                </div>
+            </div>
+
         </div>
 
     </div>
@@ -211,31 +226,31 @@ if ($marcasQry->num_rows > 0) {
         venta: ''
     };
 
-$(document).ready(function() {
+    $(document).ready(function() {
 
-    let data = {
-        ano: 1,
-    }
+        let data = {
+            ano: 1,
+        }
 
-    $.ajax({
-            type: "POST",
-            url: "getYears.php",
-            data: data,
-            dataType: "json",
-            success: function(resp) {
-                
-                let opcionesYears = '<option value="0">Selecciona el año...</option>';
-                resp.forEach(elem => {
-                   opcionesYears += `
-                        <option value="${elem.year}">${elem.year}</option>
-                   `;
-                });
+        $.ajax({
+                type: "POST",
+                url: "getYears.php",
+                data: data,
+                dataType: "json",
+                success: function(resp) {
+                    
+                    let opcionesYears = '<option value="0">Selecciona el año...</option>';
+                    resp.forEach(elem => {
+                    opcionesYears += `
+                            <option value="${elem.year}">${elem.year}</option>
+                    `;
+                    });
 
-                console.log(opcionesYears);
-                $("#filtroYears").html(opcionesYears);
-            }
-        });
-})
+                    console.log(opcionesYears);
+                    $("#filtroYears").html(opcionesYears);
+                }
+            });
+    })
 
 
     function getMarcas(){
@@ -542,6 +557,7 @@ $(document).ready(function() {
         let kilometraje = parseInt($('#filtroKM').val());
         let fecha = $('#fecha').val();
         let hora = $('#hora').val();
+        let direccion = 'Av. Eugenio Garza Sada 3800, Mas Palomas (Valle de Santiago), 64780 Monterrey, N.L., Mexico';
 
         let data = {
             nombre: nombre,
@@ -565,6 +581,23 @@ $(document).ready(function() {
         }
 
         console.log(data);
+
+        let horadosLinkSplit = hora.split(":");
+        let horadosLink = Number(horadosLinkSplit[0]);
+        horadosLink = horadosLink + 1;
+
+        if(horadosLink <= 9){
+            horadosLink = "0"+horadosLink.toString();
+        }
+        // Aqui tenemos 10
+        horadosLink =  horadosLink + horarioSelect.time.substring(2,8);
+        horadosLink = horadosLink.replaceAll(":","");
+
+        let qrLink = "http://www.google.com/calendar/event?action=TEMPLATE&dates="+fecha.replaceAll("-", "")+"T"+hora.replaceAll(":", "");+"/"+fecha.replaceAll("-", "")+"T"+horadosLink+"&text=Cita+de+Valuacion+Nissan+Rivero&location="+direccion.replaceAll(" ", "+")+"&details=Cita+en+centro+de+valuacion+para+tu+"+modelo+"+en+la+sucursal+Rivero+Contry";
+
+        let frame = '<iframe src="https://www.riverorenta.mx/produccion/riveroQR/index.php?pagina='+qrLink+'" style="width: 100%; height: 200; border: none;"></frame>';
+        $("#divQR").html(frame);
+        console.log(qrLink);
     }
 
 
@@ -652,6 +685,12 @@ $(document).ready(function() {
     .btnOfertaNormal:hover{
         background-color:rgb(173, 4, 35);
     }
+
+    #formCita{
+        animation-duration: 1s;
+        animation-name: slide-in;
+    }
+
 
     @keyframes slide-in {
         from {
