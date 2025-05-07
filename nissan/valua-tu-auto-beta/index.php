@@ -101,7 +101,7 @@ if ($marcasQry->num_rows > 0) {
                     </div>
                 </div>
                 <div class="row">
-                    <div class="btnOfertaNormal" onclick="selectOferta('normal')">
+                    <div class="btnOfertaNormal" onclick="selectOferta('Normal')">
                         <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">OFERTA VÁLIDA POR 7 DÍAS</h3>
 
                         <h2 id="precio" class="text-white text-center"></h2>
@@ -110,7 +110,7 @@ if ($marcasQry->num_rows > 0) {
                 </div>
 
                 <div class="row" id="OfertaPrimo" hidden>
-                    <div class="btnOfertaPrimo" onclick="selectOferta('primo')">
+                    <div class="btnOfertaPrimo" onclick="selectOferta('Precio Primo')">
                         <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">PRECIO PRIMO VÁLIDO POR 48 HRS</h3>
 
                         <h2 class="text-white text-center"><img style="height: 50px;filter: saturate(230%);" src="https://www.riverorenta.mx/valua-tu-carro/img/precio-primo.png"><span id="precioPrimo" style="font-size: calc(1.325rem + .9vw);"></span></h2>
@@ -164,7 +164,7 @@ if ($marcasQry->num_rows > 0) {
                 </div>
                 <p class="text-white text-center m-0" style="font-size: .7em;">Av. Eugenio Garza Sada 3800, Mas Palomas (Valle de Santiago) Monterrey, NL 64780</p>
                 <hr/>
-                <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.7em;">¿Cuándo te vemos?</p>
+                <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.7em;padding:10px;">¿Cuándo te vemos?</p>
                 <input style="border-radius: 5px; width: 100%; height: 40px;font-size: 1.2em" type="date" id="fecha" name="fecha" value="<?= $manana ?>" min="<?= $manana ?>" >
                 <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.7em;">Elige una hora:</p>
                 <select class="form-select" id="hora">
@@ -188,7 +188,7 @@ if ($marcasQry->num_rows > 0) {
                 </select>
 
                 <div class="row p-2" id="btnCrearCita">
-                    <button class="btn btn-dark bg-dark" type="button" onclick="getCrearCita()">Crear Cita</button>
+                    <button class="btn btn-dark bg-dark" type="button" onclick="crearCita()">Crear Cita</button>
                 </div>
             </div>
 
@@ -201,7 +201,15 @@ if ($marcasQry->num_rows > 0) {
 </html>
 <script>
 
-    var ofertaElegida = '';
+    var ofertas = {
+        ofertaElegida: '',
+        precio_normal: '',
+        precio_primo: '',
+        precio_ofrecido: '',
+        km_group: '',
+        compra: '',
+        venta: ''
+    };
 
 $(document).ready(function() {
 
@@ -395,6 +403,10 @@ $(document).ready(function() {
 //NISSAN, CHEVROLET, MAZDA, TOYOTA, HONDA
 
         let precio = '$ '+new Intl.NumberFormat('en-US').format(obj.lineal[0].purchase)+'.00 MXN';
+        ofertas.precio_normal = obj.lineal[0].purchase;
+        ofertas.km_group = obj.lineal[0].km_group;
+        ofertas.compra = obj.lineal[0].purchase;
+        ofertas.venta = obj.lineal[0].sale;
 
         let descripcionAuto = `
             <p style="font-family: Narrow;text-align: center;font-size: 2em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
@@ -414,7 +426,7 @@ $(document).ready(function() {
             console.log("Entro al SEGUNDO del IF");
             if (obj.lineal[0].sale != "" ){
                 let formula = (obj.lineal[0].purchase + obj.lineal[0].sale) / 2;
-
+                ofertas.precio_primo = formula;
                 precioPrimo = '$ '+new Intl.NumberFormat('en-US').format(formula)+'.00 MXN';
                 $("#precioPrimo").html(precioPrimo);
                 $("#OfertaPrimo").attr('hidden', false);
@@ -481,6 +493,15 @@ $(document).ready(function() {
 
     function selectOferta(oferta){
         $("#of1").attr('hidden', true);
+
+        ofertas.ofertaElegida = oferta;
+
+        if(oferta == "Normal"){
+            ofertas.precio_ofrecido = ofertas.precio_normal; 
+        } else {
+            ofertas.precio_ofrecido = ofertas.precio_primo;
+        }
+
         console.log(oferta);
     }
 
@@ -506,6 +527,42 @@ $(document).ready(function() {
         }else{
             $(id).css("borderColor","#2b9c1fc7");
         }
+    }
+
+    function crearCita(){
+
+        let nombre = $('#nombre').val();
+        let correo = $('#correo').val();
+        let telefono = $('#telefono').val();
+        let year = $('#filtroYears').val();
+        let marca = $('#filtroMarcas').val();
+        let modelo = $('#filtroModelos').val();
+        let version = $('#filtroVersiones').val();
+        let kilometraje = $('#filtroKM').val();
+        let fecha = $('#fecha').val();
+        let hora = $('#hora').val();
+
+        let data = {
+            nombre: nombre,
+            correo: correo,
+            telefono: telefono,
+            year: year,
+            marca: marca,
+            modelo: modelo,
+            version: version,
+            km_group: ofertas.km_group,
+            kilometraje: kilometraje,
+            venta: ofertas.venta,
+            compra: ofertas.compra,
+            ofrecido: ofertas.precio_ofrecido,
+            oferta_elegida: ofertas.ofertaElegida,
+            fecha: fecha,
+            hora: hora,
+            origen: 'nissanrivero.com',
+            preferencia: 'Celular'
+        }
+
+        console.log(data);
     }
 
 
