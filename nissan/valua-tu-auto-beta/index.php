@@ -580,6 +580,8 @@ if ($marcasQry->num_rows > 0) {
             preferencia: 'Celular'
         }
 
+        $("#formCita").attr('hidden', true);
+        $("#formCalendar").attr('hidden', false);
         console.log(data);
 
         let horadosLinkSplit = hora.split(":");
@@ -592,7 +594,7 @@ if ($marcasQry->num_rows > 0) {
         // Aqui tenemos 10
         horadosLink =  horadosLink + horarioSelect.time.substring(2,8);
         horadosLink = horadosLink.replaceAll(":","");
-
+        console.log(horadosLink);
         let qrLink = "http://www.google.com/calendar/event?action=TEMPLATE&dates="+fecha.replaceAll("-", "")+"T"+hora.replaceAll(":", "");+"/"+fecha.replaceAll("-", "")+"T"+horadosLink+"&text=Cita+de+Valuacion+Nissan+Rivero&location="+direccion.replaceAll(" ", "+")+"&details=Cita+en+centro+de+valuacion+para+tu+"+modelo+"+en+la+sucursal+Rivero+Contry";
 
         let frame = '<iframe src="https://www.riverorenta.mx/produccion/riveroQR/index.php?pagina='+qrLink+'" style="width: 100%; height: 200; border: none;"></frame>';
