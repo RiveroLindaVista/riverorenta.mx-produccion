@@ -696,6 +696,15 @@ if ($marcasQry->num_rows > 0) {
         animation-name: slide-in;
     }
 
+    #formDatos{
+        animation-duration: 1s;
+        animation-name: slide-in;
+    }
+
+    #formCalendar{
+        animation-duration: 1s;
+        animation-name: slide-in;
+    }
 
     @keyframes slide-in {
         from {
@@ -704,6 +713,16 @@ if ($marcasQry->num_rows > 0) {
 
         to {
             translate: 0 0;
+        }
+    }
+
+    @keyframes up {
+        from {
+            translate: 0 0;
+        }
+
+        to {
+            translate: 0 -200px;
         }
     }
 
