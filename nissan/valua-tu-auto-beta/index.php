@@ -135,7 +135,7 @@ if ($marcasQry->num_rows > 0) {
 
             <div id="formDatos" class="container p-4" hidden>
                 <div>
-                    <h1 class="text-white text-center m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">CUÉNTANOS SOBRE TU AUTO</h1><br/>
+                    <h1 class="text-white text-center m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">INGRESA TUS DATOS</h1><br/>
                     <p class="text-white"> Te haremos llegar en este instante la información </p>
                 </div>
                 <p class="text-white m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;font-size: 1.7em;">Nombre:</p>
