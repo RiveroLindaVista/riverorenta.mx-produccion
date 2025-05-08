@@ -386,7 +386,7 @@ if ($marcasQry->num_rows > 0) {
             select_version = select_version.replaceAll(" ", "%20");
             select_modelo = select_modelo.replaceAll(" ", "%20");
 
-            let obj = '{"lineal": [{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "4 pts. LS, 1.3l, TM5, a\/ac., BA, R-15","km_group": "A","sale": 239000,"purchase": 209800},{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "Valor kilometraje","km_group": "A","sale": -4800,"purchase": -4800}]}';
+            let obj = '{"lineal": [{"year": 2024,"brand": "BYD","subbrand": "Onix","version": "4 pts. LS, 1.3l, TM5, a\/ac., BA, R-15","km_group": "A","sale": 239000,"purchase": 209800},{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "Valor kilometraje","km_group": "A","sale": -4800,"purchase": -4800}]}';
             objetoOferta(JSON.parse(obj));
     /*         const requestOptions = {
                 method: "GET",
@@ -599,7 +599,7 @@ if ($marcasQry->num_rows > 0) {
 
         let frame = '<iframe src="https://www.riverorenta.mx/produccion/riveroQR/index.php?pagina='+qrLink+'" width="100%" height=200 style="border: 0" title="QRNissan"></frame>';
 
-        let botonLink = "<a style='text-align:center' href='http://www.google.com/calendar/event?action=TEMPLATE&dates="+fecha.replaceAll("-", "")+"T"+hora.replaceAll(":", "")+"00/"+fecha.replaceAll("-", "")+"T"+horadosLink+"00&text=Cita+de+Valuacion+Nissan+Rivero&location="+direccion.replaceAll(" ", "+")+"&details=Cita+en+centro+de+valuacion+para+tu+"+modelo.replaceAll(" ", "+")+"+en+la+sucursal+Rivero+Contry' target='blank'> <img src='images/botones/btn_calendar.svg' style='300px'> </a>";
+        let botonLink = "<a style='text-align:center' href='http://www.google.com/calendar/event?action=TEMPLATE&dates="+fecha.replaceAll("-", "")+"T"+hora.replaceAll(":", "")+"00/"+fecha.replaceAll("-", "")+"T"+horadosLink+"00&text=Cita+de+Valuacion+Nissan+Rivero&location="+direccion.replaceAll(" ", "+")+"&details=Cita+en+centro+de+valuacion+para+tu+"+modelo.replaceAll(" ", "+")+"+en+la+sucursal+Rivero+Contry' target='blank'> <img src='images/botones/btn_calendar.svg' style='width:300px'> </a>";
         $("#divQR").html(frame);
         $("#btnCalendar").html(botonLink);
     }
