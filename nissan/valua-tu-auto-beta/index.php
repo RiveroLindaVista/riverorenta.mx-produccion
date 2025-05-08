@@ -203,7 +203,6 @@ if ($marcasQry->num_rows > 0) {
                 </div>
 
                 <div id="btnCalendar" class="row p-2">
-                    <img src="images/botones/btn_calendar.svg">
                 </div>
             </div>
 
