@@ -77,6 +77,10 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
                             <th class="th_dflex">SLUG</th>
                             <th class="th_dflex">VERSIONES</th>
                             <th class="th_dflex">VERSIONES SIN DESCRIPCION</th>
+                            <?php if (in_array('home-columna-versiones-null', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
+                                <th class="th_dflex">VERSIONES NULLS</th>
+                            <?php }?>
+
                             <th class="th_dflex">COLORES</th>
                             <th class="th_dflex">GALERIA</th>
                             <th class="th_dflex">VIDEO</th>
@@ -336,11 +340,19 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
                 } else {
                     $str_versiones_sin_caracteristicas = '- - -';
                 }
+                $str_versiones_match_nulls = '- - -';
+                if (value['has_versiones_nulls']) {
+                    $str_versiones_match_nulls = value['has_versiones_nulls'];
+                }
+
                 $btn_disabled = '';
                 <?php if ($_SESSION['usuario'] == 'DESARROLLO') { ?>
                     $btn_disabled = '<button  class="btn btn-danger" onclick=disable_from_catalogo(\'' + value["slug"] + '\')>' + $delete_icon + '</button>';
                 <?php } ?>
                 $tr_versiones += '<td>' + $str_versiones_sin_caracteristicas + '</td>';
+                <?php if (in_array('home-columna-versiones-null', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
+                    $tr_versiones += '<td>' + $str_versiones_match_nulls + '</td>';
+                <?php } ?>
                 $tr_versiones += '<td> <button class="' + $flag_con_colores + '"></button></td>';
                 $tr_versiones += '<td> <button class="' + $flag_has_gallery + '"></button></td>';
                 $tr_versiones += '<td> <button class="' + $flag_has_video + '"></button></td>';

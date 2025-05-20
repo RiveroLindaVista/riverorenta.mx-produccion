@@ -46,7 +46,7 @@ foreach ($catalogo_autos_incompletos as $key => $val) {
     $val['has_manual'] = ($val['marca'] == 'NISSAN' ? 'N/A' : $arr_checkurl['url_manual']);
 
 
-    if ($val['has_versions'] == false  ||  $val['has_versions_without_characteristics'] != '' || $val['has_colors'] == false || $val['has_gallery'] == false || $val['has_video'] == false || $val['has_ficha_tecnica'] == false || $val['has_catalogo'] == false || $val['has_manual'] == false) {
+    if ($val['has_versions'] == false  ||  $val['has_versiones_nulls'] != ''  ||  $val['has_versions_without_characteristics'] != '' || $val['has_colors'] == false || $val['has_gallery'] == false || $val['has_video'] == false || $val['has_ficha_tecnica'] == false || $val['has_catalogo'] == false || $val['has_manual'] == false) {
         array_push($arr_catalogo, $val);
     }
 }
