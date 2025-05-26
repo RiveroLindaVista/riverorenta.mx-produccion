@@ -23,6 +23,7 @@ $arr_usuarios = [
         'politicas_rivero',
         'imagenes_de_campañas',
         'home',
+        'home-columna-versiones-null',
     ],
     'TALLER' => [
         'adwords',

@@ -2173,9 +2173,10 @@ public function catalogo_autos_incompletos(){
             ELSE FALSE 
         END AS has_colors,
 	    CASE
-		    WHEN (SELECT COUNT(*) FROM versiones ver WHERE ver.marca=cat.marca AND ver.modelo=cat.modelo AND ver.ano = cat.ano AND  ver.version IS NOT NULL) > 0 THEN TRUE
-		    ELSE FALSE
-        END AS has_versions,
+		    WHEN (SELECT COUNT(*) FROM versiones ver WHERE ver.marca=cat.marca AND ver.modelo=cat.modelo AND ver.ano = cat.ano AND  ver.version IS NOT NULL) > 0		 				THEN TRUE
+		    	ELSE FALSE
+	    	END AS has_versions,
+	    	
 		    (SELECT  group_concat(ver2.version ) 
 			    FROM versiones ver2 
                 WHERE ver2.marca=cat.marca 
@@ -2183,10 +2184,24 @@ public function catalogo_autos_incompletos(){
                 AND ver2.ano = cat.ano 
                 AND  ver2.version IS NOT NULL 
                 AND (SELECT COUNT(*) FROM inventario_versiones invver WHERE invver.slug = cat.slug AND invver.version = ver2.version ) = 0
-                ) has_versions_without_characteristics
+            ) has_versions_without_characteristics,
+            
+            ( SELECT  GROUP_CONCAT(cat2.tipo)
+            	FROM catalogo cat2
+            	INNER JOIN 
+            		versiones ver_join
+            		    ON cat2.marca = ver_join.marca
+						    AND cat2.modelo = ver_join.modelo
+						    AND cat2.ano = ver_join.ano
+						    AND cat2.tipo = ver_join.tipo
+            	WHERE cat2.slug=cat.slug
+            	AND ver_join.version IS NULL
+				) has_versiones_nulls
+            
     FROM catalogo cat  
     WHERE cat.status = 1 
-    GROUP BY cat.slug';
+    GROUP BY cat.slug
+';
 
   $result=$conn->query($sql);
   if ($result) {
