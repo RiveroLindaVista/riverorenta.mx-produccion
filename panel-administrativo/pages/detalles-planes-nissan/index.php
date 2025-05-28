@@ -30,7 +30,7 @@ for($i=0;$i<count($versiones);$i++){
                                 <div class="card-body" style="padding:5px;">
                                     <h3 style="display: flex; align-items: center; justify-content: center;" class="card-title">'.$versiones[$i]["version"].'</h3><hr/>
                                     <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">ENGANCHE: $ '.money_format('%.2n',$versiones[$i]["enganche"]).'</h5>
-                                    <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">MENSUALIDAD: $ '.money_format('%.2n',$versiones[$i]["mensualidad"]).' </h5>
+                                    <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">MENSUALIDAD: $ '.money_format('%.2n',$versiones[$i]["parcialidad"]).' </h5>
                                     <h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">PRECIO CONTADO: '.money_format('%.2n',$versiones[$i]["precio"]).'</h5>
                                     <a onclick="modalEditar(\''.$versiones[$i]["version"].'\',\''.$versiones[$i]["enganche"].'\',\''.$versiones[$i]["mensualidad"].'\',\''.$versiones[$i]["tipo"].'\',\''.$auto["modelo"].'\',\''.$auto["ano"].'\')" style="display: flex; align-items: center; justify-content: center;color:white;" class="btn btn-danger" >Editar </a>
                                 </div>
