@@ -1645,7 +1645,7 @@ class Conexion extends Database{
     public function query_lista_versiones_nissan($modelo, $ano){
         $conn= Database::connect();
 
-        $sql = 'SELECT t1.version , t2.precio, t2.tipo, t3.enganche, t3.mensualidad FROM versiones t1 LEFT JOIN catalogo t2 ON t1.tipo=t2.tipo LEFT JOIN planes_nissan t3 ON t2.tipo=t3.tipo WHERE t2.modelo="'.$modelo.'" AND t2.ano="'.$ano.'" group BY t1.version order BY t2.precio';
+        $sql = 'SELECT t1.version , t2.precio, t2.tipo, t3.enganche, t3.parcialidad FROM versiones t1 LEFT JOIN catalogo t2 ON t1.tipo=t2.tipo LEFT JOIN planes_nissan t3 ON t2.tipo=t3.tipo WHERE t2.modelo="'.$modelo.'" AND t2.ano="'.$ano.'" group BY t1.version order BY t2.precio';
         $result=$conn->query($sql);
         if ($result) {
             while ($row = $result->fetch_assoc()) {
