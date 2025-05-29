@@ -6,7 +6,7 @@
 	if ($this_page=="valuacion_modelos") { $valuacion_modelos="active"; } else{ $valuacion_modelos="active"; }
 
 	$conn = new mysqli(DB_HOST, DB_USER,DB_PASSWORD, DB_DB);
-	$sql = 'SELECT * FROM autometrica_modelos GROUP BY marca,modelo,ano ORDER BY marca asc';
+	$sql = 'SELECT * FROM autometrica_modelos GROUP BY marca,modelo ORDER BY marca asc';
 	$resultQuery = $conn->query($sql);
 	if ($resultQuery->num_rows > 0) {
 	   while($row = $resultQuery->fetch_assoc()) {
@@ -76,7 +76,7 @@ $conn->close();
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example-asc tablaSuper">
+                                <table class="table table-bordered table-striped table-hover js-basic-example-asc tablaSuper no-footer">
                                     <thead>
                                         <tr> 
                                             <th>MARCA</th>
@@ -105,22 +105,12 @@ $conn->close();
                             </div>
                             <div class="modal-body">
                                 <div>
-                                    <div>
-                                        <input id="nameImg" type="hidden">
-                                        <input id="idImg" type="hidden">
-                                    </div>
                                     <div id="tablaArea" style="text-align:center">
-                                    </div>
-                                    <hr/>
-                                    <div class="fallback" style="text-align:center">
-                                        <label>Selecciona la nueva imagen</lable><br/>
-                                        <input type="file" id="img_file" name="img_file"/>
                                     </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary" onclick="saveNewImg()">Cambiar Imagen</button>
                             </div>
                         </div>
                     </div>

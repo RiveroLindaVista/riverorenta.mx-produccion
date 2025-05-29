@@ -2273,7 +2273,7 @@ public function catalogo_autos_activos(){
 
     if ($consulta) {
       $tabla_modelos='';
-      $tabla_modelos.='<table><thead><th>MARCA</th><th>MODELO<th><th>AÑO</th><th>TIPO<th></thead><tbody>';
+      $tabla_modelos.='<table class="table table-bordered table-striped table-hover no-footer"><thead><th>MARCA</th><th>MODELO</th><th>AÑO</th><th>TIPO</th></thead><tbody>';
 
       for($i=0;$i<count($consulta);$i++){
         $modelo =$consulta[$i]["modelo"];
