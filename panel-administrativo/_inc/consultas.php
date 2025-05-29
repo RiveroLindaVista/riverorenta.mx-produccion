@@ -1900,6 +1900,7 @@ class Conexion extends Database{
         $conn= Database::connect();
 
         $sql = 'SELECT ano, tipo FROM autometrica_modelos WHERE marca="'.$marca.'" AND modelo="'.$modelo.'" AND ano="'.$ano.'" AND tipo="'.$tipo.'"';
+        return $sql;
         $result=$conn->query($sql);
         if ($result) {
             while ($row = $result->fetch_assoc()) {
