@@ -2288,7 +2288,7 @@ public function catalogo_autos_activos(){
   public function check_modelos_valuacion($marca, $modelo, $ano, $tipo){
     $conn=new Conexion();
     $consulta= $conn->query_check_modelos_valuacion($marca, $modelo, $ano, $tipo);
-    return $consuta;
+    return $consulta;
     $conn->close();
   }
 
