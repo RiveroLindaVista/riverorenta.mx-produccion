@@ -8,6 +8,6 @@ $ano=$_POST['ano'];
 $tipo=$_POST['tipo'];
 $conne = new Construir();
 $modelos = $conne->check_modelos_valuacion($marca,$modelo,$ano,$tipo);
-echo 'hola';
+echo $modelos;
 return $modelos;
 ?>
