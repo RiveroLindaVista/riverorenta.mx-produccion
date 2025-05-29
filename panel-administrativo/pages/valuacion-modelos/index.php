@@ -113,8 +113,8 @@ $conn->close();
                                     <div id="tablaAreaNuevo" style="text-align:center">
                                         <p>Agregar nuevo año</p>
                                         <table class="table table-bordered table-striped table-hover no-footer">
-                                            <thead><th>AÑO</th><th>TIPO</th></thead>
-                                            <tbody><td><input type="number" id="newAno" /></td><td><select id="tipoModeloNuevo"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td></tr>
+                                            <thead><th>AÑO</th><th>TIPO</th><th>OPCIÓN</th></thead>
+                                            <tbody><td><input type="number" id="newAno" /></td><td><select id="tipoModeloNuevo"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td><td><input class="btn bg-success" type="button" style="border-radius: 7px;color:white;" value="GUARDAR" onclick="saveNuevoModelo()" /></td></tr>
                                         </table>
                                     </div>
                                 </div>
@@ -156,6 +156,18 @@ $conn->close();
 /*             document.getElementById('imgArea').innerHTML='<label for="">Imagen Actual de la Promocion</label><br/><img src = "https://d3s2hob8w3xwk8.cloudfront.net/promociones/ofertas/nuevos/'+nombre+'.jpg" style="max-width: 300px;">';
             console.log(nombre+'_1'); */
         }
+
+                function saveNuevoModelo(){
+                    let yearNew = $("#newAno").val();
+                    let tipoModeloNuevo = $("#tipoModeloNuevo").val();
+
+                    if(yearNew.length != 4){
+                        alert('Año no válido.');
+                        return 0;
+                    }
+
+                    console.log(yearNew, ' - ', tipoModeloNuevo);
+                }
     </script>
 
 <!-- Jquery Core Js -->
