@@ -1905,9 +1905,9 @@ class Conexion extends Database{
             while ($row = $result->fetch_assoc()) {
                 $out[]=$row;
             }
-            return 1;
+            return $sql;
         } else {
-            return 0;
+            return $sql;
         }
     }
 
