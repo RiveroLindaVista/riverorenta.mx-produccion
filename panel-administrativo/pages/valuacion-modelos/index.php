@@ -108,6 +108,16 @@ $conn->close();
                                     <div id="tablaArea" style="text-align:center">
                                     </div>
                                 </div>
+                                <hr/>
+                                <div>
+                                    <div id="tablaAreaNuevo" style="text-align:center">
+                                        <p>Agregar nuevo año</p>
+                                        <table class="table table-bordered table-striped table-hover no-footer">
+                                            <thead><th>AÑO</th><th>TIPO</th></thead>
+                                            <tbody><td><input type="number" id="newAno" /></td><td><select id="tipoModeloNuevo"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td></tr>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
