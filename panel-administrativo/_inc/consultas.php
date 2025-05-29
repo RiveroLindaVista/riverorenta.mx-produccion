@@ -1896,6 +1896,21 @@ class Conexion extends Database{
         }
     }
 
+    public function query_check_modelos_valuacion($marca,$modelo,$ano,$tipo){
+        $conn= Database::connect();
+
+        $sql = 'SELECT ano, tipo FROM autometrica_modelos WHERE marca="'.$marca.'" AND modelo="'.$modelo.'" AND ano="'.$ano.'" AND tipo="'.$tipo.'"';
+        $result=$conn->query($sql);
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $out[]=$row;
+            }
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
     
 
 

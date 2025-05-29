@@ -112,9 +112,11 @@ $conn->close();
                                 <div>
                                     <div id="tablaAreaNuevo" style="text-align:center">
                                         <p>Agregar nuevo año</p>
+                                        <input type="text" id="marca1" />
+                                        <input type="text" id="modelo1" />
                                         <table class="table table-bordered table-striped table-hover no-footer">
                                             <thead><th>AÑO</th><th>TIPO</th><th>OPCIÓN</th></thead>
-                                            <tbody><td><input type="number" id="newAno" /></td><td><select id="tipoModeloNuevo"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td><td><input class="btn bg-success" type="button" style="border-radius: 7px;color:white;" value="GUARDAR" onclick="saveNuevoModelo()" /></td></tr>
+                                            <tbody><td><input type="number" id="newAno" /></td><td><select id="tipoModeloNuevo"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td><td><input class="btn bg-success" type="button" style="border-radius: 7px;background-color:green;color:white;" value="GUARDAR" onclick="saveNuevoModelo()" /></td></tr>
                                         </table>
                                     </div>
                                 </div>
@@ -138,6 +140,8 @@ $conn->close();
 /*             $("#nameImg").val(nombre+'_1');
             $("#idImg").val(id); */
             $("#modal-edit-modelo").modal('show');
+            $("#marca1").val(marca);
+            $("#modelo1").val(modelo);
             var param={marca:marca, modelo:modelo};
 /*             let id = $("#idVal").val(); */
             $.ajax({
@@ -157,17 +161,29 @@ $conn->close();
             console.log(nombre+'_1'); */
         }
 
-                function saveNuevoModelo(){
-                    let yearNew = $("#newAno").val();
-                    let tipoModeloNuevo = $("#tipoModeloNuevo").val();
+        function saveNuevoModelo(){
+            let yearNew = $("#newAno").val();
+            let tipoModeloNuevo = $("#tipoModeloNuevo").val();
+            let marca = $("#marca").val();
+            let modelo = $("#modelo").val();
 
-                    if(yearNew.length != 4){
-                        alert('Año no válido.');
-                        return 0;
-                    }
+            if(yearNew.length != 4){
+                alert('Año no válido.');
+                return 0;
+            }
 
-                    console.log(yearNew, ' - ', tipoModeloNuevo);
+            var param={ano:yearNew, tipo:tipoModeloNuevo, marca:marca, modelo:modelo};
+
+            $.ajax({
+                url:'check_modelos.php',
+                type:'POST',
+                data:param,
+                success: function(resp){
+                    console.log(resp);
                 }
+            });
+        }
+
     </script>
 
 <!-- Jquery Core Js -->
