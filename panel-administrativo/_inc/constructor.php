@@ -2276,8 +2276,7 @@ public function catalogo_autos_activos(){
       $tabla_modelos.='<table class="table table-bordered table-striped table-hover no-footer"><thead><th>MARCA</th><th>MODELO</th><th>AÑO</th><th>TIPO</th></thead><tbody>';
 
       for($i=0;$i<count($consulta);$i++){
-        $modelo =$consulta[$i]["modelo"];
-        $tabla_modelos.='<tr><td>"'.$marca.'"</td><td>'.$modelo.'</td><td>"'.$consulta[$i]["ano"].'"</td><td>'.$consulta[$i]["tipo"].'</td></tr>';
+        $tabla_modelos.='<tr><td>'.$marca.'</td><td>'.$modelo.'</td><td>'.$consulta[$i]["ano"].'</td><td><option value="'.$consulta[$i]["tipo"].'">'.$consulta[$i]["tipo"].'</option><option value="0" disabled></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></td></tr>';
       }
       $tabla_modelos.='</tbody></table>';
 
