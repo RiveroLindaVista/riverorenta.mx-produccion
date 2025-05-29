@@ -10,7 +10,7 @@
 	$resultQuery = $conn->query($sql);
 	if ($resultQuery->num_rows > 0) {
 	   while($row = $resultQuery->fetch_assoc()) {
-	   		$nuevosCadena.='<tr onclick="gopage(\''.$row["marca"].'\', \''.$row["modelo"].'\')">';
+	   		$nuevosCadena.='<tr onclick="verModelos(\''.$row["marca"].'\', \''.$row["modelo"].'\')">';
             $nuevosCadena.='<td>'.$row["marca"].'</td>';
             $nuevosCadena.='<td>'.$row["modelo"].'</td>';
             $nuevosCadena.='<td><input class="btn bg-primary" type="button" style="border-radius: 7px;color:white;" value="Ver Años" onclick="verModelos(\''.$row["marca"].'\', \''.$row["modelo"].'\')"></td>';
