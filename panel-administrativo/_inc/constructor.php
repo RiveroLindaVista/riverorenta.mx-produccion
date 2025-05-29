@@ -2267,6 +2267,25 @@ public function catalogo_autos_activos(){
     return $out;
   }
 
+  public function get_modelos_valuacion($marca, $modelo){
+    $conn=new Conexion();
+    $consulta= $conn->query_modelos_valuacion($marca, $modelo);
+
+    if ($consulta) {
+      $tabla_modelos='';
+      $tabla_modelos.='<table><thead><th>MARCA</th><th>MODELO<th><th>AÑO</th><th>TIPO<th></thead><tbody>';
+
+      for($i=0;$i<count($consulta);$i++){
+        $modelo =$consulta[$i]["modelo"];
+        $tabla_modelos.='<tr><td>"'.$marca.'"</td><td>'.$modelo.'</td><td>"'.$consulta[$i]["ano"].'"</td><td>'.$consulta[$i]["tipo"].'</td></tr>';
+      }
+      $tabla_modelos.='</tbody></table>';
+
+    }
+      return  $tabla_modelos;
+      $conn->close();
+  }
+
 /*Fin Class Construir*/
 }
 

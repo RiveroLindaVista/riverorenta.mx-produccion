@@ -13,7 +13,7 @@
 	   		$nuevosCadena.='<tr onclick="gopage(\''.$row["marca"].'\', \''.$row["modelo"].'\')">';
             $nuevosCadena.='<td>'.$row["marca"].'</td>';
             $nuevosCadena.='<td>'.$row["modelo"].'</td>';
-            $nuevosCadena.='<td><input class="btn bg-primary" type="button" style="border-radius: 7px;color:white;" value="Ver Años"></td>';
+            $nuevosCadena.='<td><input class="btn bg-primary" type="button" style="border-radius: 7px;color:white;" value="Ver Años" onclick="verModelos(\''.$row["marca"].'\', \''.$row["modelo"].'\')"></td>';
             $nuevosCadena.='</tr>';
 	   }
 
@@ -92,12 +92,69 @@ $conn->close();
                         </div>
                     </div>
                 </div>
-            </div> 		
+            </div>
+            
+            
+                <!-- Modal de edicion Imagen -->
+                <div class="modal fade bs-example-modal-lg" id="modal-edit-modelo" name="modal-edit-modelo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modelos</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div>
+                                    <div>
+                                        <input id="nameImg" type="hidden">
+                                        <input id="idImg" type="hidden">
+                                    </div>
+                                    <div id="tablaArea" style="text-align:center">
+                                    </div>
+                                    <hr/>
+                                    <div class="fallback" style="text-align:center">
+                                        <label>Selecciona la nueva imagen</lable><br/>
+                                        <input type="file" id="img_file" name="img_file"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary" onclick="saveNewImg()">Cambiar Imagen</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal de edicion de inventarios versiones -->
+
     	</div>
     </section>
     <script>
         function gopage($i){
             location.href="<?=URLP?>pages/detalles-planes-nissan/index.php?id="+$i;
+        }
+
+        function verModelos(marca,modelo){
+/*             $("#nameImg").val(nombre+'_1');
+            $("#idImg").val(id); */
+            $("#modal-edit-img").modal('show');
+            var param={marca:marca, modelo:modelo};
+/*             let id = $("#idVal").val(); */
+            $.ajax({
+                url:'get_modelos.php',
+                type:'POST',
+                data:param,
+                success: function(resp){
+                    console.log(resp);
+                    document.getElementById('tablaArea').innerHTML= resp;
+/*                     idElement = 'desc'+id; 
+                    document.getElementById(idElement).innerHTML= '<i onclick="editDesc(\''+descripcion+'\','+id+')" class="material-icons" style="font-size: 15px; position: absolute; right: 5px;cursor: pointer;">edit</i>'+descripcion;
+                    $("#modal-edit-desc").modal('hide'); */
+                }
+            })
+
+/*             document.getElementById('imgArea').innerHTML='<label for="">Imagen Actual de la Promocion</label><br/><img src = "https://d3s2hob8w3xwk8.cloudfront.net/promociones/ofertas/nuevos/'+nombre+'.jpg" style="max-width: 300px;">';
+            console.log(nombre+'_1'); */
         }
     </script>
 
