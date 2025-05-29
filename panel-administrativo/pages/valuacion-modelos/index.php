@@ -137,7 +137,7 @@ $conn->close();
         function verModelos(marca,modelo){
 /*             $("#nameImg").val(nombre+'_1');
             $("#idImg").val(id); */
-            $("#modal-edit-img").modal('show');
+            $("#modal-edit-modelo").modal('show');
             var param={marca:marca, modelo:modelo};
 /*             let id = $("#idVal").val(); */
             $.ajax({
