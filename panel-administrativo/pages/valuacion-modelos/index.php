@@ -2,10 +2,8 @@
 	require_once("../../_inc/_config.php");
 	include("../../_inc/constructor.php");
 
-	$this_page = "unidades";
-	$this_subpage = "nuevos";
-	if ($this_page=="unidades") { $unidades="active"; } else{ $unidades="active"; }
-	if ($this_subpage=="nuevos") { $nuevos="active"; } else{ $nuevos="active"; }
+	$this_page = "valuacion_modelos";
+	if ($this_page=="valuacion_modelos") { $valuacion_modelos="active"; } else{ $valuacion_modelos="active"; }
 
 	$conn = new mysqli(DB_HOST, DB_USER,DB_PASSWORD, DB_DB);
 	$sql = 'SELECT * FROM autometrica_modelos GROUP BY marca,modelo,ano ORDER BY marca asc';
@@ -98,25 +96,6 @@ $conn->close();
     	</div>
     </section>
     <script>
-        $(document).ready(function () {
-            $('#tablaSuper').DataTable({
-
-                order: [[0, 'asc']],
-                aLengthMenu: [
-                    [10,25, 50, 100, -1],
-                    [10,25, 50, 100, "Todas"]
-                ],
-                iDisplayLength: -1,  language: {
-                    lengthMenu: "Mostrar: _MENU_",
-                    entries: {
-                        _: 'Solicitudes',
-                        1: 'solicitud'
-                    },
-                    info: 'Mostrando _PAGE_ de _PAGES_',
-                }
-            });
-        });
-
         function gopage($i){
             location.href="<?=URLP?>pages/detalles-planes-nissan/index.php?id="+$i;
         }

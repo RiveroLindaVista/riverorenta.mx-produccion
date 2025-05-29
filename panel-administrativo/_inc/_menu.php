@@ -24,6 +24,7 @@ $arr_usuarios = [
         'imagenes_de_campañas',
         'home',
         'home-columna-versiones-null',
+        'valuacion_modelos',
     ],
     'TALLER' => [
         'adwords',
@@ -212,6 +213,16 @@ echo "<script>console.log(JSON.parse('".json_encode($arr_usuarios)."')); </scrip
                             <a href="<?=URLP?>pages/planes-chevrolet" class="">
                                 <i class="material-icons">attach_money</i>
                                 <span>Planes Chevrolet</span>
+                            </a>
+                        </li>
+                        <?php } ?>
+
+                        
+                    <?php if(in_array('valuacion_modelos', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
+                        <li class="<?= $valuacion_modelos;?>">
+                            <a href="<?=URLP?>pages/valuacion-modelos" class="">
+                                <i class="material-icons">attach_money</i>
+                                <span>Valuación Modelos</span>
                             </a>
                         </li>
                         <?php } ?>

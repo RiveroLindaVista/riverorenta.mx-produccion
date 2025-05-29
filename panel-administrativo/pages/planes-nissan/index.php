@@ -2,10 +2,8 @@
 	require_once("../../_inc/_config.php");
 	include("../../_inc/constructor.php");
 
-	$this_page = "unidades";
-	$this_subpage = "nuevos";
-	if ($this_page=="unidades") { $unidades="active"; } else{ $unidades="active"; }
-	if ($this_subpage=="nuevos") { $nuevos="active"; } else{ $nuevos="active"; }
+	$this_page = "planes_nissan";
+	if ($this_page=="planes_nissan") { $planes_nissan="active"; } else{ $planes_nissan="active"; }
 
 	$conn = new mysqli(DB_HOST, DB_USER,DB_PASSWORD, DB_DB);
 	$sql = 'SELECT * FROM catalogo WHERE ano IN("2022","2023","2024","2025") AND marca="NISSAN" GROUP BY modelo,ano ORDER BY modelo asc';
