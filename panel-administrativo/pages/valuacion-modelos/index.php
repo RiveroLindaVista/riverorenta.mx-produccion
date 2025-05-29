@@ -78,7 +78,7 @@ $conn->close();
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <table class="table table-bordered table-striped table-hover js-basic-example tablaSuper">
                                     <thead>
                                         <tr> 
                                             <th>MARCA</th>
@@ -98,6 +98,25 @@ $conn->close();
     	</div>
     </section>
     <script>
+        $(document).ready(function () {
+            $('#tablaSuper').DataTable({
+
+                order: [[0, 'asc']],
+                aLengthMenu: [
+                    [10,25, 50, 100, -1],
+                    [10,25, 50, 100, "Todas"]
+                ],
+                iDisplayLength: -1,  language: {
+                    lengthMenu: "Mostrar: _MENU_",
+                    entries: {
+                        _: 'Solicitudes',
+                        1: 'solicitud'
+                    },
+                    info: 'Mostrando _PAGE_ de _PAGES_',
+                }
+            });
+        });
+
         function gopage($i){
             location.href="<?=URLP?>pages/detalles-planes-nissan/index.php?id="+$i;
         }
