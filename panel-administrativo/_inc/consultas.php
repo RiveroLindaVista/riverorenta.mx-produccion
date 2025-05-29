@@ -1903,13 +1903,10 @@ class Conexion extends Database{
 
         $result=$conn->query($sql);
         if ($result) {
-/*             while ($row = $result->fetch_assoc()) {
+            while ($row = $result->fetch_assoc()) {
                 $out[]=$row;
             }
-            return $out; */
-            return 1;
-        } else {
-            return 0;
+            return $out;
         }
     }
 
