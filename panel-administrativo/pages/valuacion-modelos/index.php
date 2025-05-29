@@ -112,8 +112,8 @@ $conn->close();
                                 <div>
                                     <div id="tablaAreaNuevo" style="text-align:center">
                                         <p>Agregar nuevo año</p>
-                                        <input type="text" id="marca1" />
-                                        <input type="text" id="modelo1" />
+                                        <input type="text" id="marca1" hidden />
+                                        <input type="text" id="modelo1" hidden />
                                         <table class="table table-bordered table-striped table-hover no-footer">
                                             <thead><th>AÑO</th><th>TIPO</th><th>OPCIÓN</th></thead>
                                             <tbody><td><input type="number" id="newAno" /></td><td><select id="tipoModeloNuevo"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td><td><input class="btn bg-success" type="button" style="border-radius: 7px;background-color:green;color:white;" value="GUARDAR" onclick="saveNuevoModelo()" /></td></tr>
@@ -164,8 +164,8 @@ $conn->close();
         function saveNuevoModelo(){
             let yearNew = $("#newAno").val();
             let tipoModeloNuevo = $("#tipoModeloNuevo").val();
-            let marca = $("#marca").val();
-            let modelo = $("#modelo").val();
+            let marca = $("#marca1").val();
+            let modelo = $("#modelo1").val();
 
             if(yearNew.length != 4){
                 alert('Año no válido.');
