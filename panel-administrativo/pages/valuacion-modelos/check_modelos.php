@@ -8,5 +8,5 @@ $ano=$_POST['ano'];
 $tipo=$_POST['tipo'];
 $conne = new Construir();
 $modelos = $conne->check_modelos_valuacion($marca,$modelo,$ano,$tipo);
-echo json_encode($modelos);
+echo json_decode($modelos);
 ?>

@@ -137,13 +137,12 @@ $conn->close();
         }
 
         function verModelos(marca,modelo){
-/*             $("#nameImg").val(nombre+'_1');
-            $("#idImg").val(id); */
+
             $("#modal-edit-modelo").modal('show');
             $("#marca1").val(marca);
             $("#modelo1").val(modelo);
             var param={marca:marca, modelo:modelo};
-/*             let id = $("#idVal").val(); */
+
             $.ajax({
                 url:'get_modelos.php',
                 type:'POST',
@@ -173,6 +172,7 @@ $conn->close();
             }
 
             var param={ano:yearNew, tipo:tipoModeloNuevo, marca:marca, modelo:modelo};
+            console.log(param);
 
             $.ajax({
                 url:'check_modelos.php',
