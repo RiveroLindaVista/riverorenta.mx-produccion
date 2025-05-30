@@ -2292,6 +2292,14 @@ public function catalogo_autos_activos(){
     $conn->close();
   }
 
+  public function post_nuevo_modelo_valuacion($marca, $modelo, $ano, $tipo){
+    $conn=new Conexion();
+    $consulta= $conn->query_post_nuevo_modelo_valuacion($marca, $modelo, $ano, $tipo);
+    return $consulta;
+    $conn->close();
+  }
+  
+
 /*Fin Class Construir*/
 }
 

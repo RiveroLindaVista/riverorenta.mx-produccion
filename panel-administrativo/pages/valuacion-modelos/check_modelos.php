@@ -10,8 +10,9 @@ $conne = new Construir();
 $modelos = $conne->check_modelos_valuacion($marca,$modelo,$ano,$tipo);
 //echo json_encode($modelos);
 if($modelos == null){
-    echo 'HOLA';
+    $guardado = $conne->post_nuevo_modelo_valuacion($marca,$modelo,$ano,$tipo);
+    echo '0';
 } else {
-    echo 'noooo';
+    echo '1';
 }
 ?>
