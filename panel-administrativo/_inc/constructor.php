@@ -2267,16 +2267,16 @@ public function catalogo_autos_activos(){
     return $out;
   }
 
-  public function get_modelos_valuacion($marca, $modelo){
+  public function get_modelos_valuacion($id, $marca, $modelo){
     $conn=new Conexion();
-    $consulta= $conn->query_modelos_valuacion($marca, $modelo);
+    $consulta= $conn->query_modelos_valuacion($id, $marca, $modelo);
 
     if ($consulta) {
       $tabla_modelos='';
-      $tabla_modelos.='<table class="table table-bordered table-striped table-hover no-footer"><thead><th>MARCA</th><th>MODELO</th><th>AÑO</th><th>TIPO</th></thead><tbody>';
+      $tabla_modelos.='<table class="table table-bordered table-striped table-hover no-footer"><thead><th>MARCA</th><th>MODELO</th><th>AÑO</th><th>TIPO</th><th>ELIMINAR</th></thead><tbody>';
 
       for($i=0;$i<count($consulta);$i++){
-        $tabla_modelos.='<tr><td>'.$marca.'</td><td>'.$modelo.'</td><td>'.$consulta[$i]["ano"].'</td><td><select id="tipoModelo"><option value="'.$consulta[$i]["tipo"].'">'.$consulta[$i]["tipo"].'</option><option value="0" disabled></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td></tr>';
+        $tabla_modelos.='<tr><td>'.$marca.'</td><td>'.$modelo.'</td><td>'.$consulta[$i]["ano"].'</td><td><select id="tipoModelo"><option value="'.$consulta[$i]["tipo"].'">'.$consulta[$i]["tipo"].'</option><option value="0" disabled></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td><td><button class="btn bg-success" style="border-radius: 7px;background-color:red;color:white;" onclick="borrarModelo()"><i class="material-icons">delete</i></td></tr>';
       }
       $tabla_modelos.='</tbody></table>';
 

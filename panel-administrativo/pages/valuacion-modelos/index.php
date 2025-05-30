@@ -10,10 +10,10 @@
 	$resultQuery = $conn->query($sql);
 	if ($resultQuery->num_rows > 0) {
 	   while($row = $resultQuery->fetch_assoc()) {
-	   		$nuevosCadena.='<tr onclick="verModelos(\''.$row["marca"].'\', \''.$row["modelo"].'\')">';
+	   		$nuevosCadena.='<tr onclick="verModelos(\''.$row["id"].'\',\''.$row["marca"].'\', \''.$row["modelo"].'\')">';
             $nuevosCadena.='<td>'.$row["marca"].'</td>';
             $nuevosCadena.='<td>'.$row["modelo"].'</td>';
-            $nuevosCadena.='<td><input class="btn bg-primary" type="button" style="border-radius: 7px;color:white;" value="Ver Años" onclick="verModelos(\''.$row["marca"].'\', \''.$row["modelo"].'\')"></td>';
+            $nuevosCadena.='<td><input class="btn bg-primary" type="button" style="border-radius: 7px;color:white;" value="Ver Años" onclick="verModelos(\''.$row["id"].'\',\''.$row["marca"].'\', \''.$row["modelo"].'\')"></td>';
             $nuevosCadena.='</tr>';
 	   }
 
@@ -137,12 +137,12 @@ $conn->close();
             location.href="<?=URLP?>pages/detalles-planes-nissan/index.php?id="+$i;
         }
 
-        function verModelos(marca,modelo){
+        function verModelos(id,marca,modelo){
 
             $("#modal-edit-modelo").modal('show');
             $("#marca1").val(marca);
             $("#modelo1").val(modelo);
-            var param={marca:marca, modelo:modelo};
+            var param={id:id, marca:marca, modelo:modelo};
 
             $.ajax({
                 url:'get_modelos.php',
