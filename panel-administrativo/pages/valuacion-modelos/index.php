@@ -180,6 +180,7 @@ $conn->close();
                 type:'POST',
                 data:param,
                 success: function(resp){
+                    console.log(resp);
                     if(resp== '1'){
                         $("#logModal").attr('hidden', false);
                         document.getElementById('mensajeModal').innerHTML= '<p style="background-color:red">Ya existe el modelo.</p>';
@@ -194,7 +195,7 @@ $conn->close();
                             location.reload();
                         }, 2000);
                     }
-                    console.log(resp);
+                    
                 }
             });
         }
