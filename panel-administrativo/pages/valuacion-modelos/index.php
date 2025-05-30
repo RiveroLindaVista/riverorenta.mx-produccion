@@ -201,6 +201,10 @@ $conn->close();
             });
         }
 
+        function borrarModelo(id){
+            console.log(id);
+        }
+
     </script>
 
 <!-- Jquery Core Js -->
