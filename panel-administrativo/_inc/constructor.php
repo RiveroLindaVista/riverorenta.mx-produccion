@@ -2278,7 +2278,7 @@ public function catalogo_autos_activos(){
       for($i=0;$i<count($consulta);$i++){
         $tabla_modelos.='<tr><td>'.$marca.'</td><td>'.$modelo.'</td><td>'.$consulta[$i]["ano"].'</td><td><select id="tipoModelo"><option value="'.$consulta[$i]["tipo"].'">'.$consulta[$i]["tipo"].'</option><option value="0" disabled></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td>';
         
-        $tabla_modelos.='<td><button class="btn bg-success" style="border-radius: 7px;background-color:red;color:white;" ondblclick="borrarModelo(';
+        $tabla_modelos.='<td><button class="btn bg-success" style="border-radius: 7px;background-color:red;color:white;" onclick="borrarModelo(';
         $tabla_modelos.="'".$consulta[$i]["id"]."'";
         $tabla_modelos.=')"><i class="material-icons">delete</i></td></tr>';
       }
