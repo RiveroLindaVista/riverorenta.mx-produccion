@@ -4,7 +4,8 @@ include("../../_inc/constructor.php");
 
 $marca=$_POST['marca'];
 $modelo=$_POST['modelo'];
+$id=$_POST['id'];
 $conne = new Construir();
-$modelos = $conne->get_modelos_valuacion($marca,$modelo);
+$modelos = $conne->get_modelos_valuacion($id,$marca,$modelo);
 print_r($modelos);
 ?>
