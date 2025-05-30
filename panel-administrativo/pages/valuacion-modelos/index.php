@@ -73,6 +73,7 @@ $conn->close();
                             <h2>
                                 MODELOS VALUACIÓN
                             </h2>
+                            <button type="button" class="btn bg-success" data-dismiss="modal"><i class="material-icons">no_crash</i>Agregar Auto</button>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
