@@ -1923,6 +1923,13 @@ class Conexion extends Database{
         $result=$conn->query($sql);
     }
 
+    public function query_change_tipo_valuacion($id,$tipo){
+        $conn= Database::connect();
+
+        $sql = "UPDATE autometrica_modelos set tipo='".$tipo."' WHERE id=".$id." limit 1";
+        $result=$conn->query($sql);
+    }
+
 //NO BORRAR
 }
 ?>

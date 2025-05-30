@@ -201,10 +201,21 @@ $conn->close();
             });
         }
 
-        function borrarModelo(id){
-            console.log(id);
+        function changeTipo(tipo,id){
+            console.log(tipo);
             var param={id:id};
-            console.log(param);
+/*             $.ajax({
+                url:'change_tipo.php',
+                type:'POST',
+                data:param,
+                success: function(resp){
+                    //location.reload();
+                }
+            }); */
+        }
+
+        function borrarModelo(id){
+            var param={id:id};
             $.ajax({
                 url:'delete_modelo.php',
                 type:'POST',
