@@ -203,6 +203,16 @@ $conn->close();
 
         function borrarModelo(id){
             console.log(id);
+            var param={id:id};
+
+            $.ajax({
+                url:'delete_modelo.php',
+                type:'POST',
+                data:param,
+                success: function(resp){
+                    location.reload();
+                }
+            });
         }
 
     </script>
