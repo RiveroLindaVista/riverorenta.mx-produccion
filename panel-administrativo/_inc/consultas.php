@@ -1910,7 +1910,7 @@ class Conexion extends Database{
         }
     }
 
-    public function post_nuevo_modelo_valuacion($marca,$modelo,$ano,$tipo){
+    public function query_post_nuevo_modelo_valuacion($marca,$modelo,$ano,$tipo){
         $conn= Database::connect();
 
         $sql="INSERT INTO autometrica_modelos (marca,modelo,ano,tipo) VALUES('".$marca."','".$modelo."','".$ano."','".$tipo."')";
