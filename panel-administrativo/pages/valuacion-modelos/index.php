@@ -117,7 +117,7 @@ $conn->close();
                                         <table class="table table-bordered table-striped table-hover no-footer">
                                             <thead><th>AÑO</th><th>TIPO</th><th>OPCIÓN</th></thead>
                                             <tbody><tr><td><input type="number" id="newAno" /></td><td><select id="tipoModeloNuevo"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td><td><input class="btn bg-success" type="button" style="border-radius: 7px;background-color:green;color:white;" value="GUARDAR" onclick="saveNuevoModelo()" /></td></tr>
-                                                    <tr id="mensajeModal" class="col-span-3">Prueba</tr>
+                                                    <tr><td id="mensajeModal" colspan="3">Prueba</td></tr>
                                         </table>
                                     </div>
                                 </div>
