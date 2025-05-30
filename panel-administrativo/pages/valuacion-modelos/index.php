@@ -182,13 +182,13 @@ $conn->close();
                 success: function(resp){
                     if(resp== '1'){
                         $("#logModal").attr('hidden', false);
-                        document.getElementById('mensajeModal').innerHTML= 'Ya existe el modelo.';
+                        document.getElementById('mensajeModal').innerHTML= '<p style="background-color:red">Ya existe el modelo.</p>';
                         setTimeout(() => {
                             $("#logModal").attr('hidden', true);
                         }, 2000);
                     } else {
                         $("#logModal").attr('hidden', false);
-                        document.getElementById('mensajeModal').innerHTML= 'Guardando...';
+                        document.getElementById('mensajeModal').innerHTML= '<p style="background-color:green">Guardando...</p>';
                         setTimeout(() => {
                             $("#logModal").attr('hidden', true);
                             location.reload();
