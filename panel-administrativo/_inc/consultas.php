@@ -1883,7 +1883,7 @@ class Conexion extends Database{
         }
     }
 
-    public function query_modelos_valuacion($marca,$modelo){
+    public function query_modelos_valuacion($id,$marca,$modelo){
         $conn= Database::connect();
 
         $sql = 'SELECT id, ano, tipo FROM autometrica_modelos WHERE marca="'.$marca.'" AND modelo="'.$modelo.'" order BY ano desc';
