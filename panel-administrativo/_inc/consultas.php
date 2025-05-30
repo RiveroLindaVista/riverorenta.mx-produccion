@@ -1907,6 +1907,7 @@ class Conexion extends Database{
                 $out[]=$row;
             }
             if($out == null){
+                $sqlInsert = "INSERT INTO autometrica_modelos (marca,modelo,ano,tipo) VALUES('".$marca."','".$modelo."','".$ano."','".$tipo."')";
                 return '0';
             } else {
                 return '1';
