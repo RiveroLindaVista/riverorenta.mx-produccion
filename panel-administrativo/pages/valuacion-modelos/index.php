@@ -69,11 +69,11 @@ $conn->close();
     		 <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header">
+                        <div class="header d-flex">
                             <h2>
                                 MODELOS VALUACIÓN
                             </h2>
-                            <button type="button" class="btn bg-success" data-dismiss="modal"><i class="material-icons">no_crash</i>Agregar Auto</button>
+                            <button type="button" class="btn bg-success ml-3" onclick="openModalNuevoModelo()"><i class="material-icons">add</i>Agregar Auto</button>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -130,6 +130,34 @@ $conn->close();
                     </div>
                 </div>
                 <!-- Modal de edicion de inventarios versiones -->
+
+                <!-- Modal de nuevo modelo -->
+                <div class="modal fade bs-example-modal-lg" id="modal-nuevo-modelo" name="modal-nuevo-modelo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modelos</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div>
+                                    <div id="tabla_nuevo_auto" style="text-align:center">
+                                        <p>Agregar nuevo modelo</p>
+                                        <table class="table table-bordered table-striped table-hover no-footer">
+                                            <thead><th>AÑO</th><th>TIPO</th><th>OPCIÓN</th></thead>
+                                            <tbody><tr><td><input type="text" id="marca_nuevo" /></td><td><input type="text" id="modelo_nuevo" /></td><td><input type="number" id="ano_nuevo" /></td><td><select id="tipo_nuevo"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td><td><input class="btn bg-success" type="button" style="border-radius: 7px;background-color:green;color:white;" value="GUARDAR" onclick="saveNuevoAuto()" /></td></tr>
+                                                    <tr id="log_nuevo_Modal" hidden><td id="mensaje_nuevo_Modal" colspan="3">Prueba</td></tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal de nuevo modelo -->
 
     	</div>
     </section>
@@ -225,6 +253,10 @@ $conn->close();
                     location.reload();
                 }
             });
+        }
+
+        function openModalNuevoModelo(){
+            $("#modal-nuevo-modelo").modal('show');
         }
 
     </script>
