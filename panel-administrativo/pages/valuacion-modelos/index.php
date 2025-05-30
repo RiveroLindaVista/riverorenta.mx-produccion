@@ -184,13 +184,13 @@ $conn->close();
 
                     if(resp== 1){
                         $("#logModal").attr('hidden', false);
-                        document.getElementById('mensajeModal').innerHTML= '<p style="background-color:red">Ya existe el modelo.</p>';
+                        document.getElementById('mensajeModal').innerHTML= '<p style="background-color:#f3abab;color:#850000;">Ya existe el modelo.</p>';
                         setTimeout(() => {
                             $("#logModal").attr('hidden', true);
                         }, 2000);
                     } else {
                         $("#logModal").attr('hidden', false);
-                        document.getElementById('mensajeModal').innerHTML= '<p style="background-color:green">Guardando...</p>';
+                        document.getElementById('mensajeModal').innerHTML= '<p style="background-color:#acdcbc;color:#276d40;">Guardando...</p>';
                         setTimeout(() => {
                             $("#logModal").attr('hidden', true);
                             location.reload();
