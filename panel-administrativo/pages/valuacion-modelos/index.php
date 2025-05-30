@@ -204,7 +204,7 @@ $conn->close();
         function borrarModelo(id){
             console.log(id);
             var param={id:id};
-
+console.log(param);
             $.ajax({
                 url:'delete_modelo.php',
                 type:'POST',
