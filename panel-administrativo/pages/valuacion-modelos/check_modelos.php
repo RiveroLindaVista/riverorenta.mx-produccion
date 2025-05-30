@@ -8,11 +8,6 @@ $ano=$_POST['ano'];
 $tipo=$_POST['tipo'];
 $conne = new Construir();
 $modelos = $conne->check_modelos_valuacion($marca,$modelo,$ano,$tipo);
-//echo json_encode($modelos);
-if($modelos == null){
-    $guardado = $conne->post_nuevo_modelo_valuacion($marca,$modelo,$ano,$tipo);
-    echo '0';
-} else {
-    echo '1';
-}
+echo json_encode($modelos);
+//echo $modelos 
 ?>
