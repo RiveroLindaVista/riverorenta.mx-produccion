@@ -1919,15 +1919,8 @@ class Conexion extends Database{
     public function query_delete_modelo_valuacion($id){
         $conn= Database::connect();
 
-        $sql = "DELETE FROM autometrica_modelos WHERE id=".$id."";
-
+        $sql = "DELETE FROM autometrica_modelos WHERE id=".$id." limit 1";
         $result=$conn->query($sql);
-        if ($result) {
-            while ($row = $result->fetch_assoc()) {
-                $out[]=$row;
-            }
-            return $out;
-        }
     }
 
 //NO BORRAR
