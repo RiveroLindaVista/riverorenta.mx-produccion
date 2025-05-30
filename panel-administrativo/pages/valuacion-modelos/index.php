@@ -116,7 +116,8 @@ $conn->close();
                                         <input type="text" id="modelo1" hidden />
                                         <table class="table table-bordered table-striped table-hover no-footer">
                                             <thead><th>AÑO</th><th>TIPO</th><th>OPCIÓN</th></thead>
-                                            <tbody><td><input type="number" id="newAno" /></td><td><select id="tipoModeloNuevo"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td><td><input class="btn bg-success" type="button" style="border-radius: 7px;background-color:green;color:white;" value="GUARDAR" onclick="saveNuevoModelo()" /></td></tr>
+                                            <tbody><tr><td><input type="number" id="newAno" /></td><td><select id="tipoModeloNuevo"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td><td><input class="btn bg-success" type="button" style="border-radius: 7px;background-color:green;color:white;" value="GUARDAR" onclick="saveNuevoModelo()" /></td></tr>
+                                                    <tr id="mensajeModal" class="col-span-3">Prueba</tr>
                                         </table>
                                     </div>
                                 </div>
@@ -179,7 +180,9 @@ $conn->close();
                 type:'POST',
                 data:param,
                 success: function(resp){
-                    
+                    if(resp== '1'){
+
+                    }
                     console.log(resp);
                 }
             });

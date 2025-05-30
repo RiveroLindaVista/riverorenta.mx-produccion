@@ -1899,7 +1899,7 @@ class Conexion extends Database{
     public function query_check_modelos_valuacion($marca,$modelo,$ano,$tipo){
         $conn= Database::connect();
 
-        $sql = 'SELECT ano, tipo FROM autometrica_modelos WHERE marca="'.$marca.'" AND modelo="'.$modelo.'" AND ano="'.$ano.'" AND tipo="'.$tipo.'"';
+        $sql = 'SELECT ano, tipo FROM autometrica_modelos WHERE marca="'.$marca.'" AND modelo="'.$modelo.'" AND ano="'.$ano.'"';
 
         $result=$conn->query($sql);
         if ($result) {
@@ -1913,20 +1913,6 @@ class Conexion extends Database{
             } else {
                 return '1';
             }
-        }
-    }
-
-    public function query_post_nuevo_modelo_valuacion($marca,$modelo,$ano,$tipo){
-        $conn= Database::connect();
-
-        $sql="INSERT INTO autometrica_modelos (marca,modelo,ano,tipo) VALUES('".$marca."','".$modelo."','".$ano."','".$tipo."')";
-
-        $result=$conn->query($sql);
-        if ($result) {
-            while ($row = $result->fetch_assoc()) {
-                $out[]=$row;
-            }
-            return $out;
         }
     }
 
