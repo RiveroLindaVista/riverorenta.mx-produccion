@@ -2312,9 +2312,9 @@ public function catalogo_autos_activos(){
     $conn->close();
   }
 
-    public function change_tipo_model($id,$tipo){
+    public function change_tipo_modelo($id,$tipo){
     $conn=new Conexion();
-    $consulta= $conn->query_change_tipo_model($id,$tipo);
+    $consulta= $conn->query_change_tipo_modelo($id,$tipo);
     return $consulta;
     $conn->close();
   }

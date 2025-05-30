@@ -203,15 +203,15 @@ $conn->close();
 
         function changeTipo(tipo,id){
             console.log(tipo);
-            var param={id:id};
-/*             $.ajax({
+            var param={id:id, tipo:tipo};
+            $.ajax({
                 url:'change_tipo.php',
                 type:'POST',
                 data:param,
                 success: function(resp){
                     //location.reload();
                 }
-            }); */
+            });
         }
 
         function borrarModelo(id){
