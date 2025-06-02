@@ -57,7 +57,6 @@ $arr_usuarios = [
         'lista-politicas-empleados'
     ],
     'VALUACION' => [
-        'RiveroValuacion',
         'valuacion-modelos'
     ]
 ];
@@ -222,7 +221,7 @@ echo "<script>console.log(JSON.parse('".json_encode($arr_usuarios)."')); </scrip
                         <?php } ?>
 
                         
-                    <?php if(in_array('valuacion_modelos', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
+                    <?php if(in_array('valuacion-modelos', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
                         <li class="<?= $valuacion_modelos;?>">
                             <a href="<?=URLP?>pages/valuacion-modelos" class="">
                                 <i class="material-icons">attach_money</i>

@@ -130,6 +130,8 @@ session_start();
                                 console.log('-----SESION POLITICAS----'+res);
                                 
                                 window.location.href="<?= URL?>"+"/produccion/panel-administrativo/pages/politicas";    
+                            } else if(res == 'VALUACION'){
+                                window.location.href="<?= URL?>"+"/produccion/panel-administrativo/pages/valuacion-modelos/";
                             } else {
                                 console.log("SESION OTRO: "+res);
                                 window.location.href="<?= URL?>"+"/produccion/panel-administrativo/pages/home";
