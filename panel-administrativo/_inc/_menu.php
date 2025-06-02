@@ -55,6 +55,10 @@ $arr_usuarios = [
     'POLITICAS' => [
         'politicas',
         'lista-politicas-empleados'
+    ],
+    'VALUACION' => [
+        'RiveroValuacion',
+        'valuacion-modelos'
     ]
 ];
 // echo  '<script>console.log(JSON.parse( JSON.stringy("'.  $arr_usuarios .'")) );</script>';

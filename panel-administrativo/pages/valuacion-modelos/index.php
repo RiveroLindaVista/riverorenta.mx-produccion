@@ -73,7 +73,7 @@ $conn->close();
                             <h2>
                                 MODELOS VALUACIÓN
                             </h2>
-                            <button type="button" class="btn bg-success ml-3" onclick="openModalNuevoModelo()"><i class="material-icons">add</i>Agregar Auto</button>
+                            <button type="button" class="btn bg-success mt-3" onclick="openModalNuevoModelo()"><i class="material-icons">add</i>Agregar Auto</button>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
