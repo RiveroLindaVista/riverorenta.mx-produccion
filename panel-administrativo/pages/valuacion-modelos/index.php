@@ -151,6 +151,7 @@ $conn->close();
                                                     <tr><td>TIPO</td><td><select id="tipo_nuevo"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td></tr>
                                                     <tr><td colspan="2"><input class="btn bg-success" type="button" style="border-radius: 7px;background-color:green;color:white;" value="GUARDAR" onclick="saveNuevoAuto()" /></td></tr>
                                                     <tr id="log_nuevo_Modal" hidden><td id="mensaje_nuevo_Modal" colspan="3">Prueba</td></tr>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -230,6 +231,46 @@ $conn->close();
                         }, 2000);
                     }
                     
+                }
+            });
+        }
+
+        function saveNuevoAuto(){
+            let year = $("#ano_nuevo").val();
+            let tipoModeloNuevo = $("#tipo_nuevo").val();
+            let marca = $("#marca_nuevo").val();
+            let modelo = $("#modelo_nuevo").val();
+
+            marca= marca.trimEnd();
+            marca= marca.trimStart();
+
+            modelo= modelo.trimEnd();
+            modelo= modelo.trimStart();
+
+            var param={ano:year, tipo:tipoModeloNuevo, marca:marca.toUpperCase(), modelo:modelo.toUpperCase()};
+
+            console.log(param);
+            $.ajax({
+                url:'nuevo_modelo.php',
+                type:'POST',
+                data:param,
+                success: function(resp){
+                    //location.reload();
+
+                    if(resp== 1){
+                        $("#log_nuevo_Modal").attr('hidden', false);
+                        document.getElementById('mensaje_nuevo_Modal').innerHTML= '<p style="background-color:#f3abab;color:#850000;">Ya existe el modelo.</p>';
+                        setTimeout(() => {
+                            $("#log_nuevo_Modal").attr('hidden', true);
+                        }, 2000);
+                    } else {
+                        $("#log_nuevo_Modal").attr('hidden', false);
+                        document.getElementById('mensaje_nuevo_Modal').innerHTML= '<p style="background-color:#acdcbc;color:#276d40;">Guardando...</p>';
+                        setTimeout(() => {
+                            $("#log_nuevo_Modal").attr('hidden', true);
+                            location.reload();
+                        }, 1500);
+                    }
                 }
             });
         }

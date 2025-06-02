@@ -2318,6 +2318,14 @@ public function catalogo_autos_activos(){
     return $consulta;
     $conn->close();
   }
+
+  public function check_full_modelo_valuacion($marca, $modelo, $ano, $tipo){
+    $conn=new Conexion();
+    $consulta= $conn->query_check_full_modelo_valuacion($marca, $modelo, $ano, $tipo);
+    return $consulta;
+    $conn->close();
+  }
+  
   
 
 /*Fin Class Construir*/
