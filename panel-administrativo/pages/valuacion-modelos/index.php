@@ -144,8 +144,12 @@ $conn->close();
                                     <div id="tabla_nuevo_auto" style="text-align:center">
                                         <p>Agregar nuevo modelo</p>
                                         <table class="table table-bordered table-striped table-hover no-footer">
-                                            <thead><th>MARCA</th><th>MODELO</th><th>AÑO</th><th>TIPO</th><th>OPCIÓN</th></thead>
-                                            <tbody><tr><td><input type="text" id="marca_nuevo" /></td><td><input type="text" id="modelo_nuevo" /></td></tr><tr><td><input type="number" id="ano_nuevo" /></td><td><select id="tipo_nuevo"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td></tr><td><input class="btn bg-success" type="button" style="border-radius: 7px;background-color:green;color:white;" value="GUARDAR" onclick="saveNuevoAuto()" /></td></tr>
+                                            <thead><th></th><th></th></thead>
+                                            <tbody><tr><td>MARCA</td><td><input type="text" id="marca_nuevo" /></td></tr>
+                                                    <tr><td>MODELO</td><td><input type="text" id="modelo_nuevo" /></td></tr>
+                                                    <tr><td>AÑO</td><td><input type="number" id="ano_nuevo" /></td></tr>
+                                                    <tr><td>TIPO</td><td><select id="tipo_nuevo"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td></tr>
+                                                    <tr><td colspan="2"><input class="btn bg-success" type="button" style="border-radius: 7px;background-color:green;color:white;" value="GUARDAR" onclick="saveNuevoAuto()" /></td></tr>
                                                     <tr id="log_nuevo_Modal" hidden><td id="mensaje_nuevo_Modal" colspan="3">Prueba</td></tr>
                                         </table>
                                     </div>
