@@ -429,29 +429,31 @@ if ($marcasQry->num_rows > 0) {
             dataType: "json",
             success: function(resp) {
                 
+                let precioAjustado = 0;
 
                 switch (resp.tipo) {
                     case "A":
-                        let precioAjustado = obj.lineal[0].purchase;
+                        precioAjustado = obj.lineal[0].purchase;
                         break;
                     case "B":
-                        let precioAjustado = obj.lineal[0].purchase * .05;
+                        precioAjustado = obj.lineal[0].purchase * .05;
                         precioAjustado = obj.lineal[0].purchase - precioAjustado;
                         break;
                     case "C":
-                        let precioAjustado = obj.lineal[0].purchase * .1;
+                        precioAjustado = obj.lineal[0].purchase * .1;
                         precioAjustado = obj.lineal[0].purchase - precioAjustado;
                         break;
                     case "D":
-                        let precioAjustado = obj.lineal[0].purchase * .13;
+                        precioAjustado = obj.lineal[0].purchase * .13;
                         precioAjustado = obj.lineal[0].purchase - precioAjustado;
                         break;
                     case "E":
-                        let precioAjustado = "SIN OPCIÓN A COMPRA.";
+                        precioAjustado = "SIN OPCIÓN A COMPRA.";
                         $("#precio").html("SIN OPCIÓN A COMPRA.");
                         return 0;
                         break;
                     default:
+                        console.log('Sinco');
                         break;
                 }
 console.log(resp.tipo);
