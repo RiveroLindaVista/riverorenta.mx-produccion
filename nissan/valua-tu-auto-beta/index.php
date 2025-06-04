@@ -428,7 +428,7 @@ if ($marcasQry->num_rows > 0) {
             data: params,
             dataType: "json",
             success: function(resp) {
-                console.log(resp);
+                console.log(resp.tipo);
 
 /*                 switch (resp.tipo) {
                     case "A":
