@@ -9,6 +9,6 @@ $modelo=$_POST['modelo'];
 $conne = new Construir();
 $tipo = $conne->get_tipo($ano, $marca, $modelo);
 
-echo json_encode($tipo);
-return json_encode($tipo);
+echo json_encode($tipo[0]);
+return json_encode($tipo[0]);
 ?>

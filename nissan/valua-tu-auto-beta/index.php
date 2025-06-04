@@ -430,10 +430,35 @@ if ($marcasQry->num_rows > 0) {
             success: function(resp) {
                 console.log(resp);
 
-                let precio = '$ '+new Intl.NumberFormat('en-US').format(obj.lineal[0].purchase)+'.00 MXN';
+                switch (resp.tipo) {
+                    case "A":
+                        let precioAjustado = obj.lineal[0].purchase;
+                        break;
+                    case "B":
+                        let precioAjustado = obj.lineal[0].purchase * .05;
+                        precioAjustado = obj.lineal[0].purchase - precioAjustado;
+                        break;
+                    case "C":
+                        let precioAjustado = obj.lineal[0].purchase * .1;
+                        precioAjustado = obj.lineal[0].purchase - precioAjustado;
+                        break;
+                    case "D":
+                        let precioAjustado = obj.lineal[0].purchase * .13;
+                        precioAjustado = obj.lineal[0].purchase - precioAjustado;
+                        break;
+                    case "E":
+                        let precioAjustado = "SIN OPCIÓN A COMPRA.";
+                        $("#precio").html("SIN OPCIÓN A COMPRA.");
+                        return 0;
+                        break;
+                    default:
+                        break;
+                }
+
+                let precio = '$ '+new Intl.NumberFormat('en-US').format(precioAjustado)+'.00 MXN';
                 ofertas.precio_normal = obj.lineal[0].purchase;
                 ofertas.km_group = obj.lineal[0].km_group;
-                ofertas.compra = obj.lineal[0].purchase;
+                ofertas.compra = precioAjustado;
                 ofertas.venta = obj.lineal[0].sale;
 
                 let descripcionAuto = `
@@ -453,7 +478,7 @@ if ($marcasQry->num_rows > 0) {
                 } else {
                     console.log("Entro al SEGUNDO del IF");
                     if (obj.lineal[0].sale != "" ){
-                        let formula = (obj.lineal[0].purchase + obj.lineal[0].sale) / 2;
+                        let formula = (precioAjustado + obj.lineal[0].sale) / 2;
                         ofertas.precio_primo = formula;
                         precioPrimo = '$ '+new Intl.NumberFormat('en-US').format(formula)+'.00 MXN';
                         $("#precioPrimo").html(precioPrimo);
