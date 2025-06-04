@@ -64,7 +64,7 @@ class Conexion extends Database{
     public function query_tipo($ano, $marca, $modelo){
 
         $conn= Database::connect();
-        $sql = "SELECT tipo FROM autometrica_modelos WHERE year =".$ano." and marca ='".$marca."' and modelo ='".$modelo."'";
+        $sql = "SELECT tipo FROM autometrica_modelos WHERE ano =".$ano." and marca ='".$marca."' and modelo ='".$modelo."'";
         $result=$conn->query($sql);
         if ($result) {
             while ($row = $result->fetch_assoc()) {
