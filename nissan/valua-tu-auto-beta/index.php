@@ -417,8 +417,8 @@ if ($marcasQry->num_rows > 0) {
 //NISSAN, CHEVROLET, MAZDA, TOYOTA, HONDA
 
         let params = {
-            modelo: obj.lineal[0].subbrand,
-            marca: obj.lineal[0].brand,
+            modelo: obj.lineal[0].subbrand.toUpperCase(),
+            marca: obj.lineal[0].brand.toUpperCase(),
             ano: obj.lineal[0].year,
         }
 
