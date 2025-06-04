@@ -416,39 +416,56 @@ if ($marcasQry->num_rows > 0) {
         let data = obj.lineal;
 //NISSAN, CHEVROLET, MAZDA, TOYOTA, HONDA
 
-        let precio = '$ '+new Intl.NumberFormat('en-US').format(obj.lineal[0].purchase)+'.00 MXN';
-        ofertas.precio_normal = obj.lineal[0].purchase;
-        ofertas.km_group = obj.lineal[0].km_group;
-        ofertas.compra = obj.lineal[0].purchase;
-        ofertas.venta = obj.lineal[0].sale;
-
-        let descripcionAuto = `
-            <p style="font-family: Narrow;text-align: center;font-size: 2em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
-            <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].version}</p>
-            `;
-        $("#precio").html(precio);
-        $("#descripcionAuto").html(descripcionAuto);
-
-        let precioPrimo = "";
-
-        console.log("Marca: Chevrolet", obj.lineal[0].brand.toLowerCase().includes("chevrolet"));
-        console.log("Precio Venta: ", obj.lineal[0].sale);
-
-        if(obj.lineal[0].brand.toLowerCase().includes("chevrolet") == false && obj.lineal[0].brand.toLowerCase().includes("nissan") == false && obj.lineal[0].brand.toLowerCase().includes("mazda") == false && obj.lineal[0].brand.toLowerCase().includes("mazda") == false && obj.lineal[0].brand.toLowerCase().includes("toyota") == false){
-            console.log("Entro al primero del IF");
-        } else {
-            console.log("Entro al SEGUNDO del IF");
-            if (obj.lineal[0].sale != "" ){
-                let formula = (obj.lineal[0].purchase + obj.lineal[0].sale) / 2;
-                ofertas.precio_primo = formula;
-                precioPrimo = '$ '+new Intl.NumberFormat('en-US').format(formula)+'.00 MXN';
-                $("#precioPrimo").html(precioPrimo);
-                $("#OfertaPrimo").attr('hidden', false);
-            }
-
+        let params = {
+            modelo: obj.lineal[0].subbrand,
+            marca: obj.lineal[0].brand,
+            ano: obj.lineal[0].year,
         }
 
-        console.log("IGNORO");
+        $.ajax({
+            type: "POST",
+            url: "getTipos.php",
+            data: params,
+            dataType: "json",
+            success: function(resp) {
+                console.log(resp);
+
+                let precio = '$ '+new Intl.NumberFormat('en-US').format(obj.lineal[0].purchase)+'.00 MXN';
+                ofertas.precio_normal = obj.lineal[0].purchase;
+                ofertas.km_group = obj.lineal[0].km_group;
+                ofertas.compra = obj.lineal[0].purchase;
+                ofertas.venta = obj.lineal[0].sale;
+
+                let descripcionAuto = `
+                    <p style="font-family: Narrow;text-align: center;font-size: 2em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
+                    <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].version}</p>
+                    `;
+                $("#precio").html(precio);
+                $("#descripcionAuto").html(descripcionAuto);
+
+                let precioPrimo = "";
+
+                console.log("Marca: Chevrolet", obj.lineal[0].brand.toLowerCase().includes("chevrolet"));
+                console.log("Precio Venta: ", obj.lineal[0].sale);
+
+                if(obj.lineal[0].brand.toLowerCase().includes("chevrolet") == false && obj.lineal[0].brand.toLowerCase().includes("nissan") == false && obj.lineal[0].brand.toLowerCase().includes("mazda") == false && obj.lineal[0].brand.toLowerCase().includes("mazda") == false && obj.lineal[0].brand.toLowerCase().includes("toyota") == false){
+                    console.log("Entro al primero del IF");
+                } else {
+                    console.log("Entro al SEGUNDO del IF");
+                    if (obj.lineal[0].sale != "" ){
+                        let formula = (obj.lineal[0].purchase + obj.lineal[0].sale) / 2;
+                        ofertas.precio_primo = formula;
+                        precioPrimo = '$ '+new Intl.NumberFormat('en-US').format(formula)+'.00 MXN';
+                        $("#precioPrimo").html(precioPrimo);
+                        $("#OfertaPrimo").attr('hidden', false);
+                    }
+
+                }
+
+            }
+        });
+
+
 
     }
 

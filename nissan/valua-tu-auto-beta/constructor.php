@@ -31,4 +31,11 @@ class Construir extends Conexion{
       $consulta= $conn->query_versiones($modelo,$ano,$marca);
       return $consulta;
    }
+
+   public function get_tipo($ano,$marca,$modelo){
+
+      $conn=new Conexion();
+      $consulta= $conn->query_tipo();
+      return $consulta;
+   }
 }
