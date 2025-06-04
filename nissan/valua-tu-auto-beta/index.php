@@ -457,7 +457,7 @@ if ($marcasQry->num_rows > 0) {
                         break;
                 }
 console.log(resp.tipo);
-                /* let precio = '$ '+new Intl.NumberFormat('en-US').format(precioAjustado)+'.00 MXN';
+                let precio = '$ '+new Intl.NumberFormat('en-US').format(precioAjustado)+'.00 MXN';
                 ofertas.precio_normal = obj.lineal[0].purchase;
                 ofertas.km_group = obj.lineal[0].km_group;
                 ofertas.compra = precioAjustado;
@@ -487,7 +487,7 @@ console.log(resp.tipo);
                         $("#OfertaPrimo").attr('hidden', false);
                     }
 
-                } */
+                }
 
             }
         });
