@@ -422,7 +422,7 @@ if ($marcasQry->num_rows > 0) {
             ano: obj.lineal[0].year,
         }
 
-        $.ajax({
+       /*  $.ajax({
             type: "POST",
             url: "getTipos.php",
             data: params,
@@ -488,7 +488,7 @@ if ($marcasQry->num_rows > 0) {
                 }
 
             }
-        });
+        }); */
 
 
 
