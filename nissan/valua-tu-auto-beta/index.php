@@ -428,9 +428,9 @@ if ($marcasQry->num_rows > 0) {
             data: params,
             dataType: "json",
             success: function(resp) {
-                console.log(resp.tipo);
+                
 
-/*                 switch (resp.tipo) {
+                switch (resp.tipo) {
                     case "A":
                         let precioAjustado = obj.lineal[0].purchase;
                         break;
@@ -454,8 +454,8 @@ if ($marcasQry->num_rows > 0) {
                     default:
                         break;
                 }
-
-                let precio = '$ '+new Intl.NumberFormat('en-US').format(precioAjustado)+'.00 MXN';
+console.log(resp.tipo);
+                /* let precio = '$ '+new Intl.NumberFormat('en-US').format(precioAjustado)+'.00 MXN';
                 ofertas.precio_normal = obj.lineal[0].purchase;
                 ofertas.km_group = obj.lineal[0].km_group;
                 ofertas.compra = precioAjustado;
