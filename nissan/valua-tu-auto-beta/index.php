@@ -422,7 +422,7 @@ if ($marcasQry->num_rows > 0) {
             ano: obj.lineal[0].year,
         }
 
-       /*  $.ajax({
+        $.ajax({
             type: "POST",
             url: "getTipos.php",
             data: params,
@@ -430,7 +430,7 @@ if ($marcasQry->num_rows > 0) {
             success: function(resp) {
                 console.log(resp);
 
-                switch (resp.tipo) {
+/*                 switch (resp.tipo) {
                     case "A":
                         let precioAjustado = obj.lineal[0].purchase;
                         break;
@@ -485,10 +485,10 @@ if ($marcasQry->num_rows > 0) {
                         $("#OfertaPrimo").attr('hidden', false);
                     }
 
-                }
+                } */
 
             }
-        }); */
+        });
 
 
 
