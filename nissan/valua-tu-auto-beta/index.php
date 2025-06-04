@@ -450,6 +450,10 @@ if ($marcasQry->num_rows > 0) {
                     case "E":
                         precioAjustado = "SIN OPCIÓN A COMPRA.";
                         $("#precio").html("SIN OPCIÓN A COMPRA.");
+                        $("#descripcionAuto").html( `
+                            <p style="font-family: Narrow;text-align: center;font-size: 2em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
+                            <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].version}</p>
+                            `);
                         return 0;
                         break;
                     default:
@@ -458,7 +462,7 @@ if ($marcasQry->num_rows > 0) {
                 }
 console.log(resp.tipo);
                 let precio = '$ '+new Intl.NumberFormat('en-US').format(precioAjustado)+'.00 MXN';
-                ofertas.precio_normal = obj.lineal[0].purchase;
+                ofertas.precio_normal = precioAjustado;
                 ofertas.km_group = obj.lineal[0].km_group;
                 ofertas.compra = precioAjustado;
                 ofertas.venta = obj.lineal[0].sale;
