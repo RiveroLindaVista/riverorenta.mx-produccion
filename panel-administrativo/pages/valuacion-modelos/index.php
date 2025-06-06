@@ -12,8 +12,8 @@
 	   while($row = $resultQuery->fetch_assoc()) {
 	   		$nuevosCadena.='<tr onclick="verModelos(\''.$row["id"].'\',\''.$row["marca"].'\', \''.$row["modelo"].'\')">';
             $nuevosCadena.='<td>'.$row["marca"].'</td>';
-            $nuevosCadena.='<td>'.$row["modelo"].'</td>';
-            $nuevosCadena.='<td><input class="btn bg-primary" type="button" style="border-radius: 7px;color:white;" value="Ver Años" onclick="verModelos(\''.$row["id"].'\',\''.$row["marca"].'\', \''.$row["modelo"].'\')"></td>';
+            $nuevosCadena.='<td>'.utf8_encode($row["modelo"]).'</td>';
+            $nuevosCadena.='<td><input class="btn bg-primary" type="button" style="border-radius: 7px;color:white;" value="Ver Años" onclick="verModelos(\''.$row["id"].'\',\''.$row["marca"].'\', \''.utf8_encode($row["modelo"]).'\')"></td>';
             $nuevosCadena.='</tr>';
 	   }
 
