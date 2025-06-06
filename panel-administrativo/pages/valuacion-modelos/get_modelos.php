@@ -7,6 +7,5 @@ $modelo=$_POST['modelo'];
 $id=$_POST['id'];
 $conne = new Construir();
 $modelos = $conne->get_modelos_valuacion($id,$marca,$modelo);
-$modelos = utf8_encode($modelos);
 print_r($modelos);
 ?>
