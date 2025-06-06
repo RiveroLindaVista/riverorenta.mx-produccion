@@ -1890,7 +1890,7 @@ class Conexion extends Database{
         $result=$conn->query($sql);
         if ($result) {
             while ($row = $result->fetch_assoc()) {
-                $out[]=utf8_encode($row);
+                $out[]=$row;
             }
             return $out;
         }
