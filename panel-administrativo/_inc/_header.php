@@ -15,7 +15,7 @@
     <meta property="og:determiner" content="the" />
     <meta property="og:locale" content="es_MX" />
     <meta property="og:site_name" content="Grupo Rivero" />
-    <meta charset="UTF-8" />
+    <meta http-equiv="content-type" content="text/html; utf-8">
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@agenciarivero" />
     <meta name="twitter:creator" content="@agenciarivero" />
