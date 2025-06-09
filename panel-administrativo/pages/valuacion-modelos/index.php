@@ -338,7 +338,7 @@ $conn->close();
 
             if(tipo != 0 || tipo != "0"){
                 console.log(tipo);
-                var param={id:id, tipo:tipo, marca:marca, modelo:modelo, ano:ano};
+                var param={tipo:tipo, marca:marca, modelo:modelo, ano:ano};
                 $.ajax({
                     url:'change_tipo_faltante.php',
                     type:'POST',
