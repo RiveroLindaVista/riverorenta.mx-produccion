@@ -200,8 +200,8 @@ $conn->close();
                     let $tabla_modelos = '<table class="table table-bordered table-striped table-hover no-footer"><thead><th>MARCA</th><th>MODELO</th><th>AÑO</th><th>TIPO</th></thead><tbody>';
                     for (let i = 0; i < info.length; i++) {
 
-                        $tabla_modelos+='<tr><td>'+info.marca+'</td><td>'+info.modelo+'</td><td>'+info.year+'</td><td><select id="tipoModelo" onchange="changeTipo(this.value,';
-                        $tabla_modelos+="'"+info.marca+"','"+info.modelo+"'";
+                        $tabla_modelos+='<tr><td>'+info[i].marca+'</td><td>'+info[i].modelo+'</td><td>'+info[i].year+'</td><td><select id="tipoModelo" onchange="changeTipo(this.value,';
+                        $tabla_modelos+="'"+info[i].marca+"','"+info[i].modelo+"'";
                         $tabla_modelos+=')"><option value="0" disabled></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td></tr>';
 
                     }
