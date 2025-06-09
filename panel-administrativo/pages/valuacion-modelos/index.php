@@ -73,7 +73,7 @@ $conn->close();
                             <h2>
                                 MODELOS VALUACIÓN
                             </h2>
-                            <button type="button" class="btn bg-success mt-3" onclick="openModalNuevoModelo()"><i class="material-icons">add</i>Agregar Auto</button>
+                            <button type="button" class="btn bg-success mt-3" onclick="openModalFaltantes()"><i class="material-icons">add</i>Agregar Auto</button>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -164,6 +164,29 @@ $conn->close();
                 </div>
                 <!-- Modal de nuevo modelo -->
 
+                <!-- Modal de nuevo modelo -->
+                <div class="modal fade bs-example-modal-lg" id="modal-faltantes" name="modal-faltantes" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modelos Faltantes</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div>
+                                    <div id="tabla_faltantes" style="text-align:center">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal de nuevo modelo -->
+
     	</div>
     </section>
     <script>
@@ -174,6 +197,18 @@ $conn->close();
                 success: function(resp){
                     let info = JSON.parse(resp);
                     console.log(info);
+                    let $tabla_modelos = '<table class="table table-bordered table-striped table-hover no-footer"><thead><th>MARCA</th><th>MODELO</th><th>AÑO</th><th>TIPO</th></thead><tbody>';
+                    for (let i = 0; i < info.length; i++) {
+
+                        $tabla_modelos+='<tr><td>'+info.marca+'</td><td>'+info.modelo+'</td><td>'+info.year+'</td><td><select id="tipoModelo" onchange="changeTipo(this.value,';
+                        $tabla_modelos+="'"+info.marca+"','"+info.modelo+"'";
+                        $tabla_modelos+=')"><option value="0" disabled></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td></tr>';
+
+                    }
+                    $tabla_modelos+='</tbody></table>';
+
+                    $("#tabla-faltantes").html($tabla_modelos);
+
                 }
             })
         });
@@ -313,6 +348,10 @@ $conn->close();
 
         function openModalNuevoModelo(){
             $("#modal-nuevo-modelo").modal('show');
+        }
+
+        function openModalFaltantes(){
+            $("#modal-faltantes").modal('show');
         }
 
     </script>
