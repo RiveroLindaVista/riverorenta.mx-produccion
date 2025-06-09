@@ -172,7 +172,8 @@ $conn->close();
                 url:'get_faltantes.php',
                 type:'POST',
                 success: function(resp){
-                    console.log(resp);
+                    let info = JSON.parse(resp);
+                    console.log(info);
                 }
             })
         });
