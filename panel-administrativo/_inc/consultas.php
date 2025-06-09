@@ -1930,6 +1930,15 @@ class Conexion extends Database{
         $result=$conn->query($sql);
     }
 
+    public function query_change_tipo_modelo_faltante($marca, $modelo, $ano, $tipo){
+        $conn= Database::connect();
+
+        $sqlInsert = "INSERT INTO autometrica_modelos (marca,modelo,ano,tipo) VALUES('".$marca."','".$modelo."','".$ano."','".$tipo."')";
+        $resultInsert=$conn->query($sqlInsert);
+    }
+
+    
+
     public function query_check_full_modelo_valuacion($marca,$modelo,$ano,$tipo){
         $conn= Database::connect();
 

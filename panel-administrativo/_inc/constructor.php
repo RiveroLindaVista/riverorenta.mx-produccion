@@ -2333,6 +2333,13 @@ public function catalogo_autos_activos(){
     $conn->close();
   }
 
+    public function change_tipo_modelo_faltante($marca, $modelo, $ano, $tipo){
+    $conn=new Conexion();
+    $consulta= $conn->query_change_tipo_modelo_faltante($marca, $modelo, $ano, $tipo);
+    return $consulta;
+    $conn->close();
+  }
+
 /*Fin Class Construir*/
 }
 

@@ -200,8 +200,8 @@ $conn->close();
                     let $tabla_modelos = '<table class="table table-bordered table-striped table-hover no-footer"><thead><th>MARCA</th><th>MODELO</th><th>AÑO</th><th>TIPO</th></thead><tbody>';
                     for (let i = 0; i < info.length; i++) {
 
-                        $tabla_modelos+='<tr><td>'+info[i].marca+'</td><td>'+info[i].modelo+'</td><td>'+info[i].year+'</td><td><select id="tipoModelo" onchange="changeTipo(this.value,';
-                        $tabla_modelos+="'"+info[i].marca+"','"+info[i].modelo+"'";
+                        $tabla_modelos+='<tr><td>'+info[i].marca+'</td><td>'+info[i].modelo+'</td><td>'+info[i].year+'</td><td><select id="tipoModelo" onchange="changeTipoFaltante(this.value,';
+                        $tabla_modelos+="'"+info[i].marca+"','"+info[i].modelo+"','"+info[i].year+"'";
                         $tabla_modelos+=')"><option value="0" selected></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td></tr>';
 
                     }
@@ -332,6 +332,23 @@ $conn->close();
                     //location.reload();
                 }
             });
+        }
+
+        function changeTipoFaltante(tipo,marca, modelo, ano){
+
+            if(tipo != 0 || tipo != "0"){
+                console.log(tipo);
+                var param={id:id, tipo:tipo, marca:marca, modelo:modelo, ano:ano};
+                $.ajax({
+                    url:'change_tipo_faltante.php',
+                    type:'POST',
+                    data:param,
+                    success: function(resp){
+                        //location.reload();
+                    }
+                });
+            }
+
         }
 
         function borrarModelo(id){
