@@ -1950,6 +1950,36 @@ class Conexion extends Database{
         }
     }
 
+    public function query_check_modelos_faltantes(){
+        $conn= Database::connect();
+
+        $sql = 'SELECT marca, modelo, year
+                FROM valuacion_autometrica
+                WHERE NOT EXISTS (
+                    SELECT 1
+                    FROM autometrica_modelos
+                    WHERE valuacion_autometrica.marca = autometrica_modelos.marca
+                    AND valuacion_autometrica.modelo = autometrica_modelos.modelo
+                    AND valuacion_autometrica.year = autometrica_modelos.ano 
+                ) GROUP BY modelo,YEAR ORDER BY marca asc,modelo asc,YEAR desc';
+
+        $result=$conn->query($sql);
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $out[]=$row;
+            }
+/*             if($out == null){
+                $sqlInsert = "INSERT INTO autometrica_modelos (marca,modelo,ano,tipo) VALUES('".$marca."','".$modelo."','".$ano."','".$tipo."')";
+                $resultInsert=$conn->query($sqlInsert);
+                return 0;
+            } else {
+                return 1;
+            }*/
+                return $out;
+        } 
+    }
+       
+    }
+
 //NO BORRAR
-}
 ?>

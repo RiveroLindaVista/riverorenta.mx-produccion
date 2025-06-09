@@ -167,6 +167,17 @@ $conn->close();
     	</div>
     </section>
     <script>
+        $(document).ready(function() {
+            $.ajax({
+                url:'get_faltantes.php',
+                type:'POST',
+                data:param,
+                success: function(resp){
+                    console.log(resp);
+                }
+            })
+        });
+
         function gopage($i){
             location.href="<?=URLP?>pages/detalles-planes-nissan/index.php?id="+$i;
         }

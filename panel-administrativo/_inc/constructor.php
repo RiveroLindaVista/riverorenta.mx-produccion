@@ -2326,7 +2326,12 @@ public function catalogo_autos_activos(){
     $conn->close();
   }
   
-  
+  public function check_modelos_faltantes(){
+    $conn=new Conexion();
+    $consulta= $conn->query_check_modelos_faltantes();
+    return $consulta;
+    $conn->close();
+  }
 
 /*Fin Class Construir*/
 }
