@@ -171,7 +171,6 @@ $conn->close();
             $.ajax({
                 url:'get_faltantes.php',
                 type:'POST',
-                data:param,
                 success: function(resp){
                     console.log(resp);
                 }
