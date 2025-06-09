@@ -207,7 +207,7 @@ $conn->close();
                     }
                     $tabla_modelos+='</tbody></table>';
 
-                    $("#tabla-faltantes").html($tabla_modelos);
+                    $("#tabla_faltantes").html($tabla_modelos);
 
                 }
             })
