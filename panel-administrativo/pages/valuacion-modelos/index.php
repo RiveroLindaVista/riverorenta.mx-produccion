@@ -175,8 +175,9 @@ $conn->close();
                             <div class="modal-body">
                                 <div>
                                     <div id="tabla_faltantes" style="text-align:center">
+                                        <p class="text-faltantes">Revisando modelos faltantes</p>
                                         <div class="progress">
-                                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated active" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -374,6 +375,28 @@ $conn->close();
         }
 
     </script>
+
+    <style>
+        .text-faltantes{
+            animation: slidein-p 2s infinite ease-out;
+        }
+
+        @keyframes slidein-p {
+            0% {
+            transform: translateY(0px) translateX(0px);
+            }
+            50% {
+            transform: translateX(0px);
+            }
+            75% {
+            transform: translateX(10px);
+            }
+            100% {
+            transform: translateX(0px) translateY(0px);
+            }
+        }
+
+    </style>
 
 <!-- Jquery Core Js -->
     <script src="../../plugins/jquery/jquery.min.js"></script>
