@@ -12,10 +12,6 @@ class InventarioController extends Database {
         $resp_all = $resp->alls();
         // $resp_all = InvSistemasModel::alls();    
 
-        //imprimir variable de entorno .env
-        echo json_encode($_ENV);
-        return true;
-        
         echo json_encode($resp_all);
         
         

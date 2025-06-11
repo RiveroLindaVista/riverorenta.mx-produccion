@@ -15,7 +15,10 @@ $request_uri = $_SERVER['REQUEST_URI'];
 // Dividir la ruta en partes
 $uri_parts = explode('/', trim($request_uri, '/'));
 
+   echo json_encode($_ENV);
+        return true;
 
+        
 // Obtener el método HTTP
 $http_method = $_SERVER['REQUEST_METHOD'];
 // echo json_encode($http_method);
