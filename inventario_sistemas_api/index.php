@@ -15,7 +15,7 @@ $request_uri = $_SERVER['REQUEST_URI'];
 // Dividir la ruta en partes
 $uri_parts = explode('/', trim($request_uri, '/'));
 
-   echo json_encode(getenv('DB_USER'));
+   echo json_encode(getenv());
         return true;
 
         
