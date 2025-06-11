@@ -46,8 +46,9 @@ if (isset($routes[$http_method][$uri_parts[3]])) {
     
     $controller = $controller_function[0];
     $function = $controller_function[1];
-
     
+    echo json_encode($controller_function);
+    return true;
     // Obtener el nombre del controlador/manejador
     // $handler_name = $routes[$http_method][$controller];
     $handler_name = $controller;
