@@ -1,8 +1,6 @@
 <?php
 include_once "conection/conection.php";
 // include_once  "../models/inventario.php";
-echo "hola";
-return true;
 include_once  "models/InvSistemasModel.php";
 
 

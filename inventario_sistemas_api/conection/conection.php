@@ -14,16 +14,24 @@ class Database{
 
     
     function connect(){
+        ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+echo "DB_HOST: " . getenv('DB_HOST') . "<br>";
+echo "DB_DB: " . getenv('DB_DB') . "<br>";
+echo "DB_USER: " . getenv('DB_USER') . "<br>";
+echo "DB_PASSWORD: " . getenv('DB_PASSWORD') . "<br>";
+
+
+return true;
         try {
             $this->mbd = new PDO('mysql:host='.$this->host.';dbname='.$this->database, $this->user, $this->password);
 
             // echo "Conexión realizada Satisfactoriamentes";
             return $this->mbd;
         } catch (PDOException $e) {
-            // print "¡Error!: " . $e->getMessage() . "<br/>";
-            echo "Error de conexion";
-            // die();
-            return 'false';
+            print "¡Error!: " . $e->getMessage() . "<br/>";
+            die();
         }
     }
 
