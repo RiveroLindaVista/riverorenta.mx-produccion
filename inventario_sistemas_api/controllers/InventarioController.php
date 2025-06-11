@@ -1,8 +1,8 @@
 <?php
-echo json_encode('hola mundo');
-return true;
 include_once "conection/conection.php";
 // include_once  "../models/inventario.php";
+echo "hola";
+return true;
 include_once  "models/InvSistemasModel.php";
 
 
