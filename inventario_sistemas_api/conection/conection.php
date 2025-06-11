@@ -20,7 +20,8 @@ class Database{
             // echo "Conexión realizada Satisfactoriamentes";
             return $this->mbd;
         } catch (PDOException $e) {
-            print "¡Error!: " . $e->getMessage() . "<br/>";
+            // print "¡Error!: " . $e->getMessage() . "<br/>";
+            echo "Error de conexion";
             die();
         }
     }
