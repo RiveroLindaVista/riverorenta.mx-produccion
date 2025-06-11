@@ -22,7 +22,8 @@ class Database{
         } catch (PDOException $e) {
             // print "¡Error!: " . $e->getMessage() . "<br/>";
             echo "Error de conexion";
-            die();
+            // die();
+            return 'false';
         }
     }
 
