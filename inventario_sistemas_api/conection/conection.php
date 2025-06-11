@@ -3,25 +3,27 @@
 
 class Database{
 
-
+    private $host;
+    private $database;
+    private $user;
+    private $password;
+    private $mbd;
     
-
+    public function __construct() {
+        $this->host = getenv('DB_HOST');
+        $this->database = getenv('DB_DB');
+        $this->user = getenv('DB_USER');
+        $this->password = getenv('DB_PASSWORD');
+    }
 
 
     
     function connect(){
         
         try {
-                $pdo = new PDO(
-        'mysql:host=' . getenv('DB_HOST') . ';dbname=' . getenv('DB_DB'),
-        getenv('DB_USER'),
-        getenv('DB_PASSWORD')
-    );
-    echo "Conexión exitosa";
-    return $pdo;
-            // $this->mbd = new PDO('mysql:host='.$this->host.';dbname='.$this->database, $this->user, $this->password);
-            // // echo "Conexión realizada Satisfactoriamentes";
-            // return $this->mbd;
+            $this->mbd = new PDO('mysql:host='.$this->host.';dbname='.$this->database, $this->user, $this->password);
+            // echo "Conexión realizada Satisfactoriamentes";
+            return $this->mbd;
         } catch (PDOException $e) {
             print "¡Error!: " . $e->getMessage() . "<br/>";
             die();
@@ -29,7 +31,7 @@ class Database{
     }
 
     function disconnect(){
-        return null;
+        $this->mbd = null;
     }
 
     
