@@ -1,5 +1,5 @@
 <?php
-include_once "env_define.php";
+// include_once "env_define.php";
 
 class Database{
 
