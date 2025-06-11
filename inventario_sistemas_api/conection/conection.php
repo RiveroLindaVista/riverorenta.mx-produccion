@@ -1,5 +1,7 @@
 <?php
 // include_once "env_define.php";
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 class Database{
 
@@ -14,8 +16,7 @@ class Database{
 
     
     function connect(){
-        ini_set('display_errors', 1);
-error_reporting(E_ALL);
+        
 
 echo "DB_HOST: " . getenv('DB_HOST') . "<br>";
 echo "DB_DB: " . getenv('DB_DB') . "<br>";
