@@ -3,12 +3,11 @@
 
 class Database{
 
-    private $host = DB_HOST;
-    private $database = DB_DB;
-    private $user = DB_USER;
-    private $password = DB_PASSWORD;
+    private $host = getenv('DB_HOST');// DB_HOST;
+    private $database = getenv('DB_DB');// DB_DB;
+    private $user = getenv('DB_USER');// DB_USER;
+    private $password = getenv('DB_PASSWORD');//DB_PASSWORD;
     private $mbd;
-
     
 
 
