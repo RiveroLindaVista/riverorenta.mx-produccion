@@ -21,7 +21,7 @@ $arr = ['HOST'=> getenv('DB_HOST'),
         'DB_PASSWORD' => getenv('DB_PASSWORD')
 ];
 
-   echo json_encode(getenv());
+   echo json_encode($arr);
         return true;
 
         
