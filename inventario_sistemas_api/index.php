@@ -15,15 +15,6 @@ $request_uri = $_SERVER['REQUEST_URI'];
 // Dividir la ruta en partes
 $uri_parts = explode('/', trim($request_uri, '/'));
 
-$arr = ['HOST'=> getenv('DB_HOST'),
-        'DB' => getenv('DB_DB'),
-        'DB_USER' => getenv('DB_USER'),
-        'DB_PASSWORD' => getenv('DB_PASSWORD')
-];
-
-   echo json_encode($arr);
-        return true;
-
         
 // Obtener el método HTTP
 $http_method = $_SERVER['REQUEST_METHOD'];
