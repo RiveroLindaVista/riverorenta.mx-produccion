@@ -14,8 +14,8 @@ $request_uri = $_SERVER['REQUEST_URI'];
 
 // Dividir la ruta en partes
 $uri_parts = explode('/', trim($request_uri, '/'));
-
-
+echo json_encode($uri_parts);
+return true;
 // Obtener el método HTTP
 $http_method = $_SERVER['REQUEST_METHOD'];
 // echo json_encode($http_method);
@@ -67,7 +67,7 @@ if (isset($routes[$http_method][$uri_parts[3]])) {
 } else {
     // Ruta no encontrada
     header("HTTP/1.1 404 Not Found");
-    echo "404 Not Found";
+    echo "404 Not Founds";
 }
 
 ?>
