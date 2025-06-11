@@ -16,10 +16,16 @@ class Database{
     function connect(){
         
         try {
-            $this->mbd = new PDO('mysql:host='.$this->host.';dbname='.$this->database, $this->user, $this->password);
-
-            // echo "Conexión realizada Satisfactoriamentes";
-            return $this->mbd;
+                 $this->mbd= new PDO(
+        'mysql:host=' . getenv('DB_HOST') . ';dbname=' . getenv('DB_DB'),
+        getenv('DB_USER'),
+        getenv('DB_PASSWORD')
+    );
+    echo "Conexión exitosa";
+    return $this->mbd;
+            // $this->mbd = new PDO('mysql:host='.$this->host.';dbname='.$this->database, $this->user, $this->password);
+            // // echo "Conexión realizada Satisfactoriamentes";
+            // return $this->mbd;
         } catch (PDOException $e) {
             print "¡Error!: " . $e->getMessage() . "<br/>";
             die();
