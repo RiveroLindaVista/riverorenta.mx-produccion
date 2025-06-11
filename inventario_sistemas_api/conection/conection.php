@@ -23,7 +23,7 @@ echo "DB_USER: " . getenv('DB_USER') . "<br>";
 echo "DB_PASSWORD: " . getenv('DB_PASSWORD') . "<br>";
 
 
-return true;
+
         try {
             $this->mbd = new PDO('mysql:host='.$this->host.';dbname='.$this->database, $this->user, $this->password);
 
