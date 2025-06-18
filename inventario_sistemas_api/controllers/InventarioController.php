@@ -144,9 +144,10 @@ class InventarioController extends Database {
 
 
     function fn_update_inv() {
-        $param_url = parse_str($_SERVER["QUERY_STRING"], $arr_params_url);
-        $id= $arr_params_url["id"];
+        // $param_url = parse_str($_SERVER["QUERY_STRING"], $arr_params_url);
+        // $id= $arr_params_url["id"];
         $request = json_decode(file_get_contents('php://input'));
+        $id = $request->id;
 
         // echo json_encode($id);
         

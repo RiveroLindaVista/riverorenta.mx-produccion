@@ -30,7 +30,7 @@ $routes = [//Method->url->controller
     ],
     'POST' => [
         'save_inv' => 'InventarioController:fn_save_inventario',
-        'update_inv' => 'InventarioController:fn_update_inv',//with id param
+        'update_inv' => 'InventarioController:fn_update_inv',//with id param in body
         'delete_inv' => 'InventarioController:fn_delete_inv',//with id param
     ],
     'DELETE' => [
