@@ -10,7 +10,7 @@ class InventarioController extends Database {
         
         $resp = new InvSistemasModel;
         $resp_all = $resp->alls();
-        // $resp_all = InvSistemasModel::alls();    
+        // $resp_all = InvSistemasModel::alls();
 
         echo json_encode($resp_all);
         
@@ -217,8 +217,11 @@ class InventarioController extends Database {
     }
 
     function fn_delete_inv() {
-        $param_url = parse_str($_SERVER["QUERY_STRING"], $arr_params_url);
-        $id = $arr_params_url["id"];
+        // $param_url = parse_str($_SERVER["QUERY_STRING"], $arr_params_url);
+        // $id = $arr_params_url["id"];
+        $request =  json_decode( file_get_contents('php://input', true)) ;
+        $id = $request->id;
+
         
         $sql = "DELETE FROM inv_sistemas WHERE id = ?";
         $mbd = Database::connect();
