@@ -2,8 +2,8 @@
 
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
-header("Access-Control-Allow-Methods: GET,POST,OPTIONS,PUT,DELETE");
-header("Allow: GET,POST,OPTIONS,PUT,DELETE");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 $method = $_SERVER['REQUEST_METHOD'];
 if($method == "OPTIONS") {
     die();
@@ -15,7 +15,7 @@ $request_uri = $_SERVER['REQUEST_URI'];
 // Dividir la ruta en partes
 $uri_parts = explode('/', trim($request_uri, '/'));
 
-        
+
 // Obtener el método HTTP
 $http_method = $_SERVER['REQUEST_METHOD'];
 // echo json_encode($http_method);
@@ -31,9 +31,10 @@ $routes = [//Method->url->controller
     'POST' => [
         'save_inv' => 'InventarioController:fn_save_inventario',
         'update_inv' => 'InventarioController:fn_update_inv',//with id param
+        'delete_inv' => 'InventarioController:fn_delete_inv',//with id param
     ],
     'DELETE' => [
-        'delete_inv' => 'InventarioController:fn_delete_inv',//with id param
+        // 'delete_inv' => 'InventarioController:fn_delete_inv',//with id param
     ]
 ];
 
