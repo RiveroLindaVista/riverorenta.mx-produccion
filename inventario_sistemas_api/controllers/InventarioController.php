@@ -23,9 +23,9 @@ class InventarioController extends Database {
 
         parse_str($_SERVER['QUERY_STRING'], $params);
         // var_dump( $params);
-        // $id = $params['id'];
-        echo json_encode($params['/get_inventario_by_id2/?id']);
-        return true;
+        $id = $params['/get_inventario_by_id2/?id'];
+        // echo json_encode($params['id']);
+        // return true;
         $mbd = Database::connect();
 
         $sentence = $mbd->prepare('SELECT * FROM inv_sistemas where id=?');
