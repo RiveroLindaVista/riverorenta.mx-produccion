@@ -8,7 +8,7 @@ try {
         $up = new Upload($_FILES["imagen"]);
         $slug = $_POST["slug"];
         $extension = pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION);
-        if ($extension != "jpg"){
+        if ($extension != "pdf"){
             echo "jpg";
             return 0;
         }
@@ -18,8 +18,8 @@ try {
             $up->file_new_name_body = $new_name;
             if(file_exists("../../../../gruporivero/pdf".$file_new_name_body)) {
                 
-                unlink("../../../../gruporivero/pdf/$new_name.jpg");
-                move_uploaded_file($rutaTemporal,"../../../../gruporivero/pdf/$new_name.jpg");
+                unlink("../../../../gruporivero/pdf/$new_name.pdf");
+                move_uploaded_file($rutaTemporal,"../../../../gruporivero/pdf/$new_name.pdf");
                 echo ("ok");
             } else {
                 $up->Process("../../../../gruporivero/pdf");
