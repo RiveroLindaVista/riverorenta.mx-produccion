@@ -304,8 +304,9 @@ $manana = date('Y-m-d', $manana);
 
     @media only screen and (max-width: 991px) {
         .formOferta{
-            background-position: 0% 0%;
+            background-position: 0% 0%!important;
             background-image: url(backMovil.png)!important;
+            height: 100%;
         }
 
         .inputEvento{
