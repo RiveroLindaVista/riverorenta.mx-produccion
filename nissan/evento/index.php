@@ -29,8 +29,8 @@ $manana = date('Y-m-d', $manana);
             <div id="formOferta" class="formOferta row" class="p-4">
                 <div class="col-8"></div>
 
-                <div class="col-4">
-                    <img src="logoOffroad.png" style="width:100%" />
+                <div class="col-4 d-flex justify-content-center">
+                    <img src="logoOffroad.png" style="width:90%" />
                 </div>
 
                 <div class="col-8"></div>
@@ -67,10 +67,10 @@ $manana = date('Y-m-d', $manana);
                     </div>
                 </div>
 
-                <div class="col-8"></div>
+                <div class="col-8 "></div>
 
-                <div class="col-4">
-                    <img src="logoTinaja.png" style="width:100%" />
+                <div class="d-flex justify-content-center col-4 p-0">
+                    <img src="logoTinaja.png" style="width:80%" />
                 </div>
                 
             </div>
@@ -582,7 +582,7 @@ console.log(resp.tipo);
         background-color:rgba(194, 194, 194, 0.56);
     }
 
-    .#labelEvento{
+    .labelEvento{
         color: white;
     }
 
