@@ -30,7 +30,7 @@ $manana = date('Y-m-d', $manana);
                 <div class="col-8"></div>
 
                 <div class="col-4">
-                    <img src="logoOffroad.png" />
+                    <img src="logoOffroad.png" style="width:100%" />
                 </div>
 
                 <div class="col-8"></div>
@@ -68,7 +68,7 @@ $manana = date('Y-m-d', $manana);
                 <div class="col-8"></div>
 
                 <div class="col-4">
-                    <img src="logoTinaja.png" />
+                    <img src="logoTinaja.png" style="width:100%" />
                 </div>
                 
             </div>
