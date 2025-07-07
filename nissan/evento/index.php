@@ -55,7 +55,7 @@ $manana = date('Y-m-d', $manana);
                     </div>
 
                     <div className="form-group p-2 d-flex justify-content-center">
-                        <input type="submit" className="botonEvento text-white px-4 py-0" value="ENVIAR" />
+                        <input className="botonEvento text-white px-4 py-0" value="ENVIAR" onclick="enviarRegistro()" />
                     </div>
                 </div>
                 
@@ -535,7 +535,7 @@ console.log(resp.tipo);
         animation-name: slide-in;
     }
 
-    #formOferta{
+    .formOferta{
         height: 100vh;
         width: 100vw;
         border-bottom-left-radius: 20px;
