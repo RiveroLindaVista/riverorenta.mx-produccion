@@ -177,7 +177,7 @@ $manana = date('Y-m-d', $manana);
     .inputEvento{
         border-radius: 15px;
         background-color:rgba(194, 194, 194, 0.56);
-        width: 100px;
+        width: 250px;
     }
 
     .labelEvento{
