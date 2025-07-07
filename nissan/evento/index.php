@@ -30,6 +30,12 @@ $manana = date('Y-m-d', $manana);
                 <div class="col-8"></div>
 
                 <div class="col-4">
+                    <img src="logoOffroad.png" />
+                </div>
+
+                <div class="col-8"></div>
+
+                <div class="col-4">
                     <div class="form-group pb-2">
                         <label class="labelEvento" for="nombre">Nombre *</label><br/>
                         <input class="inputEvento p-2 mb-1" placeholder="Nombre" id="nombre" maxlength="40" name="nombre" size="30" type="text" required />
@@ -57,6 +63,12 @@ $manana = date('Y-m-d', $manana);
                     <div class="form-group p-2 d-flex justify-content-center">
                         <div class="botonEvento text-white px-4 py-0" value="ENVIAR" onclick="enviarRegistro()"></div>
                     </div>
+                </div>
+
+                <div class="col-8"></div>
+
+                <div class="col-4">
+                    <img src="logoTinaja.png" />
                 </div>
                 
             </div>
