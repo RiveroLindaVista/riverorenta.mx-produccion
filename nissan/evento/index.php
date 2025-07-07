@@ -27,7 +27,7 @@ $manana = date('Y-m-d', $manana);
     <body style="background-color:#1d1d1d;">
         <div style="display:flex; justify-content: center; align-items: center;">
             <div id="formOferta" class="formOferta row" class="p-4">
-                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12"></div>
+                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 colSuperior"></div>
 
                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 d-flex justify-content-center">
                     <img src="logoOffroad.png" style="width:90%" />
@@ -36,15 +36,26 @@ $manana = date('Y-m-d', $manana);
                 <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12"></div>
 
                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 d-flex justify-content-center">
+                    <form id="webToLeadForm" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DHp000005bwkK" method="POST">
+
+                    <input hidden name="oid" value="00DHp000005bwkK"/>
+                    <input hidden name="retURL" value="https://nissanrivero.com/gracias-por-contactarnos/nissan"/>
+                    <input hidden id="00NHp0000194HVl" maxlength="255" name="00NHp0000194HVl" size="20" type="text" value="Offroad Rivero" />
+                    <input hidden id="Campaign_ID" name="Campaign_ID" value="701Vn00000HA7g0IAD"/>
+                    <input hidden id="GRI_Codigo_Campana__c" name="GRI_Codigo_Campana__c" value="701Vn00000HA7g0IAD" />
+                    <input hidden id="00N2S000007ThUK" name="00N2S000007ThUK" value="https://nissanrivero.com" />
+                    <input hidden id="lead_source" name="lead_source" value="Internet" />
+                    <input hidden id="url" name="url" value="https://nissanrivero.com/evento/offroad-rivero" />
+                    <input hidden id="00NHp0000194HUw" name="00NHp0000194HUw"  value="nissanrivero.com"/>
                     <div>
                         <div class="form-group pb-2">
                             <label class="labelEvento" for="nombre">Nombre *</label><br/>
-                            <input class="inputEvento p-2 mb-1" placeholder="Nombre" id="nombre" maxlength="40" name="nombre" type="text" required />
+                            <input class="inputEvento p-2 mb-1" placeholder="Nombre" id="first_name" maxlength="40" name="first_name" type="text" required />
                         </div>
 
                         <div class="form-group pb-2">
                             <label class="labelEvento" for="nombre">Apellidos *</label><br/>
-                            <input class="inputEvento p-2 mb-1" placeholder="Apellidos" id="apellidos" maxlength="40" name="apellidos" type="text" required />
+                            <input class="inputEvento p-2 mb-1" placeholder="Apellidos" id="last_name" maxlength="40" name="last_name" type="text" required />
                         </div>
 
                         <div class="form-group pb-2" hidden>
@@ -53,7 +64,7 @@ $manana = date('Y-m-d', $manana);
 
                         <div class="form-group pb-2">
                             <label class="labelEvento" for="telefono">Teléfono *</label><br/>
-                            <input class="inputEvento p-2 mb-1" placeholder="Telefono" id="telefono" maxlength="10" name="telefono" type="text" required />
+                            <input class="inputEvento p-2 mb-1" placeholder="Telefono" id="mobile" maxlength="10" name="mobile" type="text" required />
                         </div>
 
                         <div class="form-group pb-2">
@@ -62,9 +73,10 @@ $manana = date('Y-m-d', $manana);
                         </div>
 
                         <div class="form-group p-2 d-flex justify-content-center">
-                            <div class="botonEvento text-white px-4 py-0" onclick="enviarRegistro()">ENVIAR</div>
+                            <div class="botonEvento text-white px-4 py-0">ENVIAR</div>
                         </div>
                     </div>
+                    </form>
                 </div>
 
                 <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12"></div>
@@ -80,36 +92,50 @@ $manana = date('Y-m-d', $manana);
 </html>
 <script>
 
-    function enviarRegistro(){
-    
+    document.getElementById('webToLeadForm').addEventListener('submit', function (e) {
+    // Puedes hacer validaciones personalizadas aquí si quieres
+    // Si todo está bien, el formulario se enviará normalmente
+    // Si quieres evitar el envío, usa e.preventDefault();
+
         let nombre = $('#nombre').val();
         let apellidos = $('#apellidos').val();
         let email = $('#email').val();
         let telefono = $('#telefono').val();
 
-        console.log(nombre, apellidos,email,telefono);
+        if(nombre != "" && apellidos != "" && email !="" && telefono != ""){
+            console.log(nombre, apellidos,email,telefono);
 
-        var settings = {
-        "url": "https://multimarca.gruporivero.com/api/v1/registro/nissan/insert",
-        "method": "POST",
-        "timeout": 0,
-        "headers": {
-            "Content-Type": "application/json"
-        },
-        "data": JSON.stringify({
-            "nombre": nombre+" "+apellidos,
-            "telefono": telefono,
-            "email": email,
-            "agencia": "Contry",
-            "evento": "OffRoad Rivero"
-        }),
-        };
+            var settings = {
+            "url": "https://multimarca.gruporivero.com/api/v1/registro/nissan/insert",
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "data": JSON.stringify({
+                "nombre": nombre+" "+apellidos,
+                "telefono": telefono,
+                "email": email,
+                "agencia": "Contry",
+                "evento": "OffRoad Rivero"
+            }),
+            };
 
-        console.log(settings);
+            console.log(settings);
 
-        $.ajax(settings).done(function (response) {
-        console.log(response);
-        });
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+            });
+        } else {
+            alert('Datos incompletos');
+            e.preventDefault();
+        }
+
+    });
+
+    function enviarRegistro(){
+    
+
 
     }
 
@@ -278,12 +304,16 @@ $manana = date('Y-m-d', $manana);
 
     @media only screen and (max-width: 991px) {
         .formOferta{
-            background-position: 0%;
+            background-position: 0% 0%;
             background-image: url(backMovil.png)!important;
         }
 
         .inputEvento{
             width: 200px;
+        }
+
+        .colSuperior{
+            margin-top: 100vh;
         }
     }
 
