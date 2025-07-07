@@ -80,6 +80,37 @@ $manana = date('Y-m-d', $manana);
 </html>
 <script>
 
+    function enviarRegistro(){
+
+    let nombre = $('#nombre').val();
+    let apellidos = $('#apellidos').val();
+    let email = $('#email').val();
+    let telefono = $('#telefono').val();
+
+    var myHeaders = new Headers();
+    myHeaders.append("Accept", "application/javascript");
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      "nombre": nombre+" "+apellidos,
+      "telefono": telefono,
+      "email": email,
+      "agencia": "Contry",
+      "evento": "OffRoad Rivero"
+    });
+
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+    console.log("Sucede lo siguiente: ", raw);
+
+    let postplanning = await fetch(this.multimarcaURL+`api/v1/registro/nissan/insert`, requestOptions)
+    return postplanning.json();
+    }
+
     var ofertas = {
         ofertaElegida: '',
         precio_normal: '',
