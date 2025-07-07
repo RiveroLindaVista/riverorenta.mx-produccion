@@ -6,21 +6,7 @@ $conn = new mysqli(DB_HOST, DB_USER,DB_PASSWORD, DB_DB);
 $hoy = date('Y-m-d');
 $manana = strtotime('+1 day', strtotime($hoy));
 $manana = date('Y-m-d', $manana);
-/* $sql = "Select year from valuacion_autometrica group by year order by year desc";
-$resultQuery = $conn->query($sql);
-if ($resultQuery->num_rows > 0) {
-    while($row = $resultQuery->fetch_assoc()) {
-        $opcionesYears.='<option value="'.$row['year'].'">'. $row['year'].'</option>';
-    }
- } */
 
-/* $sqlMarcas = "Select marca from valuacion_autometrica group by marca order by marca asc";
-$marcasQry = $conn->query($sqlMarcas);
-if ($marcasQry->num_rows > 0) {
-    while($row = $marcasQry->fetch_assoc()) {
-        $opcionesMarcas.='<option value="'.$row['marca'].'">'. $row['marca'].'</option>';
-    }
- } */
  $captcha_text = substr(str_shuffle("ABCDEFGHJKLMNPQRSTUVWXYZ23456789"), 0, 6);
  $captcha_textp = $captcha_text."J89"; 
 ?>
@@ -33,47 +19,43 @@ if ($marcasQry->num_rows > 0) {
         
     <link href="<?=URL?>/estilos/main.css" rel="stylesheet" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
     </head>
 
     <body style="background-color:#1d1d1d;">
-    <div class="container" style="display:flex; justify-content: center; align-items: center;">
-        <div id="formOferta" class="container p-4">
+        <div style="display:flex; justify-content: center; align-items: center;">
+            <div id="formOferta" class="p-4">
                 <div className="form-group pb-2">
-                  <label className="labelEvento" for="nombre">Nombre *</label><br/>
-                  <input className="inputEvento p-2 mb-1" placeholder="Nombre" id="nombre" maxlength="40" name="nombre" size="30" type="text" required />
+                    <label className="labelEvento" for="nombre">Nombre *</label><br/>
+                    <input className="inputEvento p-2 mb-1" placeholder="Nombre" id="nombre" maxlength="40" name="nombre" size="30" type="text" required />
                 </div>
 
                 <div className="form-group pb-2">
-                  <label className="labelEvento" for="nombre">Apellidos *</label><br/>
-                  <input className="inputEvento p-2 mb-1" placeholder="Apellidos" id="apellidos" maxlength="40" name="apellidos" size="30" type="text" required />
+                    <label className="labelEvento" for="nombre">Apellidos *</label><br/>
+                    <input className="inputEvento p-2 mb-1" placeholder="Apellidos" id="apellidos" maxlength="40" name="apellidos" size="30" type="text" required />
                 </div>
 
                 <div className="form-group pb-2" hidden>
-                  <input className="inputEvento p-2 mb-1" id="evento" maxlength="40" name="evento" size="30" type="text" value={evento} />
+                    <input className="inputEvento p-2 mb-1" id="evento" maxlength="40" name="evento" size="30" type="text" value="offroad" />
                 </div>
 
                 <div className="form-group pb-2">
                     <label className="labelEvento" for="telefono">Teléfono *</label><br/>
                     <input className="inputEvento p-2 mb-1" placeholder="Telefono" id="telefono" maxlength="10" name="telefono" size="30" type="text" required />
                 </div>
-                  
+
                 <div className="form-group pb-2">
                     <label className="labelEvento" for="email">Correo *</label><br/>
                     <input className="inputEvento p-2 mb-1" placeholder="Correo" id="email" maxlength="80" name="email" size="30" type="text" required />
                 </div>
 
                 <div className="form-group p-2 d-flex justify-content-center">
-                  <input type="submit" className="botonEvento text-white px-4 py-0" value="ENVIAR" />
+                    <input type="submit" className="botonEvento text-white px-4 py-0" value="ENVIAR" />
                 </div>
-              </form>
-
-    </div>
-    <input type="hidden" id="descripcion_auto" name="descripcion_auto" value="<?= htmlspecialchars($captcha_textp) ?>">
+            </div>
+        </div>
     </body>
     
 </html>
@@ -549,11 +531,13 @@ console.log(resp.tipo);
     }
 
     #formOferta{
+        width: 100vw;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         background-color: #94001c;
         animation-duration: 1s;
         animation-name: slide-in;
+        background-image: url("../images/backOffRoad.png");
     }
 
     #ofertaFinal{
