@@ -26,7 +26,7 @@ $manana = date('Y-m-d', $manana);
 
     <body style="background-color:#1d1d1d;">
         <div style="display:flex; justify-content: center; align-items: center;">
-            <div id="formOferta row" class="p-4">
+            <div id="formOferta" class="formOferta row" class="p-4">
                 <div class="col-8"></div>
 
                 <div class="col-4">
