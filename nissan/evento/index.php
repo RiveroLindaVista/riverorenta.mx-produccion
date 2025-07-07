@@ -16,7 +16,7 @@ $manana = date('Y-m-d', $manana);
     <head>
     <meta charset="UTF-8">
     <title>Evento - Nissan Rivero</title>
-        
+
     <link href="<?=URL?>/estilos/main.css" rel="stylesheet" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -26,34 +26,39 @@ $manana = date('Y-m-d', $manana);
 
     <body style="background-color:#1d1d1d;">
         <div style="display:flex; justify-content: center; align-items: center;">
-            <div id="formOferta" class="p-4">
-                <div className="form-group pb-2">
-                    <label className="labelEvento" for="nombre">Nombre *</label><br/>
-                    <input className="inputEvento p-2 mb-1" placeholder="Nombre" id="nombre" maxlength="40" name="nombre" size="30" type="text" required />
-                </div>
+            <div id="formOferta row" class="p-4">
+                <div class="col-8"></div>
 
-                <div className="form-group pb-2">
-                    <label className="labelEvento" for="nombre">Apellidos *</label><br/>
-                    <input className="inputEvento p-2 mb-1" placeholder="Apellidos" id="apellidos" maxlength="40" name="apellidos" size="30" type="text" required />
-                </div>
+                <div class="col-4">
+                    <div className="form-group pb-2">
+                        <label className="labelEvento" for="nombre">Nombre *</label><br/>
+                        <input className="inputEvento p-2 mb-1" placeholder="Nombre" id="nombre" maxlength="40" name="nombre" size="30" type="text" required />
+                    </div>
 
-                <div className="form-group pb-2" hidden>
-                    <input className="inputEvento p-2 mb-1" id="evento" maxlength="40" name="evento" size="30" type="text" value="offroad" />
-                </div>
+                    <div className="form-group pb-2">
+                        <label className="labelEvento" for="nombre">Apellidos *</label><br/>
+                        <input className="inputEvento p-2 mb-1" placeholder="Apellidos" id="apellidos" maxlength="40" name="apellidos" size="30" type="text" required />
+                    </div>
 
-                <div className="form-group pb-2">
-                    <label className="labelEvento" for="telefono">Teléfono *</label><br/>
-                    <input className="inputEvento p-2 mb-1" placeholder="Telefono" id="telefono" maxlength="10" name="telefono" size="30" type="text" required />
-                </div>
+                    <div className="form-group pb-2" hidden>
+                        <input className="inputEvento p-2 mb-1" id="evento" maxlength="40" name="evento" size="30" type="text" value="offroad" />
+                    </div>
 
-                <div className="form-group pb-2">
-                    <label className="labelEvento" for="email">Correo *</label><br/>
-                    <input className="inputEvento p-2 mb-1" placeholder="Correo" id="email" maxlength="80" name="email" size="30" type="text" required />
-                </div>
+                    <div className="form-group pb-2">
+                        <label className="labelEvento" for="telefono">Teléfono *</label><br/>
+                        <input className="inputEvento p-2 mb-1" placeholder="Telefono" id="telefono" maxlength="10" name="telefono" size="30" type="text" required />
+                    </div>
 
-                <div className="form-group p-2 d-flex justify-content-center">
-                    <input type="submit" className="botonEvento text-white px-4 py-0" value="ENVIAR" />
+                    <div className="form-group pb-2">
+                        <label className="labelEvento" for="email">Correo *</label><br/>
+                        <input className="inputEvento p-2 mb-1" placeholder="Correo" id="email" maxlength="80" name="email" size="30" type="text" required />
+                    </div>
+
+                    <div className="form-group p-2 d-flex justify-content-center">
+                        <input type="submit" className="botonEvento text-white px-4 py-0" value="ENVIAR" />
+                    </div>
                 </div>
+                
             </div>
         </div>
     </body>
@@ -531,13 +536,15 @@ console.log(resp.tipo);
     }
 
     #formOferta{
+        height: 100vh;
         width: 100vw;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         background-color: #94001c;
         animation-duration: 1s;
         animation-name: slide-in;
-        background-image: url("backOffRoad.png");
+        background-image: url(backOffRoad.png);
+        background-size: cover;
     }
 
     #ofertaFinal{
@@ -554,6 +561,26 @@ console.log(resp.tipo);
         padding: 10px;
         box-shadow: 1px 2px 3px 1px;
         width: 100%;
+    }
+
+    .inputEvento{
+        border-radius: 15px;
+        background-color:rgba(194, 194, 194, 0.56);
+    }
+
+    .#labelEvento{
+
+    }
+
+    .botonEvento{
+        cursor: pointer;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        color: white;
+        border-radius: 10px;
+        padding: 10px;
+        position: relative;
+        background-color: #d40028;
     }
 
     .btnOfertaNormal{
