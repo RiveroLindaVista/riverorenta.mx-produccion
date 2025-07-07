@@ -87,6 +87,8 @@ $manana = date('Y-m-d', $manana);
     let email = $('#email').val();
     let telefono = $('#telefono').val();
 
+    console.log(nombre, apellidos,email,telefono);
+
     var myHeaders = new Headers();
     myHeaders.append("Accept", "application/javascript");
     myHeaders.append("Content-Type", "application/json");
