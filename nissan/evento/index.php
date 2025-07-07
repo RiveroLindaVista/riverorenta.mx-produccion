@@ -30,32 +30,32 @@ $manana = date('Y-m-d', $manana);
                 <div class="col-8"></div>
 
                 <div class="col-4">
-                    <div className="form-group pb-2">
-                        <label className="labelEvento" for="nombre">Nombre *</label><br/>
-                        <input className="inputEvento p-2 mb-1" placeholder="Nombre" id="nombre" maxlength="40" name="nombre" size="30" type="text" required />
+                    <div class="form-group pb-2">
+                        <label class="labelEvento" for="nombre">Nombre *</label><br/>
+                        <input class="inputEvento p-2 mb-1" placeholder="Nombre" id="nombre" maxlength="40" name="nombre" size="30" type="text" required />
                     </div>
 
-                    <div className="form-group pb-2">
-                        <label className="labelEvento" for="nombre">Apellidos *</label><br/>
-                        <input className="inputEvento p-2 mb-1" placeholder="Apellidos" id="apellidos" maxlength="40" name="apellidos" size="30" type="text" required />
+                    <div class="form-group pb-2">
+                        <label class="labelEvento" for="nombre">Apellidos *</label><br/>
+                        <input class="inputEvento p-2 mb-1" placeholder="Apellidos" id="apellidos" maxlength="40" name="apellidos" size="30" type="text" required />
                     </div>
 
-                    <div className="form-group pb-2" hidden>
-                        <input className="inputEvento p-2 mb-1" id="evento" maxlength="40" name="evento" size="30" type="text" value="offroad" />
+                    <div class="form-group pb-2" hidden>
+                        <input class="inputEvento p-2 mb-1" id="evento" maxlength="40" name="evento" size="30" type="text" value="offroad" />
                     </div>
 
-                    <div className="form-group pb-2">
-                        <label className="labelEvento" for="telefono">Teléfono *</label><br/>
-                        <input className="inputEvento p-2 mb-1" placeholder="Telefono" id="telefono" maxlength="10" name="telefono" size="30" type="text" required />
+                    <div class="form-group pb-2">
+                        <label class="labelEvento" for="telefono">Teléfono *</label><br/>
+                        <input class="inputEvento p-2 mb-1" placeholder="Telefono" id="telefono" maxlength="10" name="telefono" size="30" type="text" required />
                     </div>
 
-                    <div className="form-group pb-2">
-                        <label className="labelEvento" for="email">Correo *</label><br/>
-                        <input className="inputEvento p-2 mb-1" placeholder="Correo" id="email" maxlength="80" name="email" size="30" type="text" required />
+                    <div class="form-group pb-2">
+                        <label class="labelEvento" for="email">Correo *</label><br/>
+                        <input class="inputEvento p-2 mb-1" placeholder="Correo" id="email" maxlength="80" name="email" size="30" type="text" required />
                     </div>
 
-                    <div className="form-group p-2 d-flex justify-content-center">
-                        <input className="botonEvento text-white px-4 py-0" value="ENVIAR" onclick="enviarRegistro()" />
+                    <div class="form-group p-2 d-flex justify-content-center">
+                        <div class="botonEvento text-white px-4 py-0" value="ENVIAR" onclick="enviarRegistro()"></div>
                     </div>
                 </div>
                 
