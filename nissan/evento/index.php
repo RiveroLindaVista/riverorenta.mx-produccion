@@ -35,8 +35,8 @@ $manana = date('Y-m-d', $manana);
 
                 <div class="col-8"></div>
 
-                <div class="col-4">
-                    <div class="d-flex justify-content-center">
+                <div class="col-4 d-flex justify-content-center">
+                    <div>
                         <div class="form-group pb-2">
                             <label class="labelEvento" for="nombre">Nombre *</label><br/>
                             <input class="inputEvento p-2 mb-1" placeholder="Nombre" id="nombre" maxlength="40" name="nombre" size="30" type="text" required />
