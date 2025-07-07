@@ -81,7 +81,7 @@ $manana = date('Y-m-d', $manana);
 <script>
 
     function enviarRegistro(){
-
+console.log('hola');
     let nombre = $('#nombre').val();
     let apellidos = $('#apellidos').val();
     let email = $('#email').val();
