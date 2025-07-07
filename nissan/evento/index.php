@@ -125,10 +125,6 @@ console.log('hola');
 
     console.log(nombre, apellidos,email,telefono);
 
-/*     var myHeaders = new Headers();
-    myHeaders.append("Accept", "application/javascript");
-    myHeaders.append("Content-Type", "application/json");
-
     var raw = JSON.stringify({
       "nombre": nombre+" "+apellidos,
       "telefono": telefono,
@@ -139,13 +135,12 @@ console.log('hola');
 
     var requestOptions = {
       method: 'POST',
-      headers: myHeaders,
       body: raw,
       redirect: 'follow'
     };
     console.log("Sucede lo siguiente: ", raw);
 
-    let postplanning = await fetch(this.multimarcaURL+`api/v1/registro/nissan/insert`, requestOptions) */
+    let postplanning = await fetch(this.multimarcaURL+`api/v1/registro/nissan/insert`, requestOptions)
 
     }
 
