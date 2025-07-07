@@ -39,26 +39,26 @@ $manana = date('Y-m-d', $manana);
                     <div>
                         <div class="form-group pb-2">
                             <label class="labelEvento" for="nombre">Nombre *</label><br/>
-                            <input class="inputEvento p-2 mb-1" placeholder="Nombre" id="nombre" maxlength="40" name="nombre" size="30" type="text" required />
+                            <input class="inputEvento p-2 mb-1" placeholder="Nombre" id="nombre" maxlength="40" name="nombre" type="text" required />
                         </div>
 
                         <div class="form-group pb-2">
                             <label class="labelEvento" for="nombre">Apellidos *</label><br/>
-                            <input class="inputEvento p-2 mb-1" placeholder="Apellidos" id="apellidos" maxlength="40" name="apellidos" size="30" type="text" required />
+                            <input class="inputEvento p-2 mb-1" placeholder="Apellidos" id="apellidos" maxlength="40" name="apellidos" type="text" required />
                         </div>
 
                         <div class="form-group pb-2" hidden>
-                            <input class="inputEvento p-2 mb-1" id="evento" maxlength="40" name="evento" size="30" type="text" value="offroad" />
+                            <input class="inputEvento p-2 mb-1" id="evento" maxlength="40" name="evento" type="text" value="offroad" />
                         </div>
 
                         <div class="form-group pb-2">
                             <label class="labelEvento" for="telefono">Teléfono *</label><br/>
-                            <input class="inputEvento p-2 mb-1" placeholder="Telefono" id="telefono" maxlength="10" name="telefono" size="30" type="text" required />
+                            <input class="inputEvento p-2 mb-1" placeholder="Telefono" id="telefono" maxlength="10" name="telefono" type="text" required />
                         </div>
 
                         <div class="form-group pb-2">
                             <label class="labelEvento" for="email">Correo *</label><br/>
-                            <input class="inputEvento p-2 mb-1" placeholder="Correo" id="email" maxlength="80" name="email" size="30" type="text" required />
+                            <input class="inputEvento p-2 mb-1" placeholder="Correo" id="email" maxlength="80" name="email" type="text" required />
                         </div>
 
                         <div class="form-group p-2 d-flex justify-content-center">
@@ -177,6 +177,7 @@ $manana = date('Y-m-d', $manana);
     .inputEvento{
         border-radius: 15px;
         background-color:rgba(194, 194, 194, 0.56);
+        width: 100px;
     }
 
     .labelEvento{
@@ -268,6 +269,13 @@ $manana = date('Y-m-d', $manana);
     .imgSucursal{
         width: 600px;
     }
+
+    @media only screen and (max-width: 991px) {
+        .formOferta{
+            background-position: 15%;
+        }
+    }
+    
 
     @media only screen and (max-width: 767px) {
         .imgSucursal{
