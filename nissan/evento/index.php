@@ -27,15 +27,15 @@ $manana = date('Y-m-d', $manana);
     <body style="background-color:#1d1d1d;">
         <div style="display:flex; justify-content: center; align-items: center;">
             <div id="formOferta" class="formOferta row" class="p-4">
-                <div class="col-xl-8 col-lg-8 col-md-9 col-sm-12"></div>
+                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12"></div>
 
-                <div class="col-xl-4 col-lg-4 col-md-3 col-sm-12 d-flex justify-content-center">
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 d-flex justify-content-center">
                     <img src="logoOffroad.png" style="width:90%" />
                 </div>
 
-                <div class="col-xl-8 col-lg-8 col-md-9 col-sm-12"></div>
+                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12"></div>
 
-                <div class="col-xl-4 col-lg-4 col-md-3 col-sm-12 d-flex justify-content-center">
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 d-flex justify-content-center">
                     <div>
                         <div class="form-group pb-2">
                             <label class="labelEvento" for="nombre">Nombre *</label><br/>
@@ -67,9 +67,9 @@ $manana = date('Y-m-d', $manana);
                     </div>
                 </div>
 
-                <div class="col-xl-8 col-lg-8 col-md-9 col-sm-12"></div>
+                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12"></div>
 
-                <div class="d-flex justify-content-center col-xl-4 col-lg-4 col-md-3 col-sm-12 p-0">
+                <div class="d-flex justify-content-center col-xl-4 col-lg-4 col-md-12 col-sm-12 p-0">
                     <img src="logoTinaja.png" style="width:80%" />
                 </div>
                 
@@ -273,6 +273,10 @@ $manana = date('Y-m-d', $manana);
     @media only screen and (max-width: 991px) {
         .formOferta{
             background-position: 15%;
+        }
+
+        .inputEvento{
+            width: 200px;
         }
     }
     
