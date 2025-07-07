@@ -62,7 +62,7 @@ $manana = date('Y-m-d', $manana);
                         </div>
 
                         <div class="form-group p-2 d-flex justify-content-center">
-                            <div class="botonEvento text-white px-4 py-0" onclick="enviarRegistro()">ENVIAR</div>
+                            <div class="botonEvento text-white px-4 py-0" onclick="enviarRegistro()">ENVIAR2</div>
                         </div>
                     </div>
                 </div>
