@@ -116,31 +116,34 @@ $manana = date('Y-m-d', $manana);
             });
     })
 
-        function enviarRegistro(){
-console.log('hola');
-    let nombre = $('#nombre').val();
-    let apellidos = $('#apellidos').val();
-    let email = $('#email').val();
-    let telefono = $('#telefono').val();
+    function enviarRegistro(){
+    
+        let nombre = $('#nombre').val();
+        let apellidos = $('#apellidos').val();
+        let email = $('#email').val();
+        let telefono = $('#telefono').val();
 
-    console.log(nombre, apellidos,email,telefono);
+        console.log(nombre, apellidos,email,telefono);
 
-    var raw = JSON.stringify({
-      "nombre": nombre+" "+apellidos,
-      "telefono": telefono,
-      "email": email,
-      "agencia": "Contry",
-      "evento": "OffRoad Rivero"
-    });
+        var settings = {
+        "url": "https://multimarca.gruporivero.com/api/v1/registro/nissan/insert",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "data": JSON.stringify({
+            "nombre": nombre+" "+apellidos,
+            "telefono": telefono,
+            "email": email,
+            "agencia": "Contry",
+            "evento": "OffRoad Rivero"
+        }),
+        };
 
-    var requestOptions = {
-      method: 'POST',
-      body: raw,
-      redirect: 'follow'
-    };
-    console.log("Sucede lo siguiente: ", raw);
-
-    let postplanning = await fetch(this.multimarcaURL+`api/v1/registro/nissan/insert`, requestOptions)
+        $.ajax(settings).done(function (response) {
+        console.log(response);
+        });
 
     }
 
