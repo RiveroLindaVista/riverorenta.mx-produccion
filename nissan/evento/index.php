@@ -537,7 +537,7 @@ console.log(resp.tipo);
         background-color: #94001c;
         animation-duration: 1s;
         animation-name: slide-in;
-        background-image: url("../images/backOffRoad.png");
+        background-image: url("backOffRoad.png");
     }
 
     #ofertaFinal{
