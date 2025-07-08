@@ -43,7 +43,7 @@ $manana = date('Y-m-d', $manana);
                     <form id="webToLeadForm" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DHp000005bwkK" method="POST">
 
                     <input hidden name="oid" value="00DHp000005bwkK"/>
-                    <input hidden name="retURL" value="https://nissanrivero.com/gracias-por-contactarnos/nissan"/>
+                    <input hidden name="retURL" value="https://nissanrivero.com/"/>
                     <input hidden id="00NHp0000194HVl" maxlength="255" name="00NHp0000194HVl" size="20" type="text" value="Offroad Rivero" />
                     <input hidden id="Campaign_ID" name="Campaign_ID" value="701Vn00000HA7g0IAD"/>
                     <input hidden id="GRI_Codigo_Campana__c" name="GRI_Codigo_Campana__c" value="701Vn00000HA7g0IAD" />
@@ -312,7 +312,7 @@ $manana = date('Y-m-d', $manana);
         .inputEvento{
             width: 250px;
         }
-        
+
     }
 
     @media only screen and (max-width: 767px) {
@@ -320,6 +320,5 @@ $manana = date('Y-m-d', $manana);
             width: 100%;
         }
     }
-
 
 </style>
