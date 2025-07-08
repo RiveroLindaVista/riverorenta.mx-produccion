@@ -33,7 +33,9 @@ $manana = date('Y-m-d', $manana);
                     <img src="logoOffroad.png" style="width:90%" />
                 </div>
 
-                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12"></div>
+                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+                    <img class="d-md-flex d-none" src="backMovil2.png" style="width:auto%" />
+                </div>
 
                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 d-flex justify-content-center">
                     <form id="webToLeadForm" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DHp000005bwkK" method="POST">
@@ -97,10 +99,10 @@ $manana = date('Y-m-d', $manana);
     // Si todo está bien, el formulario se enviará normalmente
     // Si quieres evitar el envío, usa e.preventDefault();
 
-        let nombre = $('#nombre').val();
-        let apellidos = $('#apellidos').val();
+        let nombre = $('#first_name').val();
+        let apellidos = $('#last_name').val();
         let email = $('#email').val();
-        let telefono = $('#telefono').val();
+        let telefono = $('#mobile').val();
 
         if(nombre != "" && apellidos != "" && email !="" && telefono != ""){
             console.log(nombre, apellidos,email,telefono);
@@ -132,12 +134,6 @@ $manana = date('Y-m-d', $manana);
         }
 
     });
-
-    function enviarRegistro(){
-    
-
-
-    }
 
 </script>
 
@@ -306,6 +302,7 @@ $manana = date('Y-m-d', $manana);
         .formOferta{
             background-position: 0% 0%!important;
             background-image: url(backMovil.png)!important;
+            background-size: cover;
             height: 100%;
         }
 
