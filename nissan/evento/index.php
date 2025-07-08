@@ -28,7 +28,7 @@ $manana = date('Y-m-d', $manana);
         <div style="display:flex; justify-content: center; align-items: center;">
             <div id="formOferta" class="formOferta row" class="p-4">
                 <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
-                    <img class="d-md-flex d-none" src="backMovil2.png" style="width:100%" />
+                    <img class="d-xl-none d-md-flex d-sm-flex" src="backMovil2.png" style="width:100%" />
                 </div>
 
                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 d-flex justify-content-center">
@@ -303,7 +303,8 @@ $manana = date('Y-m-d', $manana);
     @media only screen and (max-width: 991px) {
         .formOferta{
             background-position: 0% 0%!important;
-            background-image: url(backMovil.png)!important;
+            background-image: url()!important;
+            background-color: black;
             background-size: cover;
             height: 100%;
         }
