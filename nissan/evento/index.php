@@ -310,12 +310,9 @@ $manana = date('Y-m-d', $manana);
         }
 
         .inputEvento{
-            width: 200px;
+            width: 250px;
         }
-
-        .colSuperior{
-            margin-top: 100vh;
-        }
+        
     }
 
     @media only screen and (max-width: 767px) {
