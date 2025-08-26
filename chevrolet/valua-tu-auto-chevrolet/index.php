@@ -160,7 +160,7 @@ if ($marcasQry->num_rows > 0) {
                     <p class="text-white text-center m-0" style="font-size: 1.2em;text-shadow: black 2px 2px 2px;font-family: 'Narrow';position: absolute;"> Agencia Chevrolet Rivero Linda Vista<br/> Centro de Valuación </p>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.1087190421126!2d-100.28514202477353!3d25.634516977431964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bfa1df343707%3A0x63f249c78c4935a7!2sAv.%20Eugenio%20Garza%20Sada%203800%2C%20M%C3%A1s%20Palomas%20(Valle%20de%20Santiago)%2C%2064780%20Monterrey%2C%20N.L.!5e0!3m2!1ses!2smx!4v1722980277064!5m2!1ses!2smx" width="600" height="200" title="ContImgMap" style="border: 0" allowFullScreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d898.8335676812155!2d-100.2391712!3d25.6933543!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662ebbe71daaebf%3A0xc00ce93fa848615d!2sChevrolet%20Rivero%20Linda%20Vista!5e0!3m2!1ses-419!2smx!4v1602263768511!5m2!1ses-419!2smx" width="600" height="200" title="ContImgMap" style="border: 0" allowFullScreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <p class="text-white text-center m-0" style="font-size: .7em;">Av. Miguel Alemán No. 5400, Col. Torres de Linda Vista, Guadalupe, Nuevo León, CP 67138</p>
                 <hr/>
