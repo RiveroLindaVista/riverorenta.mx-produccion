@@ -479,7 +479,7 @@ if ($marcasQry->num_rows > 0) {
                 console.log("Marca: Chevrolet", obj.lineal[0].brand.toLowerCase().includes("nissan"));
                 console.log("Precio Venta: ", obj.lineal[0].sale);
 
-                if(obj.lineal[0].brand.toLowerCase().includes("chevrolet") == false || obj.lineal[0].brand.toLowerCase().includes("nissan") == false || obj.lineal[0].brand.toLowerCase().includes("mazda") == false || obj.lineal[0].brand.toLowerCase().includes("mazda") == false || obj.lineal[0].brand.toLowerCase().includes("toyota") == false){
+                if(obj.lineal[0].brand.toLowerCase().includes("chevrolet") || obj.lineal[0].brand.toLowerCase().includes("nissan") || obj.lineal[0].brand.toLowerCase().includes("mazda") || obj.lineal[0].brand.toLowerCase().includes("mazda") || obj.lineal[0].brand.toLowerCase().includes("toyota")){
                     console.log("Entro al primero del IF: ", obj.lineal[0].brand.toLowerCase());
 
                     if (obj.lineal[0].sale != "" ){
@@ -489,7 +489,7 @@ if ($marcasQry->num_rows > 0) {
                         $("#precioPrimo").html(precioPrimo);
                         $("#OfertaPrimo").attr('hidden', false);
                     }
-                    
+
                 } else {
                     console.log("Entro al SEGUNDO del IF: ", obj.lineal[0].brand.toLowerCase());
 
