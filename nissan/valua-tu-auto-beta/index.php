@@ -476,10 +476,10 @@ if ($marcasQry->num_rows > 0) {
 
                 let precioPrimo = "";
 
-                console.log("Marca: Chevrolet", obj.lineal[0].brand.toLowerCase().includes("chevrolet"));
+                console.log("Marca: Chevrolet", obj.lineal[0].brand.toLowerCase().includes("nissan"));
                 console.log("Precio Venta: ", obj.lineal[0].sale);
 
-                if(obj.lineal[0].brand.toLowerCase().includes("chevrolet") == false && obj.lineal[0].brand.toLowerCase().includes("nissan") == false && obj.lineal[0].brand.toLowerCase().includes("mazda") == false && obj.lineal[0].brand.toLowerCase().includes("mazda") == false && obj.lineal[0].brand.toLowerCase().includes("toyota") == false){
+                if(obj.lineal[0].brand.toLowerCase().includes("chevrolet") == false || obj.lineal[0].brand.toLowerCase().includes("nissan") == false || obj.lineal[0].brand.toLowerCase().includes("mazda") == false || obj.lineal[0].brand.toLowerCase().includes("mazda") == false || obj.lineal[0].brand.toLowerCase().includes("toyota") == false){
                     console.log("Entro al primero del IF: ", obj.lineal[0].brand.toLowerCase());
                 } else {
                     console.log("Entro al SEGUNDO del IF: ", obj.lineal[0].brand.toLowerCase());
