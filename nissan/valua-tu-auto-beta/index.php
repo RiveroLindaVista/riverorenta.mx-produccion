@@ -430,7 +430,7 @@ if ($marcasQry->num_rows > 0) {
             success: function(resp) {
                 
                 let precioAjustado = 0;
-
+                console.log(resp.tipo);
                 switch (resp.tipo) {
                     case "A":
                         precioAjustado = obj.lineal[0].purchase;
@@ -457,10 +457,10 @@ if ($marcasQry->num_rows > 0) {
                         return 0;
                         break;
                     default:
-                        console.log('Sinco');
+                        precioAjustado = obj.lineal[0].purchase;
                         break;
                 }
-console.log(resp.tipo);
+
                 let precio = '$ '+new Intl.NumberFormat('en-US').format(precioAjustado)+'.00 MXN';
                 ofertas.precio_normal = precioAjustado;
                 ofertas.km_group = obj.lineal[0].km_group;
@@ -480,9 +480,9 @@ console.log(resp.tipo);
                 console.log("Precio Venta: ", obj.lineal[0].sale);
 
                 if(obj.lineal[0].brand.toLowerCase().includes("chevrolet") == false && obj.lineal[0].brand.toLowerCase().includes("nissan") == false && obj.lineal[0].brand.toLowerCase().includes("mazda") == false && obj.lineal[0].brand.toLowerCase().includes("mazda") == false && obj.lineal[0].brand.toLowerCase().includes("toyota") == false){
-                    console.log("Entro al primero del IF");
+                    console.log("Entro al primero del IF: ", obj.lineal[0].brand.toLowerCase());
                 } else {
-                    console.log("Entro al SEGUNDO del IF");
+                    console.log("Entro al SEGUNDO del IF: ", obj.lineal[0].brand.toLowerCase());
                     if (obj.lineal[0].sale != "" ){
                         let formula = (precioAjustado + obj.lineal[0].sale) / 2;
                         ofertas.precio_primo = formula;
