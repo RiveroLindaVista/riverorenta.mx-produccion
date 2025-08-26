@@ -481,8 +481,7 @@ if ($marcasQry->num_rows > 0) {
 
                 if(obj.lineal[0].brand.toLowerCase().includes("chevrolet") == false || obj.lineal[0].brand.toLowerCase().includes("nissan") == false || obj.lineal[0].brand.toLowerCase().includes("mazda") == false || obj.lineal[0].brand.toLowerCase().includes("mazda") == false || obj.lineal[0].brand.toLowerCase().includes("toyota") == false){
                     console.log("Entro al primero del IF: ", obj.lineal[0].brand.toLowerCase());
-                } else {
-                    console.log("Entro al SEGUNDO del IF: ", obj.lineal[0].brand.toLowerCase());
+
                     if (obj.lineal[0].sale != "" ){
                         let formula = (precioAjustado + obj.lineal[0].sale) / 2;
                         ofertas.precio_primo = formula;
@@ -490,6 +489,10 @@ if ($marcasQry->num_rows > 0) {
                         $("#precioPrimo").html(precioPrimo);
                         $("#OfertaPrimo").attr('hidden', false);
                     }
+                    
+                } else {
+                    console.log("Entro al SEGUNDO del IF: ", obj.lineal[0].brand.toLowerCase());
+
 
                 }
 
