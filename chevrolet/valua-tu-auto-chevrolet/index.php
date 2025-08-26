@@ -734,11 +734,11 @@ if ($marcasQry->num_rows > 0) {
     }
 
     .btnOfertaPrimo:hover{
-        background-color:rgb(173, 4, 35);
+        background-color: #1056a1ff;
     }
 
     .btnOfertaNormal:hover{
-        background-color:rgb(173, 4, 35);
+        background-color: #1056a1ff;
     }
 
     #formCita{
