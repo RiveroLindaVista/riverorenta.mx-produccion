@@ -466,7 +466,13 @@ $conn->close();
                 type: 'POST',
                 data: param,
                 success: function(resp) {
-                    location.reload();
+                    let fila = document.getElementById("tr"+id);
+
+                    if (fila) {
+                        fila.remove();
+                    }
+
+                    //location.reload();
                 }
             });
         }
