@@ -472,7 +472,6 @@ $conn->close();
                         fila.remove();
                     }
 
-                    //location.reload();
                 }
             });
         }
