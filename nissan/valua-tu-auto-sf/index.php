@@ -43,7 +43,6 @@ if ($marcasQry->num_rows > 0) {
     <body style="background-color:#1d1d1d;">
     <div class="container" style="display:flex; justify-content: center; align-items: center;">
         <div id="formOferta" class="container p-4">
-            <h1 class="text-white text-center" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">CUÉNTANOS SOBRE TU AUTO</h1>
             <div class="row p-2" id="divYears">
                 <label for="basic-url" class="form-label text-white">¿Qué año es tu auto?</label>
                 <select class="form-select" id="filtroYears" onchange="getMarcas()">
