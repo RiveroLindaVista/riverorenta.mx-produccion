@@ -492,14 +492,52 @@ if ($marcasQry->num_rows > 0) {
 
                 } else {
                     console.log("Entro al SEGUNDO del IF: ", obj.lineal[0].brand.toLowerCase());
-
-
                 }
 
             }
         });
 
+    }
 
+    function sendSF(){
+
+        let nombre = $('#nombre').val();
+        let correo = $('#correo').val();
+        let telefono = parseInt($('#telefono').val());
+        let year = parseInt($('#filtroYears').val());
+        let marca = $('#filtroMarcas').val();
+        let modelo = $('#filtroModelos').val();
+        let version = $('#filtroVersiones').val();
+        let kilometraje = parseInt($('#filtroKM').val());
+
+        let data = {
+            nombre: nombre,
+            correo: correo,
+            telefono: telefono,
+            year: year,
+            marca: marca,
+            modelo: modelo,
+            version: version,
+            km_group: ofertas.km_group,
+            kilometraje: kilometraje,
+            venta: ofertas.venta,
+            compra: ofertas.compra,
+            ofrecido: ofertas.precio_ofrecido,
+            oferta_elegida: ofertas.ofertaElegida
+        }
+        
+        console.log(data);
+        
+        $.ajax({
+            type: "POST",
+            url: "web-to-lead.php",
+            data: data,
+            dataType: "json",
+            success: function(resp) {
+                console.log('Entramaaas');
+
+            }
+        });
 
     }
 
@@ -568,6 +606,8 @@ if ($marcasQry->num_rows > 0) {
             ofertas.precio_ofrecido = ofertas.precio_primo;
         }
 
+        sendSF();
+        
         console.log(oferta);
     }
 
@@ -607,7 +647,7 @@ if ($marcasQry->num_rows > 0) {
         let kilometraje = parseInt($('#filtroKM').val());
         let fecha = $('#fecha').val();
         let hora = $('#hora').val();
-        let direccion = 'Av. Eugenio Garza Sada 3800, Mas Palomas (Valle de Santiago), 64780 Monterrey, N.L., Mexico';
+        let direccion = 'Av. Miguel Alemán No. 5400, Col. Torres de Linda Vista, Guadalupe, Nuevo León, CP 67138';
 
         let data = {
             nombre: nombre,
@@ -625,8 +665,8 @@ if ($marcasQry->num_rows > 0) {
             oferta_elegida: ofertas.ofertaElegida,
             fecha: fecha,
             hora: hora,
-            sucursal: 1043194,
-            origen: 'nissanrivero.com',
+            sucursal: 1043193,
+            origen: 'chevroletrivero.com',
             preferencia: 'Celular'
         }
 
