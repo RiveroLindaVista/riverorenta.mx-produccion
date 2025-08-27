@@ -384,9 +384,9 @@ if ($marcasQry->num_rows > 0) {
             select_version = select_version.replaceAll(" ", "%20");
             select_modelo = select_modelo.replaceAll(" ", "%20");
 
-/*             let obj = '{"lineal": [{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "4 pts. LS, 1.3l, TM5, a\/ac., BA, R-15","km_group": "A","sale": 239000,"purchase": 209800},{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "Valor kilometraje","km_group": "A","sale": -4800,"purchase": -4800}]}';
-            objetoOferta(JSON.parse(obj)); */
-            const requestOptions = {
+            let obj = '{"lineal": [{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "4 pts. LS, 1.3l, TM5, a\/ac., BA, R-15","km_group": "A","sale": 239000,"purchase": 209800},{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "Valor kilometraje","km_group": "A","sale": -4800,"purchase": -4800}]}';
+            objetoOferta(JSON.parse(obj));
+/*             const requestOptions = {
                 method: "GET",
                 redirect: "follow"
             };
@@ -394,7 +394,7 @@ if ($marcasQry->num_rows > 0) {
             fetch("https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=chevrolet&year="+select_ano+"&brand="+select_marca+"&subbrand="+select_modelo+"&version="+select_version+"&kilometraje="+select_km+"", requestOptions)
             .then((response) => response.text())
             .then((result) => this.objetoOferta(JSON.parse(result)))
-            .catch((error) => console.error(error));
+            .catch((error) => console.error(error)); */
         } else {
             campoVacio("#nombre");
             validarCorreo("#correo");
@@ -493,10 +493,54 @@ if ($marcasQry->num_rows > 0) {
                     console.log("Entro al SEGUNDO del IF: ", obj.lineal[0].brand.toLowerCase());
                 }
 
+                sendSF();
+
             }
         });
 
+    }
 
+    function sendSF(){
+
+        //13
+
+        let nombre = $('#nombre').val();
+        let correo = $('#correo').val();
+        let telefono = parseInt($('#telefono').val());
+        let year = parseInt($('#filtroYears').val());
+        let marca = $('#filtroMarcas').val();
+        let modelo = $('#filtroModelos').val();
+        let version = $('#filtroVersiones').val();
+        let kilometraje = parseInt($('#filtroKM').val());
+
+        let data = {
+            nombre: nombre,
+            correo: correo,
+            telefono: telefono,
+            year: year,
+            marca: marca,
+            modelo: modelo,
+            version: version,
+            km_group: ofertas.km_group,
+            kilometraje: kilometraje,
+            venta: ofertas.venta,
+            compra: ofertas.compra,
+            ofrecido: ofertas.precio_ofrecido,
+            oferta_elegida: ofertas.ofertaElegida
+        }
+        
+        console.log(data);
+        
+        $.ajax({
+            type: "POST",
+            url: "web-to-lead.php",
+            data: data,
+            dataType: "json",
+            success: function(resp) {
+                console.log('Entramaaas');
+
+            }
+        });
 
     }
 
