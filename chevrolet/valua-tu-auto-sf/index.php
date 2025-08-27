@@ -622,7 +622,7 @@ if ($marcasQry->num_rows > 0) {
             oferta_elegida: ofertas.ofertaElegida,
             fecha: fecha,
             hora: hora,
-            sucursal: 1043194,
+            sucursal: 1043193,
             origen: 'chevroletrivero.com',
             preferencia: 'Celular'
         }
@@ -687,7 +687,7 @@ if ($marcasQry->num_rows > 0) {
     #formOferta{
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
-        background-color: #94001c;
+        background-color: #0f3261;
         animation-duration: 1s;
         animation-name: slide-in;
     }
@@ -695,13 +695,13 @@ if ($marcasQry->num_rows > 0) {
     #ofertaFinal{
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
-        background-color: #94001c;
+        background-color: #0f3261;
     }
 
     #descripcionAuto{
         background-color: white;
-        border-top: 2px solid #d40028;
-        border-left: 1px solid #d40028;
+        border-top: 2px solid #3275bb;
+        border-left: 1px solid #3275bb;
         border-radius: 15px;
         padding: 10px;
         box-shadow: 1px 2px 3px 1px;
@@ -716,7 +716,7 @@ if ($marcasQry->num_rows > 0) {
         border-radius: 10px;
         padding: 10px;
         position: relative;
-        background-color: #d40028;
+        background-color: #3275bb;
     }
 
     .btnOfertaPrimo{
@@ -727,15 +727,15 @@ if ($marcasQry->num_rows > 0) {
         border-radius: 10px;
         padding: 10px;
         position: relative;
-        background-color: #d40028;
+        background-color: #3275bb;
     }
 
     .btnOfertaPrimo:hover{
-        background-color:rgb(173, 4, 35);
+        background-color: #1056a1ff;
     }
 
     .btnOfertaNormal:hover{
-        background-color:rgb(173, 4, 35);
+        background-color: #1056a1ff;
     }
 
     #formCita{
