@@ -22,11 +22,11 @@ $myvars = 'oid=00DHp000005bwkK'.
 '&first_name='.$_POST["nombre"].
 '&last_name=-'.
 '&email='.$_POST["correo"].
-'&MobilePhone='.$_POST["whatsapp"].
-'&00NVn000004l14n='.$_POST["ano"].
+'&MobilePhone='.$_POST["telefono"].
+'&00NVn000004l14n='.$_POST["year"].
 '&00NVn000004kxRG='.$_POST["modelo"].
 '&00NVn000004kylF='.$_POST["marca"].
-'&00NVn000004kzJ7='.$_POST["km"].
+'&00NVn000004kzJ7='.$_POST["kilometraje"].
 '&00NVn000004kzar='.$_POST["ofrecido"].
 '&00NVn000004kwvA='.$_POST["compra"].
 '&00NVn000004kzvp='.$_POST["venta"].
