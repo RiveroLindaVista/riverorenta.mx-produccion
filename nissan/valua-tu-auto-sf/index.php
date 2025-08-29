@@ -492,11 +492,49 @@ if ($marcasQry->num_rows > 0) {
                 } else {
                     console.log("Entro al SEGUNDO del IF: ", obj.lineal[0].brand.toLowerCase());
                 }
-
+                sendSF();
             }
         });
+    }
 
+    function sendSF(){
 
+        let nombre = $('#nombre').val();
+        let correo = $('#correo').val();
+        let telefono = parseInt($('#telefono').val());
+        let year = parseInt($('#filtroYears').val());
+        let marca = $('#filtroMarcas').val();
+        let modelo = $('#filtroModelos').val();
+        let version = $('#filtroVersiones').val();
+        let kilometraje = parseInt($('#filtroKM').val());
+
+        let data = {
+            nombre: nombre,
+            correo: correo,
+            telefono: telefono,
+            year: year,
+            marca: marca,
+            modelo: modelo,
+            version: version,
+            km_group: ofertas.km_group,
+            kilometraje: kilometraje,
+            venta: ofertas.venta,
+            compra: ofertas.compra,
+            ofrecido: ofertas.precio_ofrecido,
+            oferta_elegida: ofertas.ofertaElegida
+        }
+        
+        console.log(data);
+        
+        $.ajax({
+            type: "POST",
+            url: "web-to-lead.php",
+            data: data,
+            dataType: "json",
+            success: function(resp) {
+                console.log('Entramaaas');
+            }
+        });
 
     }
 

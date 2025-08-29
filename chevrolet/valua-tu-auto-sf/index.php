@@ -536,7 +536,6 @@ if ($marcasQry->num_rows > 0) {
             dataType: "json",
             success: function(resp) {
                 console.log('Entramaaas');
-
             }
         });
 
