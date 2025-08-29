@@ -685,11 +685,11 @@ if ($marcasQry->num_rows > 0) {
         horadosLink =  horadosLink + hora.substring(2,5);
         horadosLink = horadosLink.replaceAll(":","");
 
-        let qrLink = "http://www.google.com/calendar/event?action=TEMPLATE&dates="+fecha.replaceAll("-", "")+"T"+hora.replaceAll(":", "")+"00/"+fecha.replaceAll("-", "")+"T"+horadosLink+"00&text=Cita+de+Valuacion+Nissan+Rivero&location="+direccion.replaceAll(" ", "+")+"&details=Cita+en+centro+de+valuacion+para+tu+"+modelo.replaceAll(" ", "+")+"+en+la+sucursal+Rivero+Contry";
+        let qrLink = "http://www.google.com/calendar/event?action=TEMPLATE&dates="+fecha.replaceAll("-", "")+"T"+hora.replaceAll(":", "")+"00/"+fecha.replaceAll("-", "")+"T"+horadosLink+"00&text=Cita+de+Valuacion+Chevrolet+Rivero&location="+direccion.replaceAll(" ", "+")+"&details=Cita+en+centro+de+valuacion+para+tu+"+modelo.replaceAll(" ", "+")+"+en+la+sucursal+Rivero+Linda+Vista";
 
         let frame = '<iframe src="https://www.riverorenta.mx/produccion/riveroQR/index.php?pagina='+qrLink+'" width="100%" height=200 style="border: 0" title="QRNissan"></frame>';
 
-        let botonLink = "<a style='text-align:center' href='http://www.google.com/calendar/event?action=TEMPLATE&dates="+fecha.replaceAll("-", "")+"T"+hora.replaceAll(":", "")+"00/"+fecha.replaceAll("-", "")+"T"+horadosLink+"00&text=Cita+de+Valuacion+Nissan+Rivero&location="+direccion.replaceAll(" ", "+")+"&details=Cita+en+centro+de+valuacion+para+tu+"+modelo.replaceAll(" ", "+")+"+en+la+sucursal+Rivero+Contry' target='blank'> <img src='images/botones/btn_calendar.svg' style='width:220px'> </a>";
+        let botonLink = "<a style='text-align:center' href='http://www.google.com/calendar/event?action=TEMPLATE&dates="+fecha.replaceAll("-", "")+"T"+hora.replaceAll(":", "")+"00/"+fecha.replaceAll("-", "")+"T"+horadosLink+"00&text=Cita+de+Valuacion+Chevrolet+Rivero&location="+direccion.replaceAll(" ", "+")+"&details=Cita+en+centro+de+valuacion+para+tu+"+modelo.replaceAll(" ", "+")+"+en+la+sucursal+Rivero+Linda+Vista' target='blank'> <img src='images/botones/btn_calendar.svg' style='width:220px'> </a>";
         $("#divQR").html(frame);
         $("#btnCalendar").html(botonLink);
     }
