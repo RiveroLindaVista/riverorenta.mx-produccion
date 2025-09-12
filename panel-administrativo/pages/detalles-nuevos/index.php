@@ -1576,7 +1576,7 @@ $orden = $orden + 10;
 
             if (move_tab == 1) {
                 // window.location.href = window.location.href;
-                location.reload(true);
+                //location.reload(true);
             }
 
         }
