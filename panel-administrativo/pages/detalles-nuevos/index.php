@@ -1634,7 +1634,7 @@ $orden = $orden + 10;
             window.history.pushState({}, '', url);
             
             if (move_tab_color == 1) {
-                location.reload(true);
+                //location.reload(true);
             }
 
         }
