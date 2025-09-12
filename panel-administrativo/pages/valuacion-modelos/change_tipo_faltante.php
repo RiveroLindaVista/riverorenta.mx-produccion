@@ -9,5 +9,5 @@ $ano=$_POST['ano'];
 $conne = new Construir();
 $modelos = $conne->change_tipo_modelo_faltante($marca, $modelo, $ano, $tipo);
 
-echo '0';
+echo $modelos;
 ?>
