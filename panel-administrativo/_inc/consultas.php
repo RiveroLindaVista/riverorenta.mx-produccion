@@ -1933,11 +1933,26 @@ class Conexion extends Database{
     public function query_change_tipo_modelo_faltante($marca, $modelo, $ano, $tipo){
         $conn= Database::connect();
 
-        $sqlInsert = "INSERT INTO autometrica_modelos (marca,modelo,ano,tipo) VALUES('".$marca."','".$modelo."','".$ano."','".$tipo."')";
-        $resultInsert=$conn->query($sqlInsert);
-    }
+        $sql = 'SELECT ano, tipo FROM autometrica_modelos WHERE marca="'.$marca.'" AND modelo="'.$modelo.'"';
 
-    
+        $result=$conn->query($sql);
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $out[]=$row;
+            }
+            if($out == null){
+                $sqlInsert = "INSERT INTO autometrica_modelos (marca,modelo,ano,tipo) VALUES('".$marca."','".$modelo."','".$ano."','".$tipo."')";
+                $resultInsert=$conn->query($sqlInsert);
+                return 0;
+            } else {
+                $sqlUpdate = "UPDATE autometrica_modelos set tipo='".$tipo."' WHERE marca='".$marca."' AND ano='".$ano."' AND modelo='".$modelo."'";
+                $resultUpdate=$conn->query($sqlUpdate);
+                return 1;
+            }
+
+        }
+
+    }
 
     public function query_check_full_modelo_valuacion($marca,$modelo,$ano,$tipo){
         $conn= Database::connect();
