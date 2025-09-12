@@ -1933,7 +1933,7 @@ class Conexion extends Database{
     public function query_change_tipo_modelo_faltante($marca, $modelo, $ano, $tipo){
         $conn= Database::connect();
 
-        $sql = 'SELECT ano, tipo FROM autometrica_modelos WHERE marca="'.$marca.'" AND modelo="'.$modelo.'"';
+        $sql = 'SELECT ano, tipo FROM autometrica_modelos WHERE marca="'.$marca.'" AND ano="'.$ano.'" AND modelo="'.$modelo.'"';
 
         $result=$conn->query($sql);
         if ($result) {
