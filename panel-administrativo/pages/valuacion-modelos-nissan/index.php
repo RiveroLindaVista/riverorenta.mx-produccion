@@ -146,6 +146,8 @@ $conn->close();
                                                         <option value="C">C</option>
                                                         <option value="D">D</option>
                                                         <option value="E">E</option>
+                                                        <option value="F">F</option>
+                                                        <option value="G">G</option>
                                                     </select></td>
                                                 <td><input class="btn bg-success" type="button" style="border-radius: 7px;background-color:green;color:white;" value="GUARDAR" onclick="saveNuevoModelo()" /></td>
                                             </tr>
@@ -202,6 +204,8 @@ $conn->close();
                                                         <option value="C">C</option>
                                                         <option value="D">D</option>
                                                         <option value="E">E</option>
+                                                        <option value="F">F</option>
+                                                        <option value="G">G</option>
                                                     </select></td>
                                             </tr>
                                             <tr>
@@ -285,7 +289,7 @@ $conn->close();
 
                         $tabla_modelos += '<tr><td>' + info[i].marca + '</td><td>' + info[i].modelo + '</td><td>' + info[i].year + '</td><td><select id="tipoModelo" onchange="changeTipoFaltante(this.value,';
                         $tabla_modelos += "'" + info[i].marca + "','" + info[i].modelo + "','" + info[i].year + "'";
-                        $tabla_modelos += ')"><option value="0" selected></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td></tr>';
+                        $tabla_modelos += ')"><option value="0" selected></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select></td></tr>';
 
                     }
                     $tabla_modelos += '</tbody></table>';
