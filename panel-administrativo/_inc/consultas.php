@@ -2100,13 +2100,13 @@ class Conexion extends Database{
         $conn= Database::connect();
 
         $sql = 'SELECT marca, modelo, year
-                FROM valuacion_autometrica_nissan
+                FROM valuacion_autometrica
                 WHERE NOT EXISTS (
                     SELECT 1
                     FROM autometrica_modelos_nissan
-                    WHERE valuacion_autometrica_nissan.marca = autometrica_modelos_nissan.marca
-                    AND valuacion_autometrica_nissan.modelo = autometrica_modelos_nissan.modelo
-                    AND valuacion_autometrica_nissan.year = autometrica_modelos_nissan.ano 
+                    WHERE valuacion_autometrica.marca = autometrica_modelos_nissan.marca
+                    AND valuacion_autometrica.modelo = autometrica_modelos_nissan.modelo
+                    AND valuacion_autometrica.year = autometrica_modelos_nissan.ano 
                 ) GROUP BY modelo,YEAR ORDER BY marca asc,modelo asc,YEAR desc';
 
         $result=$conn->query($sql);
