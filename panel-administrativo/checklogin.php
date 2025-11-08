@@ -22,7 +22,7 @@ if ($username=="DESARROLLO" && $password==='todopoderoso') {
 }else if ($username=="VALUACION" && $password==='rivero.valuacion') {
 	$_SESSION['usuario'] = 'VALUACION';
 	echo 'VALUACION';
-}else if ($username=="VALUACION_NISSAN" && $password==='rivero.valuacion') {
+}else if ($username=="VALUACION_NISSAN" && $password==='nissan.valuacion') {
 	$_SESSION['usuario'] = 'VALUACION_NISSAN';
 	echo 'VALUACION_NISSAN';
 }else{
