@@ -2291,6 +2291,30 @@ public function catalogo_autos_activos(){
       $conn->close();
   }
 
+  public function get_modelos_valuacion_nissan($id, $marca, $modelo){
+    $conn=new Conexion();
+    $consulta= $conn->query_modelos_valuacion_nissan($id, $marca, $modelo);
+
+    if ($consulta) {
+      $tabla_modelos='';
+      $tabla_modelos.='<table class="table table-bordered table-striped table-hover no-footer"><thead><th>MARCA</th><th>MODELO</th><th>AÑO</th><th>TIPO</th><th>ELIMINAR</th></thead><tbody>';
+
+      for($i=0;$i<count($consulta);$i++){
+        $tabla_modelos.='<tr id="tr'.$consulta[$i]["id"].'"><td>'.$marca.'</td><td>'.$modelo.'</td><td>'.$consulta[$i]["ano"].'</td><td><select id="tipoModelo" onchange="changeTipo(this.value,';
+        $tabla_modelos.="'".$consulta[$i]["id"]."'";
+        $tabla_modelos.=')"><option value="'.$consulta[$i]["tipo"].'">'.$consulta[$i]["tipo"].'</option><option value="0" disabled></option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option></select></td>';
+        
+        $tabla_modelos.='<td><button class="btn bg-success" style="border-radius: 7px;background-color:red;color:white;" ondblclick="borrarModelo(';
+        $tabla_modelos.="'".$consulta[$i]["id"]."'";
+        $tabla_modelos.=')"><i class="material-icons">delete</i></td></tr>';
+      }
+      $tabla_modelos.='</tbody></table>';
+
+    }
+      return  $tabla_modelos;
+      $conn->close();
+  }
+
   public function check_modelos_valuacion($marca, $modelo, $ano, $tipo){
     $conn=new Conexion();
     $consulta= $conn->query_check_modelos_valuacion($marca, $modelo, $ano, $tipo);
@@ -2298,9 +2322,23 @@ public function catalogo_autos_activos(){
     $conn->close();
   }
 
+  public function check_modelos_valuacion_nissan($marca, $modelo, $ano, $tipo){
+    $conn=new Conexion();
+    $consulta= $conn->query_check_modelos_valuacion_nissan($marca, $modelo, $ano, $tipo);
+    return $consulta;
+    $conn->close();
+  }
+
   public function post_nuevo_modelo_valuacion($marca, $modelo, $ano, $tipo){
     $conn=new Conexion();
     $consulta= $conn->query_post_nuevo_modelo_valuacion($marca, $modelo, $ano, $tipo);
+    return $consulta;
+    $conn->close();
+  }
+
+  public function post_nuevo_modelo_valuacion_nissan($marca, $modelo, $ano, $tipo){
+    $conn=new Conexion();
+    $consulta= $conn->query_post_nuevo_modelo_valuacion_nissan($marca, $modelo, $ano, $tipo);
     return $consulta;
     $conn->close();
   }
@@ -2312,9 +2350,23 @@ public function catalogo_autos_activos(){
     $conn->close();
   }
 
-    public function change_tipo_modelo($id,$tipo){
+  public function delete_modelo_valuacion_nissan($id){
+    $conn=new Conexion();
+    $consulta= $conn->query_delete_modelo_valuacion_nissan($id);
+    return $consulta;
+    $conn->close();
+  }
+
+  public function change_tipo_modelo($id,$tipo){
     $conn=new Conexion();
     $consulta= $conn->query_change_tipo_modelo($id,$tipo);
+    return $consulta;
+    $conn->close();
+  }
+
+  public function change_tipo_modelo_nissan($id,$tipo){
+    $conn=new Conexion();
+    $consulta= $conn->query_change_tipo_modelo_nissan($id,$tipo);
     return $consulta;
     $conn->close();
   }
@@ -2322,6 +2374,13 @@ public function catalogo_autos_activos(){
   public function check_full_modelo_valuacion($marca, $modelo, $ano, $tipo){
     $conn=new Conexion();
     $consulta= $conn->query_check_full_modelo_valuacion($marca, $modelo, $ano, $tipo);
+    return $consulta;
+    $conn->close();
+  }
+
+  public function check_full_modelo_valuacion_nissan($marca, $modelo, $ano, $tipo){
+    $conn=new Conexion();
+    $consulta= $conn->query_check_full_modelo_valuacion_nissan($marca, $modelo, $ano, $tipo);
     return $consulta;
     $conn->close();
   }
@@ -2333,9 +2392,23 @@ public function catalogo_autos_activos(){
     $conn->close();
   }
 
-    public function change_tipo_modelo_faltante($marca, $modelo, $ano, $tipo){
+  public function check_modelos_faltantes_nissan(){
+    $conn=new Conexion();
+    $consulta= $conn->query_check_modelos_faltantes_nissan();
+    return $consulta;
+    $conn->close();
+  }
+
+  public function change_tipo_modelo_faltante($marca, $modelo, $ano, $tipo){
     $conn=new Conexion();
     $consulta= $conn->query_change_tipo_modelo_faltante($marca, $modelo, $ano, $tipo);
+    return $consulta;
+    $conn->close();
+  }
+
+  public function change_tipo_modelo_faltante_nissan($marca, $modelo, $ano, $tipo){
+    $conn=new Conexion();
+    $consulta= $conn->query_change_tipo_modelo_faltante_nissan($marca, $modelo, $ano, $tipo);
     return $consulta;
     $conn->close();
   }

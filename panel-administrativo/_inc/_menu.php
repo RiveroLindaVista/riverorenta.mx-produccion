@@ -58,6 +58,9 @@ $arr_usuarios = [
     ],
     'VALUACION' => [
         'valuacion-modelos'
+    ],
+    'VALUACION_NISSAN' => [
+        'valuacion-modelos-nissan'
     ]
 ];
 // echo  '<script>console.log(JSON.parse( JSON.stringy("'.  $arr_usuarios .'")) );</script>';
@@ -229,6 +232,15 @@ echo "<script>console.log(JSON.parse('".json_encode($arr_usuarios)."')); </scrip
                             </a>
                         </li>
                         <?php } ?>
+
+                    <?php if(in_array('valuacion-modelos-nissan', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
+                        <li class="<?= $valuacion_modelos;?>">
+                            <a href="<?=URLP?>pages/valuacion-modelos-nissan" class="">
+                                <i class="material-icons">attach_money</i>
+                                <span>Valuación Modelos Nissan</span>
+                            </a>
+                        </li>
+                    <?php } ?>
 
                     <?php if(in_array('imagenes_de_campañas', $arr_usuarios[$_SESSION["usuario"]]) ){ ?>
                         <li class="<?= $imagenes_de_campañas;?>">

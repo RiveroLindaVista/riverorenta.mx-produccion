@@ -2002,6 +2002,130 @@ class Conexion extends Database{
                 return $out;
         } 
     }
+
+    // AUTOMETRICA VALUACION NISSAN
+
+        public function query_modelos_valuacion_nissan($id,$marca,$modelo){
+        $conn= Database::connect();
+
+        $sql = 'SELECT id, ano, tipo FROM autometrica_modelos_nissan WHERE marca="'.$marca.'" AND modelo="'.$modelo.'" order BY ano desc';
+        $result=$conn->query($sql);
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $out[]=$row;
+            }
+            return $out;
+        }
+    }
+
+    public function query_check_modelos_valuacion_nissan($marca,$modelo,$ano,$tipo){
+        $conn= Database::connect();
+
+        $sql = 'SELECT ano, tipo FROM autometrica_modelos_nissan WHERE marca="'.$marca.'" AND modelo="'.$modelo.'" AND ano="'.$ano.'"';
+
+        $result=$conn->query($sql);
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $out[]=$row;
+            }
+            if($out == null){
+                $sqlInsert = "INSERT INTO autometrica_modelos_nissan (marca,modelo,ano,tipo) VALUES('".$marca."','".$modelo."','".$ano."','".$tipo."')";
+                $resultInsert=$conn->query($sqlInsert);
+                return 0;
+            } else {
+                return 1;
+            }
+        }
+    }
+
+    public function query_delete_modelo_valuacion_nissan($id){
+        $conn= Database::connect();
+
+        $sql = "DELETE FROM autometrica_modelos_nissan WHERE id=".$id." limit 1";
+        $result=$conn->query($sql);
+    }
+
+    public function query_change_tipo_modelo_nissan($id,$tipo){
+        $conn= Database::connect();
+
+        $sql = "UPDATE autometrica_modelos_nissan set tipo='".$tipo."' WHERE id=".$id." limit 1";
+        $result=$conn->query($sql);
+    }
+
+    public function query_change_tipo_modelo_faltante_nissan($marca, $modelo, $ano, $tipo){
+        $conn= Database::connect();
+
+        $sql = 'SELECT ano, tipo FROM autometrica_modelos_nissan WHERE marca="'.$marca.'" AND ano="'.$ano.'" AND modelo="'.$modelo.'"';
+
+        $result=$conn->query($sql);
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $out[]=$row;
+            }
+            if($out == null){
+                $sqlInsert = "INSERT INTO autometrica_modelos_nissan (marca,modelo,ano,tipo) VALUES('".$marca."','".$modelo."','".$ano."','".$tipo."')";
+                $resultInsert=$conn->query($sqlInsert);
+                return 0;
+            } else {
+                $sqlUpdate = "UPDATE autometrica_modelos_nissan set tipo='".$tipo."' WHERE marca='".$marca."' AND ano='".$ano."' AND modelo='".$modelo."'";
+                $resultUpdate=$conn->query($sqlUpdate);
+                return 1;
+            }
+
+        }
+
+    }
+
+    public function query_check_full_modelo_valuacion_nissan($marca,$modelo,$ano,$tipo){
+        $conn= Database::connect();
+
+        $sql = 'SELECT ano, tipo FROM autometrica_modelos_nissan WHERE marca="'.$marca.'" AND modelo="'.$modelo.'"';
+
+        $result=$conn->query($sql);
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $out[]=$row;
+            }
+            if($out == null){
+                $sqlInsert = "INSERT INTO autometrica_modelos_nissan (marca,modelo,ano,tipo) VALUES('".$marca."','".$modelo."','".$ano."','".$tipo."')";
+                $resultInsert=$conn->query($sqlInsert);
+                return 0;
+            } else {
+                return 1;
+            }
+        }
+    }
+
+    public function query_check_modelos_faltantes_nissan(){
+        $conn= Database::connect();
+
+        $sql = 'SELECT marca, modelo, year
+                FROM valuacion_autometrica_nissan
+                WHERE NOT EXISTS (
+                    SELECT 1
+                    FROM autometrica_modelos_nissan
+                    WHERE valuacion_autometrica_nissan.marca = autometrica_modelos_nissan.marca
+                    AND valuacion_autometrica_nissan.modelo = autometrica_modelos_nissan.modelo
+                    AND valuacion_autometrica_nissan.year = autometrica_modelos_nissan.ano 
+                ) GROUP BY modelo,YEAR ORDER BY marca asc,modelo asc,YEAR desc';
+
+        $result=$conn->query($sql);
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $out[]=$row;
+            }
+/*             if($out == null){
+                $sqlInsert = "INSERT INTO autometrica_modelos (marca,modelo,ano,tipo) VALUES('".$marca."','".$modelo."','".$ano."','".$tipo."')";
+                $resultInsert=$conn->query($sqlInsert);
+                return 0;
+            } else {
+                return 1;
+            }*/
+                return $out;
+        } 
+    }
+
+    //TERMINA AUTOMETRICA VALUACION NISSAN
        
     }
 
