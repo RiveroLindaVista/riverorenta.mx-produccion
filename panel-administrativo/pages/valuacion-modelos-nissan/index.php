@@ -76,7 +76,7 @@ $conn->close();
                     <div class="card">
                         <div class="header d-flex">
                             <h2>
-                                MODELOS VALUACIÓN
+                                MODELOS VALUACIÓN NISSAN
                             </h2>
                             <button type="button" class="btn bg-success mt-3" onclick="openModalFaltantes()"><i class="material-icons">add</i>Agregar Auto</button>
                         </div>
