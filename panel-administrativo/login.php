@@ -132,6 +132,8 @@ session_start();
                                 window.location.href="<?= URL?>"+"/produccion/panel-administrativo/pages/politicas";    
                             } else if(res == 'VALUACION'){
                                 window.location.href="<?= URL?>"+"/produccion/panel-administrativo/pages/valuacion-modelos/";
+                            } else if(res == 'VALUACION_NISSAN'){
+                                window.location.href="<?= URL?>"+"/produccion/panel-administrativo/pages/valuacion-modelos-nissan/";
                             } else {
                                 console.log("SESION OTRO: "+res);
                                 window.location.href="<?= URL?>"+"/produccion/panel-administrativo/pages/home";
