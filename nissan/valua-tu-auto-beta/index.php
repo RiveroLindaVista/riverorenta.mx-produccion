@@ -439,22 +439,26 @@ if ($marcasQry->num_rows > 0) {
                         precioAjustado = obj.lineal[0].purchase;
                         break;
                     case "C":
-                        precioAjustado = obj.lineal[0].purchase * .15;
+                        precioAjustado = obj.lineal[0].purchase * .07;
                         precioAjustado = obj.lineal[0].purchase - precioAjustado;
                         break;
                     case "D":
-                        precioAjustado = obj.lineal[0].purchase * .30;
+                        precioAjustado = obj.lineal[0].purchase * .10;
                         precioAjustado = obj.lineal[0].purchase - precioAjustado;
                         break;
                     case "E":
-                        precioAjustado = obj.lineal[0].purchase * .50;
+                        precioAjustado = obj.lineal[0].purchase * .20;
                         precioAjustado = obj.lineal[0].purchase - precioAjustado;
                         break;
                     case "F":
-                        precioAjustado = obj.lineal[0].purchase * .70;
+                        precioAjustado = obj.lineal[0].purchase * .25;
                         precioAjustado = obj.lineal[0].purchase - precioAjustado;
                         break;
                     case "G":
+                        precioAjustado = obj.lineal[0].purchase * .35;
+                        precioAjustado = obj.lineal[0].purchase - precioAjustado;
+                        break;
+                    case "H":
                         precioAjustado = "SIN OPCIÓN A COMPRA.";
                         $("#precio").html("SIN OPCIÓN A COMPRA.");
                         $("#descripcionAuto").html( `
