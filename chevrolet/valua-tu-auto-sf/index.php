@@ -475,8 +475,6 @@ if ($marcasQry->num_rows > 0) {
                     console.log("Entro al SEGUNDO del IF: ", obj.lineal[0].brand.toLowerCase());
                 }
 
-                sendSF();
-
             }
         });
 
@@ -586,7 +584,7 @@ if ($marcasQry->num_rows > 0) {
             ofertas.precio_ofrecido = ofertas.precio_primo;
         }
 
-        getOferta();
+        sendSF();
         console.log(oferta);
     }
 
@@ -594,6 +592,7 @@ if ($marcasQry->num_rows > 0) {
         $("#formDatos").attr('hidden', true);
         $("#ofertaFinal").attr('hidden', false);
         $("#formOferta").attr('hidden', true);
+        $("#of1").attr('hidden', false);
     }
 
     function validarCorreo(valor,id) {
