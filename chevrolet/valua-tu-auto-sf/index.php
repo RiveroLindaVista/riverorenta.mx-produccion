@@ -583,8 +583,7 @@ if ($marcasQry->num_rows > 0) {
         } else {
             ofertas.precio_ofrecido = ofertas.precio_primo;
         }
-
-        
+        sendSF();
         console.log(oferta);
     }
 
