@@ -530,7 +530,7 @@ if ($marcasQry->num_rows > 0) {
         
         $.ajax({
             type: "POST",
-            url: "web-to-lead.php",
+            url: "sendSF.php",
             data: data,
             dataType: "json",
             success: function(resp) {
