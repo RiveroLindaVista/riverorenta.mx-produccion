@@ -384,17 +384,17 @@ if ($marcasQry->num_rows > 0) {
             select_version = select_version.replaceAll(" ", "%20");
             select_modelo = select_modelo.replaceAll(" ", "%20");
 
-/*             let obj = '{"lineal": [{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "4 pts. LS, 1.3l, TM5, a\/ac., BA, R-15","km_group": "A","sale": 239000,"purchase": 209800},{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "Valor kilometraje","km_group": "A","sale": -4800,"purchase": -4800}]}';
-            objetoOferta(JSON.parse(obj)); */
+            let obj = '{"lineal": [{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "4 pts. LS, 1.3l, TM5, a\/ac., BA, R-15","km_group": "A","sale": 239000,"purchase": 209800},{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "Valor kilometraje","km_group": "A","sale": -4800,"purchase": -4800}]}';
+            objetoOferta(JSON.parse(obj));
             const requestOptions = {
                 method: "GET",
                 redirect: "follow"
             };
 
-            fetch("https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=chevrolet&year="+select_ano+"&brand="+select_marca+"&subbrand="+select_modelo+"&version="+select_version+"&kilometraje="+select_km+"", requestOptions)
+/*             fetch("https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=chevrolet&year="+select_ano+"&brand="+select_marca+"&subbrand="+select_modelo+"&version="+select_version+"&kilometraje="+select_km+"", requestOptions)
             .then((response) => response.text())
             .then((result) => this.objetoOferta(JSON.parse(result)))
-            .catch((error) => console.error(error));
+            .catch((error) => console.error(error)); */
         } else {
             campoVacio("#nombre");
             validarCorreo("#correo");
