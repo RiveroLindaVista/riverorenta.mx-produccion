@@ -512,10 +512,7 @@ if ($marcasQry->num_rows > 0) {
         let kilometraje = parseInt($('#filtroKM').val());
 
         let data = {
-            nombre: nombre,
-            correo: correo,
-            telefono: telefono,
-            year: year,
+            ano: year,
             marca: marca,
             modelo: modelo,
             version: version,
@@ -524,7 +521,9 @@ if ($marcasQry->num_rows > 0) {
             venta: ofertas.venta,
             compra: ofertas.compra,
             ofrecido: ofertas.precio_ofrecido,
-            oferta_elegida: ofertas.ofertaElegida
+            ownerid:"<?=$_GET['ownerid']?>",
+            leadid: "<?=$_GET['leadid']?>",
+            opid:"<?=$_GET['opid']?>"
         }
         
         console.log(data);
@@ -691,6 +690,34 @@ if ($marcasQry->num_rows > 0) {
         $("#divQR").html(frame);
         $("#btnCalendar").html(botonLink);
     }
+
+    function sendSalesforce(){
+            var param={
+                compra:$("#libroCompra").val(),
+                venta:$("#libroVenta").val(),
+                ofrecido:$("#precioPrimoVal").val(),
+                modelo:"<?=$_GET['mot']?>",
+                ano:"<?=$_GET['y']?>",
+                marca:"<?=$_GET['mat']?>",
+                version:"<?=$_GET['vet']?>",
+                km:"<?=$_GET['km']?>",
+                ownerid:"<?=$_GET['ownerid']?>",
+                leadid:"<?=$_GET['leadid']?>",
+                opid:"<?=$_GET['opid']?>",
+            }
+            //console.log(param);
+            $.ajax({
+                  url: 'send-salesforce.php',
+                  type: 'POST',
+                  data: param,
+                  success:function(respuesta){
+                    console.log(respuesta)
+                  },
+                  error: function () {
+                      alert("error");
+                  }
+              }); 
+        }
 
 </script>
 
