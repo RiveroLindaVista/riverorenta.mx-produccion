@@ -12,7 +12,7 @@ error_reporting(E_ALL);
 $tipoSend='prod';
 $urlDest='crear-Valuacion';
 
-echo getenv();
+print_r(getenv()); 
 
 
 
