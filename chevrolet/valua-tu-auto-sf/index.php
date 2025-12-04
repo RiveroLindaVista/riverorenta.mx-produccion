@@ -592,6 +592,7 @@ if ($marcasQry->num_rows > 0) {
         $("#formDatos").attr('hidden', true);
         $("#ofertaFinal").attr('hidden', false);
         $("#formOferta").attr('hidden', true);
+        $("#of1").attr('hidden', false);
     }
 
     function validarCorreo(valor,id) {
