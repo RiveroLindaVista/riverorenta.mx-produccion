@@ -509,7 +509,7 @@ if ($marcasQry->num_rows > 0) {
         
         $.ajax({
             type: "POST",
-            url: "https://riverorenta.mx/api/salesforce/valuacion-express-sf/resumen/send-salesforce.php",
+            url: "https://www.riverorenta.mx/api/salesforce/valuacion-express-sf/resumen/send-salesforce.php",
             data: data,
             dataType: "json",
             success: function(resp) {
