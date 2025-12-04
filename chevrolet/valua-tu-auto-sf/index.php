@@ -608,7 +608,7 @@ if ($marcasQry->num_rows > 0) {
     }
 
     function siguienteDatos(){
-        $("#formDatos").attr('hidden', false);
+        $("#formDatos").attr('hidden', true);
         $("#ofertaFinal").attr('hidden', false);
         $("#formOferta").attr('hidden', true);
     }
