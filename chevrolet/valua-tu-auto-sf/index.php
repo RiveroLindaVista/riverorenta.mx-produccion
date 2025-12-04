@@ -584,7 +584,7 @@ if ($marcasQry->num_rows > 0) {
             ofertas.precio_ofrecido = ofertas.precio_primo;
         }
 
-        getOferta();
+        
         console.log(oferta);
     }
 
@@ -593,6 +593,7 @@ if ($marcasQry->num_rows > 0) {
         $("#ofertaFinal").attr('hidden', false);
         $("#formOferta").attr('hidden', true);
         $("#of1").attr('hidden', false);
+        getOferta();
     }
 
     function validarCorreo(valor,id) {
