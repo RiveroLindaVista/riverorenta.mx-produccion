@@ -396,8 +396,6 @@ if ($marcasQry->num_rows > 0) {
 
         $("#formOferta").attr('hidden', true);
         $("#formDatos").attr('hidden', true);
-        $("#ofertaFinal").attr('hidden', false);
-        $("#of1").attr('hidden', false);
         let data = obj.lineal;
 //NISSAN, CHEVROLET, MAZDA, TOYOTA, HONDA
 
@@ -457,6 +455,9 @@ if ($marcasQry->num_rows > 0) {
                     <p style="font-family: Narrow;text-align: center;font-size: 2em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
                     <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].version}</p>
                     `;
+
+                $("#ofertaFinal").attr('hidden', false);
+                $("#of1").attr('hidden', false);
                 $("#precio").html(precio);
                 $("#descripcionAuto").html(descripcionAuto);
 
@@ -596,7 +597,7 @@ if ($marcasQry->num_rows > 0) {
 
         setTimeout(() => {
             location.reload();
-        }, 1000);
+        }, 2000);
     }
 
     function siguienteDatos(){
