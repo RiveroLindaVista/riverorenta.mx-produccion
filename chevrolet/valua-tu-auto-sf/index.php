@@ -148,6 +148,12 @@ if ($marcasQry->num_rows > 0) {
                 </div>
             </div>
 
+            <div id="formMensajeExito" class="container p-2" hidden>
+                <div>
+                    <h1 class="text-white text-center m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">VALUACIÓN GENERADA CON ÉXITO</h1>
+                </div>
+            </div>
+
             <div id="formCita" class="container p-2" hidden>
                 <div>
                     <h1 class="text-white text-center m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">ÚLTIMO PASO</h1>
@@ -376,9 +382,7 @@ if ($marcasQry->num_rows > 0) {
 
 /*         let obj = '{"lineal": [{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "4 pts. LS, 1.3l, TM5, a\/ac., BA, R-15","km_group": "A","sale": 239000,"purchase": 209800},{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "Valor kilometraje","km_group": "A","sale": -4800,"purchase": -4800}]}';
         objetoOferta(JSON.parse(obj)); */
-        const requestOptions = {
-            method: "GET",
-            redirect: "follow"
+        const requestOptions = { 
         };
 
             fetch("https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=chevrolet&year="+select_ano+"&brand="+select_marca+"&subbrand="+select_modelo+"&version="+select_version+"&kilometraje="+select_km+"", requestOptions)
@@ -399,6 +403,7 @@ if ($marcasQry->num_rows > 0) {
 
         let params = {
             modelo: obj.lineal[0].subbrand.toUpperCase(),
+            
             marca: obj.lineal[0].brand.toUpperCase(),
             ano: obj.lineal[0].year,
         }
@@ -574,7 +579,10 @@ if ($marcasQry->num_rows > 0) {
 
     function selectOferta(oferta){
         $("#of1").attr('hidden', true);
-        $("#formCita").attr('hidden', false);
+
+        // AQUI PONER MENSAJE DE CITA GENERADA CON EXITO
+        $("#formMensajeExito").attr('hidden', false);
+        // AQUI PONER MENSAJE DE CITA GENERADA CON EXITO
 
         ofertas.ofertaElegida = oferta;
 
@@ -585,6 +593,10 @@ if ($marcasQry->num_rows > 0) {
         }
         sendSF();
         console.log(oferta);
+
+        setTimeout(() => {
+            location.reload();
+        }, 1000);
     }
 
     function siguienteDatos(){
