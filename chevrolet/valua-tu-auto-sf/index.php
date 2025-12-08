@@ -42,6 +42,13 @@ if ($marcasQry->num_rows > 0) {
 
     <body style="background-color:#1d1d1d;">
     <div class="container" style="display:flex; justify-content: center; align-items: center;">
+
+        <div id="formLoading" class="container p-2" hidden>
+            <div class="spinner-border text-light m-5" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+
         <div id="formOferta" class="container p-4">
             <div class="row p-2" id="divYears">
                 <label for="basic-url" class="form-label text-white">¿Qué año es tu auto?</label>
@@ -151,12 +158,6 @@ if ($marcasQry->num_rows > 0) {
             <div id="formMensajeExito" class="container p-2" hidden>
                 <div>
                     <h1 class="text-white text-center m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">VALUACIÓN GENERADA CON ÉXITO</h1>
-                </div>
-            </div>
-
-            <div id="formLoading" class="container p-2" hidden>
-                <div class="spinner-border m-5" role="status">
-                    <span class="sr-only">Loading...</span>
                 </div>
             </div>
 
