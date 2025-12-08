@@ -43,7 +43,7 @@ if ($marcasQry->num_rows > 0) {
     <body style="background-color:#1d1d1d;">
     <div class="container" style="display:flex; justify-content: center; align-items: center;">
 
-        <div id="formLoading" class="container d-flex justify-content-center p-2" hidden>
+        <div id="formLoading" class="container p-2" hidden>
             <div class="spinner-border text-light m-5" role="status">
                 <span class="sr-only"></span>
             </div>
