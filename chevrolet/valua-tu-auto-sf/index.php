@@ -154,6 +154,12 @@ if ($marcasQry->num_rows > 0) {
                 </div>
             </div>
 
+            <div id="formLoading" class="container p-2" hidden>
+                <div class="spinner-border m-5" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+
             <div id="formCita" class="container p-2" hidden>
                 <div>
                     <h1 class="text-white text-center m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">ÚLTIMO PASO</h1>
@@ -456,6 +462,7 @@ if ($marcasQry->num_rows > 0) {
                     <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].version}</p>
                     `;
 
+                $("#formLoading").attr('hidden', true);
                 $("#ofertaFinal").attr('hidden', false);
                 $("#of1").attr('hidden', false);
                 $("#precio").html(precio);
@@ -603,6 +610,10 @@ if ($marcasQry->num_rows > 0) {
     function siguienteDatos(){
         $("#formDatos").attr('hidden', true);
         $("#formOferta").attr('hidden', true);
+        //AQUI FORM DE CARGA
+        $("#formLoading").attr('hidden', false);
+        //AQUI FORM DE CARGA
+
         getOferta();
     }
 
