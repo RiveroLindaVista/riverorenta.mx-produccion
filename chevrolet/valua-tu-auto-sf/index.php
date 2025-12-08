@@ -463,7 +463,7 @@ if ($marcasQry->num_rows > 0) {
 
                 let precioPrimo = "";
 
-                console.log("Marca: Chevrolet", obj.lineal[0].brand.toLowerCase().includes("nissan"));
+                console.log("Marca: ", obj.lineal[0].brand.toLowerCase().includes("nissan"));
                 console.log("Precio Venta: ", obj.lineal[0].sale);
 
                 if(obj.lineal[0].brand.toLowerCase().includes("chevrolet") || obj.lineal[0].brand.toLowerCase().includes("nissan") || obj.lineal[0].brand.toLowerCase().includes("mazda") || obj.lineal[0].brand.toLowerCase().includes("mazda") || obj.lineal[0].brand.toLowerCase().includes("toyota")){
