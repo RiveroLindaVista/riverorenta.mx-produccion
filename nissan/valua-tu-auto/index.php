@@ -228,7 +228,7 @@ $(document).ready(function() {
                 let opcionesVersiones = '<option value="0">Selecciona la versión...</option>';
                 resp.forEach(elem => {
                     opcionesVersiones += `
-                        <option value="${elem.version}">${elem.version}</option>
+                        <option value='${elem.version}'>${elem.version}</option>
                     `;
                 });
 
