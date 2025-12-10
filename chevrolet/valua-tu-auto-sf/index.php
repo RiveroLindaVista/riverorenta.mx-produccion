@@ -385,7 +385,9 @@ if ($marcasQry->num_rows > 0) {
         let select_km = $('#filtroKM').val();
 
         select_version = select_version.replaceAll(" ", "%20");
+        select_version = select_version.replaceAll('"', "%22");
         select_modelo = select_modelo.replaceAll(" ", "%20");
+
 
 /*         let obj = '{"lineal": [{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "4 pts. LS, 1.3l, TM5, a\/ac., BA, R-15","km_group": "A","sale": 239000,"purchase": 209800},{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "Valor kilometraje","km_group": "A","sale": -4800,"purchase": -4800}]}';
         objetoOferta(JSON.parse(obj)); */
