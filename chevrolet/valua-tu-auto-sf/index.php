@@ -385,7 +385,7 @@ if ($marcasQry->num_rows > 0) {
         let select_km = $('#filtroKM').val();
 
         select_version = select_version.replaceAll(" ", "%20");
-        select_version = select_version.replaceAll('"', "%22");
+        select_version = select_version.replaceAll('"', '%22');
         select_modelo = select_modelo.replaceAll(" ", "%20");
 
 
@@ -394,7 +394,7 @@ if ($marcasQry->num_rows > 0) {
         const requestOptions = { 
         };
 
-        console.log("EIT: ",`https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=nissan&year=${select_ano}&brand=${select_marca}&subbrand${select_modelo}&version=${select_version}&kilometraje=${select_km}`);
+        console.log(select_version, " - EIT: ",`https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=nissan&year=${select_ano}&brand=${select_marca}&subbrand${select_modelo}&version=${select_version}&kilometraje=${select_km}`);
 
             fetch(`https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=chevrolet&year=${select_ano}&brand=${select_marca}&subbrand=${select_modelo}&version=${select_version}&kilometraje=${select_km}`, requestOptions)
             .then((response) => response.text())
