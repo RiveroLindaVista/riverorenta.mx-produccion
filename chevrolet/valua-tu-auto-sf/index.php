@@ -347,8 +347,7 @@ if ($marcasQry->num_rows > 0) {
                 
                 let opcionesVersiones = '<option value="0">Selecciona la versión...</option>';
                 resp.forEach(elem => {
-                    opcionesVersiones += `
-                        <option value="${elem.version}">${elem.version}</option>
+                    opcionesVersiones += `<option value='${elem.version}'>${elem.version}</option>
                     `;
                 });
 
