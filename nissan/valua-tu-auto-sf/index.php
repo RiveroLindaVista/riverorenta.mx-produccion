@@ -301,7 +301,7 @@ if ($marcasQry->num_rows > 0) {
                 let opcionesModelos = '<option value="0">Selecciona el modelo...</option>';
                 resp.forEach(elem => {
                     opcionesModelos += `
-                            <option value="${elem.modelo}">${elem.modelo}</option>
+                            <option value='${elem.modelo}'>${elem.modelo}</option>
                     `;
                 });
 
@@ -536,9 +536,9 @@ if ($marcasQry->num_rows > 0) {
             ofrecido: ofertas.precio_ofrecido,
             oferta_elegida: ofertas.ofertaElegida
         }
-        
+
         console.log(data);
-        
+
         $.ajax({
             type: "POST",
             url: "web-to-lead.php",
