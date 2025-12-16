@@ -106,7 +106,9 @@ if ($marcasQry->num_rows > 0) {
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
+                    <h3 class="text-center text-white pulso" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">ELIGE UNA OFERTA PARA GUARDAR LA VALUACIÓN</h3>
                     <div class="btnOfertaNormal" onclick="selectOferta('Normal')">
                         <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">OFERTA VÁLIDA POR 7 DÍAS</h3>
 
@@ -443,7 +445,7 @@ if ($marcasQry->num_rows > 0) {
                         precioAjustado = "SIN OPCIÓN A COMPRA.";
                         $("#precio").html("SIN OPCIÓN A COMPRA.");
                         $("#descripcionAuto").html( `
-                            <p style="font-family: Narrow;text-align: center;font-size: 2em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
+                            <p style="font-family: Narrow;text-align: center;font-size: 1.5em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
                             <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].version}</p>
                             `);
                         return 0;
@@ -460,7 +462,7 @@ if ($marcasQry->num_rows > 0) {
                 ofertas.venta = obj.lineal[0].sale;
 
                 let descripcionAuto = `
-                    <p style="font-family: Narrow;text-align: center;font-size: 2em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
+                    <p style="font-family: Narrow;text-align: center;font-size: 1.5em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
                     <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].version}</p>
                     `;
 
@@ -530,6 +532,7 @@ if ($marcasQry->num_rows > 0) {
             success: function(resp) {
                 console.log('Entra SF', resp);
             }
+
         });
 
     }
@@ -824,6 +827,23 @@ if ($marcasQry->num_rows > 0) {
     #formCalendar{
         animation-duration: 1s;
         animation-name: slide-in;
+    }
+        
+    .pulso {
+        font-size: 2rem;
+        animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
     }
 
     @keyframes slide-in {
