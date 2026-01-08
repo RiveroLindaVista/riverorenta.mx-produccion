@@ -379,14 +379,16 @@ if ($marcasQry->num_rows > 0) {
     function getOferta(){
 
         var valCorreo=validarCorreo($("#correo").val(),"#correo");
-
+        console.log('1');
         if($("#telefono").val().length<10){
             campoVacio("#telefono");
+            console.log('2');
         }
 
         if($("#nombre").val()!=""&&$("#correo").val()!=""&&$("#telefono").val()!=""&&valCorreo==1&&$("#telefono").val().length==10){
             $("#btnOferta").attr('hidden', true);
             $("#cargando").attr('hidden', false);
+            console.log('3');
 
             let select_marca = $('#filtroMarcas').val();
             let select_ano = $('#filtroYears').val();
@@ -411,6 +413,7 @@ if ($marcasQry->num_rows > 0) {
             .then((result) => this.objetoOferta(JSON.parse(result)))
             .catch((error) => console.error(error));
         } else {
+            console.log('4');
             campoVacio("#nombre");
             validarCorreo("#correo");
             if($("#telefono").val().length != 10){
