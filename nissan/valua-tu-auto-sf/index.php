@@ -644,7 +644,7 @@ if ($marcasQry->num_rows > 0) {
         $("#formDatos").attr('hidden', true);
         $("#formOferta").attr('hidden', true);
         $("#formLoading").attr('hidden', false);
-
+        console.log('Presiono sig datos');
         getOferta();
     }
 
