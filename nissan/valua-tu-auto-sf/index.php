@@ -42,6 +42,13 @@ if ($marcasQry->num_rows > 0) {
 
     <body style="background-color:#1d1d1d;">
     <div class="container" style="display:flex; justify-content: center; align-items: center;">
+
+        <div id="formLoading" class="container p-2" style="text-align: center" hidden>
+            <div class="spinner-border text-light m-5" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+
         <div id="formOferta" class="container p-4">
             <div class="row p-2" id="divYears">
                 <label for="basic-url" class="form-label text-white">¿Qué año es tu auto?</label>
@@ -145,6 +152,12 @@ if ($marcasQry->num_rows > 0) {
                 <input style="border-radius: 5px; width: 100%; height: 40px;font-size: 1.2em" placeholder="Ingresa tu teléfono" type="number" id="telefono" max="10" name="telefono" required>
                 <div class="row p-2" id="btnOferta">
                     <button class="btn btn-dark bg-dark" type="button" onclick="getOferta()">Ver Oferta</button>
+                </div>
+            </div>
+
+            <div id="formMensajeExito" class="container p-2" hidden>
+                <div>
+                    <h1 class="text-white text-center m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">VALUACIÓN GENERADA CON ÉXITO</h1>
                 </div>
             </div>
 
