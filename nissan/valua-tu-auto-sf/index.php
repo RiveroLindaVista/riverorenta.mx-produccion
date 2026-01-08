@@ -412,8 +412,6 @@ if ($marcasQry->num_rows > 0) {
 
         $("#formOferta").attr('hidden', true);
         $("#formDatos").attr('hidden', true);
-        $("#ofertaFinal").attr('hidden', false);
-        $("#of1").attr('hidden', false);
         let data = obj.lineal;
 //NISSAN, CHEVROLET, MAZDA, TOYOTA, HONDA
 
@@ -483,6 +481,10 @@ if ($marcasQry->num_rows > 0) {
                     <p style="font-family: Narrow;text-align: center;font-size: 2em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
                     <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].version}</p>
                     `;
+
+                $("#formLoading").attr('hidden', true);
+                $("#ofertaFinal").attr('hidden', false);
+                $("#of1").attr('hidden', false);
                 $("#precio").html(precio);
                 $("#descripcionAuto").html(descripcionAuto);
 
@@ -505,7 +507,7 @@ if ($marcasQry->num_rows > 0) {
                 } else {
                     console.log("Entro al SEGUNDO del IF: ", obj.lineal[0].brand.toLowerCase());
                 }
-                sendSF();
+
             }
         });
     }
@@ -534,7 +536,9 @@ if ($marcasQry->num_rows > 0) {
             venta: ofertas.venta,
             compra: ofertas.compra,
             ofrecido: ofertas.precio_ofrecido,
-            oferta_elegida: ofertas.ofertaElegida
+            ownerid:"<?=$_GET['ownerid']?>",
+            leadid: "<?=$_GET['leadid']?>",
+            opid:"<?=$_GET['opid']?>"
         }
 
         console.log(data);
@@ -606,7 +610,7 @@ if ($marcasQry->num_rows > 0) {
 
     function selectOferta(oferta){
         $("#of1").attr('hidden', true);
-        $("#formCita").attr('hidden', false);
+        $("#formMensajeExito").attr('hidden', false);
 
         ofertas.ofertaElegida = oferta;
 
@@ -615,14 +619,18 @@ if ($marcasQry->num_rows > 0) {
         } else {
             ofertas.precio_ofrecido = ofertas.precio_primo;
         }
-
+        sendSF();
         console.log(oferta);
+
+        setTimeout(() => {
+            location.reload();
+        }, 2000);
     }
 
     function siguienteDatos(){
-        $("#formDatos").attr('hidden', false);
-        $("#ofertaFinal").attr('hidden', false);
+        $("#formDatos").attr('hidden', true);
         $("#formOferta").attr('hidden', true);
+        $("#formLoading").attr('hidden', false);
     }
 
     function validarCorreo(valor,id) {
@@ -701,6 +709,34 @@ if ($marcasQry->num_rows > 0) {
         $("#divQR").html(frame);
         $("#btnCalendar").html(botonLink);
     }
+
+    function sendSalesforce(){
+        var param={
+            compra:$("#libroCompra").val(),
+            venta:$("#libroVenta").val(),
+            ofrecido:$("#precioPrimoVal").val(),
+            modelo:"<?=$_GET['mot']?>",
+            ano:"<?=$_GET['y']?>",
+            marca:"<?=$_GET['mat']?>",
+            version:"<?=$_GET['vet']?>",
+            km:"<?=$_GET['km']?>",
+            ownerid:"<?=$_GET['ownerid']?>",
+            leadid:"<?=$_GET['leadid']?>",
+            opid:"<?=$_GET['opid']?>",
+        }
+        //console.log(param);
+        $.ajax({
+            url: 'send-salesforce.php',
+            type: 'POST',
+            data: param,
+            success:function(respuesta){
+            console.log(respuesta)
+            },
+            error: function () {
+                alert("error");
+            }
+        }); 
+        }
 
 </script>
 
