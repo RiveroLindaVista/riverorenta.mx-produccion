@@ -42,6 +42,13 @@ if ($marcasQry->num_rows > 0) {
 
     <body style="background-color:#1d1d1d;">
     <div class="container" style="display:flex; justify-content: center; align-items: center;">
+
+        <div id="formLoading" class="container p-2" style="text-align: center" hidden>
+            <div class="spinner-border text-light m-5" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+
         <div id="formOferta" class="container p-4">
             <div class="row p-2" id="divYears">
                 <label for="basic-url" class="form-label text-white">¿Qué año es tu auto?</label>
@@ -145,6 +152,12 @@ if ($marcasQry->num_rows > 0) {
                 <input style="border-radius: 5px; width: 100%; height: 40px;font-size: 1.2em" placeholder="Ingresa tu teléfono" type="number" id="telefono" max="10" name="telefono" required>
                 <div class="row p-2" id="btnOferta">
                     <button class="btn btn-dark bg-dark" type="button" onclick="getOferta()">Ver Oferta</button>
+                </div>
+            </div>
+
+            <div id="formMensajeExito" class="container p-2" hidden>
+                <div>
+                    <h1 class="text-white text-center m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">VALUACIÓN GENERADA CON ÉXITO</h1>
                 </div>
             </div>
 
@@ -365,16 +378,6 @@ if ($marcasQry->num_rows > 0) {
 
     function getOferta(){
 
-        var valCorreo=validarCorreo($("#correo").val(),"#correo");
-
-        if($("#telefono").val().length<10){
-            campoVacio("#telefono");
-        }
-
-        if($("#nombre").val()!=""&&$("#correo").val()!=""&&$("#telefono").val()!=""&&valCorreo==1&&$("#telefono").val().length==10){
-            $("#btnOferta").attr('hidden', true);
-            $("#cargando").attr('hidden', false);
-
             let select_marca = $('#filtroMarcas').val();
             let select_ano = $('#filtroYears').val();
             let select_modelo = $('#filtroModelos').val();
@@ -393,27 +396,16 @@ if ($marcasQry->num_rows > 0) {
             
             console.log("EIT: ",`https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=nissan&year=${select_ano}&brand=${select_marca}&subbrand${select_modelo}&version=${select_version}&kilometraje=${select_km}`);
             
-            fetch(`https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=nissan&year=${select_ano}&brand=${select_marca}&subbrand${select_modelo}&version=${select_version}&kilometraje=${select_km}`, requestOptions)
+            fetch(`https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=nissan&year=${select_ano}&brand=${select_marca}&subbrand=${select_modelo}&version=${select_version}&kilometraje=${select_km}`, requestOptions)
             .then((response) => response.text())
             .then((result) => this.objetoOferta(JSON.parse(result)))
             .catch((error) => console.error(error));
-        } else {
-            campoVacio("#nombre");
-            validarCorreo("#correo");
-            if($("#telefono").val().length != 10){
-                $("#telefono").css("borderColor","yellow");
-            }else{
-                $("#telefono").css("borderColor","#2b9c1fc7");
-            }
-        }
     }
 
     function objetoOferta(obj){
 
         $("#formOferta").attr('hidden', true);
         $("#formDatos").attr('hidden', true);
-        $("#ofertaFinal").attr('hidden', false);
-        $("#of1").attr('hidden', false);
         let data = obj.lineal;
 //NISSAN, CHEVROLET, MAZDA, TOYOTA, HONDA
 
@@ -483,6 +475,10 @@ if ($marcasQry->num_rows > 0) {
                     <p style="font-family: Narrow;text-align: center;font-size: 2em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
                     <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].version}</p>
                     `;
+
+                $("#formLoading").attr('hidden', true);
+                $("#ofertaFinal").attr('hidden', false);
+                $("#of1").attr('hidden', false);
                 $("#precio").html(precio);
                 $("#descripcionAuto").html(descripcionAuto);
 
@@ -505,7 +501,7 @@ if ($marcasQry->num_rows > 0) {
                 } else {
                     console.log("Entro al SEGUNDO del IF: ", obj.lineal[0].brand.toLowerCase());
                 }
-                sendSF();
+
             }
         });
     }
@@ -534,7 +530,9 @@ if ($marcasQry->num_rows > 0) {
             venta: ofertas.venta,
             compra: ofertas.compra,
             ofrecido: ofertas.precio_ofrecido,
-            oferta_elegida: ofertas.ofertaElegida
+            ownerid:"<?=$_GET['ownerid']?>",
+            leadid: "<?=$_GET['leadid']?>",
+            opid:"<?=$_GET['opid']?>"
         }
 
         console.log(data);
@@ -606,7 +604,7 @@ if ($marcasQry->num_rows > 0) {
 
     function selectOferta(oferta){
         $("#of1").attr('hidden', true);
-        $("#formCita").attr('hidden', false);
+        $("#formMensajeExito").attr('hidden', false);
 
         ofertas.ofertaElegida = oferta;
 
@@ -615,14 +613,20 @@ if ($marcasQry->num_rows > 0) {
         } else {
             ofertas.precio_ofrecido = ofertas.precio_primo;
         }
-
+        sendSF();
         console.log(oferta);
+
+        setTimeout(() => {
+            location.reload();
+        }, 2000);
     }
 
     function siguienteDatos(){
-        $("#formDatos").attr('hidden', false);
-        $("#ofertaFinal").attr('hidden', false);
+        $("#formDatos").attr('hidden', true);
         $("#formOferta").attr('hidden', true);
+        $("#formLoading").attr('hidden', false);
+        console.log('Presiono sig datos');
+        getOferta();
     }
 
     function validarCorreo(valor,id) {
@@ -701,6 +705,34 @@ if ($marcasQry->num_rows > 0) {
         $("#divQR").html(frame);
         $("#btnCalendar").html(botonLink);
     }
+
+    function sendSalesforce(){
+        var param={
+            compra:$("#libroCompra").val(),
+            venta:$("#libroVenta").val(),
+            ofrecido:$("#precioPrimoVal").val(),
+            modelo:"<?=$_GET['mot']?>",
+            ano:"<?=$_GET['y']?>",
+            marca:"<?=$_GET['mat']?>",
+            version:"<?=$_GET['vet']?>",
+            km:"<?=$_GET['km']?>",
+            ownerid:"<?=$_GET['ownerid']?>",
+            leadid:"<?=$_GET['leadid']?>",
+            opid:"<?=$_GET['opid']?>",
+        }
+        //console.log(param);
+        $.ajax({
+            url: 'send-salesforce.php',
+            type: 'POST',
+            data: param,
+            success:function(respuesta){
+            console.log(respuesta)
+            },
+            error: function () {
+                alert("error");
+            }
+        }); 
+        }
 
 </script>
 
