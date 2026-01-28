@@ -508,6 +508,8 @@ if ($marcasQry->num_rows > 0) {
 
     function sendSF(){
 
+    console.log('Entro a SF()');
+
         let nombre = $('#nombre').val();
         let correo = $('#correo').val();
         let telefono = parseInt($('#telefono').val());
@@ -539,11 +541,11 @@ if ($marcasQry->num_rows > 0) {
 
         $.ajax({
             type: "POST",
-            url: "web-to-lead.php",
+            url: "https://www.riverorenta.mx/api/salesforce/valuacion-express-sf/resumen/send-salesforce-nissan.php",
             data: data,
             dataType: "json",
             success: function(resp) {
-                console.log('Entramaaas');
+                console.log('Entramaaas',resp);
             }
         });
 
