@@ -534,14 +534,15 @@ if ($marcasQry->num_rows > 0) {
             ofrecido: ofertas.precio_ofrecido,
             ownerid:"<?=$_GET['ownerid']?>",
             leadid: "<?=$_GET['leadid']?>",
-            opid:"<?=$_GET['opid']?>"
+            opid:"<?=$_GET['opid']?>",
+            empresa: "nissan"
         }
 
         console.log(data);
 
         $.ajax({
             type: "POST",
-            url: "https://www.riverorenta.mx/api/salesforce/valuacion-express-sf/resumen/send-salesforce-nissan.php",
+            url: "https://www.riverorenta.mx/api/salesforce/valuacion-express-sf/resumen/send-salesforce.php",
             data: data,
             dataType: "json",
             success: function(resp) {
