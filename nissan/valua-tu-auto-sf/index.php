@@ -619,7 +619,7 @@ if ($marcasQry->num_rows > 0) {
         console.log(oferta);
 
         setTimeout(() => {
-            location.reload();
+            //location.reload();
         }, 2000);
     }
 
