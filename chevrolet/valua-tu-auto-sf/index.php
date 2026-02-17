@@ -443,6 +443,9 @@ if ($marcasQry->num_rows > 0) {
                             <p style="font-family: Narrow;text-align: center;font-size: 1.5em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
                             <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].version}</p>
                             `);
+                        $("#formLoading").attr('hidden', true);
+                        $("#ofertaFinal").attr('hidden', false);
+                        $("#of1").attr('hidden', false);
                         return 0;
                         break;
                     default:
