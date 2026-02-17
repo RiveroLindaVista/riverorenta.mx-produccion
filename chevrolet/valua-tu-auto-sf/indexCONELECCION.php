@@ -107,16 +107,18 @@ if ($marcasQry->num_rows > 0) {
                     </div>
                 </div>
 
-                <div class="row" id="OfertaNormal" hidden>
-                    <div class="btnOfertaNormal">
+                <div class="row">
+                    <h3 class="text-center text-white pulso" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">ELIGE UNA OFERTA PARA GUARDAR LA VALUACIÓN</h3>
+                    <div class="btnOfertaNormal" onclick="selectOferta('Normal')">
                         <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">OFERTA VÁLIDA POR 7 DÍAS</h3>
 
                         <h2 id="precio" class="text-white text-center"></h2>
+                        <img style="top: 40px;position:absolute;right: 12px;height: 30px;" src="https://www.riverorenta.mx/valua-tu-carro/img/iconos/flecha_blanca.svg">
                     </div>
                 </div>
 
                 <div class="row" id="OfertaPrimo" hidden>
-                    <div class="btnOfertaPrimo">
+                    <div class="btnOfertaPrimo" onclick="selectOferta('Precio Primo')">
                         <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">PRECIO PRIMO VÁLIDO POR 48 HRS</h3>
 
                         <h2 class="text-white text-center"><img style="height: 50px;filter: saturate(230%);" src="https://www.riverorenta.mx/valua-tu-carro/img/precio-primo.png"><span id="precioPrimo" style="font-size: calc(1.325rem + .9vw);"></span></h2>
@@ -129,6 +131,7 @@ if ($marcasQry->num_rows > 0) {
                                 <li>Constancia de Insitituto de Control Vehicular</li>
                                 <li>Carátula Estado de Cuenta Bancario</li>
                             </ul>
+                            <img style="top: 40px;position:absolute;right: 12px;height: 30px;" src="https://www.riverorenta.mx/valua-tu-carro/img/iconos/flecha_blanca.svg">
                         </div>
                     </div>
                 </div>
@@ -390,6 +393,8 @@ if ($marcasQry->num_rows > 0) {
         const requestOptions = { 
         };
 
+        
+
             fetch(`https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=chevrolet&year=${select_ano}&brand=${select_marca}&subbrand=${select_modelo}&version=${select_version}&kilometraje=${select_km}`, requestOptions)
             .then((response) => response.text())
             .then((result) => this.objetoOferta(JSON.parse(result)))
@@ -472,60 +477,20 @@ if ($marcasQry->num_rows > 0) {
                 console.log("Marca: ", obj.lineal[0].brand.toLowerCase().includes("nissan"));
                 console.log("Precio Venta: ", obj.lineal[0].sale);
 
-                if(obj.lineal[0].brand.toLowerCase().includes("chevrolet") || obj.lineal[0].brand.toLowerCase().includes("nissan") || obj.lineal[0].brand.toLowerCase().includes("mazda") || obj.lineal[0].brand.toLowerCase().includes("honda") || obj.lineal[0].brand.toLowerCase().includes("toyota")){
+                if(obj.lineal[0].brand.toLowerCase().includes("chevrolet") || obj.lineal[0].brand.toLowerCase().includes("nissan") || obj.lineal[0].brand.toLowerCase().includes("mazda") || obj.lineal[0].brand.toLowerCase().includes("mazda") || obj.lineal[0].brand.toLowerCase().includes("toyota")){
                     console.log("Entro al primero del IF: ", obj.lineal[0].brand.toLowerCase());
 
                     if (obj.lineal[0].sale != "" ){
                         let formula = (precioAjustado + obj.lineal[0].sale) / 2;
                         ofertas.precio_primo = formula;
                         precioPrimo = '$ '+new Intl.NumberFormat('en-US').format(formula)+'.00 MXN';
-                        ofertas.precio_ofrecido = precioPrimo;
-
                         $("#precioPrimo").html(precioPrimo);
                         $("#OfertaPrimo").attr('hidden', false);
                     }
 
                 } else {
-                    $("#OfertaNormal").attr('hidden', false);
+                    console.log("Entro al SEGUNDO del IF: ", obj.lineal[0].brand.toLowerCase());
                 }
-
-                let nombre = $('#nombre').val();
-                let correo = $('#correo').val();
-                let telefono = parseInt($('#telefono').val());
-                let year = parseInt($('#filtroYears').val());
-                let marca = $('#filtroMarcas').val();
-                let modelo = $('#filtroModelos').val();
-                let version = $('#filtroVersiones').val();
-                let kilometraje = parseInt($('#filtroKM').val());
-
-                    let data = {
-                        ano: year,
-                        marca: marca,
-                        modelo: modelo,
-                        version: version,
-                        km: kilometraje,
-                        venta: ofertas.venta,
-                        compra: ofertas.compra,
-                        ofrecido: ofertas.precio_ofrecido,
-                        ownerid:"<?=$_GET['ownerid']?>",
-                        leadid: "<?=$_GET['leadid']?>",
-                        opid:"<?=$_GET['opid']?>",
-                        empresa:"chevrolet"
-                    }
-                    
-                    console.log(data);
-                    
-                    $.ajax({
-                        type: "POST",
-                        url: "https://www.riverorenta.mx/api/salesforce/valuacion-express-sf/resumen/send-salesforce.php",
-                        data: data,
-                        dataType: "json",
-                        success: function(resp) {
-                            console.log('Entra SF', resp);
-                            $("#formMensajeExito").attr('hidden', false);
-                        }
-
-                    });
 
             }
         });
