@@ -442,6 +442,7 @@ if ($marcasQry->num_rows > 0) {
                         $("#descripcionAuto").html( `
                             <p style="font-family: Narrow;text-align: center;font-size: 1.5em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
                             <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].version}</p>
+                            <p style="font-family: Narrow;text-align: center;font-weight: 700;">ESTE AUTO NO ES OPCIÓN A COMPRA</p>
                             `);
                         $("#formLoading").attr('hidden', true);
                         $("#ofertaFinal").attr('hidden', false);
