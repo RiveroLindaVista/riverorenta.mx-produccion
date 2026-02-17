@@ -97,6 +97,7 @@ if ($marcasQry->num_rows > 0) {
 
         <div id="ofertaFinal" class="container p-4" hidden>
             <div id="of1" hidden>
+                <h1 id="envioExito" class="text-white text-center m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;" hidden>VALUACIÓN GENERADA CON ÉXITO</h1>
                 <div class="row align-items-center">
                     <h2 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">DESCRIPCIÓN DEL AUTO</h3>
 
@@ -469,6 +470,7 @@ if ($marcasQry->num_rows > 0) {
                 $("#formLoading").attr('hidden', true);
                 $("#ofertaFinal").attr('hidden', false);
                 $("#of1").attr('hidden', false);
+                $("#envioExito").attr('hidden', false);
                 $("#precio").html(precio);
                 $("#descripcionAuto").html(descripcionAuto);
 
