@@ -455,6 +455,7 @@ if ($marcasQry->num_rows > 0) {
                 ofertas.km_group = obj.lineal[0].km_group;
                 ofertas.compra = precioAjustado;
                 ofertas.venta = obj.lineal[0].sale;
+                ofertas.precio_ofrecido = precioAjustado;
 
                 let descripcionAuto = `
                     <p style="font-family: Narrow;text-align: center;font-size: 1.5em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
@@ -479,7 +480,7 @@ if ($marcasQry->num_rows > 0) {
                         let formula = (precioAjustado + obj.lineal[0].sale) / 2;
                         ofertas.precio_primo = formula;
                         precioPrimo = '$ '+new Intl.NumberFormat('en-US').format(formula)+'.00 MXN';
-                        ofertas.precio_ofrecido = precioPrimo;
+                        ofertas.precio_ofrecido = formula;
 
                         $("#precioPrimo").html(precioPrimo);
                         $("#OfertaPrimo").attr('hidden', false);
