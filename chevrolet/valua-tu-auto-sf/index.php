@@ -610,7 +610,7 @@ if ($marcasQry->num_rows > 0) {
 
         setTimeout(() => {
             location.reload();
-        }, 2000);
+        }, 15000);
     }
 
     function siguienteDatos(){
