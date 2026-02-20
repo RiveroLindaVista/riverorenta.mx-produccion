@@ -621,19 +621,19 @@ $(document).on("change", ".extra-option", function() {
 let precioBase = ofertas.precio_ofrecido;
 sensorPrecioInicial = ofertas.precio_ofrecido;
 
-console.log("Precio base: ",precioBase);
+
 
     let totalExtras = 0;
 
     $(".extra-option:checked").each(function() {
         totalExtras += Number($(this).val());
     });
-
+    console.log("Precio base: ",precioBase);
     if(totalExtras == 0){
         let precioFinal = sensorPrecioIncial;
         ofertas.precio_ofrecido = sensorPrecioIncial;
     } else {
-        let precioFinal = precioBase + totalExtras;
+        let precioFinal = sensorPrecioIncial + totalExtras;
         ofertas.precio_ofrecido = precioFinal;
     }
 
