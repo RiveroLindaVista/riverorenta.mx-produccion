@@ -621,8 +621,9 @@ console.log("Entro al cambio: ", ofertas.precio_ofrecido);
         $(".extra-option:checked").each(function() {
             totalExtras += parseFloat($(this).val());
         });
-console.log("Entro al cambio2222: ", ofertas.precio_ofrecido);
+
         ofertas.precio_ofrecido = precio_ofrecido + totalExtras;
+        console.log("Entro al cambio2222: ", ofertas.precio_ofrecido, " + ", totalExtras);
 
         $("#precio").html('$ '+new Intl.NumberFormat('en-US').format(ofertas.precio_ofrecido)+'.00 MXN');
     });
