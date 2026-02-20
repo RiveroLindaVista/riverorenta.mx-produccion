@@ -433,12 +433,17 @@ if ($marcasQry->num_rows > 0) {
                         precioNormal = obj.lineal[0].sale * .05;
                         precioNormal = obj.lineal[0].sale - precioNormal;
 
+                        console.log("PRIMO: ",precioPrimo);
+                        console.log("NORMAL: ",precioNormal);
+
                         if(obj.lineal[1] && obj.lineal[1].version == "Valor kilometraje"){
                             precioPrimo = precioPrimo + (0 + obj.lineal[1].sale);
                             precioNormal = precioNormal + (0 + obj.lineal[1].sale);
+
+                            console.log("PRIMO con KM: ",precioPrimo);
+                            console.log("NORMAL con KM: ",precioNormal);
                         }
-                        console.log("PRIMO: ",precioPrimo);
-                        console.log("NORMAL: ",precioNormal);
+
                         break;
                     case "B":
                         precioPrimo = obj.lineal[0].sale;
@@ -481,7 +486,7 @@ if ($marcasQry->num_rows > 0) {
                         break;
                 }
 
-                 let precio = '$ '+new Intl.NumberFormat('en-US').format(precioPrimo)+'.00 MXN';
+                let precio = '$ '+new Intl.NumberFormat('en-US').format(precioPrimo)+'.00 MXN';
                 ofertas.precio_normal = precioPrimo;
                 ofertas.km_group = obj.lineal[0].km_group;
                 ofertas.compra = precioPrimo;
