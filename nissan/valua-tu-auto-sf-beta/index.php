@@ -291,6 +291,120 @@ console.log('239184');
         });
 
     }
+
+    function getModelos(){
+
+        let select_marca = $('#filtroMarcas').val();
+        let select_ano = $('#filtroYears').val();
+
+        let data = {
+            marca: select_marca,
+            ano: select_ano,
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "getModelos.php",
+            data: data,
+            dataType: "json",
+            success: function(resp) {
+                
+                let opcionesModelos = '<option value="0">Selecciona el modelo...</option>';
+                resp.forEach(elem => {
+                    opcionesModelos += `
+                            <option value='${elem.modelo}'>${elem.modelo}</option>
+                    `;
+                });
+
+                $("#divModelos").attr('hidden', false);
+                $("#filtroModelos").html(opcionesModelos);
+
+            }
+        });
+
+    }
+
+    function getVersiones(){
+
+        let select_marca = $('#filtroMarcas').val();
+        let select_ano = $('#filtroYears').val();
+        let select_modelo = $('#filtroModelos').val();
+
+        let data = {
+            modelo: select_modelo,
+            marca: select_marca,
+            ano: select_ano,
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "getVersiones.php",
+            data: data,
+            dataType: "json",
+            success: function(resp) {
+                
+                let opcionesVersiones = '<option value="0">Selecciona la versión...</option>';
+                resp.forEach(elem => {
+                    opcionesVersiones += `
+                        <option value='${elem.version}'>${elem.version}</option>
+                    `;
+                });
+
+                $("#divVersiones").attr('hidden', false);
+                $("#filtroVersiones").html(opcionesVersiones);
+
+            }
+        });
+
+    }
+
+    function getKM(){
+        $("#divKM").attr('hidden', false);
+    }
+
+    function upKM(){
+        setTimeout(() => {
+            let kms = $("#filtroKM").val();
+
+            if(kms == ""){
+                $("#btnSig").attr('hidden', true);
+            } else {
+                $("#btnSig").attr('hidden', false);
+            }
+            if(kms > 130000){
+                $("#btnSig").attr('hidden', true);
+            }
+        }, 300);
+    }
+
+    function getOferta(){
+
+            let select_marca = $('#filtroMarcas').val();
+            let select_ano = $('#filtroYears').val();
+            let select_modelo = $('#filtroModelos').val();
+            let select_version = $('#filtroVersiones').val();
+            let select_km = $('#filtroKM').val();
+
+            select_version = select_version.replaceAll(" ", "%20");
+            select_modelo = select_modelo.replaceAll(" ", "%20");
+
+/*             let obj = '{"lineal": [{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "4 pts. LS, 1.3l, TM5, a\/ac., BA, R-15","km_group": "A","sale": 239000,"purchase": 209800},{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "Valor kilometraje","km_group": "A","sale": -4800,"purchase": -4800}]}';
+            objetoOferta(JSON.parse(obj)); */
+            const requestOptions = {
+                method: "GET",
+                redirect: "follow"
+            };
+            
+            console.log("EIT: ",`https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=nissan&year=${select_ano}&brand=${select_marca}&subbrand${select_modelo}&version=${select_version}&kilometraje=${select_km}`);
+            
+            fetch(`https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=nissan&year=${select_ano}&brand=${select_marca}&subbrand=${select_modelo}&version=${select_version}&kilometraje=${select_km}`, requestOptions)
+            .then((response) => response.text())
+            .then((result) => this.objetoOferta(JSON.parse(result)))
+            .catch((error) => console.error(error));
+    }
+
+
+
 </script>
 
 
