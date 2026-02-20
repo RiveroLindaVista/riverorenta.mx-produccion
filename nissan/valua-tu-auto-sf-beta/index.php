@@ -113,7 +113,10 @@ if ($marcasQry->num_rows > 0) {
                         <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">OFERTA VÁLIDA POR 7 DÍAS</h3>
 
                         <h2 id="precio" class="text-white text-center"></h2>
+
                         <img style="top: 40px;position:absolute;right: 12px;height: 30px;" src="https://www.riverorenta.mx/valua-tu-carro/img/iconos/flecha_blanca.svg">
+                    </div>
+                    <div id="extrasContainer">
                     </div>
                 </div>
 
@@ -429,7 +432,65 @@ if ($marcasQry->num_rows > 0) {
                 
                 let precioAjustado = 0;
                 console.log(resp.tipo);
-                switch (resp.tipo) {
+
+                let base = obj.lineal[0].sale;
+                let extraKm = 0;
+                let htmlCheckboxes = "";
+
+                // Recorremos desde la posición 1
+                for (let i = 1; i < obj.lineal.length; i++) {
+
+                    if (obj.lineal[i].version === "Valor kilometraje") {
+                        extraKm += obj.lineal[i].sale;
+                    } else {
+                        htmlCheckboxes += `
+                            <div>
+                                <input type="checkbox" 
+                                    class="extra-option" 
+                                    value="${obj.lineal[i].sale}" 
+                                    id="extra_${i}">
+                                <label for="extra_${i}">
+                                    ${obj.lineal[i].version} (+$${obj.lineal[i].sale})
+                                </label>
+                            </div>
+                        `;
+                    }
+                }
+
+                // Insertamos los checkboxes en un contenedor
+                $("#extrasContainer").html(htmlCheckboxes);
+
+                // Precio base + kilometraje automático
+                let precioConKm = base + extraKm;
+
+                // SWITCH optimizado
+                let porcentajeDescuento = {
+                    "A": 0,
+                    "B": 0.05,
+                    "C": 0.07,
+                    "D": 0.10,
+                    "E": 0.25,
+                    "F": 0.30,
+                    "G": 0.35
+                };
+
+                if (resp.tipo === "H") {
+                    $("#precio").html("SIN OPCIÓN A COMPRA.");
+                    $("#descripcionAuto").html(`
+                        <p style="font-family: Narrow;text-align: center;font-size: 1.5em;">
+                            ${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}
+                        </p>
+                        <p style="font-family: Narrow;text-align: center;">
+                            ${obj.lineal[0].version}
+                        </p>
+                    `);
+                    return 0;
+                }
+
+                let descuento = porcentajeDescuento[resp.tipo] || 0;
+                let precioAjustado = precioConKm - (precioConKm * descuento);
+
+                /* switch (resp.tipo) {
                     case "A":
                         precioAjustado = obj.lineal[0].sale;
                         break;
@@ -469,7 +530,7 @@ if ($marcasQry->num_rows > 0) {
                     default:
                         precioAjustado = obj.lineal[0].sale;
                         break;
-                }
+                } */
 
                 let precio = '$ '+new Intl.NumberFormat('en-US').format(precioAjustado)+'.00 MXN';
                 ofertas.precio_normal = precioAjustado;
