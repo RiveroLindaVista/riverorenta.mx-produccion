@@ -97,7 +97,6 @@ if ($marcasQry->num_rows > 0) {
 
         <div id="ofertaFinal" class="container p-4" hidden>
             <div id="of1" hidden>
-                <h1 id="envioExito" class="text-white text-center m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;" hidden>VALUACIÓN GENERADA CON ÉXITO</h1>
                 <div class="row align-items-center">
                     <h2 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">DESCRIPCIÓN DEL AUTO</h3>
 
@@ -107,16 +106,19 @@ if ($marcasQry->num_rows > 0) {
                         </div>
                     </div>
                 </div>
-                <div class="row" id="OfertaNormal" hidden>
-                    <div class="btnOfertaNormal">
+
+                <div class="row">
+                    <h3 class="text-center text-white pulso" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">ELIGE UNA OFERTA PARA GUARDAR LA VALUACIÓN</h3>
+                    <div class="btnOfertaNormal" onclick="selectOferta('Normal')">
                         <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">OFERTA VÁLIDA POR 7 DÍAS</h3>
 
                         <h2 id="precio" class="text-white text-center"></h2>
+                        <img style="top: 40px;position:absolute;right: 12px;height: 30px;" src="https://www.riverorenta.mx/valua-tu-carro/img/iconos/flecha_blanca.svg">
                     </div>
                 </div>
 
                 <div class="row" id="OfertaPrimo" hidden>
-                    <div class="btnOfertaPrimo">
+                    <div class="btnOfertaPrimo" onclick="selectOferta('Precio Primo')">
                         <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">PRECIO PRIMO VÁLIDO POR 48 HRS</h3>
 
                         <h2 class="text-white text-center"><img style="height: 50px;filter: saturate(230%);" src="https://www.riverorenta.mx/valua-tu-carro/img/precio-primo.png"><span id="precioPrimo" style="font-size: calc(1.325rem + .9vw);"></span></h2>
@@ -129,6 +131,7 @@ if ($marcasQry->num_rows > 0) {
                                 <li>Constancia de Insitituto de Control Vehicular</li>
                                 <li>Carátula Estado de Cuenta Bancario</li>
                             </ul>
+                            <img style="top: 40px;position:absolute;right: 12px;height: 30px;" src="https://www.riverorenta.mx/valua-tu-carro/img/iconos/flecha_blanca.svg">
                         </div>
                     </div>
                 </div>
@@ -380,28 +383,27 @@ if ($marcasQry->num_rows > 0) {
 
     function getOferta(){
 
-            let select_marca = $('#filtroMarcas').val();
-            let select_ano = $('#filtroYears').val();
-            let select_modelo = $('#filtroModelos').val();
-            let select_version = $('#filtroVersiones').val();
-            let select_km = $('#filtroKM').val();
+        let select_marca = $('#filtroMarcas').val();
+        let select_ano = $('#filtroYears').val();
+        let select_modelo = $('#filtroModelos').val();
+        let select_version = $('#filtroVersiones').val();
+        let select_km = $('#filtroKM').val();
 
-            select_version = select_version.replaceAll(" ", "%20");
-            select_modelo = select_modelo.replaceAll(" ", "%20");
+        select_version = select_version.replaceAll(" ", "%20");
+        select_modelo = select_modelo.replaceAll(" ", "%20");
 
-/*             let obj = '{"lineal": [{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "4 pts. LS, 1.3l, TM5, a\/ac., BA, R-15","km_group": "A","sale": 239000,"purchase": 209800},{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "Valor kilometraje","km_group": "A","sale": -4800,"purchase": -4800}]}';
-            objetoOferta(JSON.parse(obj)); */
-            const requestOptions = {
-                method: "GET",
-                redirect: "follow"
-            };
-            
-            console.log("EIT: ",`https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=nissan&year=${select_ano}&brand=${select_marca}&subbrand${select_modelo}&version=${select_version}&kilometraje=${select_km}`);
-            
+/*         let obj = '{"lineal": [{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "4 pts. LS, 1.3l, TM5, a\/ac., BA, R-15","km_group": "A","sale": 239000,"purchase": 209800},{"year": 2024,"brand": "Chevrolet","subbrand": "Onix","version": "Valor kilometraje","km_group": "A","sale": -4800,"purchase": -4800}]}';
+        objetoOferta(JSON.parse(obj)); */
+        const requestOptions = { 
+        };
+
+        
+
             fetch(`https://multimarca.gruporivero.com/api/v1/autometrica/lineal?empresa=nissan&year=${select_ano}&brand=${select_marca}&subbrand=${select_modelo}&version=${select_version}&kilometraje=${select_km}`, requestOptions)
             .then((response) => response.text())
             .then((result) => this.objetoOferta(JSON.parse(result)))
             .catch((error) => console.error(error));
+
     }
 
     function objetoOferta(obj){
@@ -413,6 +415,7 @@ if ($marcasQry->num_rows > 0) {
 
         let params = {
             modelo: obj.lineal[0].subbrand.toUpperCase(),
+            
             marca: obj.lineal[0].brand.toUpperCase(),
             ano: obj.lineal[0].year,
         }
@@ -424,154 +427,81 @@ if ($marcasQry->num_rows > 0) {
             dataType: "json",
             success: function(resp) {
                 
-                let precioPrimo = 0;
-                let precioNormal = 0;
+                let precioAjustado = 0;
                 console.log(resp.tipo);
                 switch (resp.tipo) {
                     case "A":
-                        precioPrimo = obj.lineal[0].sale;
-                        precioNormal = obj.lineal[0].sale * .05;
-                        precioNormal = obj.lineal[0].sale - precioNormal;
-
-                        console.log("PRIMO: ",precioPrimo);
-                        console.log("NORMAL: ",precioNormal);
-
-                        if(obj.lineal[1] && obj.lineal[1].version == "Valor kilometraje"){
-                            precioPrimo = precioPrimo + (0 + obj.lineal[1].sale);
-                            precioNormal = precioNormal + (0 + obj.lineal[1].sale);
-
-                            console.log("PRIMO con KM: ",precioPrimo);
-                            console.log("NORMAL con KM: ",precioNormal);
-                        }
-
+                        precioAjustado = obj.lineal[0].purchase;
                         break;
                     case "B":
-                        precioPrimo = obj.lineal[0].sale;
+                        precioAjustado = obj.lineal[0].purchase * .05;
+                        precioAjustado = obj.lineal[0].purchase - precioAjustado;
                         break;
                     case "C":
-                        precioPrimo = obj.lineal[0].sale * .07;
-                        precioPrimo = obj.lineal[0].sale - precioPrimo;
+                        precioAjustado = obj.lineal[0].purchase * .1;
+                        precioAjustado = obj.lineal[0].purchase - precioAjustado;
                         break;
                     case "D":
-                        precioPrimo = obj.lineal[0].sale * .10;
-                        precioPrimo = obj.lineal[0].sale - precioPrimo;
+                        precioAjustado = obj.lineal[0].purchase * .13;
+                        precioAjustado = obj.lineal[0].purchase - precioAjustado;
                         break;
                     case "E":
-                        precioPrimo = obj.lineal[0].sale * .20;
-                        precioPrimo = obj.lineal[0].sale - precioPrimo;
-                        break;
-                    case "F":
-                        precioPrimo = obj.lineal[0].sale * .25;
-                        precioPrimo = obj.lineal[0].sale - precioPrimo;
-                        break;
-                    case "G":
-                        precioPrimo = obj.lineal[0].sale * .35;
-                        precioPrimo = obj.lineal[0].sale - precioPrimo;
-                        break;
-                    case "H":
-                        precioPrimo = "SIN OPCIÓN A COMPRA.";
+                        precioAjustado = "SIN OPCIÓN A COMPRA.";
                         $("#precio").html("SIN OPCIÓN A COMPRA.");
                         $("#descripcionAuto").html( `
-                            <p style="font-family: Narrow;text-align: center;font-size: 2em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
+                            <p style="font-family: Narrow;text-align: center;font-size: 1.5em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
                             <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].version}</p>
-                            <p style="font-family: Narrow;text-align: center;font-weight: 700;">ESTE AUTO NO ES OPCIÓN A COMPRA</p>
                             `);
-                        $("#formLoading").attr('hidden', true);
-                        $("#ofertaFinal").attr('hidden', false);
-                        $("#of1").attr('hidden', false);
                         return 0;
                         break;
                     default:
-                        precioPrimo = obj.lineal[0].purchase;
+                        precioAjustado = obj.lineal[0].purchase;
                         break;
                 }
 
-                let precio = '$ '+new Intl.NumberFormat('en-US').format(precioPrimo)+'.00 MXN';
-                ofertas.precio_normal = precioPrimo;
+                let precio = '$ '+new Intl.NumberFormat('en-US').format(precioAjustado)+'.00 MXN';
+                ofertas.precio_normal = precioAjustado;
                 ofertas.km_group = obj.lineal[0].km_group;
-                ofertas.compra = precioPrimo;
+                ofertas.compra = precioAjustado;
                 ofertas.venta = obj.lineal[0].sale;
-                ofertas.precio_ofrecido = precioPrimo;
 
                 let descripcionAuto = `
-                    <p style="font-family: Narrow;text-align: center;font-size: 2em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
+                    <p style="font-family: Narrow;text-align: center;font-size: 1.5em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
                     <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].version}</p>
                     `;
 
                 $("#formLoading").attr('hidden', true);
                 $("#ofertaFinal").attr('hidden', false);
                 $("#of1").attr('hidden', false);
-                $("#envioExito").attr('hidden', false);
                 $("#precio").html(precio);
                 $("#descripcionAuto").html(descripcionAuto);
 
-                let grafprecioPrimo = "";
+                let precioPrimo = "";
 
-                console.log("Marca: Chevrolet", obj.lineal[0].brand.toLowerCase().includes("nissan"));
+                console.log("Marca: ", obj.lineal[0].brand.toLowerCase().includes("nissan"));
                 console.log("Precio Venta: ", obj.lineal[0].sale);
 
-                if(obj.lineal[0].brand.toLowerCase().includes("chevrolet") || obj.lineal[0].brand.toLowerCase().includes("nissan") || obj.lineal[0].brand.toLowerCase().includes("mazda") || obj.lineal[0].brand.toLowerCase().includes("honda") || obj.lineal[0].brand.toLowerCase().includes("toyota")){
+                if(obj.lineal[0].brand.toLowerCase().includes("chevrolet") || obj.lineal[0].brand.toLowerCase().includes("nissan") || obj.lineal[0].brand.toLowerCase().includes("mazda") || obj.lineal[0].brand.toLowerCase().includes("mazda") || obj.lineal[0].brand.toLowerCase().includes("toyota")){
                     console.log("Entro al primero del IF: ", obj.lineal[0].brand.toLowerCase());
 
                     if (obj.lineal[0].sale != "" ){
-                        let formula = (precioPrimo + obj.lineal[0].sale) / 2;
+                        let formula = (precioAjustado + obj.lineal[0].sale) / 2;
                         ofertas.precio_primo = formula;
-                        grafprecioPrimo = '$ '+new Intl.NumberFormat('en-US').format(formula)+'.00 MXN';
-                        ofertas.precio_ofrecido = formula;
-
-                        $("#precioPrimo").html(grafprecioPrimo);
+                        precioPrimo = '$ '+new Intl.NumberFormat('en-US').format(formula)+'.00 MXN';
+                        $("#precioPrimo").html(precioPrimo);
                         $("#OfertaPrimo").attr('hidden', false);
                     }
 
                 } else {
-                    $("#OfertaNormal").attr('hidden', false);
+                    console.log("Entro al SEGUNDO del IF: ", obj.lineal[0].brand.toLowerCase());
                 }
-
-                let nombre = $('#nombre').val();
-                let correo = $('#correo').val();
-                let telefono = parseInt($('#telefono').val());
-                let year = parseInt($('#filtroYears').val());
-                let marca = $('#filtroMarcas').val();
-                let modelo = $('#filtroModelos').val();
-                let version = $('#filtroVersiones').val();
-                let kilometraje = parseInt($('#filtroKM').val());
-
-                let data = {
-                    ano: year,
-                    marca: marca,
-                    modelo: modelo,
-                    version: version,
-                    km: kilometraje,
-                    venta: ofertas.venta,
-                    compra: ofertas.compra,
-                    ofrecido: ofertas.precio_ofrecido,
-                    ownerid:"<?=$_GET['ownerid']?>",
-                    leadid: "<?=$_GET['leadid']?>",
-                    opid:"<?=$_GET['opid']?>",
-                    empresa:"nissan"
-                }
-
-                console.log(data, "#DSATAAAA");
-
-               $.ajax({
-                    type: "POST",
-                    url: "https://www.riverorenta.mx/api/salesforce/valuacion-express-sf/resumen/send-salesforce.php",
-                    data: data,
-                    dataType: "json",
-                    success: function(resp) {
-                        console.log('Entra SF', resp);
-                        $("#formMensajeExito").attr('hidden', false);
-                    }
-
-                });
 
             }
         });
+
     }
 
     function sendSF(){
-
-    console.log('Entro a SF()');
 
         let nombre = $('#nombre').val();
         let correo = $('#correo').val();
@@ -583,14 +513,10 @@ if ($marcasQry->num_rows > 0) {
         let kilometraje = parseInt($('#filtroKM').val());
 
         let data = {
-            nombre: nombre,
-            correo: correo,
-            telefono: telefono,
             ano: year,
             marca: marca,
             modelo: modelo,
             version: version,
-            km_group: ofertas.km_group,
             km: kilometraje,
             venta: ofertas.venta,
             compra: ofertas.compra,
@@ -598,19 +524,20 @@ if ($marcasQry->num_rows > 0) {
             ownerid:"<?=$_GET['ownerid']?>",
             leadid: "<?=$_GET['leadid']?>",
             opid:"<?=$_GET['opid']?>",
-            empresa: "nissan"
+            empresa:"nissan"
         }
-
+        
         console.log(data);
-
+        
         $.ajax({
             type: "POST",
             url: "https://www.riverorenta.mx/api/salesforce/valuacion-express-sf/resumen/send-salesforce.php",
             data: data,
             dataType: "json",
             success: function(resp) {
-                console.log('Entramaaas',resp);
+                console.log('Entra SF', resp);
             }
+
         });
 
     }
@@ -670,7 +597,10 @@ if ($marcasQry->num_rows > 0) {
 
     function selectOferta(oferta){
         $("#of1").attr('hidden', true);
+
+        // AQUI PONER MENSAJE DE CITA GENERADA CON EXITO
         $("#formMensajeExito").attr('hidden', false);
+        // AQUI PONER MENSAJE DE CITA GENERADA CON EXITO
 
         ofertas.ofertaElegida = oferta;
 
@@ -679,15 +609,21 @@ if ($marcasQry->num_rows > 0) {
         } else {
             ofertas.precio_ofrecido = ofertas.precio_primo;
         }
-        /* sendSF(); */
+        sendSF();
         console.log(oferta);
+
+/*         setTimeout(() => {
+            location.reload();
+        }, 15000); */
     }
 
     function siguienteDatos(){
         $("#formDatos").attr('hidden', true);
         $("#formOferta").attr('hidden', true);
+        //AQUI FORM DE CARGA
         $("#formLoading").attr('hidden', false);
-        console.log('Presiono sig datos');
+        //AQUI FORM DE CARGA
+
         getOferta();
     }
 
