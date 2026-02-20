@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 include("_config.php");
 $conn = new mysqli(DB_HOST, DB_USER,DB_PASSWORD, DB_DB);
 
