@@ -140,8 +140,8 @@ if ($marcasQry->num_rows > 0) {
                 </div>
 
                 <div class="row justify-content-center mt-1">
-                    <button class="btn bg-success text-white m-1" type="button" style="width:auto;" onclick="sendSF()">GUARDAR VALUACION</button>
-                    <button class="btn btn-dark bg-dark" type="button" style="width:auto;" onclick="nuevaOferta()">Elige otro auto</button>
+                    <button class="btn bg-success text-white m-1 pulso" type="button" style="width:auto;" onclick="sendSF()">GUARDAR VALUACION</button>
+                    <button class="btn btn-dark bg-dark m-1" type="button" style="width:auto;" onclick="nuevaOferta()">Elige otro auto</button>
                 </div>
             </div>
 
@@ -940,7 +940,6 @@ $(document).on("change", ".extra-option", function() {
     }
 
     .pulso {
-        font-size: 2rem;
         animation: pulse 1.5s infinite;
     }
 
