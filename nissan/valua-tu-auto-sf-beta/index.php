@@ -614,8 +614,10 @@ if ($marcasQry->num_rows > 0) {
         });
 
     }
-let precioBase = ofertas.precio_ofrecido;
+
 $(document).on("change", ".extra-option", function() {
+
+let precioBase = ofertas.precio_ofrecido;
 
 console.log("Precio base: ",precioBase);
 
