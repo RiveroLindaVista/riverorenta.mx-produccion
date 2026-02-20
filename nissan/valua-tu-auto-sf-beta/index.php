@@ -488,7 +488,7 @@ if ($marcasQry->num_rows > 0) {
                 ofertas.venta = obj.lineal[0].sale;
                 ofertas.precio_ofrecido = precioPrimo;
 
-                /*let descripcionAuto = `
+                let descripcionAuto = `
                     <p style="font-family: Narrow;text-align: center;font-size: 2em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
                     <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].version}</p>
                     `;
@@ -500,7 +500,7 @@ if ($marcasQry->num_rows > 0) {
                 $("#precio").html(precio);
                 $("#descripcionAuto").html(descripcionAuto);
 
-                let precioPrimo = "";
+                let grafprecioPrimo = "";
 
                 console.log("Marca: Chevrolet", obj.lineal[0].brand.toLowerCase().includes("nissan"));
                 console.log("Precio Venta: ", obj.lineal[0].sale);
@@ -511,10 +511,10 @@ if ($marcasQry->num_rows > 0) {
                     if (obj.lineal[0].sale != "" ){
                         let formula = (precioPrimo + obj.lineal[0].sale) / 2;
                         ofertas.precio_primo = formula;
-                        precioPrimo = '$ '+new Intl.NumberFormat('en-US').format(formula)+'.00 MXN';
+                        grafprecioPrimo = '$ '+new Intl.NumberFormat('en-US').format(formula)+'.00 MXN';
                         ofertas.precio_ofrecido = formula;
 
-                        $("#precioPrimo").html(precioPrimo);
+                        $("#precioPrimo").html(grafprecioPrimo);
                         $("#OfertaPrimo").attr('hidden', false);
                     }
 
