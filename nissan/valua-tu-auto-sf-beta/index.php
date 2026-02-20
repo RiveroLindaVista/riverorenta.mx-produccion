@@ -623,6 +623,7 @@ if ($marcasQry->num_rows > 0) {
         });
 
         ofertas.precio_ofrecido = precio_ofrecido + totalExtras;
+        console.log("Entro al cambio: ", ofertas.precio_ofrecido);
 
         $("#precio").html('$ '+new Intl.NumberFormat('en-US').format(ofertas.precio_ofrecido)+'.00 MXN');
     });
