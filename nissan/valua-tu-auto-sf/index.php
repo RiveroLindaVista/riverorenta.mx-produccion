@@ -367,10 +367,14 @@ if ($marcasQry->num_rows > 0) {
         setTimeout(() => {
             let kms = $("#filtroKM").val();
 
+
             if(kms == ""){
                 $("#btnSig").attr('hidden', true);
             } else {
                 $("#btnSig").attr('hidden', false);
+            }
+            if(kms > 130000){
+                $("#btnSig").attr('hidden', true);
             }
         }, 300);
     }
