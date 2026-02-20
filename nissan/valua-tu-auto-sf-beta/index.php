@@ -500,7 +500,7 @@ if ($marcasQry->num_rows > 0) {
                 $("#precio").html(precio);
                 $("#descripcionAuto").html(descripcionAuto);
 
-                /*let grafprecioPrimo = "";
+                let grafprecioPrimo = "";
 
                 console.log("Marca: Chevrolet", obj.lineal[0].brand.toLowerCase().includes("nissan"));
                 console.log("Precio Venta: ", obj.lineal[0].sale);
@@ -522,7 +522,7 @@ if ($marcasQry->num_rows > 0) {
                     $("#OfertaNormal").attr('hidden', false);
                 }
 
-                let nombre = $('#nombre').val();
+                /*let nombre = $('#nombre').val();
                 let correo = $('#correo').val();
                 let telefono = parseInt($('#telefono').val());
                 let year = parseInt($('#filtroYears').val());
