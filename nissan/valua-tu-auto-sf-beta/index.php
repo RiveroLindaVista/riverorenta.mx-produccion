@@ -432,10 +432,10 @@ console.log('239184');
                         precioNormal = obj.lineal[0].sale * .05;
                         precioNormal = obj.lineal[0].sale - precioNormal;
 
-                        if(obj.lineal[1] && obj.lineal[1].version == "Valor kilometraje"){
+/*                         if(obj.lineal[1] && obj.lineal[1].version == "Valor kilometraje"){
                             precioPrimo = precioPrimo + (0 + obj.lineal[1].sale);
                             precioNormal = precioNormal + (0 + obj.lineal[1].sale);
-                        }
+                        } */
                         console.log("PRIMO: ",precioPrimo);
                         console.log("NORMAL: ",precioNormal);
                         break;
@@ -560,6 +560,233 @@ console.log('239184');
             }
         });
     }
+
+    function sendSF(){
+
+    console.log('Entro a SF()');
+
+        let nombre = $('#nombre').val();
+        let correo = $('#correo').val();
+        let telefono = parseInt($('#telefono').val());
+        let year = parseInt($('#filtroYears').val());
+        let marca = $('#filtroMarcas').val();
+        let modelo = $('#filtroModelos').val();
+        let version = $('#filtroVersiones').val();
+        let kilometraje = parseInt($('#filtroKM').val());
+
+        let data = {
+            nombre: nombre,
+            correo: correo,
+            telefono: telefono,
+            ano: year,
+            marca: marca,
+            modelo: modelo,
+            version: version,
+            km_group: ofertas.km_group,
+            km: kilometraje,
+            venta: ofertas.venta,
+            compra: ofertas.compra,
+            ofrecido: ofertas.precio_ofrecido,
+            ownerid:"<?=$_GET['ownerid']?>",
+            leadid: "<?=$_GET['leadid']?>",
+            opid:"<?=$_GET['opid']?>",
+            empresa: "nissan"
+        }
+
+        console.log(data);
+
+        $.ajax({
+            type: "POST",
+            url: "https://www.riverorenta.mx/api/salesforce/valuacion-express-sf/resumen/send-salesforce.php",
+            data: data,
+            dataType: "json",
+            success: function(resp) {
+                console.log('Entramaaas',resp);
+            }
+        });
+
+    }
+
+    function nuevaOferta(){
+        location.reload();
+/*         $('#filtroMarcas').val(0);
+        $('#filtroYears').val('2026');
+        $('#filtroModelos').val(0);
+        $('#filtroVersiones').val(0);
+        $('#filtroKM').val("");
+        $("#cargando").attr('hidden', true);
+        $("#divMarcas").attr('hidden', true);
+        $("#divModelos").attr('hidden', true);
+        $("#divVersiones").attr('hidden', true);
+        $("#divKM").attr('hidden', true);
+
+        $("#formOferta").attr('hidden', false);
+        $("#ofertaFinal").attr('hidden', true); */
+
+    }
+
+    function getCAPTCHA(){
+
+        let captcha_input = $('#captcha_input').val();
+        let descripcion_auto = $('#descripcion_auto').val();
+
+        descripcion_auto = descripcion_auto.substr(0,6);
+
+        let data = {
+            captcha_input: captcha_input,
+            desca: descripcion_auto,
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "verificar.php",
+            data: data,
+            dataType: "json",
+            success: function(resp) {
+
+                if(resp == "1"){
+                    $("#btnSig").attr('hidden', false);
+                    $("#captcha").attr('hidden', true);
+                    $("#msjCaptcha").attr('hidden', true);
+                } else {
+                    $("#btnSig").attr('hidden', true);
+                    var capt = document.getElementById('captcha_input');
+                    capt.style.background= "#f5a0a0fa";
+                    $("#msjCaptcha").attr('hidden', false);
+                }
+
+            }
+        });
+
+    }
+
+    function selectOferta(oferta){
+        $("#of1").attr('hidden', true);
+        $("#formMensajeExito").attr('hidden', false);
+
+        ofertas.ofertaElegida = oferta;
+
+        if(oferta == "Normal"){
+            ofertas.precio_ofrecido = ofertas.precio_normal; 
+        } else {
+            ofertas.precio_ofrecido = ofertas.precio_primo;
+        }
+        /* sendSF(); */
+        console.log(oferta);
+    }
+
+    function siguienteDatos(){
+        $("#formDatos").attr('hidden', true);
+        $("#formOferta").attr('hidden', true);
+        $("#formLoading").attr('hidden', false);
+        console.log('Presiono sig datos');
+        getOferta();
+    }
+
+    function validarCorreo(valor,id) {
+        if ( /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i.test(valor)){
+            $(id).css("borderColor","#2b9c1fc7");
+        return 1;
+        } else {
+            $(id).css("borderColor","yellow");
+            return 0;
+        }
+    }
+
+    function campoVacio(id){
+        if($(id).val()==""){
+            $(id).css("borderColor","yellow");
+        }else{
+            $(id).css("borderColor","#2b9c1fc7");
+        }
+    }
+
+    function crearCita(){
+
+        let nombre = $('#nombre').val();
+        let correo = $('#correo').val();
+        let telefono = parseInt($('#telefono').val());
+        let year = parseInt($('#filtroYears').val());
+        let marca = $('#filtroMarcas').val();
+        let modelo = $('#filtroModelos').val();
+        let version = $('#filtroVersiones').val();
+        let kilometraje = parseInt($('#filtroKM').val());
+        let fecha = $('#fecha').val();
+        let hora = $('#hora').val();
+        let direccion = 'Av. Eugenio Garza Sada 3800, Mas Palomas (Valle de Santiago), 64780 Monterrey, N.L., Mexico';
+
+        let data = {
+            nombre: nombre,
+            correo: correo,
+            telefono: telefono,
+            year: year,
+            marca: marca,
+            modelo: modelo,
+            version: version,
+            km_group: ofertas.km_group,
+            kilometraje: kilometraje,
+            venta: ofertas.venta,
+            compra: ofertas.compra,
+            ofrecido: ofertas.precio_ofrecido,
+            oferta_elegida: ofertas.ofertaElegida,
+            fecha: fecha,
+            hora: hora,
+            sucursal: 1043194,
+            origen: 'nissanrivero.com',
+            preferencia: 'Celular'
+        }
+
+        $("#formCita").attr('hidden', true);
+        $("#formCalendar").attr('hidden', false);
+        console.log(data);
+
+        let horadosLinkSplit = hora.split(":");
+        let horadosLink = Number(horadosLinkSplit[0]);
+        horadosLink = horadosLink + 1;
+
+        if(horadosLink <= 9){
+            horadosLink = "0"+horadosLink.toString();
+        }
+
+        horadosLink =  horadosLink + hora.substring(2,5);
+        horadosLink = horadosLink.replaceAll(":","");
+
+        let qrLink = "http://www.google.com/calendar/event?action=TEMPLATE&dates="+fecha.replaceAll("-", "")+"T"+hora.replaceAll(":", "")+"00/"+fecha.replaceAll("-", "")+"T"+horadosLink+"00&text=Cita+de+Valuacion+Nissan+Rivero&location="+direccion.replaceAll(" ", "+")+"&details=Cita+en+centro+de+valuacion+para+tu+"+modelo.replaceAll(" ", "+")+"+en+la+sucursal+Rivero+Contry";
+
+        let frame = '<iframe src="https://www.riverorenta.mx/produccion/riveroQR/index.php?pagina='+qrLink+'" width="100%" height=200 style="border: 0" title="QRNissan"></frame>';
+
+        let botonLink = "<a style='text-align:center' href='http://www.google.com/calendar/event?action=TEMPLATE&dates="+fecha.replaceAll("-", "")+"T"+hora.replaceAll(":", "")+"00/"+fecha.replaceAll("-", "")+"T"+horadosLink+"00&text=Cita+de+Valuacion+Nissan+Rivero&location="+direccion.replaceAll(" ", "+")+"&details=Cita+en+centro+de+valuacion+para+tu+"+modelo.replaceAll(" ", "+")+"+en+la+sucursal+Rivero+Contry' target='blank'> <img src='images/botones/btn_calendar.svg' style='width:220px'> </a>";
+        $("#divQR").html(frame);
+        $("#btnCalendar").html(botonLink);
+    }
+
+    function sendSalesforce(){
+        var param={
+            compra:$("#libroCompra").val(),
+            venta:$("#libroVenta").val(),
+            ofrecido:$("#precioPrimoVal").val(),
+            modelo:"<?=$_GET['mot']?>",
+            ano:"<?=$_GET['y']?>",
+            marca:"<?=$_GET['mat']?>",
+            version:"<?=$_GET['vet']?>",
+            km:"<?=$_GET['km']?>",
+            ownerid:"<?=$_GET['ownerid']?>",
+            leadid:"<?=$_GET['leadid']?>",
+            opid:"<?=$_GET['opid']?>",
+        }
+        //console.log(param);
+        $.ajax({
+            url: 'send-salesforce.php',
+            type: 'POST',
+            data: param,
+            success:function(respuesta){
+            console.log(respuesta)
+            },
+            error: function () {
+                alert("error");
+            }
+        }); 
+        }
 
 </script>
 
