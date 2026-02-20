@@ -522,7 +522,7 @@ if ($marcasQry->num_rows > 0) {
                     $("#OfertaNormal").attr('hidden', false);
                 }
 
-                /*let nombre = $('#nombre').val();
+                let nombre = $('#nombre').val();
                 let correo = $('#correo').val();
                 let telefono = parseInt($('#telefono').val());
                 let year = parseInt($('#filtroYears').val());
@@ -546,7 +546,7 @@ if ($marcasQry->num_rows > 0) {
                     empresa:"nissan"
                 }
 
-                $.ajax({
+               /* $.ajax({
                     type: "POST",
                     url: "https://www.riverorenta.mx/api/salesforce/valuacion-express-sf/resumen/send-salesforce.php",
                     data: data,
