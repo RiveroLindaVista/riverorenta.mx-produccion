@@ -617,6 +617,8 @@ if ($marcasQry->num_rows > 0) {
 let precioBase = ofertas.precio_ofrecido;
 $(document).on("change", ".extra-option", function() {
 
+console.log("Precio base: ",precioBase);
+
     let totalExtras = 0;
 
     $(".extra-option:checked").each(function() {
