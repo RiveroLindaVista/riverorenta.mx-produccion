@@ -442,6 +442,7 @@ if ($marcasQry->num_rows > 0) {
                     if (obj.lineal[i].version === "Valor kilometraje") {
                         extraKm += obj.lineal[i].sale;
                     } else {
+                        if(i = 1){htmlCheckboxes += `<div><h4>Agregar adicionales del auto:</h4>`}
                         htmlCheckboxes += `
                             <div>
                                 <input type="checkbox" 
@@ -449,7 +450,7 @@ if ($marcasQry->num_rows > 0) {
                                     value="${obj.lineal[i].sale}" 
                                     id="extra_${i}">
                                 <label for="extra_${i}">
-                                    ${obj.lineal[i].version} (+$${obj.lineal[i].sale})
+                                    ${obj.lineal[i].version} (${new Intl.NumberFormat('en-US').format(obj.lineal[i].sale)}'.00 MXN')
                                 </label>
                             </div>
                         `;
