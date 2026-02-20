@@ -102,7 +102,7 @@ if ($marcasQry->num_rows > 0) {
                     <h1 class="text-white text-center m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">VALUACIÓN GENERADA CON ÉXITO</h1>
                 </div>
             </div>
-            
+
             <div id="of1" hidden>
                 <div class="row align-items-center">
                     <h2 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">DESCRIPCIÓN DEL AUTO</h3>
@@ -608,6 +608,8 @@ if ($marcasQry->num_rows > 0) {
         }
         
         console.log(data);
+        $("#formMensajeExito").attr('hidden', false);
+        $("#btnSaveValua").attr('hidden', true);
         
         $.ajax({
             type: "POST",
@@ -616,8 +618,7 @@ if ($marcasQry->num_rows > 0) {
             dataType: "json",
             success: function(resp) {
                 console.log('Entra SF', resp);
-                $("#formMensajeExito").attr('hidden', false);
-                $("#btnSaveValua").attr('hidden', true);
+
             }
 
         });
