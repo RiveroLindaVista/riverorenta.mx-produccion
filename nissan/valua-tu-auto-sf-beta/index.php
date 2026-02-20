@@ -108,13 +108,13 @@ if ($marcasQry->num_rows > 0) {
                 </div>
 
                 <div class="row">
-                    <h3 class="text-center text-white pulso" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">ELIGE UNA OFERTA PARA GUARDAR LA VALUACIÓN</h3>
+                    <!-- <h3 class="text-center text-white pulso" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">ELIGE UNA OFERTA PARA GUARDAR LA VALUACIÓN</h3> -->
                     <div class="btnOfertaNormal" onclick="selectOferta('Normal')">
                         <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">OFERTA VÁLIDA POR 24 HRS</h3>
 
                         <h2 id="precio" class="text-white text-center"></h2>
 
-                        <img style="top: 40px;position:absolute;right: 12px;height: 30px;" src="https://www.riverorenta.mx/valua-tu-carro/img/iconos/flecha_blanca.svg">
+                        <!-- <img style="top: 40px;position:absolute;right: 12px;height: 30px;" src="https://www.riverorenta.mx/valua-tu-carro/img/iconos/flecha_blanca.svg"> -->
                     </div>
                     <div id="extrasContainer">
                     </div>
@@ -139,7 +139,8 @@ if ($marcasQry->num_rows > 0) {
                     </div>
                 </div>
 
-                <div class="row d-flex justify-content-center">
+                <div class="row d-flex justify-content-center mt-1">
+                    <button class="btn bg-success" type="button" style="width:auto;" onclick="sendSF()">GUARDAR VALUACION</button>
                     <button class="btn btn-dark bg-dark" type="button" style="width:auto;" onclick="nuevaOferta()">Elige otro auto</button>
                 </div>
             </div>
@@ -450,7 +451,7 @@ if ($marcasQry->num_rows > 0) {
                                     value="${obj.lineal[i].sale}" 
                                     id="extra_${i}">
                                 <label for="extra_${i}">
-                                    ${obj.lineal[i].version} (${new Intl.NumberFormat('en-US').format(obj.lineal[i].sale)}'.00 MXN')
+                                    ${obj.lineal[i].version} (+ $${new Intl.NumberFormat('en-US').format(obj.lineal[i].sale)}.00 MXN)
                                 </label>
                             </div>
                         `;
