@@ -610,6 +610,7 @@ if ($marcasQry->num_rows > 0) {
         console.log(data);
         $("#formMensajeExito").attr('hidden', false);
         $("#btnSaveValua").attr('hidden', true);
+        $("#extrasContainer").attr('hidden', true);
         
         $.ajax({
             type: "POST",
