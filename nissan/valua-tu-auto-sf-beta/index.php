@@ -615,30 +615,21 @@ if ($marcasQry->num_rows > 0) {
 
     }
 
-let sensorPrecioIncial = 0;
 $(document).on("change", ".extra-option", function() {
 
-let precioBase = ofertas.precio_ofrecido;
-sensorPrecioInicial = ofertas.precio_ofrecido;
+    let valor = Number($(this).val());
 
-
-
-    let totalExtras = 0;
-
-    $(".extra-option:checked").each(function() {
-        totalExtras += Number($(this).val());
-    });
-    console.log("Precio base: ",precioBase);
-    if(totalExtras == 0){
-        let precioFinal = sensorPrecioIncial;
-        ofertas.precio_ofrecido = sensorPrecioIncial;
+    if ($(this).is(":checked")) {
+        // SUMAR
+        ofertas.precio_ofrecido += valor;
     } else {
-        let precioFinal = sensorPrecioIncial + totalExtras;
-        ofertas.precio_ofrecido = precioFinal;
+        // RESTAR
+        ofertas.precio_ofrecido -= valor;
     }
 
-    $("#precio").html('$ ' + 
-        new Intl.NumberFormat('en-US').format(precioFinal) + 
+    $("#precio").html(
+        '$ ' + new Intl.NumberFormat('en-US')
+        .format(ofertas.precio_ofrecido) + 
         '.00 MXN'
     );
 
