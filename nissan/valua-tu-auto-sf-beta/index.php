@@ -237,7 +237,7 @@ if ($marcasQry->num_rows > 0) {
     };
 
     $(document).ready(function() {
-
+console.log('239184');
         let data = {
             ano: 1,
         }
