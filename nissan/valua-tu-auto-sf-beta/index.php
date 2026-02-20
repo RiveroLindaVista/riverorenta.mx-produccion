@@ -225,7 +225,7 @@ if ($marcasQry->num_rows > 0) {
     
 </html>
 <script>
-
+console.log('266666');
     var ofertas = {
         ofertaElegida: '',
         precio_normal: '',
