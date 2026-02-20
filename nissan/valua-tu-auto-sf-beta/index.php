@@ -110,7 +110,7 @@ if ($marcasQry->num_rows > 0) {
                 <div class="row">
                     <h3 class="text-center text-white pulso" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">ELIGE UNA OFERTA PARA GUARDAR LA VALUACIÓN</h3>
                     <div class="btnOfertaNormal" onclick="selectOferta('Normal')">
-                        <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">OFERTA VÁLIDA POR 7 DÍAS</h3>
+                        <h3 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">OFERTA VÁLIDA POR 24 HRS</h3>
 
                         <h2 id="precio" class="text-white text-center"></h2>
 
@@ -533,8 +533,9 @@ if ($marcasQry->num_rows > 0) {
 
                 let precio = '$ '+new Intl.NumberFormat('en-US').format(precioAjustado)+'.00 MXN';
                 ofertas.precio_normal = precioAjustado;
+                ofertas.precio_ofrecido = precioAjustado;
                 ofertas.km_group = obj.lineal[0].km_group;
-                ofertas.compra = precioAjustado;
+                ofertas.compra = obj.lineal[0].purchase;
                 ofertas.venta = obj.lineal[0].sale;
 
                 let descripcionAuto = `
@@ -613,6 +614,18 @@ if ($marcasQry->num_rows > 0) {
         });
 
     }
+
+    $(document).on("change", ".extra-option", function() {
+        let totalExtras = 0;
+
+        $(".extra-option:checked").each(function() {
+            totalExtras += parseFloat($(this).val());
+        });
+
+        ofertas.precio_ofrecido = precioAjustado + totalExtras;
+
+        $("#precio").html('$ '+new Intl.NumberFormat('en-US').format(ofertas.precio_ofrecido)+'.00 MXN');
+    });
 
     function nuevaOferta(){
         location.reload();
