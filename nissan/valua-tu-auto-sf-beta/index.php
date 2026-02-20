@@ -222,6 +222,9 @@ if ($marcasQry->num_rows > 0) {
 
     </div>
     <input type="hidden" id="descripcion_auto" name="descripcion_auto" value="<?= htmlspecialchars($captcha_textp) ?>">
+    <script>
+console.log('266666');
+</script>
     </body>
     
 </html>
