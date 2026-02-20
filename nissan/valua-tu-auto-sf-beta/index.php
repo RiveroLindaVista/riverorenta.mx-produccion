@@ -417,7 +417,7 @@ if ($marcasQry->num_rows > 0) {
             ano: obj.lineal[0].year,
         }
 
-        /* $.ajax({
+        $.ajax({
             type: "POST",
             url: "getTipos.php",
             data: params,
@@ -427,7 +427,7 @@ if ($marcasQry->num_rows > 0) {
                 let precioPrimo = 0;
                 let precioNormal = 0;
                 console.log(resp.tipo);
-                switch (resp.tipo) {
+/*                 switch (resp.tipo) {
                     case "A":
                         precioPrimo = obj.lineal[0].sale;
                         precioNormal = obj.lineal[0].sale * .05;
@@ -479,7 +479,7 @@ if ($marcasQry->num_rows > 0) {
                     default:
                         precioPrimo = obj.lineal[0].purchase;
                         break;
-                }
+                } */
 
                 let precio = '$ '+new Intl.NumberFormat('en-US').format(precioPrimo)+'.00 MXN';
                 ofertas.precio_normal = precioPrimo;
@@ -559,7 +559,7 @@ if ($marcasQry->num_rows > 0) {
                 });
 
             }
-        }); */
+        });
     }
 
     function sendSF(){
