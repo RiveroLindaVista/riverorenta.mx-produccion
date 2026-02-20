@@ -620,16 +620,14 @@ let totalExtras = 0;
 console.log("Entro al cambio: ", ofertas.precio_ofrecido);
         $(".extra-option:checked").each(function() {
             console.log($(this).val());
-            totalExtras += parseFloat($(this).val());
+            if(parseFloat($(this).val()) == 0){
+                ofertas.precio_ofrecido = ofertas.precio_ofrecido - totalExtras;
+                totalExtras= 0;
+            } else {
+                totalExtras= parseFloat($(this).val());
+                ofertas.precio_ofrecido = ofertas.precio_ofrecido + totalExtras;
+            }
         });
-        console.log("Entro al cambio2222: ", ofertas.precio_ofrecido, " + ", totalExtras);
-        if(totalExtras == 0){
-            ofertas.precio_ofrecido = ofertas.precio_ofrecido - totalExtras;
-        } else {
-            ofertas.precio_ofrecido = ofertas.precio_ofrecido + totalExtras;
-        }
-        
-        console.log("Entro al cambio3: ", ofertas.precio_ofrecido, " + ", totalExtras);
 
         $("#precio").html('$ '+new Intl.NumberFormat('en-US').format(ofertas.precio_ofrecido)+'.00 MXN');
     });
