@@ -619,7 +619,7 @@ if ($marcasQry->num_rows > 0) {
         let totalExtras = 0;
 console.log("Entro al cambio: ", ofertas.precio_ofrecido);
         $(".extra-option:checked").each(function() {
-            console.log(this.val();)
+            console.log(this.val());
             totalExtras += parseFloat($(this).val());
         });
         console.log("Entro al cambio2222: ", ofertas.precio_ofrecido, " + ", totalExtras);
