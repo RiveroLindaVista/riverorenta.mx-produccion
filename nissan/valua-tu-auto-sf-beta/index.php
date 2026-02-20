@@ -919,6 +919,16 @@ if ($marcasQry->num_rows > 0) {
         animation-name: slide-in;
     }
 
+    #extrasContainer{
+        background-color: white;
+        border-top: 2px solid #d40028;
+        border-left: 1px solid #d40028;
+        border-radius: 15px;
+        padding: 10px;
+        box-shadow: 1px 2px 3px 1px;
+        width: 100%;
+    }
+
     @keyframes slide-in {
         from {
             translate: 0 -20px;
