@@ -96,6 +96,13 @@ if ($marcasQry->num_rows > 0) {
         </div>
 
         <div id="ofertaFinal" class="container p-4" hidden>
+
+            <div id="formMensajeExito" class="container p-2" hidden>
+                <div>
+                    <h1 class="text-white text-center m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">VALUACIÓN GENERADA CON ÉXITO</h1>
+                </div>
+            </div>
+            
             <div id="of1" hidden>
                 <div class="row align-items-center">
                     <h2 class="text-center text-white" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">DESCRIPCIÓN DEL AUTO</h3>
@@ -140,7 +147,7 @@ if ($marcasQry->num_rows > 0) {
                 </div>
 
                 <div class="row justify-content-center mt-1">
-                    <button class="btn bg-success text-white m-1 pulso" type="button" style="width:auto;" onclick="sendSF()">GUARDAR VALUACION</button>
+                    <button id="btnSaveValua" class="btn bg-success text-white m-1 pulso" type="button" style="width:auto;" onclick="sendSF()">GUARDAR VALUACION</button>
                     <button class="btn btn-dark bg-dark m-1" type="button" style="width:auto;" onclick="nuevaOferta()">Elige otro auto</button>
                 </div>
             </div>
@@ -158,12 +165,6 @@ if ($marcasQry->num_rows > 0) {
                 <input style="border-radius: 5px; width: 100%; height: 40px;font-size: 1.2em" placeholder="Ingresa tu teléfono" type="number" id="telefono" max="10" name="telefono" required>
                 <div class="row p-2" id="btnOferta">
                     <button class="btn btn-dark bg-dark" type="button" onclick="getOferta()">Ver Oferta</button>
-                </div>
-            </div>
-
-            <div id="formMensajeExito" class="container p-2" hidden>
-                <div>
-                    <h1 class="text-white text-center m-0" style="font-family: Narrow;text-shadow: 2px 3px 5px black;">VALUACIÓN GENERADA CON ÉXITO</h1>
                 </div>
             </div>
 
@@ -615,6 +616,8 @@ if ($marcasQry->num_rows > 0) {
             dataType: "json",
             success: function(resp) {
                 console.log('Entra SF', resp);
+                $("#formMensajeExito").attr('hidden', false);
+                $("#btnSaveValua").attr('hidden', true);
             }
 
         });
