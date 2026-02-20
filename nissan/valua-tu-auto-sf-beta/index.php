@@ -430,7 +430,6 @@ if ($marcasQry->num_rows > 0) {
             dataType: "json",
             success: function(resp) {
                 
-                let precioAjustado = 0;
                 console.log(resp.tipo);
 
                 let base = obj.lineal[0].sale;
