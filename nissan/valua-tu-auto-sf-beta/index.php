@@ -139,8 +139,8 @@ if ($marcasQry->num_rows > 0) {
                     </div>
                 </div>
 
-                <div class="row d-flex justify-content-center mt-1">
-                    <button class="btn bg-success" type="button" style="width:auto;" onclick="sendSF()">GUARDAR VALUACION</button>
+                <div class="row justify-content-center mt-1">
+                    <button class="btn bg-success text-white m-1" type="button" style="width:auto;" onclick="sendSF()">GUARDAR VALUACION</button>
                     <button class="btn btn-dark bg-dark" type="button" style="width:auto;" onclick="nuevaOferta()">Elige otro auto</button>
                 </div>
             </div>
@@ -937,6 +937,23 @@ $(document).on("change", ".extra-option", function() {
         padding: 10px;
         box-shadow: 1px 2px 3px 1px;
         width: 100%;
+    }
+
+    .pulso {
+        font-size: 2rem;
+        animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
     }
 
     @keyframes slide-in {

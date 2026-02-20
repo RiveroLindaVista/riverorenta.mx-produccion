@@ -882,6 +882,23 @@ if ($marcasQry->num_rows > 0) {
         animation-name: slide-in;
     }
 
+    .pulso {
+        font-size: 2rem;
+        animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
     @keyframes slide-in {
         from {
             translate: 0 -20px;
