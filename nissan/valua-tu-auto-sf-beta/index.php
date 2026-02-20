@@ -615,9 +615,11 @@ if ($marcasQry->num_rows > 0) {
 
     }
 
+let sensorPrecioIncial = 0;
 $(document).on("change", ".extra-option", function() {
 
 let precioBase = ofertas.precio_ofrecido;
+sensorPrecioInicial = ofertas.precio_ofrecido;
 
 console.log("Precio base: ",precioBase);
 
@@ -627,8 +629,13 @@ console.log("Precio base: ",precioBase);
         totalExtras += Number($(this).val());
     });
 
-    let precioFinal = precioBase + totalExtras;
-    ofertas.precio_ofrecido = precioFinal;
+    if(totalExtras == 0){
+        let precioFinal = sensorPrecioIncial;
+        ofertas.precio_ofrecido = sensorPrecioIncial;
+    } else {
+        let precioFinal = precioBase + totalExtras;
+        ofertas.precio_ofrecido = precioFinal;
+    }
 
     $("#precio").html('$ ' + 
         new Intl.NumberFormat('en-US').format(precioFinal) + 
