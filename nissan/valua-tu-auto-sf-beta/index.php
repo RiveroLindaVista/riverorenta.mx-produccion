@@ -614,7 +614,7 @@ if ($marcasQry->num_rows > 0) {
         });
 
     }
-
+let precioBase = ofertas.precio_ofrecido;
 $(document).on("change", ".extra-option", function() {
 
     let totalExtras = 0;
@@ -623,7 +623,8 @@ $(document).on("change", ".extra-option", function() {
         totalExtras += Number($(this).val());
     });
 
-    ofertas.precio_ofrecido = ofertas.precio_ofrecido + totalExtras;
+    let precioFinal = precioBase + totalExtras;
+    ofertas.precio_ofrecido = precioFinal;
 
     $("#precio").html('$ ' + 
         new Intl.NumberFormat('en-US').format(precioFinal) + 
