@@ -1,6 +1,5 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+
 include("_config.php");
 $conn = new mysqli(DB_HOST, DB_USER,DB_PASSWORD, DB_DB);
 
@@ -30,7 +29,7 @@ if ($marcasQry->num_rows > 0) {
 <html>
     <head>
     <meta charset="UTF-8">
-    <title>BETAValua tu carro - Nissan Rivero</title>
+    <title>Valua tu carro - Nissan Rivero</title>
         
     <link href="<?=URL?>/estilos/main.css" rel="stylesheet" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -222,9 +221,11 @@ if ($marcasQry->num_rows > 0) {
 
     </div>
     <input type="hidden" id="descripcion_auto" name="descripcion_auto" value="<?= htmlspecialchars($captcha_textp) ?>">
-
+    </body>
+    
+</html>
 <script>
-console.log('266666');
+
     var ofertas = {
         ofertaElegida: '',
         precio_normal: '',
@@ -236,7 +237,7 @@ console.log('266666');
     };
 
     $(document).ready(function() {
-console.log('239184');
+
         let data = {
             ano: 1,
         }
@@ -432,10 +433,10 @@ console.log('239184');
                         precioNormal = obj.lineal[0].sale * .05;
                         precioNormal = obj.lineal[0].sale - precioNormal;
 
-/*                         if(obj.lineal[1] && obj.lineal[1].version == "Valor kilometraje"){
+                        if(obj.lineal[1] && obj.lineal[1].version == "Valor kilometraje"){
                             precioPrimo = precioPrimo + (0 + obj.lineal[1].sale);
                             precioNormal = precioNormal + (0 + obj.lineal[1].sale);
-                        } */
+                        }
                         console.log("PRIMO: ",precioPrimo);
                         console.log("NORMAL: ",precioNormal);
                         break;
@@ -476,16 +477,16 @@ console.log('239184');
                         return 0;
                         break;
                     default:
-                        precioAjustado = obj.lineal[0].purchase;
+                        precioPrimo = obj.lineal[0].purchase;
                         break;
                 }
 
-                let precio = '$ '+new Intl.NumberFormat('en-US').format(precioAjustado)+'.00 MXN';
-                ofertas.precio_normal = precioAjustado;
+                let precio = '$ '+new Intl.NumberFormat('en-US').format(precioPrimo)+'.00 MXN';
+                ofertas.precio_normal = precioPrimo;
                 ofertas.km_group = obj.lineal[0].km_group;
-                ofertas.compra = precioAjustado;
+                ofertas.compra = precioPrimo;
                 ofertas.venta = obj.lineal[0].sale;
-                ofertas.precio_ofrecido = precioAjustado;
+                ofertas.precio_ofrecido = precioPrimo;
 
                 let descripcionAuto = `
                     <p style="font-family: Narrow;text-align: center;font-size: 2em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
@@ -508,7 +509,7 @@ console.log('239184');
                     console.log("Entro al primero del IF: ", obj.lineal[0].brand.toLowerCase());
 
                     if (obj.lineal[0].sale != "" ){
-                        let formula = (precioAjustado + obj.lineal[0].sale) / 2;
+                        let formula = (precioPrimo + obj.lineal[0].sale) / 2;
                         ofertas.precio_primo = formula;
                         precioPrimo = '$ '+new Intl.NumberFormat('en-US').format(formula)+'.00 MXN';
                         ofertas.precio_ofrecido = formula;
@@ -789,13 +790,6 @@ console.log('239184');
         }
 
 </script>
-
-
-
-    </body>
-    
-</html>
-
 
 <style>
     #divYears{
