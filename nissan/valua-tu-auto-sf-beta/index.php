@@ -116,7 +116,7 @@ if ($marcasQry->num_rows > 0) {
 
                         <!-- <img style="top: 40px;position:absolute;right: 12px;height: 30px;" src="https://www.riverorenta.mx/valua-tu-carro/img/iconos/flecha_blanca.svg"> -->
                     </div>
-                    <div id="extrasContainer">
+                    <div id="extrasContainer" hidden>
                     </div>
                 </div>
 
@@ -459,7 +459,11 @@ if ($marcasQry->num_rows > 0) {
                 }
 
                 // Insertamos los checkboxes en un contenedor
-                $("#extrasContainer").html(htmlCheckboxes);
+                if(obj.lineal.length > 2){
+                    $("#extrasContainer").attr('hidden', false);
+                    $("#extrasContainer").html(htmlCheckboxes);
+                }
+                
 
                 // Precio base + kilometraje automático
                 let precioConKm = base + extraKm;
