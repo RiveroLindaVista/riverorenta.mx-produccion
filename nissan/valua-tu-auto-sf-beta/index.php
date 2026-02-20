@@ -403,7 +403,163 @@ console.log('239184');
             .catch((error) => console.error(error));
     }
 
+    function objetoOferta(obj){
 
+        $("#formOferta").attr('hidden', true);
+        $("#formDatos").attr('hidden', true);
+        let data = obj.lineal;
+//NISSAN, CHEVROLET, MAZDA, TOYOTA, HONDA
+
+        let params = {
+            modelo: obj.lineal[0].subbrand.toUpperCase(),
+            marca: obj.lineal[0].brand.toUpperCase(),
+            ano: obj.lineal[0].year,
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "getTipos.php",
+            data: params,
+            dataType: "json",
+            success: function(resp) {
+                
+                let precioPrimo = 0;
+                let precioNormal = 0;
+                console.log(resp.tipo);
+                switch (resp.tipo) {
+                    case "A":
+                        precioPrimo = obj.lineal[0].sale;
+                        precioNormal = obj.lineal[0].sale * .05;
+                        precioNormal = obj.lineal[0].sale - precioNormal;
+
+                        if(obj.lineal[1] && obj.lineal[1].version == "Valor kilometraje"){
+                            precioPrimo = precioPrimo + (0 + obj.lineal[1].sale);
+                            precioNormal = precioNormal + (0 + obj.lineal[1].sale);
+                        }
+                        console.log("PRIMO: ",precioPrimo);
+                        console.log("NORMAL: ",precioNormal);
+                        break;
+                    case "B":
+                        precioPrimo = obj.lineal[0].sale;
+                        break;
+                    case "C":
+                        precioPrimo = obj.lineal[0].sale * .07;
+                        precioPrimo = obj.lineal[0].sale - precioPrimo;
+                        break;
+                    case "D":
+                        precioPrimo = obj.lineal[0].sale * .10;
+                        precioPrimo = obj.lineal[0].sale - precioPrimo;
+                        break;
+                    case "E":
+                        precioPrimo = obj.lineal[0].sale * .20;
+                        precioPrimo = obj.lineal[0].sale - precioPrimo;
+                        break;
+                    case "F":
+                        precioPrimo = obj.lineal[0].sale * .25;
+                        precioPrimo = obj.lineal[0].sale - precioPrimo;
+                        break;
+                    case "G":
+                        precioPrimo = obj.lineal[0].sale * .35;
+                        precioPrimo = obj.lineal[0].sale - precioPrimo;
+                        break;
+                    case "H":
+                        precioPrimo = "SIN OPCIÓN A COMPRA.";
+                        $("#precio").html("SIN OPCIÓN A COMPRA.");
+                        $("#descripcionAuto").html( `
+                            <p style="font-family: Narrow;text-align: center;font-size: 2em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
+                            <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].version}</p>
+                            <p style="font-family: Narrow;text-align: center;font-weight: 700;">ESTE AUTO NO ES OPCIÓN A COMPRA</p>
+                            `);
+                        $("#formLoading").attr('hidden', true);
+                        $("#ofertaFinal").attr('hidden', false);
+                        $("#of1").attr('hidden', false);
+                        return 0;
+                        break;
+                    default:
+                        precioAjustado = obj.lineal[0].purchase;
+                        break;
+                }
+
+                let precio = '$ '+new Intl.NumberFormat('en-US').format(precioAjustado)+'.00 MXN';
+                ofertas.precio_normal = precioAjustado;
+                ofertas.km_group = obj.lineal[0].km_group;
+                ofertas.compra = precioAjustado;
+                ofertas.venta = obj.lineal[0].sale;
+                ofertas.precio_ofrecido = precioAjustado;
+
+                let descripcionAuto = `
+                    <p style="font-family: Narrow;text-align: center;font-size: 2em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
+                    <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].version}</p>
+                    `;
+
+                $("#formLoading").attr('hidden', true);
+                $("#ofertaFinal").attr('hidden', false);
+                $("#of1").attr('hidden', false);
+                $("#envioExito").attr('hidden', false);
+                $("#precio").html(precio);
+                $("#descripcionAuto").html(descripcionAuto);
+
+                let precioPrimo = "";
+
+                console.log("Marca: Chevrolet", obj.lineal[0].brand.toLowerCase().includes("nissan"));
+                console.log("Precio Venta: ", obj.lineal[0].sale);
+
+                if(obj.lineal[0].brand.toLowerCase().includes("chevrolet") || obj.lineal[0].brand.toLowerCase().includes("nissan") || obj.lineal[0].brand.toLowerCase().includes("mazda") || obj.lineal[0].brand.toLowerCase().includes("honda") || obj.lineal[0].brand.toLowerCase().includes("toyota")){
+                    console.log("Entro al primero del IF: ", obj.lineal[0].brand.toLowerCase());
+
+                    if (obj.lineal[0].sale != "" ){
+                        let formula = (precioAjustado + obj.lineal[0].sale) / 2;
+                        ofertas.precio_primo = formula;
+                        precioPrimo = '$ '+new Intl.NumberFormat('en-US').format(formula)+'.00 MXN';
+                        ofertas.precio_ofrecido = formula;
+
+                        $("#precioPrimo").html(precioPrimo);
+                        $("#OfertaPrimo").attr('hidden', false);
+                    }
+
+                } else {
+                    $("#OfertaNormal").attr('hidden', false);
+                }
+
+                let nombre = $('#nombre').val();
+                let correo = $('#correo').val();
+                let telefono = parseInt($('#telefono').val());
+                let year = parseInt($('#filtroYears').val());
+                let marca = $('#filtroMarcas').val();
+                let modelo = $('#filtroModelos').val();
+                let version = $('#filtroVersiones').val();
+                let kilometraje = parseInt($('#filtroKM').val());
+
+                let data = {
+                    ano: year,
+                    marca: marca,
+                    modelo: modelo,
+                    version: version,
+                    km: kilometraje,
+                    venta: ofertas.venta,
+                    compra: ofertas.compra,
+                    ofrecido: ofertas.precio_ofrecido,
+                    ownerid:"<?=$_GET['ownerid']?>",
+                    leadid: "<?=$_GET['leadid']?>",
+                    opid:"<?=$_GET['opid']?>",
+                    empresa:"nissan"
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "https://www.riverorenta.mx/api/salesforce/valuacion-express-sf/resumen/send-salesforce.php",
+                    data: data,
+                    dataType: "json",
+                    success: function(resp) {
+                        console.log('Entra SF', resp);
+                        $("#formMensajeExito").attr('hidden', false);
+                    }
+
+                });
+
+            }
+        });
+    }
 
 </script>
 
