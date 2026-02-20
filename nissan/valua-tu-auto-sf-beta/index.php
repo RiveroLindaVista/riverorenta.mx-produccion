@@ -546,7 +546,9 @@ if ($marcasQry->num_rows > 0) {
                     empresa:"nissan"
                 }
 
-               /* $.ajax({
+                console.log(data, "#DSATAAAA");
+
+               $.ajax({
                     type: "POST",
                     url: "https://www.riverorenta.mx/api/salesforce/valuacion-express-sf/resumen/send-salesforce.php",
                     data: data,
@@ -556,7 +558,7 @@ if ($marcasQry->num_rows > 0) {
                         $("#formMensajeExito").attr('hidden', false);
                     }
 
-                }); */
+                });
 
             }
         });
