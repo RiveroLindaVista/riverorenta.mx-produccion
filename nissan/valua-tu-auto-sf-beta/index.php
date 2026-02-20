@@ -622,7 +622,7 @@ if ($marcasQry->num_rows > 0) {
             totalExtras += parseFloat($(this).val());
         });
 
-        ofertas.precio_ofrecido = precioAjustado + totalExtras;
+        ofertas.precio_ofrecido = precio_ofrecido + totalExtras;
 
         $("#precio").html('$ '+new Intl.NumberFormat('en-US').format(ofertas.precio_ofrecido)+'.00 MXN');
     });
