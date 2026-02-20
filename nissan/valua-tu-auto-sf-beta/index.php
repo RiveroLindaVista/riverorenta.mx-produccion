@@ -481,14 +481,14 @@ if ($marcasQry->num_rows > 0) {
                         break;
                 }
 
-                /* let precio = '$ '+new Intl.NumberFormat('en-US').format(precioPrimo)+'.00 MXN';
+                 let precio = '$ '+new Intl.NumberFormat('en-US').format(precioPrimo)+'.00 MXN';
                 ofertas.precio_normal = precioPrimo;
                 ofertas.km_group = obj.lineal[0].km_group;
                 ofertas.compra = precioPrimo;
                 ofertas.venta = obj.lineal[0].sale;
                 ofertas.precio_ofrecido = precioPrimo;
 
-                let descripcionAuto = `
+                /*let descripcionAuto = `
                     <p style="font-family: Narrow;text-align: center;font-size: 2em;">${obj.lineal[0].brand} ${obj.lineal[0].subbrand} ${obj.lineal[0].year}</p>
                     <p style="font-family: Narrow;text-align: center;">${obj.lineal[0].version}</p>
                     `;
