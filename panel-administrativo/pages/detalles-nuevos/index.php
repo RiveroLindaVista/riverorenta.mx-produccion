@@ -71,10 +71,10 @@ $resultQueryColores = $conn->query($sqlColores);
 if ($resultQueryColores->num_rows > 0) {
     while ($row = $resultQueryColores->fetch_assoc()) {
         $nombre = str_replace(' ', '-', strtolower($auto["modelo"]) . '-' . $auto["ano"]);
-        
+
 
         // $autoColoresDelete .= '<tr><td>' . $row["nombre"] . '</td><td>' . $row["color"] . '</td><td><div class="colorP" style="background-color:' . $row["color"] . ';"></div></td><td><label class="btnEliminar" onclick="eliminarColor(' . $row['id'] . ')">ELIMINAR</label></td></tr>';
-        $param_color['Color']=$row['nombre'];
+        $param_color['Color'] = $row['nombre'];
         if ($slide == 1) {
             $autoColoresIndicators .= '<li data-target="#carousel-example-generic_2" data-slide-to="' . $slide . '" style=" height: 20px; width: 20px; background-color:' . $row["color"] . '"></li>';
             $autoColores .= '
@@ -82,7 +82,7 @@ if ($resultQueryColores->num_rows > 0) {
 	                    <img class="imgautos" onerror="funconerror(this)" src="https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . strtolower($auto["marca"]) . '/' . $auto["url"] . '/colores/' . str_replace(' ', '-', $row["nombre"]) . '.png" />
 	                    <div class="carousel-caption">
 	                        <h3>' . $row["nombre"] . ' ' . $row["color"] . '</h3>
-	                        <div class="btn btn-success" style="border-radius: 7px;" onclick="openaModalImagen(\'' . base64_encode(json_encode( $param_color)) . '\')">AGREGAR
+	                        <div class="btn btn-success" style="border-radius: 7px;" onclick="openaModalImagen(\'' . base64_encode(json_encode($param_color)) . '\')">AGREGAR
 	                        </div>
 	                    </div>
 	                </div>';
@@ -94,7 +94,7 @@ if ($resultQueryColores->num_rows > 0) {
                     <img class="imgautos" onerror="funconerror(this)" src="https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . strtolower($auto["marca"]) . '/' . $auto["url"] . '/colores/' . str_replace(' ', '-', $row["nombre"]) . '.png" />
                     <div class="carousel-caption">
                         <h3>' . $row["nombre"] . ' ' . $row["color"] . '</h3>
-                        <div class="btn btn-success" style="border-radius: 7px;" onclick="openaModalImagen(\'' . base64_encode(json_encode( $param_color)) . '\')">AGREGAR IMAGEN
+                        <div class="btn btn-success" style="border-radius: 7px;" onclick="openaModalImagen(\'' . base64_encode(json_encode($param_color)) . '\')">AGREGAR IMAGEN
                         </div>
                     </div>
                 </div>';
@@ -239,7 +239,7 @@ $orden = $orden + 10;
                             <i class="material-icons">palette</i> IMAGENES
                         </a>
                     </li>
-                    <li  role="presentation" onmousedown="mouse_modulo_asignar_color(1)" onclick="modulo_asignar_color();">
+                    <li role="presentation" onmousedown="mouse_modulo_asignar_color(1)" onclick="modulo_asignar_color();">
                         <a id="li_modulo_asignar_color" href="#tab_asignar_color" data-toggle="tab">
                             <i class="material-icons">palette</i> ASIGNAR COLOR
                         </a>
@@ -285,11 +285,11 @@ $orden = $orden + 10;
                                     <div class="row" id="row_btns_portada_web">
                                         <!-- by jquery -->
                                     </div>
-                                    <div class="row" >
+                                    <div class="row">
                                         <div class="container-fluid" id="div_row_portada_web">
                                             <!-- by jquery -->
                                         </div>
-                                    </div>                         
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -315,17 +315,17 @@ $orden = $orden + 10;
                                         <!-- by jquery -->
                                     </div>
                                     <hr style="border-bottom:solid 1px rgb(176, 187, 195);">
-                                    <div class="row" >
+                                    <div class="row">
                                         <div class="container-fluid" id="div_row_portada_mobile">
                                             <!-- by jquery -->
                                         </div>
-                                    </div>                         
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div role="tabpanel" class="tab-pane fade in active" id="tab_imagenes">
                     <div class=" card row clearfix">
 
@@ -351,13 +351,13 @@ $orden = $orden + 10;
                                 <div class="body">
                                     <div id="carousel-example-generic_2" class="carousel slide" data-ride="carousel" style="background: black;">
                                         <!-- Indicators -->
-                                        
+
 
                                         <center>
-                                        <div class="carousel-inner" role="listbox">
-                                            <?= $autoColores ?>
-                                        </div>
-                                        
+                                            <div class="carousel-inner" role="listbox">
+                                                <?= $autoColores ?>
+                                            </div>
+
                                         </center>
                                         <!-- Controls -->
                                         <a class="left carousel-control" href="#carousel-example-generic_2" role="button" data-slide="prev">
@@ -417,7 +417,7 @@ $orden = $orden + 10;
                                                 </div>
                                                 <div class="form-line" style="width: 30%; display: flex; align-items: center; justify-content: center; border: 1px rgb(243, 243, 243) solid;">
                                                     <!-- <button class="" style="width: 100%; border: 0px transparent;"> -->
-                                                        <img id="nn_img_icon" src="" style="width: 25px; height: 25px; margin-right: 17px; margin-left: 14px;">
+                                                    <img id="nn_img_icon" src="" style="width: 25px; height: 25px; margin-right: 17px; margin-left: 14px;">
                                                     <!-- </button> -->
                                                 </div>
                                             </div>
@@ -503,68 +503,73 @@ $orden = $orden + 10;
                             <div class="card">
                                 <div class="header">
                                     <h2>
-                                        <small>Puedes crear un color para despues agregarlo a un auto.</small>
+                                        <small>
+                                            Puedes crear un color para despues agregarlo a un auto
+                                            <span style="color: red;">
+                                                (solo alimentar cuando tengas el material para subir)
+                                            </span>.
+                                        </small>
                                     </h2>
                                 </div>
                                 <div class="body">
-                                <div class="card-inside-title">
-                                    <div class="col-3" style="margin-top:20px;">
+                                    <div class="card-inside-title">
+                                        <div class="col-3" style="margin-top:20px;">
 
-                                        <b> SELECCIONA LA MARCA: </b>
-                                        <input id="asignado" name="modelo" class="form-control" type="text" disabled>
-                                        <!-- <select id="asignado" class="form-control" name="name" required="" aria-required="true">
+                                            <b> SELECCIONA LA MARCA: </b>
+                                            <input id="asignado" name="modelo" class="form-control" type="text" disabled>
+                                            <!-- <select id="asignado" class="form-control" name="name" required="" aria-required="true">
                                             <?php echo $marcas; ?>
                                         </select> -->
-                                    </div>
+                                        </div>
 
-                                    <div id="divmodelos" class="col-3" style="margin-top:20px;">
+                                        <div id="divmodelos" class="col-3" style="margin-top:20px;">
 
-                                        <b> SELECCIONA EL MODELO: </b>
-                                        <!-- <select  class="form-control" name="name" required="" aria-required="true">
+                                            <b> SELECCIONA EL MODELO: </b>
+                                            <!-- <select  class="form-control" name="name" required="" aria-required="true">
                                             <option value="" selected disabled></option>
                                         </select> -->
-                                        <input id="modelo" name="modelo" class="form-control" type="text" disabled>
-                                    </div>
+                                            <input id="modelo" name="modelo" class="form-control" type="text" disabled>
+                                        </div>
 
-                                    <div class="col-3" style="margin-top:20px;">
-                                        <b>AÑO</b>
-                                        <input type="text" id="ano" class="form-control" disabled>
-                                        <div class="form-group form-float">
-                                            <!-- <div class="form-line">
+                                        <div class="col-3" style="margin-top:20px;">
+                                            <b>AÑO</b>
+                                            <input type="text" id="ano" class="form-control" disabled>
+                                            <div class="form-group form-float">
+                                                <!-- <div class="form-line">
                                                 <select id="ano" class="form-control">
                                                     <option value="2024">2024</option>
                                                     <option value="2023">2023</option>
                                                     <option value="2022">2022</option>
                                                 </select>
                                             </div> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11" style="">
+
+                                                <b> SELECCIONA EL COLOR: </b>
+                                                <select id="color" class="form-control" name="name" required="" aria-required="true">
+                                                    <?php echo $colores; ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                                <br>
+                                                <label type="color" id="input-color" class="form-control">
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align: center;padding-bottom: 15px;">
+                                            <button type="button" class="btn btn-primary m-t-5 waves-effect" onclick="save_asignacion();">GUARDAR ASIGNACION</button>
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                    <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11" style="">
-
-                                        <b> SELECCIONA EL COLOR: </b>
-                                        <select id="color" class="form-control" name="name" required="" aria-required="true">
-                                            <?php echo $colores; ?>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" >
-                                    <br>
-                                        <label type="color" id="input-color" class="form-control">
-                                    </div>
-                                    </div>
-                                    
-
-                                </div>
-                                <div class="row clearfix">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align: center;padding-bottom: 15px;">
-                                        <button type="button" class="btn btn-primary m-t-5 waves-effect" onclick="save_asignacion();">GUARDAR ASIGNACION</button>
-                                    </div>
-                                </div>
 
 
-                                
-                                <div class="row clearfix">
+                                    <div class="row clearfix">
                                         <div id="table-colores" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <div class="card">
                                                 <div class="header">
@@ -618,12 +623,12 @@ $orden = $orden + 10;
                                             by jquery
                                     </div> -->
                                     <hr style="border-bottom:solid 1px rgb(176, 187, 195);">
-                                    <div class="row" >
+                                    <div class="row">
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <h4>Elige una version</h4>
-                                                    <div class="row"  style="background: rgb(224, 224, 224); padding: 15px; display: flex; align-items: center; justify-content: center;">
+                                                    <div class="row" style="background: rgb(224, 224, 224); padding: 15px; display: flex; align-items: center; justify-content: center;">
                                                         <div id="row_btns_list-versions" style="display: block; width: auto;">
 
                                                         </div>
@@ -641,11 +646,11 @@ $orden = $orden + 10;
                                                             <!-- <input type="file" onchange="fun_listener_change(this, 'img_versions')" class="form-control"> -->
                                                         </div>
                                                         <div id="div_img_version_buton_guardar" style="display: flex; align-items: center; justify-content: center; padding-bottom: 10px;">
-                                                            
+
                                                         </div>
                                                         <div id="div_img_version_message" style="display: flex; align-items: center; justify-content: center; padding-bottom: 10px;">
                                                             <!-- <ul style="position:absolute;" class="list-group" id="ul-modal-status2'+id_file_input+'">   </ul> -->
-                                                            
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -662,23 +667,23 @@ $orden = $orden + 10;
                                                             <!-- https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/competencia/subir_imagen_icon_19.png -->
                                                             <!-- <img id="id_img_laterales_versions" style="width: 100%; height: auto;" src="" alt=""> -->
                                                         </div>
-                                                        
+
                                                         <div id="div_img_lateral_versiones_input_img" style="display: flex; align-items: center; justify-content: center;">
                                                             <!-- <input type="file" class="form-control"> -->
                                                             <input id="id_input_laterales" type="file" onchange="fun_listener_change(this, 'id_img_laterales')" class="form-control">
                                                         </div>
                                                         <div id="div_img_lateral_button_guardar" style="display: flex; align-items: center; justify-content: center; padding-bottom: 10px;">
-                                                            
+
                                                         </div>
                                                         <div id="div_img_lateral_message" style="display: flex; align-items: center; justify-content: center; padding-bottom: 10px;">
                                                             <!-- <ul style="position:absolute;" class="list-group" id="ul-modal-status2'+id_file_input+'">   </ul> -->
-                                                            
+
                                                         </div>
                                                     </div>
                                                 </div>
 
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -691,9 +696,9 @@ $orden = $orden + 10;
         </div>
     </section>
 
-        <!-- ELIMINAR COLOR -->
+    <!-- ELIMINAR COLOR -->
 
-        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -796,7 +801,7 @@ $orden = $orden + 10;
                                 <!-- <div class="body">
                                    <center> <button type="button" class="btn btn-primary" onclick="ir_imagenes()">ver imagenes</button></center>
                                 </div> -->
-                                
+
 
                                 <!-- <div class="body" id="contresp" style="display:none;">
                         <div class="row clearfix">
@@ -825,12 +830,12 @@ $orden = $orden + 10;
                                 </div>
                             </div>
                         </div>
-                        
+
 
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal"  onclick="ir_imagenes()">Cerrar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="ir_imagenes()">Cerrar</button>
                     <button type="button" id="btn_cargar_img" class="btn btn-primary" onclick="updateImg('_file')">Cargar</button>
                 </div>
             </div>
@@ -856,7 +861,8 @@ $orden = $orden + 10;
             width: 100%;
             border: 0px transparent !important;
         }
-        .div-btns-versions{
+
+        .div-btns-versions {
             padding: 1px;
 
         }
@@ -1105,25 +1111,25 @@ $orden = $orden + 10;
             // }
         }
 
-        function ir_imagenes(){
+        function ir_imagenes() {
             $("#modal-add-image").modal("hide");
             $("#li_modulo_colores").click();
             location.reload(true);
         }
-        
+
         $('#_file').change(function() { //VALIDACION DE PESO DE IMAGEN
             let size_kb = this.files[0].size / 1024;
 
             if (size_kb > this.size) {
-                alert('Imagen muy grande, tamaño maximo permitido, '+ this.size +'KB');
+                alert('Imagen muy grande, tamaño maximo permitido, ' + this.size + 'KB');
                 this.value = "";
                 $("#_label_name_image_png").html("");
-            } else{
-                $("#_label_name_image_png").html("Img: "+ $('#_file')[0].files[0].name);
+            } else {
+                $("#_label_name_image_png").html("Img: " + $('#_file')[0].files[0].name);
             }
-            
-            console.log(size_kb +' || '+this.size);
-            console.log($('#_file')[0].files[0].name );
+
+            console.log(size_kb + ' || ' + this.size);
+            console.log($('#_file')[0].files[0].name);
 
         });
 
@@ -1131,22 +1137,23 @@ $orden = $orden + 10;
             let size_kb = this.files[0].size / 1024;
 
             if (size_kb > this.size) {
-                alert('Imagen muy grande, tamaño maximo permitido, '+ this.size +'KB');
+                alert('Imagen muy grande, tamaño maximo permitido, ' + this.size + 'KB');
                 this.value = "";
                 $("#_label_name_image_webp").html("");
             } else {
-                $("#_label_name_image_webp").html("Img: "+ $('#_file_web')[0].files[0].name);
+                $("#_label_name_image_webp").html("Img: " + $('#_file_web')[0].files[0].name);
                 $("#btn_cargar_img").attr("disabled", false);
             }
-            
-            
-            console.log(size_kb +' || '+this.size);
-            console.log($('#_file_web')[0].files[0].name );
+
+
+            console.log(size_kb + ' || ' + this.size);
+            console.log($('#_file_web')[0].files[0].name);
 
         });
 
 
         let count_request_change_img = 0;
+
         function updateImg(obj) {
             // cambiarImagen(obj);//funcion por default traia
             let nameimg = '';
@@ -1159,24 +1166,24 @@ $orden = $orden + 10;
             $("#ul-modal-status").html();
 
             if (!_file || !_file_web) {
-                console.log(_file +' | '+ _file_web);
+                console.log(_file + ' | ' + _file_web);
                 alert('Agregue una imagen en cada seccion');
                 return false;
             }
 
             if (_file) {
-                nameimg = color+'.png';
-                nameimg2 = color+'@300w.png';
-                nameimg3 = color+'@600w.png';
-                
+                nameimg = color + '.png';
+                nameimg2 = color + '@300w.png';
+                nameimg3 = color + '@600w.png';
+
                 cambiarImagen_test(obj, nameimg);
                 cambiarImagen_test(obj, nameimg2);
                 cambiarImagen_test(obj, nameimg3);
             }
             if (_file_web) {
-                nameimg = color+'.webp';
-                nameimg2 = color+'@300w.webp';
-                nameimg3 = color+'@600w.webp';
+                nameimg = color + '.webp';
+                nameimg2 = color + '@300w.webp';
+                nameimg3 = color + '@600w.webp';
 
                 cambiarImagen_test('_file_web', nameimg);
                 cambiarImagen_test('_file_web', nameimg2);
@@ -1189,10 +1196,10 @@ $orden = $orden + 10;
             var fd = new FormData();
             var files = $('#' + obj)[0].files[0];
             if (files) {
-                let filepath = (('autos-landing/<?= $auto["marca"] ?>'+'/'+'<?= $auto["modelo"] ?>'+'-'+'<?= $auto["ano"] ?>'+'/colores/').toLowerCase()).replaceAll(' ', '-');
-                
+                let filepath = (('autos-landing/<?= $auto["marca"] ?>' + '/' + '<?= $auto["modelo"] ?>' + '-' + '<?= $auto["ano"] ?>' + '/colores/').toLowerCase()).replaceAll(' ', '-');
+
                 console.log(filepath);
-                
+
 
                 fd.append('file', files);
                 // fd.append('color',color);
@@ -1213,7 +1220,7 @@ $orden = $orden + 10;
                         console.log('File uploaded: ' + obj + '| ' + nameimg);
                         if (response != 0) {
                             count_request_change_img++;
-                            console.log('response: '+response);
+                            console.log('response: ' + response);
                             // document.getElementById('return_file').innerHTML = response;
                             $('.dropzone').css({
                                 'cssText': 'border: none !important;'
@@ -1222,15 +1229,16 @@ $orden = $orden + 10;
                                 'cssText': 'display: block !important;'
                             });
 
-                            $("#ul-modal-status").append('<li style="border: 2px solid gray;" class="list-group-item list-group-item-success">'+nameimg+' cargado correctamente <b>('+count_request_change_img+'</b> de 6)</li>');
+                            $("#ul-modal-status").append('<li style="border: 2px solid gray;" class="list-group-item list-group-item-success">' + nameimg + ' cargado correctamente <b>(' + count_request_change_img + '</b> de 6)</li>');
                         } else {
-                            $("#ul-modal-status").append('<li style="border: 2px solid gray;" class="list-group-item list-group-item-danger">Error al subir imagen: '+nameimg+'</li>');
+                            $("#ul-modal-status").append('<li style="border: 2px solid gray;" class="list-group-item list-group-item-danger">Error al subir imagen: ' + nameimg + '</li>');
                             alert('El color ya existe o no se puedo subir,intenta de nuevo..');
                             // document.getElementById('return_file').innerHTML = '<input type="text" id="copia_" class="form-control disabled" disabled="" value="" style="display:none !important;">';
                         }
-                    },  error: function(XMLHttpRequest, textStatus, errorThrown) {
-                        $("#ul-modal-status").append('<li style="border: 2px solid gray;" class="list-group-item list-group-item-danger">Error al subir imagen: '+nameimg+'</li>');
-                            // alert('El color ya existe o no se puedo subir,intenta de nuevo.');
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        $("#ul-modal-status").append('<li style="border: 2px solid gray;" class="list-group-item list-group-item-danger">Error al subir imagen: ' + nameimg + '</li>');
+                        // alert('El color ya existe o no se puedo subir,intenta de nuevo.');
                     }
                 });
             } else {
@@ -1341,13 +1349,14 @@ $orden = $orden + 10;
         change_tbl_inv_versiones();
         /**Carga marca modelo año en Asignar color */
         change_marcamodel_asignar_color();
+
         function change_marcamodel_asignar_color() {
             let slug = '<?php echo $auto["slug"] ?>';
             let modelo = '<?php echo $auto["modelo"] ?>';
             let ano = '<?php echo $auto["ano"] ?>';
             console.log(modelo);
             let var_marca = slug.split('-');
-            
+
             let marca_splited = var_marca[0];
             let marca_concat = marca_splited[0].toUpperCase() + marca_splited.slice(1);
             $("#asignado").val(marca_concat);
@@ -1356,6 +1365,7 @@ $orden = $orden + 10;
             $("#ano").val(ano);
 
         }
+
         function change_tbl_inv_versiones() {
             let slug = '<?php echo $auto["slug"] ?>';
             //cargando select de iconos
@@ -1382,9 +1392,9 @@ $orden = $orden + 10;
                     });
                     $("#tbl-inv-versiones tbody").html(str_tbody);
                     console.log('change_tbl_inv_versiones');
-            
-            console.log(str_tbody);
-            return true;
+
+                    console.log(str_tbody);
+                    return true;
                 }
             });
 
@@ -1423,7 +1433,7 @@ $orden = $orden + 10;
             let urlimage = `https://d3s2hob8w3xwk8.cloudfront.net/features/det-${nn_icon}.svg`;
             $("#nn_img_icon").attr('src', urlimage);
             console.log(urlimage);
-            
+
         }
 
 
@@ -1546,19 +1556,22 @@ $orden = $orden + 10;
             }
         }
 
-        let move_tab=0;
+        let move_tab = 0;
+
         function mouse_modulo_asignar_color(move) {
             if (move == 1) {
                 move_tab = 1;
             }
         }
         let move_tab_color = 0;
+
         function mouse_modulo_colores(move) {
             if (move == 1) {
                 move_tab_color = 1;
             }
         }
-        function modulo_asignar_color(){
+
+        function modulo_asignar_color() {
             $("#tab_asignar_color").show();
             $("#tab_portadas_mobile").hide();
             $("#tab_portadas_web").hide();
@@ -1580,7 +1593,8 @@ $orden = $orden + 10;
             }
 
         }
-        function modulo_invver(){
+
+        function modulo_invver() {
             $("#tab_invver").show();
             $("#tab_portadas_mobile").hide();
             $("#tab_portadas_web").hide();
@@ -1590,6 +1604,7 @@ $orden = $orden + 10;
             url.searchParams.set('tab', 'tab_invver');
             window.history.pushState({}, '', url);
         }
+
         function modulo_portadas_web() {
             $("#tab_portadas_web").show();
             $("#tab_portadas_mobile").hide();
@@ -1600,6 +1615,7 @@ $orden = $orden + 10;
             url.searchParams.set('tab', 'tab_portadas_web');
             window.history.pushState({}, '', url);
         }
+
         function modulo_portadas_mobile() {
             $("#tab_portadas_mobile").show();
             $("#tab_portadas_web").hide();
@@ -1610,6 +1626,7 @@ $orden = $orden + 10;
             url.searchParams.set('tab', 'tab_portadas_mobile');
             window.history.pushState({}, '', url);
         }
+
         function modulo_imagenes_versiones() {
             $("#tab_imagenes_versiones").show();
             $("#tab_portadas_mobile").hide();
@@ -1622,7 +1639,8 @@ $orden = $orden + 10;
             window.history.pushState({}, '', url);
             list_versions();
         }
-        function modulo_colores(){
+
+        function modulo_colores() {
             $("#tab_imagenes").show();
             $("#tab_portadas_mobile").hide();
             $("#tab_portadas_web").hide();
@@ -1632,7 +1650,7 @@ $orden = $orden + 10;
             const url = new URL(window.location);
             url.searchParams.set('tab', 'tab_imagenes');
             window.history.pushState({}, '', url);
-            
+
             if (move_tab_color == 1) {
                 //location.reload(true);
             }
@@ -1659,10 +1677,12 @@ $orden = $orden + 10;
             */
         });
 
-        $("#color").change(()=>{
+        $("#color").change(() => {
             let hex = $("#color").find(':selected').attr('data-hexa');
             console.log(hex);
-            $("#input-color").css({'background-color': hex});
+            $("#input-color").css({
+                'background-color': hex
+            });
         });
 
         // SAVE ASIGNACION DE COLOR //
@@ -1690,7 +1710,7 @@ $orden = $orden + 10;
                     data: param,
                     success: function(resp) {
                         alert(resp);
-                        location.reload();   
+                        location.reload();
                     }
                 })
             } else {
@@ -1753,7 +1773,7 @@ $orden = $orden + 10;
 
         function get_colores_asignados() {
             let param = {
-                func : 'get_colores_asignados'
+                func: 'get_colores_asignados'
             }
             console.log('entrando');
             $.ajax({
@@ -1761,7 +1781,7 @@ $orden = $orden + 10;
                 type: 'POST',
                 url: 'get_inventario_versiones.php',
                 dataType: 'json',
-                success: function (res) {
+                success: function(res) {
                     // console.log( res);
                     $("#tbl_colores_asignados tbody").empty();
                     $("#tbl_colores_asignados tbody").append(res);
@@ -1772,7 +1792,7 @@ $orden = $orden + 10;
         }
 
         // get_colores_asignados();
-        $(document).ready(function () {
+        $(document).ready(function() {
             // change buttons Portada Web
             let slug = '<?php echo $auto["slug"] ?>';
             get_colors(slug, '00', 'web');
@@ -1788,31 +1808,48 @@ $orden = $orden + 10;
                 // modulo_asignar_color();
                 // $("#li_modulo_asignar_color").addClass('active');
                 $("#li_modulo_asignar_color").click();
-            } else if(tab == 'tab_imagenes') {
+            } else if (tab == 'tab_imagenes') {
                 $("#li_modulo_colores").click();
-            } else if(tab == 'tab_invver') {
+            } else if (tab == 'tab_invver') {
                 $("#li_modulo_invver").click();
-            } else if(tab == 'tab_portadas_web') {
+            } else if (tab == 'tab_portadas_web') {
                 $("#li_modulo_portadas_web").click();
-            } else if(tab == 'tab_portadas_mobile') {
+            } else if (tab == 'tab_portadas_mobile') {
                 $("#li_modulo_portadas_mobile").click();
-            } else if(tab == 'tab_imagenes_versiones') {
+            } else if (tab == 'tab_imagenes_versiones') {
                 $("#li_modulo_imagenes_versiones").click();
             } else {
                 $("#li_modulo_colores").click();
             }
         });
-        
+
         async function func_change_btn_portada_web(slug, id_control_btns, ambiente) {
-            let arr_rangos = [
-                { name: 'Default', val: '00'},
-                { name: '18-24 años (MDE)', val: '01'},
-                { name: '25-34 años (MDI)', val: '02'},
-                { name: '35-44 años (MDM)', val: '03'},
-                { name: '45-54 años (MDQ)', val: '04'},
-                { name: '55-64 años (MDU)', val: '05'}
+            let arr_rangos = [{
+                    name: 'Default',
+                    val: '00'
+                },
+                {
+                    name: '18-24 años (MDE)',
+                    val: '01'
+                },
+                {
+                    name: '25-34 años (MDI)',
+                    val: '02'
+                },
+                {
+                    name: '35-44 años (MDM)',
+                    val: '03'
+                },
+                {
+                    name: '45-54 años (MDQ)',
+                    val: '04'
+                },
+                {
+                    name: '55-64 años (MDU)',
+                    val: '05'
+                }
             ];
-            let str_html_for_btns='';
+            let str_html_for_btns = '';
             for (let i = 0; i < arr_rangos.length; i++) {
                 const elem = arr_rangos[i];
 
@@ -1821,19 +1858,19 @@ $orden = $orden + 10;
                 console.log('resp_gca_validation', resp_gca_validation);
 
 
-                str_html_for_btns += ''+
-                                        '<div class="col-md-2">'+
-                                           ' <button class="'+resp_gca_validation+'" onclick="get_colors(\''+slug+'\', \''+elem.val+'\', \''+ ambiente +'\')" style="width: 95%; border-radius: 10px;">'+
-                                                ''+elem.name+''+
-                                            '</button>' +
-                                        '</div>';
+                str_html_for_btns += '' +
+                    '<div class="col-md-2">' +
+                    ' <button class="' + resp_gca_validation + '" onclick="get_colors(\'' + slug + '\', \'' + elem.val + '\', \'' + ambiente + '\')" style="width: 95%; border-radius: 10px;">' +
+                    '' + elem.name + '' +
+                    '</button>' +
+                    '</div>';
             }
 
-            $('#'+id_control_btns).html(str_html_for_btns);
+            $('#' + id_control_btns).html(str_html_for_btns);
 
 
         }
-        
+
 
         async function comprobarImagenes(urls) {
             const resultados = {
@@ -1845,12 +1882,12 @@ $orden = $orden + 10;
                 return new Promise((resolve, reject) => {
                     const imagen = new Image();
 
-                    imagen.onload = function () {
+                    imagen.onload = function() {
                         resultados.exitosos++;
                         resolve();
                     };
 
-                    imagen.onerror = function () {
+                    imagen.onerror = function() {
                         resultados.errores++;
                         resolve();
                     };
@@ -1864,7 +1901,7 @@ $orden = $orden + 10;
 
                 try {
                     await Promise.all(promesas);
-                    console.log('Comprobaciones completadas. Imágenes exitosas: '+resultados.exitosos +', Errores: '+ resultados.errores);
+                    console.log('Comprobaciones completadas. Imágenes exitosas: ' + resultados.exitosos + ', Errores: ' + resultados.errores);
                     return resultados;
                 } catch (error) {
                     console.error('Error al ejecutar las comprobaciones:', error);
@@ -1879,13 +1916,12 @@ $orden = $orden + 10;
 
         async function get_colors_and_validation($slug, rango_edad_num, ambiente) {
 
-           let response = await $.ajax({
+            let response = await $.ajax({
                 type: "GET",
-                url: "https://api.gruporivero.com/v1/cars/"+$slug,
+                url: "https://api.gruporivero.com/v1/cars/" + $slug,
                 data: null,
                 dataType: "json",
-                success: async function (response) {                    
-                }
+                success: async function(response) {}
             });
 
             let arr_urls_color = [];
@@ -1899,22 +1935,22 @@ $orden = $orden + 10;
                 } else if (ambiente == 'mobile') {
                     src = 'https://d3s2hob8w3xwk8.cloudfront.net/nueva-landing-autos/' + model_formated + '_' + response.data.year + '/Movil/' + rango_edad_num + '/' + model_formated + '_' + response.data.year + '_' + color_formated + '_movil.webp';
                 }
-                
+
                 arr_urls_color[i] = src;
             }
             console.log('arr de urls', arr_urls_color);
 
             let comprobar_imagenes = await comprobarImagenes(arr_urls_color);
             console.log('COMPROBAR IMAGES: ', comprobar_imagenes);
-            if (comprobar_imagenes.exitosos > 0 && comprobar_imagenes.exitosos == (comprobar_imagenes.exitosos + comprobar_imagenes.errores) ) {
+            if (comprobar_imagenes.exitosos > 0 && comprobar_imagenes.exitosos == (comprobar_imagenes.exitosos + comprobar_imagenes.errores)) {
                 return 'btn btn-success';
-            } else if (comprobar_imagenes.exitosos > 0 && comprobar_imagenes.exitosos != (comprobar_imagenes.exitosos + comprobar_imagenes.errores) ) {
+            } else if (comprobar_imagenes.exitosos > 0 && comprobar_imagenes.exitosos != (comprobar_imagenes.exitosos + comprobar_imagenes.errores)) {
                 return 'btn btn-warning';
             } else if (comprobar_imagenes.exitosos == 0) {
                 return 'btn btn-secondary';
             }
-            
-            
+
+
 
 
 
@@ -1926,7 +1962,7 @@ $orden = $orden + 10;
 
 
 
-        function openaModalImagen(param){
+        function openaModalImagen(param) {
             $parametros = window.atob(param);
             $parametros = JSON.parse($parametros);
             let color = $parametros['Color'];
@@ -1935,9 +1971,12 @@ $orden = $orden + 10;
             console.log(color);
             $("#modal-add-image").modal('show');
         }
-        function funconerror(ee){
-            console.log('error imagen: '+$(ee).attr("src") );
-            $(ee).css({"height": "300px"});
+
+        function funconerror(ee) {
+            console.log('error imagen: ' + $(ee).attr("src"));
+            $(ee).css({
+                "height": "300px"
+            });
         }
         // TODO: continuar con los demas ajustes ver archivo compare.php, ultimo cambio: slides ordenados
 
@@ -1946,10 +1985,10 @@ $orden = $orden + 10;
             let html_row_portada = '';
             $.ajax({
                 type: "GET",
-                url: "https://api.gruporivero.com/v1/cars/"+$slug,
+                url: "https://api.gruporivero.com/v1/cars/" + $slug,
                 data: null,
                 dataType: "json",
-                success: function (response) {
+                success: function(response) {
                     console.log('Api colors');
                     console.log(response);
                     let img_on_error = 'https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/competencia/subir_imagen_icon_19.png';
@@ -1959,22 +1998,22 @@ $orden = $orden + 10;
                     let class_imagen_portada = '';
 
                     if (ambiente == 'web') {
-                        file_path = 'nueva-landing-autos/'+model_formated+'_'+ response.data.year +'/Colores/'+rango_edad_num+'/';
+                        file_path = 'nueva-landing-autos/' + model_formated + '_' + response.data.year + '/Colores/' + rango_edad_num + '/';
                         class_imagen_portada = 'class_imagen_portada_web' + rango_edad_num;
                     } else if (ambiente == 'mobile') {
                         class_imagen_portada = 'class_imagen_portada_mobile' + rango_edad_num;
-                        url_background = 'https://d3s2hob8w3xwk8.cloudfront.net/nueva-landing-autos/' + model_formated + '_' + response.data.year + '/Movil/' + rango_edad_num + '/' + model_formated + '_' + response.data.year + '_movil_'+rango_edad_num+'.jpg';
-                        file_path = 'nueva-landing-autos/'+model_formated+'_'+ response.data.year +'/Movil/'+rango_edad_num+'/';
-                        let name_img = model_formated + '_' + response.data.year + '_movil_'+rango_edad_num+'.jpg';
+                        url_background = 'https://d3s2hob8w3xwk8.cloudfront.net/nueva-landing-autos/' + model_formated + '_' + response.data.year + '/Movil/' + rango_edad_num + '/' + model_formated + '_' + response.data.year + '_movil_' + rango_edad_num + '.jpg';
+                        file_path = 'nueva-landing-autos/' + model_formated + '_' + response.data.year + '/Movil/' + rango_edad_num + '/';
+                        let name_img = model_formated + '_' + response.data.year + '_movil_' + rango_edad_num + '.jpg';
                         let id_file_portada = 'id_file_portada_mobile';
-                        let html_div_cargar_fondo = 
-                                        '<h4>Cargar fondo </h4>'+
-                                        '<div class="custom-file-upload">'+
-                                            '<label for="id_file_portada">Seleccionar Archivo</label>'+
-                                            '<input onchange="fun_listener_change_background(this, \''+ class_imagen_portada+'\')" type="file"  id="'+id_file_portada+'">'+
-                                        '</div>&nbsp;'+
-                                        '<ul style="position:absolute;" class="list-group" id="ul-modal-status2'+id_file_portada+'">   </ul> ' +
-                                        '<button class="btn btn-primary" onclick="guardar_fondo(\''+ id_file_portada +'\', \''+name_img+'\', \''+file_path+'\' )" >Guardar portada</button>';
+                        let html_div_cargar_fondo =
+                            '<h4>Cargar fondo </h4>' +
+                            '<div class="custom-file-upload">' +
+                            '<label for="id_file_portada">Seleccionar Archivo</label>' +
+                            '<input onchange="fun_listener_change_background(this, \'' + class_imagen_portada + '\')" type="file"  id="' + id_file_portada + '">' +
+                            '</div>&nbsp;' +
+                            '<ul style="position:absolute;" class="list-group" id="ul-modal-status2' + id_file_portada + '">   </ul> ' +
+                            '<button class="btn btn-primary" onclick="guardar_fondo(\'' + id_file_portada + '\', \'' + name_img + '\', \'' + file_path + '\' )" >Guardar portada</button>';
                         $('#div_cargar_fondo').html(html_div_cargar_fondo);
                     }
 
@@ -1984,7 +2023,7 @@ $orden = $orden + 10;
                         let color_formated = color_obj.name.replaceAll(' ', '-');
                         let src = '';
                         if (ambiente == 'web') {
-                            src = 'https://d3s2hob8w3xwk8.cloudfront.net/nueva-landing-autos/'+model_formated+'_'+ response.data.year +'/Colores/'+rango_edad_num+'/' + model_formated + '_' + color_formated + '_' +response.data.year + '_'+rango_edad_num+'.webp';
+                            src = 'https://d3s2hob8w3xwk8.cloudfront.net/nueva-landing-autos/' + model_formated + '_' + response.data.year + '/Colores/' + rango_edad_num + '/' + model_formated + '_' + color_formated + '_' + response.data.year + '_' + rango_edad_num + '.webp';
                         } else if (ambiente == 'mobile') {
                             src = 'https://d3s2hob8w3xwk8.cloudfront.net/nueva-landing-autos/' + model_formated + '_' + response.data.year + '/Movil/' + rango_edad_num + '/' + model_formated + '_' + response.data.year + '_' + color_formated + '_movil.webp';
                         }
@@ -1993,38 +2032,38 @@ $orden = $orden + 10;
                         let id_file_input = '';
                         let name_img = '';
                         let imagen_portada_id = '';
-                        
+
                         //componiendo ruta y nombre de imagen
                         if (ambiente == 'web') {
-                            id_file_input = 'input_file_img_portada_web'+rango_edad_num+(color_obj.name).replaceAll(' ', '-');
-                            name_img = model_formated +'_'+ color_formated+'_'+ response.data.year +'_' + rango_edad_num+'.webp';
-                            imagen_portada_id = 'id_imagen_portada_web' + rango_edad_num+(color_obj.name).replaceAll(' ', '-');
+                            id_file_input = 'input_file_img_portada_web' + rango_edad_num + (color_obj.name).replaceAll(' ', '-');
+                            name_img = model_formated + '_' + color_formated + '_' + response.data.year + '_' + rango_edad_num + '.webp';
+                            imagen_portada_id = 'id_imagen_portada_web' + rango_edad_num + (color_obj.name).replaceAll(' ', '-');
                         } else if (ambiente == 'mobile') {
-                            id_file_input = 'input_file_img_portada_mobile'+rango_edad_num+(color_obj.name).replaceAll(' ', '-');
-                            name_img = model_formated +'_'+ response.data.year +'_' + color_formated +'_' + 'movil.webp';
-                            imagen_portada_id = 'id_imagen_portada_mobile' + rango_edad_num+(color_obj.name).replaceAll(' ', '-');
+                            id_file_input = 'input_file_img_portada_mobile' + rango_edad_num + (color_obj.name).replaceAll(' ', '-');
+                            name_img = model_formated + '_' + response.data.year + '_' + color_formated + '_' + 'movil.webp';
+                            imagen_portada_id = 'id_imagen_portada_mobile' + rango_edad_num + (color_obj.name).replaceAll(' ', '-');
 
                         } else {
                             alert('parametros web o mobile incorrectos');
                             return false;
                         }
 
-                        if ($.inArray(i+1, [1, 4, 7, 10, 13, 16, 19, 22, 25]) != -1) {
+                        if ($.inArray(i + 1, [1, 4, 7, 10, 13, 16, 19, 22, 25]) != -1) {
                             html_row_portada += '<div class="row">';
                         }
                         html_row_portada += '<div class="col-md-4 col-4">' +
-                        '<div class="card" >' +
-                            '<img class="'+class_imagen_portada+'" id="'+imagen_portada_id+'" style="background-size: cover; background-position: center; cursor: pointer; background-image: url(\'' + url_background + '\');" onclick="fun_charge_img(\''+id_file_input+'\')" width="100%"  src="'+`${src}`+'" onerror="this.onerror=null; this.src=\''+img_on_error+'\'" class="card-img-top" alt="...">' +
+                            '<div class="card" >' +
+                            '<img class="' + class_imagen_portada + '" id="' + imagen_portada_id + '" style="background-size: cover; background-position: center; cursor: pointer; background-image: url(\'' + url_background + '\');" onclick="fun_charge_img(\'' + id_file_input + '\')" width="100%"  src="' + `${src}` + '" onerror="this.onerror=null; this.src=\'' + img_on_error + '\'" class="card-img-top" alt="...">' +
                             '<div class="card-body" >' +
-                                '<input class="form-control" style="width: 100%" onchange="fun_listener_change(this, \''+ imagen_portada_id+'\')" type="file" id="'+id_file_input+'">'+
-                                '<h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">'+color_obj.name+'</h5>' +
-                                '<ul style="position:absolute;" class="list-group" id="ul-modal-status2'+id_file_input+'">   </ul> ' +
-                                '<a onclick="func_enviar_imagen_pw(\''+id_file_input+'\', \''+name_img+'\', \''+file_path+'\' )" style="display: flex; align-items: center; justify-content: center;" class="btn btn-primary" >Guardar imagen</a>' +
+                            '<input class="form-control" style="width: 100%" onchange="fun_listener_change(this, \'' + imagen_portada_id + '\')" type="file" id="' + id_file_input + '">' +
+                            '<h5 style="display: flex; align-items: center; justify-content: center;" class="card-title">' + color_obj.name + '</h5>' +
+                            '<ul style="position:absolute;" class="list-group" id="ul-modal-status2' + id_file_input + '">   </ul> ' +
+                            '<a onclick="func_enviar_imagen_pw(\'' + id_file_input + '\', \'' + name_img + '\', \'' + file_path + '\' )" style="display: flex; align-items: center; justify-content: center;" class="btn btn-primary" >Guardar imagen</a>' +
                             '</div>' +
-                        '</div>' +
-                    '</div>';
+                            '</div>' +
+                            '</div>';
 
-                    if ($.inArray(i+1, [3, 6, 9, 12, 15, 18, 21, 24, 27]) != -1) {
+                        if ($.inArray(i + 1, [3, 6, 9, 12, 15, 18, 21, 24, 27]) != -1) {
                             html_row_portada += '</div>';
                         }
 
@@ -2034,31 +2073,32 @@ $orden = $orden + 10;
                     } else if (ambiente == 'mobile') {
                         $('#div_row_portada_mobile').html(html_row_portada);
                     }
-                    
+
                 }
             });
 
         }
 
-        function  fun_listener_change(thiss, imagen_portada_id) {
+        function fun_listener_change(thiss, imagen_portada_id) {
             let id_file_input = '';
-            
+
             if (thiss.files && thiss.files[0]) {
                 let reader = new FileReader();
                 reader.onload = function(e) {
-                    $('#'+imagen_portada_id).attr('src', e.target.result);
+                    $('#' + imagen_portada_id).attr('src', e.target.result);
                 }
                 reader.readAsDataURL(thiss.files[0]);
             }
         }
+
         function fun_listener_change_background(thiss, class_imagen_portada) {
-            
-            
+
+
             if (thiss.files && thiss.files[0]) {
                 console.log(thiss.files[0], class_imagen_portada);
                 let reader = new FileReader();
                 reader.onload = function(e) {
-                    $('.'+class_imagen_portada).css('background-image', 'url('+ e.target.result + ')');
+                    $('.' + class_imagen_portada).css('background-image', 'url(' + e.target.result + ')');
                     // $('.'+class_imagen_portada).css('background-image', 'background-size: cover; background-position: center; cursor: pointer; background-image: url('+ e.target.result + ');');
                     // $('.'+class_imagen_portada).css('background', 'transparent url('+e.target.result +') left top no-repeat');
                 }
@@ -2071,6 +2111,7 @@ $orden = $orden + 10;
             func_enviar_imagen_pw(id_obj, nameimg, filepath);
 
         }
+
         function enviar_imagen_version(id_obj, nameimg, filepath) {
             func_enviar_imagen_pw(id_obj, nameimg, filepath);
         }
@@ -2078,18 +2119,18 @@ $orden = $orden + 10;
         function enviar_imagen_lateral(id_file_input, nameimg, filepath) {
 
             func_enviar_imagen_pw(id_file_input, nameimg, filepath);
-            
+
         }
-        
+
 
         function func_enviar_imagen_pw(obj, nameimg, filepath) {
             console.log(obj, nameimg, filepath);
-            
+
             // var color = document.getElementById('color').value;
             var fd = new FormData();
             var files = $('#' + obj)[0].files[0];
             if (files) {
-                
+
 
                 fd.append('file', files);
                 fd.append('name', nameimg);
@@ -2106,15 +2147,15 @@ $orden = $orden + 10;
                         console.log('File uploaded: ' + obj + '| ' + nameimg);
                         if (response != 0) {
                             count_request_change_img++;
-                            console.log('response: '+response);
+                            console.log('response: ' + response);
 
 
-                            $("#ul-modal-status2"+obj ).append('<li style="border: 2px solid gray;" class="list-group-item list-group-item-success">'+nameimg+' cargado correctamente <b>('+count_request_change_img+'</b> de 1)</li>');
+                            $("#ul-modal-status2" + obj).append('<li style="border: 2px solid gray;" class="list-group-item list-group-item-success">' + nameimg + ' cargado correctamente <b>(' + count_request_change_img + '</b> de 1)</li>');
                             setTimeout(() => {
-                                $("#ul-modal-status2"+obj ).html('');
+                                $("#ul-modal-status2" + obj).html('');
                             }, 2000);
                         } else {
-                            $("#ul-modal-status2").append('<li style="border: 2px solid gray;" class="list-group-item list-group-item-danger">Error al subir imagen: '+nameimg+'</li>');
+                            $("#ul-modal-status2").append('<li style="border: 2px solid gray;" class="list-group-item list-group-item-danger">Error al subir imagen: ' + nameimg + '</li>');
                             alert('El color ya existe o no se puedo subir,intenta de nuevo.');
                         }
                     }
@@ -2129,8 +2170,8 @@ $orden = $orden + 10;
 
         function fun_charge_img(id_file_input) {
 
-            console.log('FUNC CHARGE IMG: '+id_file_input);
-            $('#'+id_file_input).click();
+            console.log('FUNC CHARGE IMG: ' + id_file_input);
+            $('#' + id_file_input).click();
         }
 
         //Imagenes de versiones
@@ -2138,40 +2179,40 @@ $orden = $orden + 10;
             let slug = '<?php echo $auto["slug"] ?>';
             $.ajax({
                 type: "GET",
-                url: "https://api.gruporivero.com/v1/cars/"+slug,
+                url: "https://api.gruporivero.com/v1/cars/" + slug,
                 data: null,
                 dataType: "json",
-                success: function (res) {
+                success: function(res) {
                     let model = res.data.model.replaceAll(' ', '-');
                     let year = res.data.year;
-                    let  model_year = model+'_'+year;
+                    let model_year = model + '_' + year;
                     console.log(model_year);
 
                     version = version.replaceAll(' ', '-');
-                    let nameimg = 'Version_'+version+'_'+model_year+'.png';
+                    let nameimg = 'Version_' + version + '_' + model_year + '.png';
                     let img_on_error = 'https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/competencia/subir_imagen_icon_19.png';
-                    let url_image = 'https://d3s2hob8w3xwk8.cloudfront.net/nueva-landing-autos/'+model_year+'/'+nameimg;
-                    let id_img_versions = 'id_img_versions_'+version;
-                    let img_image =  '<img id="'+id_img_versions+'" style="width: 35%; height: auto;" src="'+url_image+'" onerror="this.onerror=null; this.src=\''+img_on_error+'\'" alt="">';
+                    let url_image = 'https://d3s2hob8w3xwk8.cloudfront.net/nueva-landing-autos/' + model_year + '/' + nameimg;
+                    let id_img_versions = 'id_img_versions_' + version;
+                    let img_image = '<img id="' + id_img_versions + '" style="width: 35%; height: auto;" src="' + url_image + '" onerror="this.onerror=null; this.src=\'' + img_on_error + '\'" alt="">';
                     // <img class="img_versions" style="width: 260px; height: auto;" src="https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/competencia/subir_imagen_icon_19.png" alt="">
                     // <img style="width: 260px; height: auto;" src="https://d3s2hob8w3xwk8.cloudfront.net/nueva-landing-autos/AVEO-HB_2024/Version_LT_AVEO-HB_2024.png" alt="">
                     $('#div_img_versiones').html(img_image);
-        
-                    let id_input_versions = 'id_input_versions_'+version;
-                    let input_file = '<input id="'+id_input_versions+'" type="file" onchange="fun_listener_change(this, \''+id_img_versions+'\')" class="form-control">';
+
+                    let id_input_versions = 'id_input_versions_' + version;
+                    let input_file = '<input id="' + id_input_versions + '" type="file" onchange="fun_listener_change(this, \'' + id_img_versions + '\')" class="form-control">';
                     $('#div_img_versiones_input_img').html(input_file);
                     console.log(version);
 
                     //button to save image
-                    let path_image_to_save = 'nueva-landing-autos/'+model_year+'/';
+                    let path_image_to_save = 'nueva-landing-autos/' + model_year + '/';
 
-                    let button_save_img_version = '<button onclick="enviar_imagen_version(\''+id_input_versions+'\', \''+nameimg+'\', \''+path_image_to_save+'\' )" style="width: 100%;" class="btn btn-primary">Guardar imagen de version</button>';
+                    let button_save_img_version = '<button onclick="enviar_imagen_version(\'' + id_input_versions + '\', \'' + nameimg + '\', \'' + path_image_to_save + '\' )" style="width: 100%;" class="btn btn-primary">Guardar imagen de version</button>';
 
                     $('#div_img_version_buton_guardar').html(button_save_img_version);
                     //message control
-                    let div_img_version_message = '<ul style="width: 100%;" class="list-group" id="ul-modal-status2'+id_input_versions+'">';
+                    let div_img_version_message = '<ul style="width: 100%;" class="list-group" id="ul-modal-status2' + id_input_versions + '">';
                     $('#div_img_version_message').html(div_img_version_message);
-                    
+
                 }
             });
 
@@ -2181,87 +2222,83 @@ $orden = $orden + 10;
             let slug = '<?php echo $auto["slug"] ?>';
             let res = await $.ajax({
                 type: "GET",
-                url: "https://api.gruporivero.com/v1/cars/"+slug,
+                url: "https://api.gruporivero.com/v1/cars/" + slug,
                 data: null,
                 dataType: "json",
-                success: async function (res) {
-                }
+                success: async function(res) {}
             });
 
             let html = '';
-                    let arr_versions = res.data.versions;
-                    for (let ii = 0; ii < arr_versions.length; ii++) {
-                        const version = arr_versions[ii];
-                        if (version.name == null) {
-                            continue;
-                        }
-                        
-                        
-                    // res.data.versions.forEach(async version => {
-
-                        let model = res.data.model.replaceAll(' ', '-');
-                        let year = res.data.year;
-                        let  model_year = model+'_'+year;
-
-                        let name_version = version.name.replaceAll(' ', '-');
-                        let nameimg = 'Version_'+name_version+'_'+model_year+'.png';
-                        let url_image = 'https://d3s2hob8w3xwk8.cloudfront.net/nueva-landing-autos/'+model_year+'/'+nameimg;
-
-                        let arr_urls_color = [];
-                        arr_urls_color[0] = url_image;                       
-                        
-                        //validar imagenes y plasmar el color del boton
-                        let comprobar_imagenes = await comprobarImagenes(arr_urls_color);
-                        console.log('COMPROBAR IMAGES: ', comprobar_imagenes);
-                        let class_btn_versions = '';
-                        if (comprobar_imagenes.exitosos > 0 && comprobar_imagenes.exitosos == (comprobar_imagenes.exitosos + comprobar_imagenes.errores) ) {
-                            class_btn_versions = 'btn btn-success';
-                        } else if (comprobar_imagenes.exitosos > 0 && comprobar_imagenes.exitosos != (comprobar_imagenes.exitosos + comprobar_imagenes.errores) ) {
-                            class_btn_versions = 'btn btn-warning';
-                        } else if (comprobar_imagenes.exitosos == 0) {
-                            class_btn_versions = 'btn btn-secondary';
-                        }
-
-                        html += '<div class="col-md-3 div-btns-versions" style="width: auto; padding: 2px;">'+
-                            '<button class="'+class_btn_versions+' btns-versions" onclick="clcVersions(\''+version.name+'\')">'+version.name+'</button>'+
-                            '</div>';
-
-                    // });//foreach
-                        }//for
+            let arr_versions = res.data.versions;
+            for (let ii = 0; ii < arr_versions.length; ii++) {
+                const version = arr_versions[ii];
+                if (version.name == null) {
+                    continue;
+                }
 
 
-                    $('#row_btns_list-versions').html(html);
+                // res.data.versions.forEach(async version => {
 
-                    // imagen lateral
-                    let model = res.data.model.replaceAll(' ', '-');
-                    let year = res.data.year;
-                    let  model_year = model+'_'+year;
-                    let nameimg_lateral = `Version_lateral_${model_year}.png`;
-                    let path_image_to_save_lateral = 'nueva-landing-autos/'+model_year+'/';
+                let model = res.data.model.replaceAll(' ', '-');
+                let year = res.data.year;
+                let model_year = model + '_' + year;
 
-                    let img_on_error = 'https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/competencia/subir_imagen_icon_19.png';
-                    let url_img_lateral = 'https://d3s2hob8w3xwk8.cloudfront.net/nueva-landing-autos/'+model_year+'/'+nameimg_lateral;
-                    
+                let name_version = version.name.replaceAll(' ', '-');
+                let nameimg = 'Version_' + name_version + '_' + model_year + '.png';
+                let url_image = 'https://d3s2hob8w3xwk8.cloudfront.net/nueva-landing-autos/' + model_year + '/' + nameimg;
 
-                    let id_img_laterales = 'id_img_laterales';
+                let arr_urls_color = [];
+                arr_urls_color[0] = url_image;
 
-                    let html_img_laterales = '<img id="'+id_img_laterales+'" style="width: 57%; height: auto;" src="'+url_img_lateral+'" onerror="this.onerror=null; this.src=\''+img_on_error+'\'" alt="">';
-                    $('#div_img_lateral_versiones').html(html_img_laterales);
+                //validar imagenes y plasmar el color del boton
+                let comprobar_imagenes = await comprobarImagenes(arr_urls_color);
+                console.log('COMPROBAR IMAGES: ', comprobar_imagenes);
+                let class_btn_versions = '';
+                if (comprobar_imagenes.exitosos > 0 && comprobar_imagenes.exitosos == (comprobar_imagenes.exitosos + comprobar_imagenes.errores)) {
+                    class_btn_versions = 'btn btn-success';
+                } else if (comprobar_imagenes.exitosos > 0 && comprobar_imagenes.exitosos != (comprobar_imagenes.exitosos + comprobar_imagenes.errores)) {
+                    class_btn_versions = 'btn btn-warning';
+                } else if (comprobar_imagenes.exitosos == 0) {
+                    class_btn_versions = 'btn btn-secondary';
+                }
 
-                    let id_input_laterales = 'id_input_laterales';
-                    let html_lateral_button_guardar = `<button onclick="enviar_imagen_lateral('${id_input_laterales}', '${nameimg_lateral}', '${path_image_to_save_lateral}')" style="width: 100%;" class="btn btn-primary">Guardar imagen lateral</button>`;
+                html += '<div class="col-md-3 div-btns-versions" style="width: auto; padding: 2px;">' +
+                    '<button class="' + class_btn_versions + ' btns-versions" onclick="clcVersions(\'' + version.name + '\')">' + version.name + '</button>' +
+                    '</div>';
 
-                    $('#div_img_lateral_button_guardar').html(html_lateral_button_guardar);
+                // });//foreach
+            } //for
 
-                    //message control
-                    let div_img_lateral_message = '<ul style="width: 100%;" class="list-group" id="ul-modal-status2'+id_input_laterales+'">';
-                    $('#div_img_lateral_message').html(div_img_lateral_message);
+
+            $('#row_btns_list-versions').html(html);
+
+            // imagen lateral
+            let model = res.data.model.replaceAll(' ', '-');
+            let year = res.data.year;
+            let model_year = model + '_' + year;
+            let nameimg_lateral = `Version_lateral_${model_year}.png`;
+            let path_image_to_save_lateral = 'nueva-landing-autos/' + model_year + '/';
+
+            let img_on_error = 'https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/competencia/subir_imagen_icon_19.png';
+            let url_img_lateral = 'https://d3s2hob8w3xwk8.cloudfront.net/nueva-landing-autos/' + model_year + '/' + nameimg_lateral;
+
+
+            let id_img_laterales = 'id_img_laterales';
+
+            let html_img_laterales = '<img id="' + id_img_laterales + '" style="width: 57%; height: auto;" src="' + url_img_lateral + '" onerror="this.onerror=null; this.src=\'' + img_on_error + '\'" alt="">';
+            $('#div_img_lateral_versiones').html(html_img_laterales);
+
+            let id_input_laterales = 'id_input_laterales';
+            let html_lateral_button_guardar = `<button onclick="enviar_imagen_lateral('${id_input_laterales}', '${nameimg_lateral}', '${path_image_to_save_lateral}')" style="width: 100%;" class="btn btn-primary">Guardar imagen lateral</button>`;
+
+            $('#div_img_lateral_button_guardar').html(html_lateral_button_guardar);
+
+            //message control
+            let div_img_lateral_message = '<ul style="width: 100%;" class="list-group" id="ul-modal-status2' + id_input_laterales + '">';
+            $('#div_img_lateral_message').html(div_img_lateral_message);
 
 
         }
-        
-
-
     </script>
     <style>
         .custom-file-upload {
