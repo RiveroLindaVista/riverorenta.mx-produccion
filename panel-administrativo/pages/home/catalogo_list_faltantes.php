@@ -26,7 +26,7 @@ foreach ($catalogo_autos_incompletos as $key => $val) {
             // 'url_ficha' => strtolower('https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . $val['marca'] . '/' . $model_year . '/pdf/ficha-tecnica.pdf'),
             'url_catalogo' => strtolower('https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . $val['marca'] . '/' . $model_year . '/pdf/catalogo.pdf'),
             // 'url_manual' => strtolower('https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . $val['marca'] . '/' . $model_year . '/pdf/manual.pdf'),
-            'url_fondo' => strtolower('https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . $val['marca'] . '/' . $model_year . '/capas/'.$nombre_fondo),
+            'url_fondo' => 'https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . strtolower($val['marca'] . '/' . $model_year . '/fondos/').$nombre_fondo,
         ];
     } else {
         $urls = [
@@ -34,7 +34,7 @@ foreach ($catalogo_autos_incompletos as $key => $val) {
             'url_ficha' => strtolower('https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . $val['marca'] . '/' . $model_year . '/pdf/ficha-tecnica.pdf'),
             'url_catalogo' => strtolower('https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . $val['marca'] . '/' . $model_year . '/pdf/catalogo.pdf'),
             'url_manual' => strtolower('https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . $val['marca'] . '/' . $model_year . '/pdf/manual.pdf'),
-            'url_fondo' => strtolower('https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . $val['marca'] . '/' . $model_year . '/capas/'.$nombre_fondo),
+            'url_fondo' => 'https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . strtolower($val['marca'] . '/' . $model_year . '/fondos/').$nombre_fondo,
         ];
     }
     
