@@ -82,6 +82,7 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
                             <?php }?>
 
                             <th class="th_dflex">COLORES</th>
+                            <th class="th_dflex">FONDO</th>
                             <th class="th_dflex">GALERIA</th>
                             <th class="th_dflex">VIDEO</th>
                             <th class="th_dflex">FICHA</th>
@@ -314,6 +315,7 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
                 const value = catalogo_autos_incompletos[i];
                 $flag_con_versiones = value['has_versions'] == 0 ? 'flag-red' : 'flag-green';
                 $flag_con_colores = value['has_colors'] == 0 ? 'flag-red' : 'flag-green';
+                $flag_con_fondo = value['has_fondo'] == 0 ? 'flag-red' : 'flag-green';
                 $flag_has_gallery = value['has_gallery'] == 0 ? 'flag-red' : 'flag-green';
                 $flag_has_video = value['has_video'] == 0 ? 'flag-red' : 'flag-green';
                 $flag_has_ficha_tecnica = value['has_ficha_tecnica'] == 'N/A' ? 'flag-gray' : (value['has_ficha_tecnica'] == 0 ? 'flag-red' : 'flag-green');
@@ -354,6 +356,7 @@ $promoAccesorios = $conne->get_all_promos_accesorios();
                     $tr_versiones += '<td>' + $str_versiones_match_nulls + '</td>';
                 <?php } ?>
                 $tr_versiones += '<td> <button class="' + $flag_con_colores + '"></button></td>';
+                $tr_versiones += '<td> <button class="' + $flag_con_fondo + '"></button></td>';
                 $tr_versiones += '<td> <button class="' + $flag_has_gallery + '"></button></td>';
                 $tr_versiones += '<td> <button class="' + $flag_has_video + '"></button></td>';
                 $tr_versiones += '<td> <button class="' + $flag_has_ficha_tecnica + '"></button></td>';
