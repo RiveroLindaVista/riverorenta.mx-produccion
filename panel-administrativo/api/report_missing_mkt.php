@@ -39,6 +39,7 @@ $resp .= constructByAgency($data, 'GMC', 'https://chevroletrivero.com/gmc/catalo
 function constructByAgency($data, $agency, $link)
 {
     $tx_without_colors = '';
+    $tx_without_fondo = '';
     $tx_without_gallery = '';
     $tx_without_video = '';
     $tx_without_ficha_tecnica = '';
@@ -50,6 +51,9 @@ function constructByAgency($data, $agency, $link)
 
             if ($value['has_colors'] == false) {
                 $tx_without_colors .= '<li style=\'color: white;\'>' . $value['marca'] . ' ' . $value['modelo'] .' '. $value['ano'] . '</li>';
+            }
+            if ($value['has_fondo'] == false) {
+                $tx_without_fondo .= '<li style=\'color: white;\'>' . $value['marca'] . ' ' . $value['modelo'] .' '. $value['ano'] . '</li>';
             }
             if ($value['has_gallery'] == false) {
                 $tx_without_gallery .= '<li style=\'color: white;\'>' . $value['marca'] . ' ' . $value['modelo'] .' '. $value['ano'] . '</li>';
@@ -72,6 +76,7 @@ function constructByAgency($data, $agency, $link)
     }
     $tx = '<h2 style=\'color: white\'>' . $agency . ' ('.$link.')</h2>';
     $tx .= '<h5  style=\'margin: 0px; color: white;\'>UNIDADES FALTANTES DE MOCKUPS</h5> <ul style=\'margin: 0px; color: white;\'>' . ($tx_without_colors == '' ? '---': $tx_without_colors) . '</ul>';
+    $tx .= '<h5  style=\'margin: 0px; color: white;\'>UNIDADES FALTANTES DE FONDOS Y CAPAS</h5> <ul style=\'margin: 0px; color: white;\'>' . ($tx_without_fondo == '' ? '---': $tx_without_fondo) . '</ul>';
     $tx .= '<h5  style=\'margin: 0px; color: white;\'>UNIDADES SIN GALERIA</h5> <ul style=\'margin: 0px; color: white;\'>' . ($tx_without_gallery == '' ? '---': $tx_without_gallery) . '</ul>';
     $tx .= '<h5  style=\'margin: 0px; color: white;\'>UNIDADES SIN VIDEO</h5> <ul style=\'margin: 0px; color: white;\'>' . ($tx_without_video == '' ? '---': $tx_without_video) . '</ul>';
     $tx .= '<h5  style=\'margin: 0px; color: white;\'>UNIDADES SIN CATALOGO</h5> <ul style=\'margin: 0px; color: white;\'>' . ($tx_without_catalogo == '' ? '---': $tx_without_catalogo) . '</ul>';
