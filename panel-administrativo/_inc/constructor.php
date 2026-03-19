@@ -2199,9 +2199,10 @@ public function catalogo_autos_incompletos(){
 				) has_versiones_nulls
             
     FROM catalogo cat  
-    WHERE cat.status = 1 
+    WHERE cat.status = 1 AND cat.marca IN ("Chevrolet", "Nissan")
     GROUP BY cat.slug
 ';
+// NOTA: DESACTIVE LAS OTRAS MARCAS PORQUE ACTUALMENTE NO LAS USAMOS Y SI NO SE USA MEJOR NO SOBRECARGAR LA CONSULTA.
 
   $result=$conn->query($sql);
   if ($result) {
