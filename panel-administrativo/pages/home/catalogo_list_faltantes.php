@@ -17,6 +17,8 @@ foreach ($catalogo_autos_incompletos as $key => $val) {
     $model_year = $val['modelo'] . '-' . $val['ano'];
     $model_year = str_replace(' ', '-', $model_year);
     $slug = strtolower($val['marca'] . '-' . str_replace(' ', '-', $val['modelo']) . '-' . $val['ano']);
+    $nombre_fondo = 'Fondo_' . str_replace(' ', '-', $val['modelo']).'_'.$val['ano']. '_00.jpg';
+
 
     if ($val['marca'] == 'NISSAN') {
         $urls = [
@@ -24,6 +26,7 @@ foreach ($catalogo_autos_incompletos as $key => $val) {
             // 'url_ficha' => strtolower('https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . $val['marca'] . '/' . $model_year . '/pdf/ficha-tecnica.pdf'),
             'url_catalogo' => strtolower('https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . $val['marca'] . '/' . $model_year . '/pdf/catalogo.pdf'),
             // 'url_manual' => strtolower('https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . $val['marca'] . '/' . $model_year . '/pdf/manual.pdf'),
+            'url_fondo' => strtolower('https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . $val['marca'] . '/' . $model_year . '/capas/'.$nombre_fondo),
         ];
     } else {
         $urls = [
@@ -31,6 +34,7 @@ foreach ($catalogo_autos_incompletos as $key => $val) {
             'url_ficha' => strtolower('https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . $val['marca'] . '/' . $model_year . '/pdf/ficha-tecnica.pdf'),
             'url_catalogo' => strtolower('https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . $val['marca'] . '/' . $model_year . '/pdf/catalogo.pdf'),
             'url_manual' => strtolower('https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . $val['marca'] . '/' . $model_year . '/pdf/manual.pdf'),
+            'url_fondo' => strtolower('https://d3s2hob8w3xwk8.cloudfront.net/autos-landing/' . $val['marca'] . '/' . $model_year . '/capas/'.$nombre_fondo),
         ];
     }
     
@@ -44,6 +48,7 @@ foreach ($catalogo_autos_incompletos as $key => $val) {
     $val['has_ficha_tecnica'] = ($val['marca'] == 'NISSAN' ? 'N/A' : $arr_checkurl['url_ficha']);
     $val['has_catalogo'] = $arr_checkurl['url_catalogo'];
     $val['has_manual'] = ($val['marca'] == 'NISSAN' ? 'N/A' : $arr_checkurl['url_manual']);
+    $val['has_fondo'] =  $arr_checkurl['url_fondo'];
 
 
     if ($val['has_versions'] == false  ||  $val['has_versiones_nulls'] != ''  ||  $val['has_versions_without_characteristics'] != '' || $val['has_colors'] == false || $val['has_gallery'] == false || $val['has_video'] == false || $val['has_ficha_tecnica'] == false || $val['has_catalogo'] == false || $val['has_manual'] == false) {
