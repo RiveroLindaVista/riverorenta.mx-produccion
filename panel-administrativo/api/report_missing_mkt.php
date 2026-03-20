@@ -130,7 +130,7 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
   CURLOPT_POSTFIELDS =>'{
-    "to":"jcruz@gruporivero.com,jvalles@gruporivero.com,marketing@gruporivero.com,mkt@gruporivero.com",
+    "to":"marketing@gruporivero.com,mkt@gruporivero.com,desarrollo@gruporivero.com",
     "clientName":"Equipo de Marketing",
     "subject":"Falta de material para paginas web",
     "body":"'.$resp.'",
