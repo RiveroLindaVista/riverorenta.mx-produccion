@@ -25,14 +25,14 @@ curl_close($curl);
 // Decodificar el JSON como un array asociativo
 $data = json_decode($response, true);
 $resp = '<h3 style=\'margin: 0px; color: white\'>Se encontraron unidades con material pendiente</h3>';
-$resp .= '<h4 style=\'margin: 0px; color: white;\'>Completar el material lo mas pronto para su publicacion y <span style=\'color: red; font-weight: bold; font-size: 1.2em;\'>Notificar al equipo de desarrollo</span></h4>';
+$resp .= '<h4 style=\'margin: 0px; color: white;\'>Completar el material lo mas pronto para su publicacion y <span style=\'color: red; font-weight: bold; font-size: 1.2em;\'>notificar al equipo de desarrollo</span></h4>';
 
 
 $resp .= constructByAgency($data, 'CHEVROLET', 'https://chevroletrivero.com/');
 $resp .= constructByAgency($data, 'NISSAN', 'https://nissanrivero.com/');
-$resp .= constructByAgency($data, 'BUICK', 'https://chevroletrivero.com/buick/catalogo/nuevos/');
-$resp .= constructByAgency($data, 'CADILLAC', 'https://chevroletrivero.com/cadillac/catalogo/nuevos/');
-$resp .= constructByAgency($data, 'GMC', 'https://chevroletrivero.com/gmc/catalogo/nuevos/');
+// $resp .= constructByAgency($data, 'BUICK', 'https://chevroletrivero.com/buick/catalogo/nuevos/');
+// $resp .= constructByAgency($data, 'CADILLAC', 'https://chevroletrivero.com/cadillac/catalogo/nuevos/');
+// $resp .= constructByAgency($data, 'GMC', 'https://chevroletrivero.com/gmc/catalogo/nuevos/');
 
 
 
