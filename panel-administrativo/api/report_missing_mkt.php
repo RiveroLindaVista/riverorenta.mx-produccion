@@ -24,8 +24,8 @@ curl_close($curl);
 
 // Decodificar el JSON como un array asociativo
 $data = json_decode($response, true);
-$resp = '<h3 style=\'margin: 0px; color: white\'>Se encontratron unidades con material pendiente</h3>';
-$resp .= '<h4 style=\'margin: 0px; color: white\'>Completar el material lo mas pronto para su publicacion y notificar al equipo de desarrollo</h4>';
+$resp = '<h3 style=\'margin: 0px; color: white\'>Se encontraron unidades con material pendiente</h3>';
+$resp .= '<h4 style=\'margin: 0px; color: white;\'>Completar el material lo mas pronto para su publicacion y <span style=\'color: red; font-weight: bold; font-size: 1.2em;\'>Notificar al equipo de desarrollo</span></h4>';
 
 
 $resp .= constructByAgency($data, 'CHEVROLET', 'https://chevroletrivero.com/');
@@ -130,7 +130,7 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
   CURLOPT_POSTFIELDS =>'{
-    "to":"marketing@gruporivero.com,mkt@gruporivero.com,desarrollo@gruporivero.com",
+    "to":"desarrollo@gruporivero.com",
     "clientName":"Equipo de Marketing",
     "subject":"Falta de material para paginas web",
     "body":"'.$resp.'",
