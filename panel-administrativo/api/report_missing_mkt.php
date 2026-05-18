@@ -75,8 +75,8 @@ function constructByAgency($data, $agency, $link)
         }
     }
     $tx = '<h2 style=\'color: white\'>' . $agency . ' ('.$link.')</h2>';
-    $tx .= '<h5  style=\'margin: 0px; color: white;\'>UNIDADES FALTANTES DE MOCKUPS</h5> <ul style=\'margin: 0px; color: white;\'>' . ($tx_without_colors == '' ? '---': $tx_without_colors) . '</ul>';
-    $tx .= '<h5  style=\'margin: 0px; color: white;\'>UNIDADES FALTANTES DE FONDOS Y CAPAS</h5> <ul style=\'margin: 0px; color: white;\'>' . ($tx_without_fondo == '' ? '---': $tx_without_fondo) . '</ul>';
+    $tx .= '<h5  style=\'margin: 0px; color: white;\'>UNIDADES FALTANTES DE MOCKUPS <span style=\'color: red;\'>(1200px x 485px)</span></h5> <ul style=\'margin: 0px; color: white;\'>' . ($tx_without_colors == '' ? '---': $tx_without_colors) . '</ul>';
+    $tx .= '<h5  style=\'margin: 0px; color: white;\'>UNIDADES FALTANTES DE FONDOS Y CAPAS <span style=\'color: red;\'>(2740px x 1738px)</span> </h5> <ul style=\'margin: 0px; color: white;\'>' . ($tx_without_fondo == '' ? '---': $tx_without_fondo) . '</ul>';
     $tx .= '<h5  style=\'margin: 0px; color: white;\'>UNIDADES SIN GALERIA</h5> <ul style=\'margin: 0px; color: white;\'>' . ($tx_without_gallery == '' ? '---': $tx_without_gallery) . '</ul>';
     $tx .= '<h5  style=\'margin: 0px; color: white;\'>UNIDADES SIN VIDEO</h5> <ul style=\'margin: 0px; color: white;\'>' . ($tx_without_video == '' ? '---': $tx_without_video) . '</ul>';
     $tx .= '<h5  style=\'margin: 0px; color: white;\'>UNIDADES SIN CATALOGO</h5> <ul style=\'margin: 0px; color: white;\'>' . ($tx_without_catalogo == '' ? '---': $tx_without_catalogo) . '</ul>';
