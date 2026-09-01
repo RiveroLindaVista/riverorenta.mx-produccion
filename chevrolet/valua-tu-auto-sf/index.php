@@ -418,6 +418,11 @@ if ($marcasQry->num_rows > 0) {
             data: params,
             dataType: "json",
             success: function(resp) {
+
+            if (resp== null){
+                alert('El modelo no está dado de alta en el administrador, favor de reportarlo al departamento de Seminuevos');
+                location.reload();
+            }
                 
                 let precioAjustado = 0;
                 console.log(resp.tipo);
