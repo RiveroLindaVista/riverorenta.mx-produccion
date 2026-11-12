@@ -198,6 +198,71 @@ function consulta(string $token, string $soql): ?array {
     return $respuesta['records'][0] ?? null;
 }
 
+
+function registrarPrimeraAtencion(
+    string $token,
+    string $oppId,
+    ?string $fechaExistente
+): ?string {
+
+    // Si ya fue atendido, conservar la fecha original.
+    if (!empty($fechaExistente)) {
+        return $fechaExistente;
+    }
+
+    // Fecha y hora actual en UTC.
+    $fecha = gmdate('Y-m-d\TH:i:s\Z');
+
+    $url = SF_BASE .
+        '/services/data/' .
+        API_VERSION .
+        '/sobjects/Opportunity/' .
+        rawurlencode($oppId);
+
+    $datos = json_encode([
+        'Fecha_y_Hora_Atendido__c' => $fecha
+    ], JSON_THROW_ON_ERROR);
+
+    $ch = curl_init($url);
+
+    curl_setopt_array($ch, [
+        CURLOPT_CUSTOMREQUEST => 'PATCH',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_FOLLOWLOCATION => false,
+        CURLOPT_SSL_VERIFYPEER => true,
+        CURLOPT_SSL_VERIFYHOST => 2,
+        CURLOPT_CONNECTTIMEOUT => 5,
+        CURLOPT_TIMEOUT => 20,
+        CURLOPT_HTTPHEADER => [
+            'Authorization: Bearer ' . $token,
+            'Content-Type: application/json',
+            'Accept: application/json'
+        ],
+        CURLOPT_POSTFIELDS => $datos
+    ]);
+
+    $respuesta = curl_exec($ch);
+
+    $codigo = (int) curl_getinfo(
+        $ch,
+        CURLINFO_RESPONSE_CODE
+    );
+
+    curl_close($ch);
+
+    // Salesforce responde 204 al actualizar correctamente.
+    if ($respuesta === false || $codigo !== 204) {
+        throw new RuntimeException(
+            'No se pudo registrar la primera atención. HTTP ' .
+            $codigo
+        );
+    }
+
+    return $fecha;
+}
+
+
+
 /*
  * DIRECCIONES DE VENTAS NISSAN
  */
@@ -443,10 +508,11 @@ try {
         "SELECT
             Id,
             Name,
-            StageName
-         FROM Opportunity
-         WHERE Id = '$oppId'
-         LIMIT 1"
+            StageName,
+            Fecha_y_Hora_Atendido__c
+        FROM Opportunity
+        WHERE Id = '$oppId'
+        LIMIT 1"
     );
 
     if (!$oportunidad) {
@@ -454,6 +520,13 @@ try {
             'error' => 'Oportunidad no accesible.'
         ]);
     }
+
+    // Registrar la primera consulta si el campo está vacío.
+    $fechaAtencion = registrarPrimeraAtencion(
+        $token,
+        $oppId,
+        $oportunidad['Fecha_y_Hora_Atendido__c'] ?? null
+    );
 
     /*
      * CONSULTAR INFORMACIÓN DEL PROSPECTO
@@ -526,7 +599,8 @@ try {
         'oportunidad' => [
             'id' => $oppId,
             'nombre' => $oportunidad['Name'],
-            'etapa' => $oportunidad['StageName']
+            'etapa' => $oportunidad['StageName'],
+            'fecha_hora_atendido' => fechaLocal($fechaAtencion)
         ],
 
         'cita_ventas' => [

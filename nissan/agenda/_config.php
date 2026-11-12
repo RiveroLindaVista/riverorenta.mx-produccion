@@ -1,0 +1,7 @@
+<?php
+session_start();
+
+DEFINE("QR_SIGNING_SECRET",getenv('QR_SIGNING_SECRET'));
+DEFINE("SF_CLIENT_SECRET",getenv('SF_CLIENT_SECRET'));
+DEFINE("SF_CLIENT_ID",getenv('SF_CLIENT_ID'));
+?>
