@@ -59,8 +59,7 @@ $lead = (isset($rows[0]) && is_array($rows[0]))
 
 if (!is_array($lead) || empty($lead['Id'])) {
     http_response_code(404);
-    echo json_encode(['error' => $query]);
-    /* echo json_encode(['error' => 'No se encontró el Lead']); */
+    echo json_encode(['error' => 'No se encontró el Lead']);
     exit;
 }
 
