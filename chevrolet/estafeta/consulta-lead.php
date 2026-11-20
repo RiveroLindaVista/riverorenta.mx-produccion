@@ -17,7 +17,7 @@ if ($leadId === '') {
 // =====================================
 
 $query = [
-    "select" => "Id,Name,Email,MobilePhone,Owner.Name,Agencia_Nombre__c,Como_se_entero_de_nosotros__c,NombreProduct__c,Auto_a_cuenta__c,Para_quien_es__c,Plandeinteres__c,Plan_Precio__c,Plan_Enganche__c,Plan_Mensualidad__c,Plan_Plazo__c,Comentarios__c,Credito_o_Contado__c",
+    "select" => "Id,Name,Email,WhatsApp_c,Owner.Name,Nombre_Agenciac,Como_se_entero_de_nosotrosc,NombreProductc,Auto_a_cuentac,Para_quien_esc,Plandeinteresc,Plan_Precioc,Plan_Enganchec,Plan_Mensualidadc,Plan_Plazoc,Comentariosc,Credito_o_Contado_c",
     "where" => "Id = '$leadId'",
     "table" => "Lead",
     "limit" => "5000",
